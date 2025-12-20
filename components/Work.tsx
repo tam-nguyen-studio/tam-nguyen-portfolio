@@ -1,13 +1,11 @@
 import React from 'react';
 import { PROJECTS } from '../constants';
-import { FontTheme } from '../App';
 
 interface WorkProps {
-  fontTheme: FontTheme;
   onProjectSelect: (id: string) => void;
 }
 
-const Work: React.FC<WorkProps> = ({ fontTheme, onProjectSelect }) => {
+const Work: React.FC<WorkProps> = ({ onProjectSelect }) => {
   return (
     <section id="work" className="w-full px-4 md:px-8 py-20 bg-white">
       {/* Adjusted to 2 columns to allow the 16:9 landscape aspect ratio to breathe */}
@@ -26,7 +24,7 @@ const Work: React.FC<WorkProps> = ({ fontTheme, onProjectSelect }) => {
               <img 
                 src={project.imageUrl} 
                 alt={project.name} 
-                className="w-full h-full object-cover grayscale transition-all duration-1000 group-hover:grayscale-0 group-hover:scale-105" 
+                className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-105" 
               />
             </div>
             <div className="flex justify-between items-baseline border-t border-black/5 pt-4">

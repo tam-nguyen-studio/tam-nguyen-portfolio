@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import Lenis from 'lenis';
 import Navigation from './components/Navigation';
 import Hero from './components/Hero';
@@ -8,13 +8,52 @@ import Footer from './components/Footer';
 import ProjectDetail from './components/ProjectDetail';
 import { PROJECTS } from './constants';
 
-export type FontTheme = 'inter' | 'space' | 'mono';
-
 const App: React.FC = () => {
-  const [selectedProjectId, setSelectedProjectId] = useState<string | null>(null);
-  const [fontTheme, setFontTheme] = useState<FontTheme>('inter');
+  // Use hash as the source of truth for initial state
+  const [selectedProjectId, setSelectedProjectId] = useState<string | null>(() => {
+    const hash = window.location.hash.replace('#', '');
+    return PROJECTS.some(p => p.id === hash) ? hash : null;
+  });
+  
   const [useSmoothScroll, setUseSmoothScroll] = useState(false);
 
+  // Sync state with hash when it changes (e.g. back/forward buttons or user manual entry)
+  const syncStateWithHash = useCallback(() => {
+    const hash = window.location.hash.replace('#', '');
+    const isProject = PROJECTS.some(p => p.id === hash);
+    
+    if (isProject) {
+      setSelectedProjectId(hash);
+      window.scrollTo(0, 0);
+    } else {
+      setSelectedProjectId(null);
+      // If no valid project hash, ensure we handle homepage/section scroll
+      if (!hash || !['work', 'about', 'contact'].includes(hash)) {
+        window.scrollTo(0, 0);
+      }
+    }
+  }, []);
+
+  useEffect(() => {
+    // Listen for hash changes
+    window.addEventListener('hashchange', syncStateWithHash);
+    
+    // On mount, if we are on the homepage (no project selected), ensure we are at top
+    if (!selectedProjectId) {
+      // Small timeout to override browser's auto-scroll restoration
+      const timer = setTimeout(() => {
+        window.scrollTo(0, 0);
+      }, 0);
+      return () => {
+        clearTimeout(timer);
+        window.removeEventListener('hashchange', syncStateWithHash);
+      };
+    }
+
+    return () => window.removeEventListener('hashchange', syncStateWithHash);
+  }, [selectedProjectId, syncStateWithHash]);
+
+  // Smooth scroll initialization (Lenis)
   useEffect(() => {
     if (!useSmoothScroll) return;
 
@@ -37,20 +76,13 @@ const App: React.FC = () => {
     };
   }, [useSmoothScroll]);
 
-  useEffect(() => {
-    document.body.className = `bg-white text-black font-theme-${fontTheme}`;
-  }, [fontTheme]);
-
   const scrollToSection = (id: string) => {
     if (selectedProjectId) {
       setSelectedProjectId(null);
-      setTimeout(() => {
-        const element = document.getElementById(id);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }
-      }, 50);
+      // Navigation update
+      window.location.hash = id;
     } else {
+      window.location.hash = id;
       const element = document.getElementById(id);
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
@@ -60,12 +92,22 @@ const App: React.FC = () => {
 
   const handleBackToHome = () => {
     setSelectedProjectId(null);
+    // Use replaceState to clear the hash and clean up history stack.
+    // Wrapped in try-catch to prevent SecurityError in restricted/sandboxed origins (like blob: URLs).
+    try {
+      const url = new URL(window.location.href);
+      url.hash = '';
+      window.history.replaceState(null, document.title, url.pathname + url.search);
+    } catch (e) {
+      // Fallback: simply clear the hash if replaceState is blocked
+      window.location.hash = '';
+    }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const activeProject = PROJECTS.find(p => p.id === selectedProjectId);
   
-  // Calculate next project info
+  // Calculate next project info for the footer
   let nextProjectName = "";
   if (selectedProjectId) {
     const idx = PROJECTS.findIndex(p => p.id === selectedProjectId);
@@ -74,9 +116,8 @@ const App: React.FC = () => {
   }
 
   return (
-    <div className={`w-full relative transition-all duration-700 font-theme-${fontTheme}`}>
+    <div className="w-full relative transition-all duration-700 font-sans">
       <Navigation 
-        fontTheme={fontTheme}
         isProjectView={!!selectedProjectId}
         onBackHome={handleBackToHome} 
         onSectionClick={scrollToSection}
@@ -86,53 +127,29 @@ const App: React.FC = () => {
         {!selectedProjectId ? (
           <>
             <Hero 
-              fontTheme={fontTheme} 
               onScrollToWork={() => scrollToSection('work')} 
             />
             <Work 
-              fontTheme={fontTheme} 
               onProjectSelect={(id) => {
-                setSelectedProjectId(id);
-                window.scrollTo(0, 0);
+                window.location.hash = id;
               }} 
             />
-            <About fontTheme={fontTheme} />
+            <About />
           </>
         ) : (
           <ProjectDetail 
-            fontTheme={fontTheme}
             project={activeProject!} 
             nextProjectName={nextProjectName}
             onNext={() => {
               const idx = PROJECTS.findIndex(p => p.id === selectedProjectId);
               const nextIdx = (idx + 1) % PROJECTS.length;
-              setSelectedProjectId(PROJECTS[nextIdx].id);
-              window.scrollTo(0, 0);
+              window.location.hash = PROJECTS[nextIdx].id;
             }}
           />
         )}
       </main>
 
-      <Footer fontTheme={fontTheme} />
-
-      {/* Font Theme Switcher */}
-      <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3 scale-90 md:scale-100 origin-bottom-right">
-        <div className="bg-black/90 backdrop-blur-xl p-1 rounded-xl flex gap-1 border border-white/10 shadow-2xl">
-          {(['inter', 'space', 'mono'] as FontTheme[]).map((t) => (
-            <button
-              key={t}
-              onClick={() => setFontTheme(t)}
-              className={`px-4 py-2 rounded-lg text-[10px] font-mono uppercase tracking-widest transition-all duration-300 ${
-                fontTheme === t 
-                  ? 'bg-white text-black shadow-lg' 
-                  : 'text-white/40 hover:text-white'
-              }`}
-            >
-              {t}
-            </button>
-          ))}
-        </div>
-      </div>
+      <Footer />
     </div>
   );
 };

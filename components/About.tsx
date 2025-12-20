@@ -1,14 +1,11 @@
 import React from 'react';
 import { SERVICES } from '../constants';
-import { FontTheme } from '../App';
 
 const RESUME_URL = '/tam-nguyen-resume.pdf';
 
-interface AboutProps {
-  fontTheme: FontTheme;
-}
+interface AboutProps {}
 
-const About: React.FC<AboutProps> = ({ fontTheme }) => {
+const About: React.FC<AboutProps> = () => {
   return (
     <section id="about" className="w-full px-4 md:px-8 py-32 md:py-60 transition-colors duration-700 bg-white text-black border-t border-gray-100">
       <div className="max-w-screen-2xl mx-auto">

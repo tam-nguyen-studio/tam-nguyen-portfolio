@@ -1,12 +1,10 @@
 import React from 'react';
-import { FontTheme } from '../App';
 
 interface HeroProps {
-  fontTheme: FontTheme;
   onScrollToWork: () => void;
 }
 
-const Hero: React.FC<HeroProps> = ({ fontTheme, onScrollToWork }) => {
+const Hero: React.FC<HeroProps> = ({ onScrollToWork }) => {
   return (
     <section className="relative w-full min-h-screen pt-40 md:pt-60 pb-20 px-4 md:px-8 flex flex-col bg-white text-black overflow-hidden">
       <div className="max-w-screen-2xl mx-auto w-full flex-1 flex flex-col relative z-10">

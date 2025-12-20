@@ -1,11 +1,8 @@
 import React from 'react';
-import { FontTheme } from '../App';
 
-interface FooterProps {
-  fontTheme: FontTheme;
-}
+interface FooterProps {}
 
-const Footer: React.FC<FooterProps> = ({ fontTheme }) => {
+const Footer: React.FC<FooterProps> = () => {
   return (
     <footer 
       id="contact" 

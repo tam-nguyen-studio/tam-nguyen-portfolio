@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { FontTheme } from '../App';
 
 interface NavProps {
-  fontTheme: FontTheme;
   isProjectView: boolean;
   onBackHome: () => void;
   onSectionClick: (id: string) => void;
 }
 
-const Navigation: React.FC<NavProps> = ({ fontTheme, isProjectView, onBackHome, onSectionClick }) => {
+const Navigation: React.FC<NavProps> = ({ isProjectView, onBackHome, onSectionClick }) => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
