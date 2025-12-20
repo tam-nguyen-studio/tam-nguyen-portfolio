@@ -1,4 +1,4 @@
-10import React, { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Project } from '../types';
 import { FontTheme } from '../App';
 
@@ -92,13 +92,12 @@ const SOKO_SECTIONS_DATA = [
 ];
 
 interface ProjectDetailProps {
-  fontTheme: FontTheme;
   project: Project;
   onNext: () => void;
   nextProjectName: string;
 }
 
-const ProjectDetail: React.FC<ProjectDetailProps> = ({ fontTheme, project, onNext, nextProjectName }) => {
+const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onNext, nextProjectName }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [project.id]);
