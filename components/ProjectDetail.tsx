@@ -55,8 +55,8 @@ const PROJECT_GALLERIES: Record<string, ProjectMedia[]> = {
     { type: 'image', url: '/images/soko-glam-12.jpg' },
     { type: 'image', url: '/images/soko-glam-13.jpg' },
     // Section 3: 2 images
-    { type: 'image', url: '/images/soko-glam-01.jpg' }, 
-    { type: 'image', url: '/images/soko-glam-02.jpg' }, 
+    { type: 'image', url: '/images/soko-glam-14.jpg' }, 
+    { type: 'image', url: '/images/soko-glam-15.jpg' }, 
   ],
   'then-i-met-you': [
     { type: 'image', url: '/images/then-i-met-you-hero.jpg' },
