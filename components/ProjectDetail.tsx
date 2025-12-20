@@ -48,15 +48,15 @@ const PROJECT_GALLERIES: Record<string, ProjectMedia[]> = {
     { type: 'image', url: '/images/soko-glam-06.jpg' }, 
     // Section 2: 7 images
     { type: 'image', url: '/images/soko-glam-07.jpg' }, 
-    { type: 'image', url: '/images/soko-glam-02.jpg' },
-    { type: 'image', url: '/images/soko-glam-03.jpg' },
-    { type: 'image', url: '/images/soko-glam-04.jpg' },
-    { type: 'image', url: '/images/soko-glam-05.jpg' },
-    { type: 'image', url: '/images/soko-glam-06.jpg' },
-    { type: 'image', url: '/images/soko-glam-07.jpg' },
+    { type: 'image', url: '/images/soko-glam-08.jpg' },
+    { type: 'image', url: '/images/soko-glam-09.jpg' },
+    { type: 'image', url: '/images/soko-glam-10.jpg' },
+    { type: 'image', url: '/images/soko-glam-11.jpg' },
+    { type: 'image', url: '/images/soko-glam-12.jpg' },
+    { type: 'image', url: '/images/soko-glam-13.jpg' },
     // Section 3: 2 images
-    { type: 'image', url: '/images/soko-glam-08.jpg' }, 
-    { type: 'image', url: '/images/soko-glam-09.jpg' }, 
+    { type: 'image', url: '/images/soko-glam-14.jpg' }, 
+    { type: 'image', url: '/images/soko-glam-15.jpg' }, 
   ],
   'then-i-met-you': [
     { type: 'image', url: '/images/then-i-met-you-hero.jpg' },
