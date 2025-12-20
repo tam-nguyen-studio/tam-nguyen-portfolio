@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'; 
+import React, { useEffect } from 'react';
 import { Project } from '../types';
 
 interface ProjectMedia {
@@ -34,8 +34,8 @@ const PROJECT_GALLERIES: Record<string, ProjectMedia[]> = {
     { type: 'image', url: '/images/the-klog-03.jpg' },
     { type: 'image', url: '/images/the-klog-04.jpg' },
     { type: 'image', url: '/images/the-klog-05.jpg' },
-    { type: 'image', url: '/images/the-klog-06.jpg' },
-    { type: 'image', url: '/images/the-klog-07.jpg' },
+    { type: 'image', url: '/images/the-klog-01.jpg' },
+    { type: 'image', url: '/images/the-klog-02.jpg' },
   ],
   'soko-glam': [
     // Section 1: 7 images
