@@ -8,20 +8,20 @@ const Hero: React.FC<HeroProps> = ({ onScrollToWork }) => {
   return (
     <section className="relative w-full min-h-screen pt-40 md:pt-60 pb-20 px-4 md:px-8 flex flex-col bg-white text-black overflow-hidden">
       <div className="max-w-screen-2xl mx-auto w-full flex-1 flex flex-col relative z-10">
-        <div className="grid grid-cols-4 md:grid-cols-12 gap-4 mb-20 border-t border-black/5 pt-4">
-          <div className="col-span-2 md:col-span-4">
+        <div className="grid grid-cols-4 md:grid-cols-12 gap-4 mb-20 border-t border-black/5 pt-4 items-start">
+          <div className="col-span-2 md:col-span-4 flex">
             <button 
               onClick={onScrollToWork}
-              className="font-sans font-bold text-[10px] uppercase tracking-widest opacity-40 hover:opacity-100 transition-opacity text-left"
+              className="font-sans font-bold text-[10px] uppercase tracking-widest opacity-40 hover:opacity-100 transition-opacity text-left leading-none p-0 bg-transparent border-none appearance-none"
             >
               Selected Work
             </button>
           </div>
-          <div className="hidden md:block md:col-span-4 font-sans font-bold text-[10px] uppercase tracking-widest opacity-40 text-center">
+          <div className="hidden md:block md:col-span-4 font-sans font-bold text-[10px] uppercase tracking-widest opacity-40 text-center leading-none">
             brand & digital
           </div>
-          <div className="col-span-2 md:col-span-4 font-sans font-bold text-[10px] uppercase tracking-widest opacity-40 text-right">
-            AVAILABLE FOR ROLES
+          <div className="col-span-2 md:col-span-4 font-sans font-bold text-[10px] uppercase tracking-widest opacity-40 text-right leading-none">
+            Available for roles
           </div>
         </div>
 
