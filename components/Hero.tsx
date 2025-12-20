@@ -21,7 +21,7 @@ const Hero: React.FC<HeroProps> = ({ onScrollToWork }) => {
             brand & digital
           </div>
           <div className="col-span-2 md:col-span-4 font-sans font-bold text-[10px] uppercase tracking-widest opacity-40 text-right">
-            2025
+            AVAILABLE FOR ROLES
           </div>
         </div>
 
