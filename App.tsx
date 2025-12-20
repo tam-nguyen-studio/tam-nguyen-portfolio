@@ -21,26 +21,36 @@ const App: React.FC = () => {
   const syncStateWithHash = useCallback(() => {
     const hash = window.location.hash.replace('#', '');
     const isProject = PROJECTS.some(p => p.id === hash);
+    const isSection = ['work', 'about', 'contact'].includes(hash);
     
     if (isProject) {
       setSelectedProjectId(hash);
       window.scrollTo(0, 0);
     } else {
       setSelectedProjectId(null);
-      // If no valid project hash, ensure we handle homepage/section scroll
-      if (!hash || !['work', 'about', 'contact'].includes(hash)) {
+      // If we are navigating to a section, don't force scroll to 0,0
+      if (isSection) {
+        // Allow the browser or the specific scroll logic to handle it
+        setTimeout(() => {
+          const element = document.getElementById(hash);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 50);
+      } else if (!hash) {
         window.scrollTo(0, 0);
       }
     }
   }, []);
 
   useEffect(() => {
-    // Listen for hash changes
     window.addEventListener('hashchange', syncStateWithHash);
     
-    // On mount, if we are on the homepage (no project selected), ensure we are at top
-    if (!selectedProjectId) {
-      // Small timeout to override browser's auto-scroll restoration
+    // Check if we are starting on a section or homepage
+    const hash = window.location.hash.replace('#', '');
+    const isSection = ['work', 'about', 'contact'].includes(hash);
+
+    if (!selectedProjectId && !isSection) {
       const timer = setTimeout(() => {
         window.scrollTo(0, 0);
       }, 0);
@@ -78,8 +88,9 @@ const App: React.FC = () => {
 
   const scrollToSection = (id: string) => {
     if (selectedProjectId) {
+      // Transition from project view to homepage section
       setSelectedProjectId(null);
-      // Navigation update
+      // Setting the hash will trigger the browser to scroll or syncStateWithHash to handle it
       window.location.hash = id;
     } else {
       window.location.hash = id;
@@ -92,14 +103,11 @@ const App: React.FC = () => {
 
   const handleBackToHome = () => {
     setSelectedProjectId(null);
-    // Use replaceState to clear the hash and clean up history stack.
-    // Wrapped in try-catch to prevent SecurityError in restricted/sandboxed origins (like blob: URLs).
     try {
       const url = new URL(window.location.href);
       url.hash = '';
       window.history.replaceState(null, document.title, url.pathname + url.search);
     } catch (e) {
-      // Fallback: simply clear the hash if replaceState is blocked
       window.location.hash = '';
     }
     window.scrollTo({ top: 0, behavior: 'smooth' });
