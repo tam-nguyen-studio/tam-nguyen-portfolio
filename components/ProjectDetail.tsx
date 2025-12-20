@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from 'react'; 
 import { Project } from '../types';
 
 interface ProjectMedia {
@@ -24,8 +24,8 @@ const PROJECT_GALLERIES: Record<string, ProjectMedia[]> = {
     { type: 'image', url: '/images/the-alden-03.jpg' },
     { type: 'image', url: '/images/the-alden-04.jpg' },
     { type: 'image', url: '/images/the-alden-05.jpg' },
-    { type: 'image', url: '/images/the-alden-01.jpg' },
-    { type: 'image', url: '/images/the-alden-02.jpg' },
+    { type: 'image', url: '/images/the-alden-06.jpg' },
+    { type: 'image', url: '/images/the-alden-07.jpg' },
   ],
   'the-klog': [
     { type: 'image', url: '/images/the-klog-hero.jpg' },
@@ -34,8 +34,8 @@ const PROJECT_GALLERIES: Record<string, ProjectMedia[]> = {
     { type: 'image', url: '/images/the-klog-03.jpg' },
     { type: 'image', url: '/images/the-klog-04.jpg' },
     { type: 'image', url: '/images/the-klog-05.jpg' },
-    { type: 'image', url: '/images/the-klog-01.jpg' },
-    { type: 'image', url: '/images/the-klog-02.jpg' },
+    { type: 'image', url: '/images/the-klog-06.jpg' },
+    { type: 'image', url: '/images/the-klog-07.jpg' },
   ],
   'soko-glam': [
     // Section 1: 7 images
@@ -45,18 +45,18 @@ const PROJECT_GALLERIES: Record<string, ProjectMedia[]> = {
     { type: 'image', url: '/images/soko-glam-03.jpg' },
     { type: 'image', url: '/images/soko-glam-04.jpg' },
     { type: 'image', url: '/images/soko-glam-05.jpg' },
-    { type: 'image', url: '/images/soko-glam-01.jpg' }, 
+    { type: 'image', url: '/images/soko-glam-06.jpg' }, 
     // Section 2: 7 images
     { type: 'image', url: '/images/soko-glam-01.jpg' }, 
     { type: 'image', url: '/images/soko-glam-02.jpg' },
     { type: 'image', url: '/images/soko-glam-03.jpg' },
     { type: 'image', url: '/images/soko-glam-04.jpg' },
     { type: 'image', url: '/images/soko-glam-05.jpg' },
-    { type: 'image', url: '/images/soko-glam-02.jpg' },
-    { type: 'image', url: '/images/soko-glam-03.jpg' },
+    { type: 'image', url: '/images/soko-glam-06.jpg' },
+    { type: 'image', url: '/images/soko-glam-07.jpg' },
     // Section 3: 2 images
-    { type: 'image', url: '/images/soko-glam-01.jpg' }, 
-    { type: 'image', url: '/images/soko-glam-02.jpg' }, 
+    { type: 'image', url: '/images/soko-glam-08.jpg' }, 
+    { type: 'image', url: '/images/soko-glam-09.jpg' }, 
   ],
   'then-i-met-you': [
     { type: 'image', url: '/images/then-i-met-you-hero.jpg' },
@@ -65,8 +65,8 @@ const PROJECT_GALLERIES: Record<string, ProjectMedia[]> = {
     { type: 'image', url: '/images/then-i-met-you-03.jpg' },
     { type: 'image', url: '/images/then-i-met-you-04.jpg' },
     { type: 'image', url: '/images/then-i-met-you-05.jpg' },
-    { type: 'image', url: '/images/then-i-met-you-01.jpg' },
-    { type: 'image', url: '/images/then-i-met-you-02.jpg' },
+    { type: 'image', url: '/images/then-i-met-you-06.gif' },
+    { type: 'image', url: '/images/then-i-met-you-07.gif' },
   ],
   'pg': []
 };
