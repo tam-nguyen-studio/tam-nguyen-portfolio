@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-interface NavProps { 
+interface NavProps {
   isProjectView: boolean;
   onBackHome: () => void;
   onSectionClick: (id: string) => void;
