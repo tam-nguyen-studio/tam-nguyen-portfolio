@@ -34,8 +34,8 @@ const PROJECT_GALLERIES: Record<string, ProjectMedia[]> = {
     { type: 'image', url: '/images/the-klog-03.jpg' },
     { type: 'image', url: '/images/the-klog-04.jpg' },
     { type: 'image', url: '/images/the-klog-05.jpg' },
-    { type: 'image', url: '/images/the-klog-06.jpg' },
-    { type: 'image', url: '/images/the-klog-07.jpg' },
+    { type: 'image', url: '/images/the-klog-01.jpg' },
+    { type: 'image', url: '/images/the-klog-02.jpg' },
   ],
   'soko-glam': [
     // Section 1: 7 images
@@ -65,6 +65,8 @@ const PROJECT_GALLERIES: Record<string, ProjectMedia[]> = {
     { type: 'image', url: '/images/then-i-met-you-03.jpg' },
     { type: 'image', url: '/images/then-i-met-you-04.jpg' },
     { type: 'image', url: '/images/then-i-met-you-05.jpg' },
+    { type: 'image', url: '/images/then-i-met-you-01.jpg' },
+    { type: 'image', url: '/images/then-i-met-you-02.jpg' },
   ],
   'pg': []
 };
@@ -145,15 +147,18 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onNext, nextProj
     if (gallery.length === 0) return null;
 
     if (isKlog || isTIMY) {
-      const topImages = gallery.slice(0, 4);
-      const gridImages = gallery.slice(4);
+      // Logic: For Klog, keep 4 vertical. For Then I Met You, keep all but the last 2 vertical.
+      const splitIndex = isKlog ? 4 : (gallery.length - 2);
+      const topImages = gallery.slice(0, splitIndex);
+      const gridImages = gallery.slice(splitIndex);
+      
       return (
         <div className="mb-40 space-y-12">
           <div className="space-y-12">
             {topImages.map((media, index) => renderMedia(media, index))}
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            {gridImages.map((media, index) => renderMedia(media, index + 4, true))}
+            {gridImages.map((media, index) => renderMedia(media, index + splitIndex, true))}
           </div>
         </div>
       );
