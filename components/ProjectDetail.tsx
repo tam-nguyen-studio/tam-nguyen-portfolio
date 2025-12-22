@@ -284,8 +284,8 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onNext, nextProj
                   </div>
                 </div>
 
-                {/* Conditionally remove Credits */}
-                {!isKlog && !isSoko && !isTIMY && !isKeystone && (
+                {/* Conditionally remove Credits for specific campaigns, but include for Keystone */}
+                {!isKlog && !isSoko && !isTIMY && (
                   <div className="col-span-1 md:col-span-3 lg:col-span-3 flex flex-col border-t border-black/10 pt-4">
                     <span className="font-sans font-bold text-[10px] uppercase tracking-widest opacity-40 mb-2">{creditsLabel}</span>
                     <span className="font-bold uppercase text-xs leading-relaxed whitespace-pre-line">{project.credits || "Internal Project"}</span>
