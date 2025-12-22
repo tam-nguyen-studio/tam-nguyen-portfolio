@@ -68,8 +68,8 @@ const PROJECT_GALLERIES: Record<string, ProjectMedia[]> = {
     { type: 'image', url: '/images/then-i-met-you-03.jpg' },
     { type: 'image', url: '/images/then-i-met-you-04.jpg' },
     { type: 'image', url: '/images/then-i-met-you-05.jpg' },
-    { type: 'image', url: '/images/then-i-met-you-06.jpg' },
-    { type: 'image', url: '/images/then-i-met-you-07.jpg' },
+    { type: 'image', url: '/images/then-i-met-you-06.gif' },
+    { type: 'image', url: '/images/then-i-met-you-07.gif' },
   ],
   'pg': []
 };
