@@ -16,6 +16,9 @@ const PROJECT_GALLERIES: Record<string, ProjectMedia[]> = {
     { type: 'image', url: '/images/keystone-04.jpg' },
     { type: 'image', url: '/images/keystone-05.jpg' },
     { type: 'image', url: '/images/keystone-06.jpg' },
+    { type: 'image', url: '/images/keystone-07.jpg' },
+    { type: 'image', url: '/images/keystone-08.jpg' },
+    { type: 'image', url: '/images/keystone-09.jpg' },
   ],
   'the-alden': [
     { type: 'image', url: '/images/the-alden-hero.jpg' },
@@ -38,7 +41,7 @@ const PROJECT_GALLERIES: Record<string, ProjectMedia[]> = {
     { type: 'image', url: '/images/the-klog-07.jpg' },
   ],
   'soko-glam': [
-    // Section 1: 7 images
+    // Section 1: 7 items (hero + 01 to 06)
     { type: 'image', url: '/images/soko-glam-hero.jpg' },
     { type: 'image', url: '/images/soko-glam-01.jpg' },
     { type: 'image', url: '/images/soko-glam-02.jpg' },
@@ -46,7 +49,7 @@ const PROJECT_GALLERIES: Record<string, ProjectMedia[]> = {
     { type: 'image', url: '/images/soko-glam-04.jpg' },
     { type: 'image', url: '/images/soko-glam-05.jpg' },
     { type: 'image', url: '/images/soko-glam-06.jpg' }, 
-    // Section 2: 7 images
+    // Section 2: 7 items (07 to 13)
     { type: 'image', url: '/images/soko-glam-07.jpg' }, 
     { type: 'image', url: '/images/soko-glam-08.jpg' },
     { type: 'image', url: '/images/soko-glam-09.jpg' },
@@ -54,7 +57,7 @@ const PROJECT_GALLERIES: Record<string, ProjectMedia[]> = {
     { type: 'image', url: '/images/soko-glam-11.jpg' },
     { type: 'image', url: '/images/soko-glam-12.jpg' },
     { type: 'image', url: '/images/soko-glam-13.jpg' },
-    // Section 3: 2 images
+    // Section 3: 2 items (14 to 15)
     { type: 'image', url: '/images/soko-glam-14.jpg' }, 
     { type: 'image', url: '/images/soko-glam-15.jpg' }, 
   ],
@@ -65,8 +68,8 @@ const PROJECT_GALLERIES: Record<string, ProjectMedia[]> = {
     { type: 'image', url: '/images/then-i-met-you-03.jpg' },
     { type: 'image', url: '/images/then-i-met-you-04.jpg' },
     { type: 'image', url: '/images/then-i-met-you-05.jpg' },
-    { type: 'image', url: '/images/then-i-met-you-06.gif' },
-    { type: 'image', url: '/images/then-i-met-you-07.gif' },
+    { type: 'image', url: '/images/then-i-met-you-06.jpg' },
+    { type: 'image', url: '/images/then-i-met-you-07.jpg' },
   ],
   'pg': []
 };
@@ -107,6 +110,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onNext, nextProj
   const isKlog = project.id === 'the-klog';
   const isSoko = project.id === 'soko-glam';
   const isTIMY = project.id === 'then-i-met-you';
+  const isKeystone = project.id === 'keystone';
   const gallery = PROJECT_GALLERIES[project.id] || [];
   const creditsLabel = project.id === 'the-alden' ? 'STUDIO' : 'Credits';
 
@@ -146,6 +150,27 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onNext, nextProj
 
     if (gallery.length === 0) return null;
 
+    if (isKeystone) {
+      // 1 video + 4 images (total 5) vertical, 2 grid, rest vertical
+      const topSection = gallery.slice(0, 5);
+      const gridSection = gallery.slice(5, 7);
+      const bottomSection = gallery.slice(7);
+      
+      return (
+        <div className="mb-40 space-y-12">
+          <div className="space-y-12">
+            {topSection.map((media, index) => renderMedia(media, index))}
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            {gridSection.map((media, index) => renderMedia(media, index + 5, true))}
+          </div>
+          <div className="space-y-12">
+            {bottomSection.map((media, index) => renderMedia(media, index + 7))}
+          </div>
+        </div>
+      );
+    }
+
     if (isKlog || isTIMY) {
       // Logic: For Klog, keep 4 vertical. For Then I Met You, keep all but the last 2 vertical.
       const splitIndex = isKlog ? 4 : (gallery.length - 2);
@@ -170,6 +195,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onNext, nextProj
         <div className="space-y-40 mb-40">
           {SOKO_SECTIONS_DATA.map((section, sIdx) => {
             const sectionImages = gallery.slice(currentIdx, currentIdx + section.imgCount);
+            const startIdxInGallery = currentIdx;
             currentIdx += section.imgCount;
 
             return (
@@ -198,7 +224,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onNext, nextProj
                 
                 {/* Section Images */}
                 <div className="space-y-12">
-                  {sectionImages.map((media, mIdx) => renderMedia(media, mIdx + currentIdx - section.imgCount))}
+                  {sectionImages.map((media, mIdx) => renderMedia(media, startIdxInGallery + mIdx))}
                 </div>
               </div>
             );
@@ -259,7 +285,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onNext, nextProj
                 </div>
 
                 {/* Conditionally remove Credits */}
-                {!isKlog && !isSoko && !isTIMY && (
+                {!isKlog && !isSoko && !isTIMY && !isKeystone && (
                   <div className="col-span-1 md:col-span-3 lg:col-span-3 flex flex-col border-t border-black/10 pt-4">
                     <span className="font-sans font-bold text-[10px] uppercase tracking-widest opacity-40 mb-2">{creditsLabel}</span>
                     <span className="font-bold uppercase text-xs leading-relaxed whitespace-pre-line">{project.credits || "Internal Project"}</span>
