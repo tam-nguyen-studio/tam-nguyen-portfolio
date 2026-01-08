@@ -23,7 +23,7 @@ const About: React.FC<AboutProps> = () => {
                 I’m a multidisciplinary creative partnering with modern brands to define their visual presence. With over 8 years of experience spanning D2C beauty, global CPG, and enterprise technology, I focus on the intersection of Brand Systems and Art Direction.
               </p>
               <p>
-                I translate strategic goals into clean, distinct visual identities that work across digital, packaging, and campaigns.
+                I translate strategic goals into clean, scalable visual systems that work across digital, packaging, and campaigns.
               </p>
               
               <div className="flex flex-wrap gap-x-12 gap-y-6 pt-8">
