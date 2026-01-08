@@ -20,7 +20,7 @@ const About: React.FC<AboutProps> = () => {
             </p>
             <div className="text-lg md:text-2xl text-neutral-500 font-medium max-w-2xl leading-snug space-y-8">
               <p>
-                I’m a multidisciplinary creative partnering with modern brands to define their visual presence. With over 8 years of experience spanning D2C beauty, global CPG, and enterprise technology, I focus on the intersection of Brand Systems and Art Direction.
+                I’m a multidisciplinary creative partnering with modern brands to define their visual presence. With over 8 years of experience spanning D2C beauty, global CPG, and enterprise technology, I focus on the intersection of Brand Strategy and Art Direction.
               </p>
               <p>
                 I translate strategic goals into clean, scalable visual systems that work across digital, packaging, and campaigns.
