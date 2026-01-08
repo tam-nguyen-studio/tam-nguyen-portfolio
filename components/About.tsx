@@ -29,11 +29,12 @@ const About: React.FC<AboutProps> = () => {
               <div className="flex flex-wrap gap-x-12 gap-y-6 pt-8">
                 <a 
                   href={RESUME_URL} 
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="group flex items-center gap-3 font-sans font-bold text-[11px] uppercase tracking-[0.2em] hover:opacity-40 transition-all"
-                  download
                 >
                   <span className="w-8 h-[1px] bg-black group-hover:w-12 transition-all duration-500"></span>
-                  Download Resume
+                  View Resume
                 </a>
                 <a 
                   href="https://www.linkedin.com/in/tamnguyenstudio/" 
