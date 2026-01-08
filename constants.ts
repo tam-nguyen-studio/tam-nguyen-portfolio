@@ -58,7 +58,7 @@ export const PROJECTS: Project[] = [
     category: 'PERFORMANCE CREATIVE',
     year: '2023',
     imageUrl: '/images/pg-hero.jpg',
-    description: 'Procter & Gamble manages some of the world’s most recognizable consumer portfolios. Partnering with MMI Agency, I executed high-volume digital creative for heritage brands including Gillette, Braun, The Art of Shaving, and P&G Good Everyday.\n\nMy focus was on the intersection of brand consistency and performance marketing. I executed omnichannel creative spanning lifecycle email marketing (CRM), paid and organic social, and web assets. The goal was to translate rigorous brand guidelines into high-converting digital assets that drove engagement without diluting brand equity.',
+    description: 'Procter & Gamble manages some of the world’s most recognizable consumer portfolios. While at MMI Agency, I executed high-volume digital creative for heritage brands including Gillette, Braun, The Art of Shaving, and P&G Good Everyday.\n\nMy focus was on the intersection of brand consistency and performance marketing. I executed omnichannel creative spanning lifecycle email marketing (CRM), paid and organic social, and web assets. The goal was to translate rigorous brand guidelines into high-converting digital assets that drove engagement without diluting brand equity.',
     role: 'Digital Designer',
     credits: 'Gillette, Braun, The Art of Shaving, joy+glee',
     focus: 'Performance Creative, CRM Design, Paid & Organic Social'
