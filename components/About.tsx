@@ -1,7 +1,7 @@
 import React from 'react';
 import { SERVICES } from '../constants';
 
-const RESUME_URL = '/images/tam-nguyen-resum.pdf';
+const RESUME_URL = '/images/tam-nguyen-resume.pdf';
 
 interface AboutProps {}
 
