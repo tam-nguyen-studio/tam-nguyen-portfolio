@@ -2,6 +2,11 @@
   "redirects": [
     {
       "source": "/pg",
+      "destination": "/pgportfolio",
+      "permanent": true
+    },
+    {
+      "source": "/pgportfolio",
       "destination": "https://drive.google.com/file/d/1IOs4vsTtr1rOuA-gD7If12rUoOIw20B9/view?usp=sharing",
       "permanent": false
     }
