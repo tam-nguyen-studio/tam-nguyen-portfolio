@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /pg
+Disallow: /pgportfolio
+Disallow: /pgportfolio/
+
+Sitemap: https://tamnguyen.studio/sitemap.xml
