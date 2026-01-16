@@ -14,14 +14,14 @@ const Hero: React.FC<HeroProps> = ({ onScrollToWork }) => {
               onClick={onScrollToWork}
               className="font-sans font-bold text-[10px] uppercase tracking-widest opacity-40 hover:opacity-100 transition-opacity text-left leading-none p-0 bg-transparent border-none appearance-none"
             >
-              Selected Work
+              Selected Projects
             </button>
           </div>
           <div className="hidden md:block md:col-span-4 font-sans font-bold text-[10px] uppercase tracking-widest opacity-40 text-center leading-none">
             brand & digital
           </div>
           <div className="col-span-2 md:col-span-4 font-sans font-bold text-[10px] uppercase tracking-widest opacity-40 text-right leading-none">
-            Available for roles
+            Based in NYC
           </div>
         </div>
 
@@ -46,10 +46,10 @@ const Hero: React.FC<HeroProps> = ({ onScrollToWork }) => {
 
         <div className="mt-auto grid grid-cols-4 md:grid-cols-12 gap-4 border-b border-black/5 pb-4">
            <div className="col-span-4 md:col-span-8">
-              {/* NYC Base or other info could go here if needed later */}
+              {/* Left footer area */}
            </div>
            <div className="hidden md:block md:col-span-4 text-right">
-              <span className="font-sans font-bold text-[10px] uppercase opacity-40 tracking-[0.2em]">Based in NYC</span>
+              {/* Based in NYC removed from here as requested */}
            </div>
         </div>
       </div>
