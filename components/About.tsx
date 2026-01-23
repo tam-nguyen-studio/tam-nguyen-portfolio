@@ -12,18 +12,11 @@ const About: React.FC<AboutProps> = () => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-4">
           <div className="col-span-1 md:col-span-7">
             <span className="block font-sans font-bold text-[10px] uppercase tracking-[0.3em] mb-12 opacity-50">
-              Introduction
+              About
             </span>
-            <p className="font-black text-6xl md:text-[10vw] leading-[0.85] tracking-tighter mb-12 uppercase">
-              <span>BUILDING BRAND</span> <br/> 
-              <span>WORLDS</span>
-            </p>
-            <div className="text-lg md:text-2xl text-neutral-500 font-medium max-w-2xl leading-snug space-y-8">
+            <div className="text-xl md:text-3xl text-neutral-800 font-medium max-w-2xl leading-snug space-y-8">
               <p>
-                Partnering with modern brands to define their visual presence. With over 8 years of experience spanning D2C beauty, global CPG, and enterprise technology, I focus on the intersection of Brand Strategy and Art Direction.
-              </p>
-              <p>
-                I translate strategic goals into clean, scalable visual systems that work across digital, packaging, and campaigns.
+                I'm a designer and art director working across brand identity, campaigns, and digital design. I've created work for Soko Glam, Then I Met You, Gillette, Braun, and The Art of Shaving, from seasonal campaigns and brand systems to performance creative.
               </p>
               
               <div className="flex flex-wrap gap-x-12 gap-y-6 pt-8">

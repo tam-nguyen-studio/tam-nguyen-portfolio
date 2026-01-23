@@ -8,6 +8,7 @@ const Hero: React.FC<HeroProps> = ({ onScrollToWork }) => {
   return (
     <section className="relative w-full min-h-screen pt-40 md:pt-60 pb-20 px-4 md:px-8 flex flex-col bg-white text-black overflow-hidden">
       <div className="max-w-screen-2xl mx-auto w-full flex-1 flex flex-col relative z-10">
+        {/* Top Header Grid */}
         <div className="grid grid-cols-4 md:grid-cols-12 gap-4 mb-20 border-t border-black/5 pt-4 items-start">
           <div className="col-span-2 md:col-span-4 flex">
             <button 
@@ -17,14 +18,15 @@ const Hero: React.FC<HeroProps> = ({ onScrollToWork }) => {
               Selected Projects
             </button>
           </div>
-          <div className="hidden md:block md:col-span-4 font-sans font-bold text-[10px] uppercase tracking-widest opacity-40 text-center leading-none">
-            brand & digital
+          <div className="hidden md:block md:col-span-4">
+            {/* Middle section cleared as requested */}
           </div>
           <div className="col-span-2 md:col-span-4 font-sans font-bold text-[10px] uppercase tracking-widest opacity-40 text-right leading-none">
             Based in NYC
           </div>
         </div>
 
+        {/* Main Title Row */}
         <div className="grid grid-cols-4 md:grid-cols-12 gap-4 flex-1">
           <div className="col-span-4 md:col-span-10">
             <h1 className="font-black text-[16vw] md:text-[13vw] leading-[0.78] tracking-[-0.06em] uppercase">
@@ -38,9 +40,7 @@ const Hero: React.FC<HeroProps> = ({ onScrollToWork }) => {
             <div className="w-12 h-12 md:w-16 md:h-16 border border-black rounded-full flex items-center justify-center animate-bounce">
               <span className="text-xl">↓</span>
             </div>
-            <p className="font-sans font-bold text-[9px] uppercase tracking-[0.2em] opacity-40 max-w-[140px] leading-relaxed hidden md:block">
-              SPECIALIZING IN VISUAL SYSTEMS FOR MODERN BRANDS
-            </p>
+            {/* Specializing text removed as requested */}
           </div>
         </div>
 
@@ -49,7 +49,7 @@ const Hero: React.FC<HeroProps> = ({ onScrollToWork }) => {
               {/* Left footer area */}
            </div>
            <div className="hidden md:block md:col-span-4 text-right">
-              {/* Based in NYC removed from here as requested */}
+              {/* Spacer */}
            </div>
         </div>
       </div>

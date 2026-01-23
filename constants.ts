@@ -5,11 +5,11 @@ export const PROJECTS: Project[] = [
   {
     id: 'keystone',
     name: 'Keystone',
-    category: 'Visual System Rollout',
+    category: 'Visual Identity Rollout',
     year: '2024',
     imageUrl: '/images/keystone-02.jpg',
-    description: 'Keystone is a strategy, economics, and technology consultancy partnering with global brands and law firms to tackle complex challenges at the intersection of business, science, and AI. \n\nFollowing a strategic rebrand, I served as the sole internal creative lead responsible for translating the new identity into a functional, scalable design system. My role was to bridge the gap between external agency vision and internal business needs, humanizing complex algorithmic concepts and overseeing the complete visual rollout across digital platforms, sales enablement, and internal culture.',
-    role: 'Brand Design\nArt Direction',
+    description: 'Keystone is a strategy, economics, and technology consultancy partnering with global brands and law firms to tackle complex challenges at the intersection of business, science, and AI. \n\nFollowing a strategic rebrand, I led the implementation of the new brand identity. I designed web pages, sales presentations, marketing materials, and internal communications, maintaining brand consistency while adapting the system for business needs.',
+    role: 'Art Direction\nDigital Design\nMarketing Collateral',
     credits: 'Branding Agency: Otherward\nWeb Agency: Refokus\nPhotography: Michael Simon'
   },
   {
@@ -18,7 +18,7 @@ export const PROJECTS: Project[] = [
     category: 'Modern Residential Identity',
     year: '2024',
     imageUrl: '/images/the-alden-hero.jpg',
-    description: 'A visual identity system for a community of modern farmhouse townhomes in Houston, Texas. The Alden required a brand that felt rooted yet elevated.\n\nThe resulting identity draws inspiration from the surrounding landscape. I crafted a symbol that merges organic leaf forms with the silhouette of a farmhouse, creating a sophisticated stamp of quality.',
+    description: 'A brand identity concept for a community of modern farmhouse townhomes in Houston, Texas, developed while at MMI Agency. The brief was to create a brand that felt rooted yet elevated, appealing to buyers seeking modern design with natural warmth.\n\nThe identity draws inspiration from the surrounding landscape. I designed a mark that merges organic leaf forms with architectural elements, paired with a color palette of deep forest teal, warm gold, and natural wood tones. This direction was selected by the client but not launched due to naming rights issues.',
     role: 'Visual Identity',
     credits: 'MMI Agency'
   },
@@ -72,9 +72,8 @@ export const NAV_LINKS: NavItem[] = [
 ];
 
 export const SERVICES = [
-  'Digital Design',
   'Art Direction',
   'Brand Identity',
-  'Packaging',
-  'Brand Collateral'
+  'Digital Design',
+  'Packaging'
 ];
