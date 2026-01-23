@@ -18,7 +18,7 @@ const Footer: React.FC<FooterProps> = () => {
           <div className="flex flex-col">
             <a 
               href="mailto:tam@tamnguyen.studio" 
-              className="inline-block text-3xl md:text-[5vw] transition-all hover:opacity-40 break-words font-black tracking-tighter uppercase leading-none border-b-2 md:border-b-4 border-current pb-2 md:pb-4 self-start"
+              className="inline-block text-2xl md:text-[5vw] transition-all hover:opacity-40 break-words font-black tracking-tighter uppercase leading-none border-b-2 md:border-b-4 border-current pb-2 md:pb-4 self-start"
             >
               tam@tamnguyen.studio
             </a>
