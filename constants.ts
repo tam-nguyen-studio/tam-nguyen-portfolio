@@ -18,7 +18,7 @@ export const PROJECTS: Project[] = [
     category: 'Modern Residential Identity',
     year: '2024',
     imageUrl: '/images/the-alden-hero.jpg',
-    description: 'A brand identity concept for a community of modern farmhouse townhomes in Houston, Texas, developed while at MMI Agency. The brief was to create a brand that felt rooted yet elevated, appealing to buyers seeking modern design with natural warmth.\n\nThe identity draws inspiration from the surrounding landscape. I designed a mark that merges organic leaf forms with architectural elements, paired with a color palette of deep forest teal, warm gold, and natural wood tones. This direction was selected by the client but not launched due to naming rights issues.',
+    description: 'A brand identity concept for a community of modern farmhouse townhomes in Houston, Texas, developed while at MMI Agency. The brief was to create a brand that felt rooted yet elevated, appealing to buyers seeking modern design with natural warmth.\n\nThe identity draws inspiration from the surrounding landscape. I designed a mark that merges organic leaf forms with architectural elements, paired with a color palette of deep forest teal, warm gold, and natural wood tones.',
     role: 'Visual Identity',
     credits: 'MMI Agency'
   },
