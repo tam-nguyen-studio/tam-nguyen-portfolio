@@ -12,7 +12,6 @@ const PROJECT_GALLERIES: Record<string, ProjectMedia[]> = {
     { type: 'video', url: '/images/keystone-hero.mp4' },
     { type: 'image', url: '/images/keystone-01.jpg' },
     { type: 'image', url: '/images/keystone-02.jpg' },
-    { type: 'image', url: '/images/keystone-03.jpg' },
     { type: 'image', url: '/images/keystone-04.jpg' },
     { type: 'image', url: '/images/keystone-05.jpg' },
     { type: 'image', url: '/images/keystone-06.jpg' },
