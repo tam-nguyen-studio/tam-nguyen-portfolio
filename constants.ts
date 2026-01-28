@@ -1,27 +1,7 @@
 import { Project, NavItem } from './types';
 
-// Projects using logical local paths as requested
+// Projects reordered as requested: Soko Glam, TIMY, The Klog, Keystone, P&G, The Alden
 export const PROJECTS: Project[] = [
-  {
-    id: 'keystone',
-    name: 'Keystone',
-    category: 'Visual Identity Rollout',
-    year: '2024',
-    imageUrl: '/images/keystone-02.jpg',
-    description: 'Keystone is a strategy, economics, and technology consultancy partnering with global brands and law firms to tackle complex challenges at the intersection of business, science, and AI. \n\nFollowing a strategic rebrand, I led the implementation of the new brand identity. I designed web pages, sales presentations, marketing materials, and internal communications, maintaining brand consistency while adapting the system for business needs.',
-    role: 'Art Direction\nDigital Design\nMarketing Collateral',
-    credits: 'Branding Agency: Otherward\nWeb Agency: Refokus\nPhotography: Michael Simon'
-  },
-  {
-    id: 'the-alden',
-    name: 'The Alden',
-    category: 'Modern Residential Identity',
-    year: '2024',
-    imageUrl: '/images/the-alden-hero.jpg',
-    description: 'A brand identity concept for a community of modern farmhouse townhomes in Houston, Texas, developed while at MMI Agency. The brief was to create a brand that felt rooted yet elevated, appealing to buyers seeking modern design with natural warmth.\n\nThe identity draws inspiration from the surrounding landscape. I designed a mark that merges organic leaf forms with architectural elements, paired with a color palette of deep forest teal, warm gold, and natural wood tones.',
-    role: 'Visual Identity',
-    credits: 'MMI Agency'
-  },
   {
     id: 'soko-glam',
     name: 'Soko Glam',
@@ -53,6 +33,16 @@ export const PROJECTS: Project[] = [
     credits: 'In collaboration with Klog Editorial Team.'
   },
   {
+    id: 'keystone',
+    name: 'Keystone',
+    category: 'Visual Identity Rollout',
+    year: '2024',
+    imageUrl: '/images/keystone-02.jpg',
+    description: 'Keystone is a strategy, economics, and technology consultancy partnering with global brands and law firms to tackle complex challenges at the intersection of business, science, and AI. \n\nFollowing a strategic rebrand, I led the implementation of the new brand identity. I designed web pages, sales presentations, marketing materials, and internal communications, maintaining brand consistency while adapting the system for business needs.',
+    role: 'Art Direction\nDigital Design\nMarketing Collateral',
+    credits: 'Branding Agency: Otherward\nWeb Agency: Refokus\nPhotography: Michael Simon'
+  },
+  {
     id: 'pg',
     name: 'Procter & Gamble',
     category: 'PERFORMANCE CREATIVE',
@@ -62,6 +52,16 @@ export const PROJECTS: Project[] = [
     role: 'Digital Designer',
     credits: 'Gillette, Braun, The Art of Shaving, joy+glee',
     focus: 'Performance Creative, CRM Design, Paid & Organic Social'
+  },
+  {
+    id: 'the-alden',
+    name: 'The Alden',
+    category: 'Modern Residential Identity',
+    year: '2024',
+    imageUrl: '/images/the-alden-hero.jpg',
+    description: 'A brand identity concept for a community of modern farmhouse townhomes in Houston, Texas, developed while at MMI Agency. The brief was to create a brand that felt rooted yet elevated, appealing to buyers seeking modern design with natural warmth.\n\nThe identity draws inspiration from the surrounding landscape. I designed a mark that merges organic leaf forms with architectural elements, paired with a color palette of deep forest teal, warm gold, and natural wood tones.',
+    role: 'Visual Identity',
+    credits: 'MMI Agency'
   }
 ];
 
