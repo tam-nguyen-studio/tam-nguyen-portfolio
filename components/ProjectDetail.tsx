@@ -18,7 +18,6 @@ const PROJECT_GALLERIES: Record<string, ProjectMedia[]> = {
     { type: 'image', url: '/images/keystone-06.jpg' },
     { type: 'image', url: '/images/keystone-07.jpg' },
     { type: 'image', url: '/images/keystone-08.jpg' },
-    { type: 'image', url: '/images/keystone-09.jpg' },
   ],
   'the-alden': [
     { type: 'image', url: '/images/the-alden-hero.jpg' },
@@ -151,21 +150,23 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onNext, nextProj
     if (gallery.length === 0) return null;
 
     if (isKeystone) {
-      // 1 video + 4 images (total 5) vertical, 2 grid, rest vertical
-      const topSection = gallery.slice(0, 5);
-      const gridSection = gallery.slice(5, 7);
-      const bottomSection = gallery.slice(7);
+      // 1 video, 3 images, 2 side-by-side, 3 images
+      const video = gallery.slice(0, 1);
+      const topImages = gallery.slice(1, 4);
+      const gridImages = gallery.slice(4, 6);
+      const bottomImages = gallery.slice(6, 9);
       
       return (
         <div className="mb-40 space-y-12">
+          {video.map((media, index) => renderMedia(media, index))}
           <div className="space-y-12">
-            {topSection.map((media, index) => renderMedia(media, index))}
+            {topImages.map((media, index) => renderMedia(media, index + 1))}
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            {gridSection.map((media, index) => renderMedia(media, index + 5, true))}
+            {gridImages.map((media, index) => renderMedia(media, index + 4, true))}
           </div>
           <div className="space-y-12">
-            {bottomSection.map((media, index) => renderMedia(media, index + 7))}
+            {bottomImages.map((media, index) => renderMedia(media, index + 6))}
           </div>
         </div>
       );
