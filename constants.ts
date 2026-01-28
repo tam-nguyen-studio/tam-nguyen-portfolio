@@ -1,17 +1,7 @@
 import { Project, NavItem } from './types';
 
-// Projects reordered as requested: Then I Met You, Soko Glam, The Klog, The Alden, Keystone, P&G
+// Projects reordered as requested: Soko Glam, Then I Met You, The Klog, The Alden, Keystone, P&G
 export const PROJECTS: Project[] = [
-  {
-    id: 'then-i-met-you',
-    name: 'Then I Met You',
-    category: 'DIGITAL BRAND EXPERIENCE',
-    year: '2022',
-    imageUrl: '/images/then-i-met-you-hero.jpg',
-    description: "Then I Met You is an award-winning skincare brand rooted in the Korean concept of Jeong, a deep emotional connection to people, places, and things. As a creative partner, I was responsible for translating this tactile, sensory identity into an elevated digital experience.\n\nMy focus was on preserving the brand's premium essence across high-volume touchpoints. From immersive email lifecycle campaigns to social storytelling, I ensured every interaction communicated the brand’s core philosophy of care and connection.",
-    role: 'DIGITAL DESIGN\nEMAIL MARKETING\nSOCIAL CONTENT',
-    credits: ''
-  },
   {
     id: 'soko-glam',
     name: 'Soko Glam',
@@ -21,6 +11,16 @@ export const PROJECTS: Project[] = [
     description: "Soko Glam is the leading direct-to-consumer destination for Korean beauty in the US. As a key member of the in-house creative team, I was responsible for evolving the brand's visual language across a high-volume retail calendar. My role spanned campaign art direction, digital design, and packaging, ensuring a cohesive brand experience across every touchpoint.",
     role: 'Art Direction\nDigital Design\nPackaging',
     credits: 'Photographer: Liam Wong. Stylist: Hana Kim.'
+  },
+  {
+    id: 'then-i-met-you',
+    name: 'Then I Met You',
+    category: 'DIGITAL BRAND EXPERIENCE',
+    year: '2022',
+    imageUrl: '/images/then-i-met-you-hero.jpg',
+    description: "Then I Met You is an award-winning skincare brand rooted in the Korean concept of Jeong, a deep emotional connection to people, places, and things. As a creative partner, I was responsible for translating this tactile, sensory identity into an elevated digital experience.\n\nMy focus was on preserving the brand's premium essence across high-volume touchpoints. From immersive email lifecycle campaigns to social storytelling, I ensured every interaction communicated the brand’s core philosophy of care and connection.",
+    role: 'DIGITAL DESIGN\nEMAIL MARKETING\nSOCIAL CONTENT',
+    credits: ''
   },
   {
     id: 'the-klog',
