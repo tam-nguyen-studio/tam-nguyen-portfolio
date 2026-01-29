@@ -1,6 +1,6 @@
 import { Project, NavItem } from './types';
 
-// Projects reordered as requested: Soko Glam, Then I Met You, The Klog, The Alden, Keystone, P&G
+// Projects reordered as requested: Soko Glam, Keystone, The Alden, Then I Met You, The Klog, P&G
 export const PROJECTS: Project[] = [
   {
     id: 'soko-glam',
@@ -11,6 +11,26 @@ export const PROJECTS: Project[] = [
     description: "Soko Glam is the leading direct-to-consumer destination for Korean beauty in the US. As a key member of the in-house creative team, I was responsible for evolving the brand's visual language across a high-volume retail calendar. My role spanned campaign art direction, digital design, and packaging, ensuring a cohesive brand experience across every touchpoint.",
     role: 'Art Direction\nDigital Design\nPackaging',
     credits: 'Photographer: Liam Wong. Stylist: Hana Kim.'
+  },
+  {
+    id: 'keystone',
+    name: 'Keystone',
+    category: 'Visual Identity Rollout',
+    year: '2024',
+    imageUrl: '/images/keystone-02.jpg',
+    description: 'Keystone is a strategy, economics, and technology consultancy partnering with global brands and law firms to tackle complex challenges at the intersection of business, scale, and AI. \n\nFollowing a strategic rebrand, I led the implementation of the new brand identity. I designed web pages, sales presentations, marketing materials, and internal communications, maintaining brand consistency while adapting the system for business needs.',
+    role: 'Art Direction\nDigital Design\nMarketing Collateral',
+    credits: 'Branding Agency: Otherward\nWeb Agency: Refokus\nPhotography: Michael Simon'
+  },
+  {
+    id: 'the-alden',
+    name: 'The Alden',
+    category: 'Modern Residential Identity',
+    year: '2024',
+    imageUrl: '/images/the-alden-hero.jpg',
+    description: 'A brand identity concept for a community of modern farmhouse townhomes in Houston, Texas, developed while at MMI Agency. The brief was to create a brand that felt rooted yet elevated, appealing to buyers seeking modern design with natural warmth.\n\nThe identity draws inspiration from the surrounding landscape. I designed a mark that merges organic leaf forms with architectural elements, paired with a color palette of deep forest teal, warm gold, and natural wood tones.',
+    role: 'Visual Identity',
+    credits: 'MMI Agency'
   },
   {
     id: 'then-i-met-you',
@@ -31,26 +51,6 @@ export const PROJECTS: Project[] = [
     description: "The Klog needed to evolve from a playful blog into a trusted authority on K-beauty. The goal of the refresh was to balance approachability with expertise, shifting the platform into a legitimate educational resource.\n\nI defined a new visual language using refined typography and a restrained palette to create a sophisticated digital publication. This system was further extended into packaging for launches like the Soft Shield Pimple Patch and Snail Mucin Energy Essence.",
     role: 'VISUAL IDENTITY\nDigital DESIGN\nPACKAGING',
     credits: 'In collaboration with Klog Editorial Team.'
-  },
-  {
-    id: 'the-alden',
-    name: 'The Alden',
-    category: 'Modern Residential Identity',
-    year: '2024',
-    imageUrl: '/images/the-alden-hero.jpg',
-    description: 'A brand identity concept for a community of modern farmhouse townhomes in Houston, Texas, developed while at MMI Agency. The brief was to create a brand that felt rooted yet elevated, appealing to buyers seeking modern design with natural warmth.\n\nThe identity draws inspiration from the surrounding landscape. I designed a mark that merges organic leaf forms with architectural elements, paired with a color palette of deep forest teal, warm gold, and natural wood tones.',
-    role: 'Visual Identity',
-    credits: 'MMI Agency'
-  },
-  {
-    id: 'keystone',
-    name: 'Keystone',
-    category: 'Visual Identity Rollout',
-    year: '2024',
-    imageUrl: '/images/keystone-02.jpg',
-    description: 'Keystone is a strategy, economics, and technology consultancy partnering with global brands and law firms to tackle complex challenges at the intersection of business, science, and AI. \n\nFollowing a strategic rebrand, I led the implementation of the new brand identity. I designed web pages, sales presentations, marketing materials, and internal communications, maintaining brand consistency while adapting the system for business needs.',
-    role: 'Art Direction\nDigital Design\nMarketing Collateral',
-    credits: 'Branding Agency: Otherward\nWeb Agency: Refokus\nPhotography: Michael Simon'
   },
   {
     id: 'pg',
