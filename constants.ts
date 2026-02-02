@@ -1,17 +1,7 @@
 import { Project, NavItem } from './types';
 
-// Projects reordered as requested: Soko Glam, Keystone, The Alden, Then I Met You, The Klog, P&G
+// Projects reordered as requested: Keystone, The Alden, Soko Glam, Then I Met You, The Klog, P&G
 export const PROJECTS: Project[] = [
-  {
-    id: 'soko-glam',
-    name: 'Soko Glam',
-    category: 'CAMPAIGN ART DIRECTION',
-    year: '2023',
-    imageUrl: '/images/soko-glam-hero.jpg',
-    description: "Soko Glam is the leading direct-to-consumer destination for Korean beauty in the US. As a key member of the in-house creative team, I was responsible for evolving the brand's visual language across a high-volume retail calendar. My role spanned campaign art direction, digital design, and packaging, ensuring a cohesive brand experience across every touchpoint.",
-    role: 'Art Direction\nDigital Design\nPackaging',
-    credits: 'Photographer: Liam Wong. Stylist: Hana Kim.'
-  },
   {
     id: 'keystone',
     name: 'Keystone',
@@ -31,6 +21,16 @@ export const PROJECTS: Project[] = [
     description: 'A brand identity concept for a community of modern farmhouse townhomes in Houston, Texas, developed while at MMI Agency. The brief was to create a brand that felt rooted yet elevated, appealing to buyers seeking modern design with natural warmth.\n\nThe identity draws inspiration from the surrounding landscape. I designed a mark that merges organic leaf forms with architectural elements, paired with a color palette of deep forest teal, warm gold, and natural wood tones.',
     role: 'Visual Identity',
     credits: 'MMI Agency'
+  },
+  {
+    id: 'soko-glam',
+    name: 'Soko Glam',
+    category: 'CAMPAIGN ART DIRECTION',
+    year: '2023',
+    imageUrl: '/images/soko-glam-hero.jpg',
+    description: "Soko Glam is the leading direct-to-consumer destination for Korean beauty in the US. As a key member of the in-house creative team, I was responsible for evolving the brand's visual language across a high-volume retail calendar. My role spanned campaign art direction, digital design, and packaging, ensuring a cohesive brand experience across every touchpoint.",
+    role: 'Art Direction\nDigital Design\nPackaging',
+    credits: 'Photographer: Liam Wong. Stylist: Hana Kim.'
   },
   {
     id: 'then-i-met-you',
