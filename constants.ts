@@ -8,7 +8,7 @@ export const PROJECTS: Project[] = [
     category: 'Visual Identity Rollout',
     year: '2024',
     imageUrl: '/images/keystone-01.jpg',
-    description: 'Keystone is a strategy, economics, and technology consultancy partnering with global brands and law firms to tackle complex business and legal challenges. \n\nAs the company evolved its focus toward technology and AI, the brand needed a visual update to match. We worked with Otherward on the brand identity and Refokus on the initial website. I led the rollout of the new identity, designing web pages, sales presentations, marketing materials, and internal communications while maintaining consistency across the system.',
+    description: 'Keystone is a trategy, economics, and technology consultancy partnering with global brands and law firms to tackle complex business and legal challenges. \n\nAs the company evolved its focus toward technology and AI, the brand needed a visual update to match. We worked with Otherward on the brand identity and Refokus on the initial website. I led the rollout of the new identity, designing web pages, sales presentations, marketing materials, and internal communications while maintaining consistency across the system.',
     role: 'Art Direction\nDigital Design\nMarketing Collateral',
     credits: 'Branding Agency: Otherward\nWeb Agency: Refokus\nPhotography: Michael Simon'
   },
