@@ -9,7 +9,6 @@ interface ProjectMedia {
 // Gallery content stored in a centralized data mapping
 const PROJECT_GALLERIES: Record<string, ProjectMedia[]> = {
   'keystone': [
-    { type: 'video', url: '/images/keystone-hero.mp4' },
     { type: 'image', url: '/images/keystone-01.jpg' },
     { type: 'image', url: '/images/keystone-02.jpg' },
     { type: 'image', url: '/images/keystone-03.jpg' },
@@ -18,6 +17,10 @@ const PROJECT_GALLERIES: Record<string, ProjectMedia[]> = {
     { type: 'image', url: '/images/keystone-06.jpg' },
     { type: 'image', url: '/images/keystone-07.jpg' },
     { type: 'image', url: '/images/keystone-08.jpg' },
+    { type: 'image', url: '/images/keystone-09.jpg' },
+    { type: 'image', url: '/images/keystone-10.jpg' },
+    { type: 'image', url: '/images/keystone-11.jpg' },
+    { type: 'image', url: '/images/keystone-12.jpg' },
   ],
   'the-alden': [
     { type: 'image', url: '/images/the-alden-hero.jpg' },
@@ -150,23 +153,21 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onNext, nextProj
     if (gallery.length === 0) return null;
 
     if (isKeystone) {
-      // 1 video, 4 full-width images, 2 side-by-side square images, 2 full-width images
-      const video = gallery.slice(0, 1);
-      const topImages = gallery.slice(1, 5);
-      const gridImages = gallery.slice(5, 7);
-      const bottomImages = gallery.slice(7, 9);
+      // 2 full-width images, 1 row of 2 square images, 8 rows of full-width images
+      const topImages = gallery.slice(0, 2);
+      const gridImages = gallery.slice(2, 4);
+      const bottomImages = gallery.slice(4, 12);
       
       return (
         <div className="mb-40 space-y-12">
-          {video.map((media, index) => renderMedia(media, index))}
           <div className="space-y-12">
-            {topImages.map((media, index) => renderMedia(media, index + 1))}
+            {topImages.map((media, index) => renderMedia(media, index))}
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            {gridImages.map((media, index) => renderMedia(media, index + 5, true))}
+            {gridImages.map((media, index) => renderMedia(media, index + 2, true))}
           </div>
           <div className="space-y-12">
-            {bottomImages.map((media, index) => renderMedia(media, index + 7))}
+            {bottomImages.map((media, index) => renderMedia(media, index + 4))}
           </div>
         </div>
       );
