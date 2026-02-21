@@ -153,10 +153,10 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onNext, nextProj
     if (gallery.length === 0) return null;
 
     if (isKeystone) {
-      // 2 full-width images, 1 row of 2 square images, 8 rows of full-width images
-      const topImages = gallery.slice(0, 2);
-      const gridImages = gallery.slice(2, 4);
-      const bottomImages = gallery.slice(4, 12);
+      // 4 full-width images, 1 row of 2 square images, 6 rows of full-width images
+      const topImages = gallery.slice(0, 4);
+      const gridImages = gallery.slice(4, 6);
+      const bottomImages = gallery.slice(6, 12);
       
       return (
         <div className="mb-40 space-y-12">
@@ -164,10 +164,10 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onNext, nextProj
             {topImages.map((media, index) => renderMedia(media, index))}
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            {gridImages.map((media, index) => renderMedia(media, index + 2, true))}
+            {gridImages.map((media, index) => renderMedia(media, index + 4, true))}
           </div>
           <div className="space-y-12">
-            {bottomImages.map((media, index) => renderMedia(media, index + 4))}
+            {bottomImages.map((media, index) => renderMedia(media, index + 6))}
           </div>
         </div>
       );
