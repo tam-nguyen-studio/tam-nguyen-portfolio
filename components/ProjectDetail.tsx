@@ -51,17 +51,12 @@ const PROJECT_GALLERIES: Record<string, ProjectMedia[]> = {
     { type: 'image', url: '/images/soko-glam-04.jpg' },
     { type: 'image', url: '/images/soko-glam-05.jpg' },
     { type: 'image', url: '/images/soko-glam-06.jpg' }, 
-    // Section 2: 7 items (07 to 13)
+    // Section 2: 2 items (07 to 08)
     { type: 'image', url: '/images/soko-glam-07.jpg' }, 
     { type: 'image', url: '/images/soko-glam-08.jpg' },
-    { type: 'image', url: '/images/soko-glam-09.jpg' },
-    { type: 'image', url: '/images/soko-glam-10.jpg' },
-    { type: 'image', url: '/images/soko-glam-11.jpg' },
-    { type: 'image', url: '/images/soko-glam-12.jpg' },
-    { type: 'image', url: '/images/soko-glam-13.jpg' },
     // Section 3: 2 items (14 to 15)
-    { type: 'image', url: '/images/soko-glam-14.jpg' }, 
-    { type: 'image', url: '/images/soko-glam-15.jpg' }, 
+    { type: 'image', url: '/images/soko-glam-09.jpg' }, 
+    { type: 'image', url: '/images/soko-glam-10.jpg' }, 
   ],
   'then-i-met-you': [
     { type: 'image', url: '/images/then-i-met-you-hero.jpg' },
@@ -78,16 +73,16 @@ const PROJECT_GALLERIES: Record<string, ProjectMedia[]> = {
 
 const SOKO_SECTIONS_DATA = [
   {
-    title: "CAMPAIGN: BEST OF K-BEAUTY 2020",
-    copy: "For Soko Glam’s most anticipated annual campaign, Best of K-Beauty™ 2020, the challenge was to visually distinguish these products as best-in-class leaders.\n\nI defined a clean, architectural visual direction to elevate the product curation. We utilized stark white podiums and geometric staging to create a gallery feel, introducing bold electric blue accents to create a sharp, high-contrast visual language that cut through the noise.",
+    title: "CAMPAIGN: BEST OF K-BEAUTY",
+    copy: "For Soko Glam’s most anticipated annual campaign, Best of K-Beauty™, the challenge was to visually distinguish these products as best-in-class leaders.\n\nI defined a clean, architectural visual direction to elevate the product curation. We utilized stark white podiums and geometric staging to create a gallery feel, introducing bold electric blue accents to create a sharp, high-contrast visual language that cut through the noise.",
     credits: "photography: Stephanie chang",
     imgCount: 7
   },
   {
-    title: "CAMPAIGN: STRONGER TOGETHER",
-    copy: "The 'Stronger Together' campaign was designed to demystify skincare layering, educating customers on how ingredients like Vitamin C and SPF work better in pairs.\n\nTo visualize this 'Power Pairing' concept, I directed a campaign centered on bold color-blocking. We juxtaposed contrasting warm and cool tones to represent the chemical synergy of ingredients.",
-    credits: "Photography: Allison Pecca",
-    imgCount: 7
+    title: "Digital Design",
+    copy: "Landing pages designed responsively across desktop and mobile.",
+    credits: "",
+    imgCount: 2
   },
   {
     title: "PACKAGING: HOLIDAY ADVENT CALENDAR",
@@ -248,7 +243,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onNext, nextProj
       <div className="max-w-screen-2xl mx-auto px-4 md:px-8">
         
         {/* Project Header */}
-        <div className={`mb-24 flex flex-col gap-12 ${isPgProject ? '' : 'border-b border-black/5 pb-16'}`}>
+        <div className={`mb-24 flex flex-col gap-12 ${(isPgProject || isSoko) ? '' : 'border-b border-black/5 pb-16'}`}>
           <h1 className="text-[12vw] font-black leading-[0.82] md:leading-[0.78] tracking-tighter uppercase break-words -ml-[0.05em]">
             {project.name}
           </h1>

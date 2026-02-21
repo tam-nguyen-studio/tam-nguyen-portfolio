@@ -28,7 +28,7 @@ export const PROJECTS: Project[] = [
     category: 'CAMPAIGN ART DIRECTION',
     year: '2023',
     imageUrl: '/images/soko-glam-hero.jpg',
-    description: "Soko Glam is the leading direct-to-consumer destination for Korean beauty in the US. As a key member of the in-house creative team, I was responsible for evolving the brand's visual language across a high-volume retail calendar. My role spanned campaign art direction, digital design, and packaging, ensuring a cohesive brand experience across every touchpoint.",
+    description: "Soko Glam is the leading direct-to-consumer destination for Korean beauty in the US. As the in-house creative, I led all visual direction across campaigns, digital design, and packaging.",
     role: 'Art Direction\nDigital Design\nPackaging',
     credits: 'Photographer: Liam Wong. Stylist: Hana Kim.'
   },
