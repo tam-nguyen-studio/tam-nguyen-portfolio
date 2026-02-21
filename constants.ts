@@ -1,6 +1,6 @@
 import { Project, NavItem } from './types';
 
-// Projects reordered as requested: Keystone, The Alden, Soko Glam, Then I Met You, The Klog, P&G
+// Projects reordered: Keystone, Then I Met You, Soko Glam, The Klog, P&G, The Alden
 export const PROJECTS: Project[] = [
   {
     id: 'keystone',
@@ -13,14 +13,14 @@ export const PROJECTS: Project[] = [
     credits: 'Branding Agency: Otherward\nWeb Agency: Refokus\nPhotography: Michael Simon'
   },
   {
-    id: 'the-alden',
-    name: 'The Alden',
-    category: 'Modern Residential Identity',
-    year: '2024',
-    imageUrl: '/images/the-alden-hero.jpg',
-    description: 'A brand identity concept for a community of modern farmhouse townhomes in Houston, Texas, developed while at MMI Agency. The brief was to create a brand that felt rooted yet elevated, appealing to buyers seeking modern design with natural warmth.\n\nThe identity draws inspiration from the surrounding landscape. I designed a mark that merges organic leaf forms with architectural elements, paired with a color palette of deep forest teal, warm gold, and natural wood tones.',
-    role: 'Visual Identity',
-    credits: 'MMI Agency'
+    id: 'then-i-met-you',
+    name: 'Then I Met You',
+    category: 'DIGITAL BRAND EXPERIENCE',
+    year: '2022',
+    imageUrl: '/images/then-i-met-you-hero.jpg',
+    description: "Then I Met You is an award-winning skincare brand rooted in the Korean concept of Jeong, a deep emotional connection to people, places, and things. As a creative partner, I was responsible for translating this tactile, sensory identity into an elevated digital experience.\n\nMy focus was on preserving the brand's premium essence across high-volume touchpoints. From immersive email lifecycle campaigns to social storytelling, I ensured every interaction communicated the brand’s core philosophy of care and connection.",
+    role: 'DIGITAL DESIGN\nEMAIL MARKETING\nSOCIAL CONTENT',
+    credits: ''
   },
   {
     id: 'soko-glam',
@@ -31,16 +31,6 @@ export const PROJECTS: Project[] = [
     description: "Soko Glam is the leading direct-to-consumer destination for Korean beauty in the US. As the in-house creative, I led all visual direction across campaigns, digital design, and packaging.",
     role: 'Art Direction\nDigital Design\nPackaging',
     credits: 'Photographer: Liam Wong. Stylist: Hana Kim.'
-  },
-  {
-    id: 'then-i-met-you',
-    name: 'Then I Met You',
-    category: 'DIGITAL BRAND EXPERIENCE',
-    year: '2022',
-    imageUrl: '/images/then-i-met-you-hero.jpg',
-    description: "Then I Met You is an award-winning skincare brand rooted in the Korean concept of Jeong, a deep emotional connection to people, places, and things. As a creative partner, I was responsible for translating this tactile, sensory identity into an elevated digital experience.\n\nMy focus was on preserving the brand's premium essence across high-volume touchpoints. From immersive email lifecycle campaigns to social storytelling, I ensured every interaction communicated the brand’s core philosophy of care and connection.",
-    role: 'DIGITAL DESIGN\nEMAIL MARKETING\nSOCIAL CONTENT',
-    credits: ''
   },
   {
     id: 'the-klog',
@@ -62,6 +52,16 @@ export const PROJECTS: Project[] = [
     role: 'Digital Designer',
     credits: 'Gillette, Braun, The Art of Shaving, joy+glee',
     focus: 'Performance Creative, CRM Design, Paid & Organic Social'
+  },
+  {
+    id: 'the-alden',
+    name: 'The Alden',
+    category: 'Modern Residential Identity',
+    year: '2024',
+    imageUrl: '/images/the-alden-hero.jpg',
+    description: 'A brand identity concept for a community of modern farmhouse townhomes in Houston, Texas, developed while at MMI Agency. The brief was to create a brand that felt rooted yet elevated, appealing to buyers seeking modern design with natural warmth.\n\nThe identity draws inspiration from the surrounding landscape. I designed a mark that merges organic leaf forms with architectural elements, paired with a color palette of deep forest teal, warm gold, and natural wood tones.',
+    role: 'Visual Identity',
+    credits: 'MMI Agency'
   }
 ];
 
