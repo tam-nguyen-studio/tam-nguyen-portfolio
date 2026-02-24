@@ -16,7 +16,7 @@ const About: React.FC<AboutProps> = () => {
             </span>
             <div className="text-xl md:text-3xl text-neutral-800 font-medium max-w-2xl leading-snug space-y-8">
               <p>
-                I'm a designer and art director working across brand identity, campaigns, and digital design. I've created work for Soko Glam, Then I Met You, Gillette, Braun, and The Art of Shaving, from seasonal campaigns and brand systems to performance creative.
+                I'm a designer working across brand identity, campaigns, and digital design. I've created work for Soko Glam, Then I Met You, Gillette, Braun, and The Art of Shaving, from seasonal campaigns and brand systems to performance creative.
               </p>
               
               <div className="flex flex-wrap gap-x-12 gap-y-6 pt-8">
