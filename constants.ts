@@ -66,7 +66,6 @@ export const PROJECTS: Project[] = [
 ];
 
 export const NAV_LINKS: NavItem[] = [
-  { label: 'Work', href: '#work' },
   { label: 'About', href: '#about' },
   { label: 'Contact', href: '#contact' }
 ];
@@ -75,5 +74,6 @@ export const SERVICES = [
   'Art Direction',
   'Brand Identity',
   'Digital Design',
-  'Packaging'
+  'Packaging',
+  'Visual Systems'
 ];

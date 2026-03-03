@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import Lenis from 'lenis';
 import Navigation from './components/Navigation';
-import Hero from './components/Hero';
 import Work from './components/Work';
 import About from './components/About';
 import Footer from './components/Footer';
@@ -134,9 +133,6 @@ const App: React.FC = () => {
       <main className="relative z-10">
         {!selectedProjectId ? (
           <>
-            <Hero 
-              onScrollToWork={() => scrollToSection('work')} 
-            />
             <Work 
               onProjectSelect={(id) => {
                 window.location.hash = id;

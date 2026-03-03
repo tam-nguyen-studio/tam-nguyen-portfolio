@@ -46,14 +46,6 @@ const Navigation: React.FC<NavProps> = ({ isProjectView, onBackHome, onSectionCl
             <ul className="flex justify-end gap-x-4 md:gap-x-10">
               <li>
                 <button 
-                  onClick={() => isProjectView ? onBackHome() : onSectionClick('work')}
-                  className="text-[10px] uppercase tracking-[0.25em] font-sans font-bold hover:opacity-40 transition-all relative group"
-                >
-                  Work
-                </button>
-              </li>
-              <li>
-                <button 
                   onClick={() => onSectionClick('about')}
                   className="text-[10px] uppercase tracking-[0.25em] font-sans font-bold hover:opacity-40 transition-all relative group"
                 >

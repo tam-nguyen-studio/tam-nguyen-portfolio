@@ -7,7 +7,11 @@ interface WorkProps {
 
 const Work: React.FC<WorkProps> = ({ onProjectSelect }) => {
   return (
-    <section id="work" className="w-full px-4 md:px-8 py-20 bg-white">
+    <section id="work" className="w-full px-4 md:px-8 pt-32 md:pt-48 pb-20 bg-white">
+      <div className="flex justify-between items-center mb-12 md:mb-16 border-b border-black/5 pb-4">
+        <span className="font-sans font-bold text-[10px] uppercase tracking-[0.3em] opacity-50">Selected Projects</span>
+        <span className="font-sans font-bold text-[10px] uppercase tracking-[0.3em] opacity-50">Based in NYC</span>
+      </div>
       {/* Adjusted to 2 columns to allow the 16:9 landscape aspect ratio to breathe */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-20">
         {PROJECTS.map((project) => (
