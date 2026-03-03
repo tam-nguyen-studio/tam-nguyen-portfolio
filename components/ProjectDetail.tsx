@@ -80,7 +80,7 @@ const SOKO_SECTIONS_DATA = [
   },
   {
     title: "Digital Design",
-    copy: "Landing pages designed responsively across desktop and mobile.",
+    copy: "I designed landing pages across product launches, brand partnerships, campaigns, and editorial content, including Soko Glam's Skin Concierge program and skincare education pages, built responsively across desktop and mobile.",
     credits: "",
     imgCount: 2
   },

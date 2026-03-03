@@ -27,7 +27,7 @@ const Hero: React.FC<HeroProps> = ({ onScrollToWork }) => {
         </div>
 
         {/* Main Title Row */}
-        <div className="grid grid-cols-4 md:grid-cols-12 gap-4 flex-1">
+        <div className="grid grid-cols-4 md:grid-cols-12 gap-4 flex-1 items-start">
           <div className="col-span-4 md:col-span-10">
             <h1 className="font-black text-[16vw] md:text-[13vw] leading-[0.78] tracking-[-0.06em] uppercase">
               <span>Design</span> <br />
@@ -37,10 +37,12 @@ const Hero: React.FC<HeroProps> = ({ onScrollToWork }) => {
           </div>
           
           <div className="col-span-4 md:col-span-2 flex md:flex-col justify-end md:justify-start items-end md:items-start gap-4 md:pt-12">
-            <div className="w-12 h-12 md:w-16 md:h-16 border border-black rounded-full flex items-center justify-center animate-bounce">
+            <button 
+              onClick={onScrollToWork}
+              className="w-12 h-12 md:w-16 md:h-16 border border-black rounded-full flex items-center justify-center animate-bounce hover:bg-black/5 transition-colors"
+            >
               <span className="text-xl">↓</span>
-            </div>
-            {/* Specializing text removed as requested */}
+            </button>
           </div>
         </div>
 

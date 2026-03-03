@@ -16,7 +16,7 @@ const About: React.FC<AboutProps> = () => {
             </span>
             <div className="text-xl md:text-3xl text-neutral-800 font-medium max-w-2xl leading-snug space-y-8">
               <p>
-                I'm a designer working across brand identity, campaigns, and digital design. I've created work for Soko Glam, Then I Met You, Gillette, Braun, and The Art of Shaving, from seasonal campaigns and brand systems to performance creative.
+                I'm a designer focused on simple, strategic design. With over 8 years across beauty, CPG, and B2B, I've designed campaigns, digital experiences, and visual systems for brands like Soko Glam, Then I Met You, and Procter & Gamble brands including Gillette, Braun, and The Art of Shaving.
               </p>
               
               <div className="flex flex-wrap gap-x-12 gap-y-6 pt-8">
