@@ -8,7 +8,7 @@ export const PROJECTS: Project[] = [
     category: 'Visual Identity Rollout',
     year: '2024',
     imageUrl: '/images/keystone-01.jpg',
-    description: "Keystone is a strategy, economics, and technology consultancy partnering with global brands and law firms to tackle complex business and legal challenges.\n\nAs the company's focus on AI and technology grew, I joined as the sole in-house designer to lead the rollout of a new visual identity. Working alongside Otherward on the identity and Refokus on the initial website, I led design across the full system, designing web pages, sales presentations, event materials, and internal communications, while building out a sub-brand architecture across the company's practice groups and teams.",
+    description: "Keystone is a strategy, economics, and technology consultancy partnering with global brands and law firms to tackle complex business and legal challenges.\n\nI joined as sole in-house designer to lead the rollout of a new visual identity, designing across web, sales presentations, event materials, and internal communications, while building a sub-brand architecture across the company's practice groups and teams.",
     role: 'Art Direction\nDigital Design\nMarketing Collateral',
     credits: 'Branding Agency: Otherward\nWeb Agency: Refokus\nPhotography: Michael Simon'
   },
@@ -48,7 +48,7 @@ export const PROJECTS: Project[] = [
     category: 'PERFORMANCE CREATIVE',
     year: '2023',
     imageUrl: '/images/pg-hero.jpg',
-    description: "Procter & Gamble manages some of the world's most recognizable consumer brands. While at MMI Agency, I designed digital creative across the P&G portfolio, including lifecycle email campaigns, paid and organic social, and web assets for Gillette, Braun, The Art of Shaving, and Joy+Glee.\n\nWorking within established brand guidelines, I designed both original assets and campaign extensions, balancing brand consistency with the demands of high-volume digital production.",
+    description: "While at MMI Agency, I designed digital creative across the P&G portfolio including lifecycle email campaigns, paid and organic social, and web assets for Gillette, Braun, The Art of Shaving, and joy+glee.\n\nThe work was focused on performance creative and CRM, spanning omnichannel product launches, multivariate ad testing, retail calendar campaigns, and social content strategy. For Braun's Series 9 Pro launch, performance creative contributed to the product selling out in 24 hours.",
     role: 'Digital Designer',
     credits: 'Gillette, Braun, The Art of Shaving, joy+glee',
     focus: 'Performance Creative, CRM Design, Paid & Organic Social'
@@ -59,7 +59,7 @@ export const PROJECTS: Project[] = [
     category: 'Modern Residential Identity',
     year: '2024',
     imageUrl: '/images/the-alden-hero.jpg',
-    description: "A brand identity concept for a community of modern farmhouse townhomes in Houston, Texas. The brief was to create a brand that felt rooted yet elevated, appealing to buyers seeking modern design with natural warmth.\n\nThe identity draws inspiration from the surrounding landscape. I designed a mark that merges organic leaf forms with architectural elements, paired with a color palette of deep forest teal, warm gold, and natural wood tones.",
+    description: "A brand identity concept for a community of modern farmhouse townhomes in Houston, Texas. I designed a mark that merges organic leaf forms with architectural elements, grounded in a palette of deep forest teal, warm gold, and natural wood tones, created to feel rooted yet elevated.",
     role: 'Visual Identity',
     credits: 'MMI Agency'
   }
