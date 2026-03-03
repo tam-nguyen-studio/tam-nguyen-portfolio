@@ -27,7 +27,7 @@ export const PROJECTS: Project[] = [
     name: 'Soko Glam',
     category: 'CAMPAIGN ART DIRECTION',
     year: '2023',
-    imageUrl: '/images/soko-glam-04.jpg',
+    imageUrl: '/images/soko-glam-hero.jpg',
     description: "Soko Glam is the leading direct-to-consumer destination for Korean beauty in the US. As the sole in-house designer, I worked closely with the brand and marketing team to drive visual direction across campaigns, digital design, and packaging.",
     role: 'Art Direction\nDigital Design\nPackaging',
     credits: 'Photographer: Liam Wong. Stylist: Hana Kim.'
