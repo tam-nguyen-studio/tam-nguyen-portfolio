@@ -40,7 +40,7 @@ const Footer: React.FC<FooterProps> = () => {
       >
         {/* Simplified Footer - Reduced email size for refinement */}
         <div className="mb-40">
-          <motion.span variants={itemVariants} className="block font-sans font-bold text-[10px] uppercase tracking-[0.4em] mb-12 opacity-40">
+          <motion.span variants={itemVariants} className="block font-sans font-bold text-[10px] uppercase tracking-[0.4em] mb-12 text-neutral-400">
             Get in touch
           </motion.span>
           

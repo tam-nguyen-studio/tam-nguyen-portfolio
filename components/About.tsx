@@ -40,7 +40,7 @@ const About: React.FC<AboutProps> = () => {
       >
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-4">
           <div className="col-span-1 md:col-span-7">
-            <motion.span variants={itemVariants} className="block font-sans font-bold text-[10px] uppercase tracking-[0.3em] mb-12 opacity-50">
+            <motion.span variants={itemVariants} className="block font-sans font-bold text-[10px] uppercase tracking-[0.3em] mb-12 text-neutral-400">
               About
             </motion.span>
             <div className="text-xl md:text-3xl text-neutral-800 font-sans font-medium max-w-2xl leading-snug space-y-8">
@@ -75,7 +75,7 @@ const About: React.FC<AboutProps> = () => {
           </div>
 
           <div className="col-span-1 md:col-span-4 md:col-start-9 mt-12 md:mt-0">
-            <motion.span variants={itemVariants} className="block font-sans font-bold text-[10px] uppercase tracking-[0.3em] mb-12 opacity-50">
+            <motion.span variants={itemVariants} className="block font-sans font-bold text-[10px] uppercase tracking-[0.3em] mb-12 text-neutral-400">
               Capabilities
             </motion.span>
             <ul className="space-y-6">

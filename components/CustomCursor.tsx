@@ -1,15 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { motion, useMotionValue, useSpring } from 'motion/react';
+import { motion, useMotionValue } from 'motion/react';
 
 const CustomCursor: React.FC = () => {
   const [cursorType, setCursorType] = useState<'default' | 'view' | 'pointer'>('default');
   
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
-
-  const springConfig = { damping: 25, stiffness: 250 };
-  const cursorX = useSpring(mouseX, springConfig);
-  const cursorY = useSpring(mouseY, springConfig);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -62,14 +58,14 @@ const CustomCursor: React.FC = () => {
     <motion.div
       className="fixed top-0 left-0 pointer-events-none z-[9999] flex items-center justify-center rounded-full mix-blend-difference isolation-auto"
       style={{
-        x: cursorX,
-        y: cursorY,
+        x: mouseX,
+        y: mouseY,
         translateX: '-50%',
         translateY: '-50%',
       }}
       animate={cursorType}
       variants={variants}
-      transition={{ type: 'spring', damping: 30, stiffness: 300, mass: 0.8 }}
+      transition={{ duration: 0.1, ease: "linear" }}
     >
       {cursorType === 'view' && (
         <motion.span

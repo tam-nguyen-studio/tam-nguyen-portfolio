@@ -42,8 +42,8 @@ const Work: React.FC<WorkProps> = ({ onProjectSelect }) => {
           variants={itemVariants}
           className="flex justify-between items-center mb-12 md:mb-16 border-b border-black/5 pb-4"
         >
-          <span className="font-sans font-bold text-[10px] uppercase tracking-[0.3em] opacity-50">Selected Projects</span>
-          <span className="font-sans font-bold text-[10px] uppercase tracking-[0.3em] opacity-50">Based in NYC</span>
+          <span className="font-sans font-bold text-[10px] uppercase tracking-[0.3em] text-neutral-400">Selected Projects</span>
+          <span className="font-sans font-bold text-[10px] uppercase tracking-[0.3em] text-neutral-400">Based in NYC</span>
         </motion.div>
         
         {/* Adjusted to 2 columns to allow the 16:9 landscape aspect ratio to breathe */}
