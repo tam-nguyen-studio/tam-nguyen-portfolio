@@ -73,8 +73,8 @@ const PROJECT_GALLERIES: Record<string, ProjectMedia[]> = {
 
 const SOKO_SECTIONS_DATA = [
   {
-    title: "CAMPAIGN: BEST OF K-BEAUTY",
-    copy: "For Soko Glam’s most anticipated annual campaign, Best of K-Beauty™, the challenge was to visually distinguish these products as best-in-class leaders.\n\nI defined a clean, architectural visual direction to elevate the product curation. We utilized stark white podiums and geometric staging to create a gallery feel, introducing bold electric blue accents to create a sharp, high-contrast visual language that cut through the noise.",
+    title: "CAMPAIGN: BEST OF K-BEAUTY®",
+    copy: "For Soko Glam’s most anticipated annual campaign, Best of K-Beauty®, the challenge was to visually distinguish these products as best-in-class leaders.\n\nI defined a clean, architectural visual direction to elevate the product curation. We utilized stark white podiums and geometric staging to create a gallery feel, introducing bold electric blue accents to create a sharp, high-contrast visual language that cut through the noise.",
     credits: "photography: Stephanie chang",
     imgCount: 7
   },
