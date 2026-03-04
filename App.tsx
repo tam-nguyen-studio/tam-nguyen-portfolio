@@ -5,6 +5,7 @@ import Work from './components/Work';
 import About from './components/About';
 import Footer from './components/Footer';
 import ProjectDetail from './components/ProjectDetail';
+import CustomCursor from './components/CustomCursor';
 import { PROJECTS } from './constants';
 
 const App: React.FC = () => {
@@ -124,6 +125,7 @@ const App: React.FC = () => {
 
   return (
     <div className="w-full relative transition-all duration-700 font-sans">
+      <CustomCursor />
       <Navigation 
         isProjectView={!!selectedProjectId}
         onBackHome={handleBackToHome} 
