@@ -3,11 +3,18 @@ import { motion, useMotionValue } from 'motion/react';
 
 const CustomCursor: React.FC = () => {
   const [cursorType, setCursorType] = useState<'default' | 'view' | 'pointer'>('default');
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
   
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
   useEffect(() => {
+    const checkTouch = () => {
+      setIsTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0);
+    };
+    
+    checkTouch();
+    
     const handleMouseMove = (e: MouseEvent) => {
       mouseX.set(e.clientX);
       mouseY.set(e.clientY);
@@ -53,6 +60,8 @@ const CustomCursor: React.FC = () => {
       backgroundColor: '#fff',
     }
   };
+
+  if (isTouchDevice) return null;
 
   return (
     <motion.div

@@ -45,11 +45,13 @@
         overflow-x: hidden;
         -webkit-font-smoothing: antialiased;
         position: relative;
-        cursor: none;
       }
 
-      a, button, [role="button"], .cursor-pointer {
-        cursor: none !important;
+      /* Hide default cursor only on desktop/non-touch devices */
+      @media (hover: hover) and (pointer: fine) {
+        body, a, button, [role="button"], .cursor-pointer {
+          cursor: none !important;
+        }
       }
 
       /* Noise Grain Overlay */
