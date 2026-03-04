@@ -40,18 +40,18 @@ const About: React.FC<AboutProps> = () => {
       >
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-4">
           <div className="col-span-1 md:col-span-7">
-            <motion.span variants={itemVariants} className="block font-sans font-bold text-[10px] uppercase tracking-[0.4em] mb-12 opacity-40">
+            <motion.span variants={itemVariants} className="block font-sans font-bold text-[10px] uppercase tracking-[0.3em] mb-12 opacity-50">
               About
             </motion.span>
-            <div className="text-xl md:text-4xl text-neutral-800 font-medium max-w-2xl leading-tight space-y-8 font-space tracking-tight">
+            <div className="text-xl md:text-3xl text-neutral-800 font-sans font-medium max-w-2xl leading-snug space-y-8">
               <motion.p variants={itemVariants}>
                 I'm a multidisciplinary designer helping brands show up with intention across every touchpoint.
               </motion.p>
-              <motion.p variants={itemVariants} className="text-neutral-500">
+              <motion.p variants={itemVariants}>
                 With 8+ years across beauty, CPG, and B2B, I've designed campaigns, digital experiences, and visual systems for brands like Soko Glam, Then I Met You, Gillette, Braun, and The Art of Shaving.
               </motion.p>
               
-              <motion.div variants={itemVariants} className="flex flex-wrap gap-x-12 gap-y-6 pt-12">
+              <motion.div variants={itemVariants} className="flex flex-wrap gap-x-12 gap-y-6 pt-8">
                 <a 
                   href={RESUME_URL} 
                   target="_blank"
@@ -74,15 +74,15 @@ const About: React.FC<AboutProps> = () => {
             </div>
           </div>
 
-          <div className="col-span-1 md:col-span-4 md:col-start-9 mt-24 md:mt-0">
-            <motion.span variants={itemVariants} className="block font-sans font-bold text-[10px] uppercase tracking-[0.4em] mb-12 opacity-40">
+          <div className="col-span-1 md:col-span-4 md:col-start-9 mt-12 md:mt-0">
+            <motion.span variants={itemVariants} className="block font-sans font-bold text-[10px] uppercase tracking-[0.3em] mb-12 opacity-50">
               Capabilities
             </motion.span>
-            <ul className="space-y-8">
+            <ul className="space-y-6">
               {SERVICES.map((service, idx) => (
-                <motion.li key={service} variants={itemVariants} className="flex items-center gap-6 group">
-                  <span className="font-mono text-[10px] opacity-30">0{idx + 1}</span>
-                  <span className={`text-3xl md:text-5xl font-space font-bold uppercase tracking-tighter transition-transform duration-500 group-hover:translate-x-4`}>
+                <motion.li key={service} variants={itemVariants} className="flex items-center gap-4 group">
+                  <span className="font-sans font-bold text-[10px] opacity-30">0{idx + 1}</span>
+                  <span className={`text-2xl md:text-4xl font-sans font-bold uppercase tracking-tight transition-transform duration-300 group-hover:translate-x-2`}>
                     {service}
                   </span>
                 </motion.li>

@@ -254,7 +254,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onNext, nextProj
                     {section.credits && (
                       <motion.div variants={itemVariants} className="col-span-1 md:col-span-5 flex flex-col">
                          <span className="font-sans font-bold text-[10px] uppercase tracking-widest opacity-40 mb-2">Credits</span>
-                         <span className="font-bold uppercase text-xs leading-relaxed whitespace-pre-line opacity-80">
+                         <span className="font-sans font-bold uppercase text-xs leading-relaxed whitespace-pre-line opacity-80">
                            {section.credits}
                          </span>
                       </motion.div>
@@ -298,7 +298,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onNext, nextProj
 
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mt-8">
             <motion.div variants={itemVariants} className="col-span-1 md:col-span-6 lg:col-span-7">
-               <p className="text-xl md:text-2xl font-medium leading-snug text-neutral-800 max-w-2xl whitespace-pre-line">
+               <p className="text-xl md:text-2xl font-sans font-medium leading-snug text-neutral-800 max-w-2xl whitespace-pre-line">
                 {project.description || "A systematic approach to brand identity that prioritizes modularity and technical precision within digital environments."}
               </p>
             </motion.div>
@@ -308,16 +308,16 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onNext, nextProj
                 <div className="col-span-1 md:col-span-3 lg:col-span-2 flex flex-col gap-8">
                   <motion.div variants={itemVariants} className="flex flex-col border-t border-black/10 pt-4">
                     <span className="font-sans font-bold text-[10px] uppercase tracking-widest opacity-40 mb-2">ROLE</span>
-                    <span className="font-bold uppercase text-xs leading-relaxed whitespace-pre-line">{project.role}</span>
+                    <span className="font-sans font-bold uppercase text-xs leading-relaxed whitespace-pre-line">{project.role}</span>
                   </motion.div>
                   <motion.div variants={itemVariants} className="flex flex-col border-t border-black/10 pt-4">
                     <span className="font-sans font-bold text-[10px] uppercase tracking-widest opacity-40 mb-2">FOCUS</span>
-                    <span className="font-bold uppercase text-xs leading-relaxed whitespace-pre-line">{project.focus}</span>
+                    <span className="font-sans font-bold uppercase text-xs leading-relaxed whitespace-pre-line">{project.focus}</span>
                   </motion.div>
                 </div>
                 <motion.div variants={itemVariants} className="col-span-1 md:col-span-3 lg:col-span-3 flex flex-col border-t border-black/10 pt-4">
                   <span className="font-sans font-bold text-[10px] uppercase tracking-widest opacity-40 mb-2">CLIENT LIST</span>
-                  <span className="font-bold uppercase text-xs leading-relaxed whitespace-pre-line">{project.credits}</span>
+                  <span className="font-sans font-bold uppercase text-xs leading-relaxed whitespace-pre-line">{project.credits}</span>
                 </motion.div>
               </>
             ) : (
@@ -325,7 +325,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onNext, nextProj
                 <div className="col-span-1 md:col-span-3 lg:col-span-2 flex flex-col gap-8">
                   <motion.div variants={itemVariants} className="flex flex-col border-t border-black/10 pt-4">
                     <span className="font-sans font-bold text-[10px] uppercase tracking-widest opacity-40 mb-2">DISCIPLINE</span>
-                    <span className="font-bold uppercase text-xs leading-relaxed whitespace-pre-line">{project.role || "Lead Design"}</span>
+                    <span className="font-sans font-bold uppercase text-xs leading-relaxed whitespace-pre-line">{project.role || "Lead Design"}</span>
                   </motion.div>
                 </div>
 
@@ -333,7 +333,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onNext, nextProj
                 {!isKlog && !isSoko && !isTIMY && (
                   <motion.div variants={itemVariants} className="col-span-1 md:col-span-3 lg:col-span-3 flex flex-col border-t border-black/10 pt-4">
                     <span className="font-sans font-bold text-[10px] uppercase tracking-widest opacity-40 mb-2">{creditsLabel}</span>
-                    <span className="font-bold uppercase text-xs leading-relaxed whitespace-pre-line">{project.credits || "Internal Project"}</span>
+                    <span className="font-sans font-bold uppercase text-xs leading-relaxed whitespace-pre-line">{project.credits || "Internal Project"}</span>
                   </motion.div>
                 )}
               </>
