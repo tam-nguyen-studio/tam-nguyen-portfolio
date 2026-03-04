@@ -47,10 +47,9 @@ const CustomCursor: React.FC = () => {
       backgroundColor: '#fff',
     },
     pointer: {
-      width: 40,
-      height: 40,
+      width: 32,
+      height: 32,
       backgroundColor: '#fff',
-      scale: 1.5,
     },
     view: {
       width: 80,
@@ -61,7 +60,7 @@ const CustomCursor: React.FC = () => {
 
   return (
     <motion.div
-      className="fixed top-0 left-0 pointer-events-none z-[9999] flex items-center justify-center rounded-full mix-blend-difference"
+      className="fixed top-0 left-0 pointer-events-none z-[9999] flex items-center justify-center rounded-full mix-blend-difference isolation-auto"
       style={{
         x: cursorX,
         y: cursorY,
@@ -70,7 +69,7 @@ const CustomCursor: React.FC = () => {
       }}
       animate={cursorType}
       variants={variants}
-      transition={{ type: 'spring', damping: 20, stiffness: 200, mass: 0.5 }}
+      transition={{ type: 'spring', damping: 30, stiffness: 300, mass: 0.8 }}
     >
       {cursorType === 'view' && (
         <motion.span

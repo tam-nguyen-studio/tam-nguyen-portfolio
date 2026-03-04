@@ -124,7 +124,7 @@ const App: React.FC = () => {
   }
 
   return (
-    <div className="w-full relative transition-all duration-700 font-sans">
+    <div className="w-full relative transition-all duration-700 font-sans cursor-none">
       <CustomCursor />
       <Navigation 
         isProjectView={!!selectedProjectId}
