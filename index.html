@@ -45,6 +45,14 @@
         overflow-x: hidden;
         -webkit-font-smoothing: antialiased;
         position: relative;
+        cursor: none; /* Hide default cursor */
+      }
+
+      /* Show cursor on mobile */
+      @media (max-width: 768px) {
+        body {
+          cursor: auto;
+        }
       }
 
       /* Noise Grain Overlay */
@@ -52,10 +60,11 @@
         content: "";
         position: fixed;
         top: 0; left: 0; width: 100%; height: 100%;
-        opacity: 0.03;
+        opacity: 0.04;
         z-index: 9999;
         pointer-events: none;
         background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+        filter: contrast(150%) brightness(100%);
       }
 
       ::selection { background: #000; color: #fff; }

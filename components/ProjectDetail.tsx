@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { motion } from 'motion/react';
 import { Project } from '../types';
 
 interface ProjectMedia {
@@ -111,8 +112,37 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onNext, nextProj
   const gallery = PROJECT_GALLERIES[project.id] || [];
   const creditsLabel = project.id === 'the-alden' ? 'STUDIO' : 'Credits';
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: [0.215, 0.61, 0.355, 1],
+      },
+    },
+  };
+
   const renderMedia = (media: ProjectMedia, index: number, isSquare: boolean = false) => (
-    <div key={index} className={`w-full overflow-hidden bg-neutral-100 ${isSquare ? 'aspect-square' : 'aspect-video'}`}>
+    <motion.div 
+      key={index} 
+      variants={itemVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      className={`w-full overflow-hidden bg-neutral-100 ${isSquare ? 'aspect-square' : 'aspect-video'}`}
+    >
       {media.type === 'video' ? (
         <video 
           src={media.url} 
@@ -127,21 +157,28 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onNext, nextProj
           src={media.url} 
           className="w-full h-full object-cover" 
           alt={`${project.name} asset ${index + 1}`} 
+          referrerPolicy="no-referrer"
         />
       )}
-    </div>
+    </motion.div>
   );
 
   const renderGallery = () => {
     if (isPgProject) {
       return (
-        <div className="mb-40 py-24 border-t border-black/10">
-          <div className="max-w-2xl">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={containerVariants}
+          className="mb-40 py-24 border-t border-black/10"
+        >
+          <motion.div variants={itemVariants} className="max-w-2xl">
             <p className="text-xl md:text-2xl font-medium leading-snug text-neutral-400 italic">
               Due to the confidential nature of unreleased campaigns and intellectual property, selected works are available via private PDF upon request.
             </p>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       );
     }
 
@@ -198,26 +235,32 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onNext, nextProj
             return (
               <div key={sIdx} className="space-y-16">
                 {/* Section Header & Metadata */}
-                <div className="border-t border-black/10 pt-16">
-                  <h3 className="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-10">
+                <motion.div 
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  variants={containerVariants}
+                  className="border-t border-black/10 pt-16"
+                >
+                  <motion.h3 variants={itemVariants} className="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-10">
                     {section.title}
-                  </h3>
+                  </motion.h3>
                   <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
-                    <div className="col-span-1 md:col-span-7">
+                    <motion.div variants={itemVariants} className="col-span-1 md:col-span-7">
                       <p className="text-lg md:text-xl font-medium leading-snug text-neutral-600 whitespace-pre-line">
                         {section.copy}
                       </p>
-                    </div>
+                    </motion.div>
                     {section.credits && (
-                      <div className="col-span-1 md:col-span-5 flex flex-col">
+                      <motion.div variants={itemVariants} className="col-span-1 md:col-span-5 flex flex-col">
                          <span className="font-sans font-bold text-[10px] uppercase tracking-widest opacity-40 mb-2">Credits</span>
                          <span className="font-bold uppercase text-xs leading-relaxed whitespace-pre-line opacity-80">
                            {section.credits}
                          </span>
-                      </div>
+                      </motion.div>
                     )}
                   </div>
-                </div>
+                </motion.div>
                 
                 {/* Section Images */}
                 <div className="space-y-12">
@@ -243,78 +286,88 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onNext, nextProj
       <div className="max-w-screen-2xl mx-auto px-4 md:px-8">
         
         {/* Project Header */}
-        <div className={`mb-24 flex flex-col gap-12 ${(isPgProject || isSoko) ? '' : 'border-b border-black/5 pb-16'}`}>
-          <h1 className="text-[12vw] font-black leading-[0.82] md:leading-[0.78] tracking-tighter uppercase break-words -ml-[0.05em]">
+        <motion.div 
+          initial="hidden"
+          animate="visible"
+          variants={containerVariants}
+          className={`mb-24 flex flex-col gap-12 ${(isPgProject || isSoko) ? '' : 'border-b border-black/5 pb-16'}`}
+        >
+          <motion.h1 variants={itemVariants} className="text-[12vw] font-black leading-[0.82] md:leading-[0.78] tracking-tighter uppercase break-words -ml-[0.05em]">
             {project.name}
-          </h1>
+          </motion.h1>
 
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mt-8">
-            <div className="col-span-1 md:col-span-6 lg:col-span-7">
+            <motion.div variants={itemVariants} className="col-span-1 md:col-span-6 lg:col-span-7">
                <p className="text-xl md:text-2xl font-medium leading-snug text-neutral-800 max-w-2xl whitespace-pre-line">
                 {project.description || "A systematic approach to brand identity that prioritizes modularity and technical precision within digital environments."}
               </p>
-            </div>
+            </motion.div>
 
             {isPgProject ? (
               <>
                 <div className="col-span-1 md:col-span-3 lg:col-span-2 flex flex-col gap-8">
-                  <div className="flex flex-col border-t border-black/10 pt-4">
+                  <motion.div variants={itemVariants} className="flex flex-col border-t border-black/10 pt-4">
                     <span className="font-sans font-bold text-[10px] uppercase tracking-widest opacity-40 mb-2">ROLE</span>
                     <span className="font-bold uppercase text-xs leading-relaxed whitespace-pre-line">{project.role}</span>
-                  </div>
-                  <div className="flex flex-col border-t border-black/10 pt-4">
+                  </motion.div>
+                  <motion.div variants={itemVariants} className="flex flex-col border-t border-black/10 pt-4">
                     <span className="font-sans font-bold text-[10px] uppercase tracking-widest opacity-40 mb-2">FOCUS</span>
                     <span className="font-bold uppercase text-xs leading-relaxed whitespace-pre-line">{project.focus}</span>
-                  </div>
+                  </motion.div>
                 </div>
-                <div className="col-span-1 md:col-span-3 lg:col-span-3 flex flex-col border-t border-black/10 pt-4">
+                <motion.div variants={itemVariants} className="col-span-1 md:col-span-3 lg:col-span-3 flex flex-col border-t border-black/10 pt-4">
                   <span className="font-sans font-bold text-[10px] uppercase tracking-widest opacity-40 mb-2">CLIENT LIST</span>
                   <span className="font-bold uppercase text-xs leading-relaxed whitespace-pre-line">{project.credits}</span>
-                </div>
+                </motion.div>
               </>
             ) : (
               <>
                 <div className="col-span-1 md:col-span-3 lg:col-span-2 flex flex-col gap-8">
-                  <div className="flex flex-col border-t border-black/10 pt-4">
+                  <motion.div variants={itemVariants} className="flex flex-col border-t border-black/10 pt-4">
                     <span className="font-sans font-bold text-[10px] uppercase tracking-widest opacity-40 mb-2">DISCIPLINE</span>
                     <span className="font-bold uppercase text-xs leading-relaxed whitespace-pre-line">{project.role || "Lead Design"}</span>
-                  </div>
+                  </motion.div>
                 </div>
 
                 {/* Conditionally remove Credits for specific campaigns, but include for Keystone */}
                 {!isKlog && !isSoko && !isTIMY && (
-                  <div className="col-span-1 md:col-span-3 lg:col-span-3 flex flex-col border-t border-black/10 pt-4">
+                  <motion.div variants={itemVariants} className="col-span-1 md:col-span-3 lg:col-span-3 flex flex-col border-t border-black/10 pt-4">
                     <span className="font-sans font-bold text-[10px] uppercase tracking-widest opacity-40 mb-2">{creditsLabel}</span>
                     <span className="font-bold uppercase text-xs leading-relaxed whitespace-pre-line">{project.credits || "Internal Project"}</span>
-                  </div>
+                  </motion.div>
                 )}
               </>
             )}
           </div>
-        </div>
+        </motion.div>
 
         {/* Project Gallery Content */}
         {renderGallery()}
       </div>
 
       {/* Next Project Footer - Reverted to clean Swiss-style hover animation */}
-      <div 
+      <motion.div 
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={containerVariants}
         className={`py-40 border-t border-current/10 group cursor-pointer bg-white text-black transition-all duration-700 ${isPgProject ? 'mt-40' : ''}`} 
         onClick={onNext}
+        data-cursor="view"
       >
         <div className="max-w-screen-2xl mx-auto px-4 md:px-8">
-           <span className="font-sans font-bold text-xs uppercase tracking-[0.5em] mb-12 block opacity-40 transition-opacity group-hover:opacity-100">Next Project</span>
+           <motion.span variants={itemVariants} className="font-sans font-bold text-xs uppercase tracking-[0.5em] mb-12 block opacity-40 transition-opacity group-hover:opacity-100">Next Project</motion.span>
            
-           <div className="flex items-center justify-between">
+           <motion.div variants={itemVariants} className="flex items-center justify-between">
               <h2 className="text-[10vw] font-black uppercase tracking-tighter leading-[0.85] -ml-[0.05em] group-hover:opacity-40 transition-opacity duration-500">
                 {nextProjectName}
               </h2>
               <div className="text-[10vw] transition-transform duration-700 group-hover:translate-x-8 leading-none">
                 →
               </div>
-           </div>
+           </motion.div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };
