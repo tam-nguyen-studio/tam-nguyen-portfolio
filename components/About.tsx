@@ -48,7 +48,7 @@ const About: React.FC<AboutProps> = () => {
                 I'm a multidisciplinary designer helping brands show up with intention across every touchpoint.
               </motion.p>
               <motion.p variants={itemVariants}>
-                With 8+ years across beauty, CPG, and B2B, I've designed campaigns, digital experiences, and visual systems for brands like Soko Glam, Then I Met You, Gillette, Braun, and The Art of Shaving.
+                With 8+ years in brand and marketing, I've crafted campaigns, digital experiences, and visual systems for brands like Soko Glam, Then I Met You, Gillette, Braun, and The Art of Shaving.
               </motion.p>
               
               <motion.div variants={itemVariants} className="flex flex-wrap gap-x-12 gap-y-6 pt-8">
