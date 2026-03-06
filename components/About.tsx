@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'motion/react';
+import { motion } from 'framer-motion';
 import { SERVICES } from '../constants';
 
 const RESUME_URL = '/images/tam-nguyen-resume.pdf';

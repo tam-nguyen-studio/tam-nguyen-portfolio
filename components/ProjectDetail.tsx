@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { motion } from 'motion/react';
+import { motion } from 'framer-motion';
 import { Project } from '../types';
 
 interface ProjectMedia {
@@ -84,6 +84,8 @@ const SOKO_SECTIONS_DATA = [
   {
     title: "In Good Company",
     copy: "For the 2020 holiday season, I developed a campaign spanning packaging, website, and email. The design system included Art Deco geometry to stand apart from traditional holiday visuals.\n\nThe advent calendar featured intricate gold foil stamping across a 16-piece edit.",
+    linkText: "Watch the unboxing",
+    linkUrl: "https://www.tiktok.com/@hydrationceo/video/7032740463060929838",
     credits: "",
     imgCount: 4
   },
@@ -249,9 +251,21 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onNext, nextProj
                   </motion.h3>
                   <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
                     <motion.div variants={itemVariants} className="col-span-1 md:col-span-7">
-                      <p className="text-lg md:text-xl font-medium leading-snug text-neutral-600 whitespace-pre-line">
+                      <div className="text-lg md:text-xl font-medium leading-snug text-neutral-600 whitespace-pre-line">
                         {section.copy}
-                      </p>
+                        {(section as any).linkUrl && (
+                          <div className="mt-4">
+                            <a 
+                              href={(section as any).linkUrl} 
+                              target="_blank" 
+                              rel="noopener noreferrer"
+                              className="text-black underline underline-offset-4 hover:opacity-60 transition-opacity"
+                            >
+                              {(section as any).linkText || "View Link"}
+                            </a>
+                          </div>
+                        )}
+                      </div>
                     </motion.div>
                     {section.credits && (
                       <motion.div variants={itemVariants} className="col-span-1 md:col-span-5 flex flex-col">

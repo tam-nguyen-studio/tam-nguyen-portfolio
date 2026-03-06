@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { motion, useMotionValue } from 'motion/react';
+import { motion, useMotionValue } from 'framer-motion';
 
 const CustomCursor: React.FC = () => {
   const [cursorType, setCursorType] = useState<'default' | 'view' | 'pointer'>('default');
