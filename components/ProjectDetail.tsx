@@ -53,13 +53,13 @@ const PROJECT_GALLERIES: Record<string, ProjectMedia[]> = {
     { type: 'image', url: '/images/soko-glam-05.jpg' },
     { type: 'image', url: '/images/soko-glam-06.jpg' }, 
     // Section 2: 4 items (09 to 12) - In Good Company
+    { type: 'image', url: '/images/soko-glam-07.jpg' }, 
+    { type: 'image', url: '/images/soko-glam-08.jpg' }, 
     { type: 'image', url: '/images/soko-glam-09.jpg' }, 
     { type: 'image', url: '/images/soko-glam-10.jpg' }, 
-    { type: 'image', url: '/images/soko-glam-11.jpg' }, 
-    { type: 'image', url: '/images/soko-glam-12.jpg' }, 
     // Section 3: 2 items (07 to 08) - Digital Design
-    { type: 'image', url: '/images/soko-glam-07.jpg' }, 
-    { type: 'image', url: '/images/soko-glam-08.jpg' },
+    { type: 'image', url: '/images/soko-glam-11.jpg' }, 
+    { type: 'image', url: '/images/soko-glam-12.jpg' },
   ],
   'then-i-met-you': [
     { type: 'image', url: '/images/then-i-met-you-hero.jpg' },
