@@ -29,14 +29,14 @@ const Footer: React.FC<FooterProps> = () => {
   return (
     <footer 
       id="contact" 
-      className="w-full px-4 md:px-8 pt-40 pb-12 transition-colors duration-700 bg-white text-black border-t border-gray-100"
+      className="w-full pt-40 pb-12 transition-colors duration-700 bg-white text-black border-t border-gray-100"
     >
       <motion.div 
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
         variants={containerVariants}
-        className="max-w-screen-2xl mx-auto flex flex-col"
+        className="max-w-screen-2xl mx-auto px-4 md:px-8 flex flex-col"
       >
         {/* Simplified Footer - Reduced email size for refinement */}
         <div className="mb-40">

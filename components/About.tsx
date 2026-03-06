@@ -30,13 +30,13 @@ const About: React.FC<AboutProps> = () => {
   };
 
   return (
-    <section id="about" className="w-full px-4 md:px-8 py-32 md:py-60 transition-colors duration-700 bg-white text-black border-t border-gray-100">
+    <section id="about" className="w-full py-32 md:py-60 transition-colors duration-700 bg-white text-black border-t border-gray-100">
       <motion.div 
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
         variants={containerVariants}
-        className="max-w-screen-2xl mx-auto"
+        className="max-w-screen-2xl mx-auto px-4 md:px-8"
       >
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-4">
           <div className="col-span-1 md:col-span-7">

@@ -31,12 +31,13 @@ const Work: React.FC<WorkProps> = ({ onProjectSelect }) => {
   };
 
   return (
-    <section id="work" className="w-full px-4 md:px-8 pt-32 md:pt-48 pb-20 bg-white">
+    <section id="work" className="w-full pt-32 md:pt-48 pb-20 bg-white">
       <motion.div 
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
         variants={containerVariants}
+        className="max-w-screen-2xl mx-auto px-4 md:px-8"
       >
         <motion.div 
           variants={itemVariants}
