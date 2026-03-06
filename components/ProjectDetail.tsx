@@ -44,7 +44,7 @@ const PROJECT_GALLERIES: Record<string, ProjectMedia[]> = {
     { type: 'image', url: '/images/the-klog-07.jpg' },
   ],
   'soko-glam': [
-    // Section 1: 7 items (hero + 01 to 06)
+    // Section 1: 7 items (hero + 01 to 06) - Best of K-Beauty
     { type: 'image', url: '/images/soko-glam-hero.jpg' },
     { type: 'image', url: '/images/soko-glam-01.jpg' },
     { type: 'image', url: '/images/soko-glam-02.jpg' },
@@ -52,12 +52,14 @@ const PROJECT_GALLERIES: Record<string, ProjectMedia[]> = {
     { type: 'image', url: '/images/soko-glam-04.jpg' },
     { type: 'image', url: '/images/soko-glam-05.jpg' },
     { type: 'image', url: '/images/soko-glam-06.jpg' }, 
-    // Section 2: 2 items (07 to 08)
-    { type: 'image', url: '/images/soko-glam-07.jpg' }, 
-    { type: 'image', url: '/images/soko-glam-08.jpg' },
-    // Section 3: 2 items (14 to 15)
+    // Section 2: 4 items (09 to 12) - In Good Company
     { type: 'image', url: '/images/soko-glam-09.jpg' }, 
     { type: 'image', url: '/images/soko-glam-10.jpg' }, 
+    { type: 'image', url: '/images/soko-glam-11.jpg' }, 
+    { type: 'image', url: '/images/soko-glam-12.jpg' }, 
+    // Section 3: 2 items (07 to 08) - Digital Design
+    { type: 'image', url: '/images/soko-glam-07.jpg' }, 
+    { type: 'image', url: '/images/soko-glam-08.jpg' },
   ],
   'then-i-met-you': [
     { type: 'image', url: '/images/then-i-met-you-hero.jpg' },
@@ -74,20 +76,20 @@ const PROJECT_GALLERIES: Record<string, ProjectMedia[]> = {
 
 const SOKO_SECTIONS_DATA = [
   {
-    title: "CAMPAIGN: BEST OF K-BEAUTY®",
-    copy: "For Soko Glam’s most anticipated annual campaign, Best of K-Beauty®, the challenge was to visually distinguish these products as best-in-class leaders.\n\nI defined a clean, architectural visual direction to elevate the product curation. We utilized stark white podiums and geometric staging to create a gallery feel, introducing bold electric blue accents to create a sharp, high-contrast visual language that cut through the noise.",
+    title: "Campaign: Best of K-Beauty® 2020",
+    copy: "For Soko Glam's most anticipated annual campaign, I defined a clean, architectural visual direction to position the featured products as best-in-class. Stark white podiums, geometric staging, and bold electric blue accents created a gallery feel and a sharp, high-contrast visual language.",
     credits: "photography: Stephanie chang",
     imgCount: 7
   },
   {
-    title: "Digital Design",
-    copy: "I designed landing pages across product launches, brand partnerships, campaigns, and editorial content, including Soko Glam's Skin Concierge program and skincare education pages, built responsively across desktop and mobile.",
+    title: "Campaign: In Good Company",
+    copy: "For the 2020 holiday season, I developed a campaign spanning packaging, website, and email. The design system included Art Deco geometry to stand apart from traditional holiday visuals.\n\nThe advent calendar featured intricate gold foil stamping across a 16-piece edit.",
     credits: "",
-    imgCount: 2
+    imgCount: 4
   },
   {
-    title: "PACKAGING: HOLIDAY ADVENT CALENDAR",
-    copy: "For the 2020 holiday season, the goal was to create a luxurious, giftable object that stood apart from traditional seasonal tropes. I designed a limited-edition Advent Calendar inspired by the geometry of Art Deco architecture.\n\nFeaturing intricate gold foil stamping, the packaging transformed the 16-piece curation into a premium unboxing experience.",
+    title: "Digital Design",
+    copy: "I designed landing pages across product launches, brand partnerships, campaigns, and editorial content, including Soko Glam's Skin Concierge program and skincare education pages, built responsively across desktop and mobile.",
     credits: "",
     imgCount: 2
   }
