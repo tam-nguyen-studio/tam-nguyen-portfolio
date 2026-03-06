@@ -76,13 +76,13 @@ const PROJECT_GALLERIES: Record<string, ProjectMedia[]> = {
 
 const SOKO_SECTIONS_DATA = [
   {
-    title: "Campaign: Best of K-Beauty® 2020",
+    title: "Best of K-Beauty® 2020",
     copy: "For Soko Glam's most anticipated annual campaign, I defined a clean, architectural visual direction to position the featured products as best-in-class. Stark white podiums, geometric staging, and bold electric blue accents created a gallery feel and a sharp, high-contrast visual language.",
     credits: "photography: Stephanie chang",
     imgCount: 7
   },
   {
-    title: "Campaign: In Good Company",
+    title: "In Good Company",
     copy: "For the 2020 holiday season, I developed a campaign spanning packaging, website, and email. The design system included Art Deco geometry to stand apart from traditional holiday visuals.\n\nThe advent calendar featured intricate gold foil stamping across a 16-piece edit.",
     credits: "",
     imgCount: 4
