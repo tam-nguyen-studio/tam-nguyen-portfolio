@@ -8,7 +8,7 @@ export const PROJECTS: Project[] = [
     category: 'Visual Identity Rollout',
     year: '2024',
     imageUrl: '/images/keystone-01.jpg',
-    description: "Keystone is a strategy, economics, and technology consultancy partnering with global brands and law firms to tackle complex business and legal challenges.\n\nI joined as sole in-house designer to lead the rollout of a new visual identity, designing across web, sales presentations, event materials, and internal communications, while building a sub-brand architecture across the company's practice groups and teams.",
+    description: "Keystone is a strategy, economics, and technology consultancy partnering with global brands and law firms. As Keystone grew its AI and technology advisory practice, the brand needed to evolve with it.\n\nI joined as sole in-house designer to lead the rebrand rollout and own all visual output — spanning digital, marketing collateral, event materials, and internal communications, while building a sub-brand architecture across the company's practice groups and teams.",
     role: 'Art Direction\nDigital Design\nMarketing Collateral',
     credits: 'Branding Agency: Otherward\nWeb Agency: Refokus\nPhotography: Michael Simon'
   },
@@ -18,7 +18,7 @@ export const PROJECTS: Project[] = [
     category: 'DIGITAL BRAND EXPERIENCE',
     year: '2022',
     imageUrl: '/images/then-i-met-you-hero.jpg',
-    description: "Then I Met You is an award-winning skincare brand rooted in the Korean concept of Jeong, a deep emotional connection to people, places, and things.\n\nI led digital design across the brand, translating its tactile, sensory identity into email campaigns, social content, and web touchpoints, while also contributing to packaging design for new product launches.",
+    description: "Then I Met You is an award-winning skincare brand rooted in the Korean concept of Jeong, a deep emotional connection to people, places, and things.\n\nI led digital design across the brand, translating its tactile, sensory identity into email campaigns, social content, and web touchpoints.",
     role: 'DIGITAL DESIGN\nEMAIL MARKETING\nSOCIAL CONTENT',
     credits: ''
   },
