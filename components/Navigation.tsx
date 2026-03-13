@@ -8,7 +8,9 @@ interface NavProps {
 }
 
 const Navigation: React.FC<NavProps> = ({ isProjectView, onBackHome, onSectionClick }) => {
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(() => 
+    typeof window !== 'undefined' ? window.scrollY > 50 : false
+  );
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,7 +40,7 @@ const Navigation: React.FC<NavProps> = ({ isProjectView, onBackHome, onSectionCl
   };
 
   return (
-    <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-700 ${getHeaderClasses()}`}>
+    <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-400 ${getHeaderClasses()}`}>
       <div className="max-w-screen-2xl mx-auto px-4 md:px-8">
         <motion.div 
           initial="hidden"

@@ -30,6 +30,17 @@ const Work: React.FC<WorkProps> = ({ onProjectSelect }) => {
     },
   };
 
+  const headerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 0.8,
+        ease: [0.215, 0.61, 0.355, 1],
+      },
+    },
+  };
+
   return (
     <section id="work" className="w-full pt-32 md:pt-44 pb-20 bg-white">
       <motion.div 
@@ -40,7 +51,7 @@ const Work: React.FC<WorkProps> = ({ onProjectSelect }) => {
         className="max-w-screen-2xl mx-auto px-4 md:px-8"
       >
         <motion.div 
-          variants={itemVariants}
+          variants={headerVariants}
           className="flex justify-between items-center mb-12 md:mb-16 border-b border-black/5 pb-4"
         >
           <span className="font-sans font-bold text-[10px] uppercase tracking-[0.3em] text-neutral-400">Selected Projects</span>
