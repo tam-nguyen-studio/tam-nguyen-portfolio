@@ -22,7 +22,7 @@ const Navigation: React.FC<NavProps> = ({ isProjectView, onBackHome, onSectionCl
     if (isScrolled) {
       return "bg-white/95 backdrop-blur-md border-b border-black/5 py-4";
     }
-    return "bg-transparent py-8";
+    return "bg-transparent py-8 md:py-[28px]";
   };
 
   const itemVariants = {

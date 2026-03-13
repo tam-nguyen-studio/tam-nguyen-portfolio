@@ -65,7 +65,7 @@ const CustomCursor: React.FC = () => {
 
   return (
     <motion.div
-      className="fixed top-0 left-0 pointer-events-none z-[9999] flex items-center justify-center rounded-full isolation-auto"
+      className="fixed top-0 left-0 pointer-events-none z-[9999] flex items-center justify-center rounded-full"
       style={{
         x: mouseX,
         y: mouseY,
