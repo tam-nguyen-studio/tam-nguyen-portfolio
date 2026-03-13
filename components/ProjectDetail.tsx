@@ -44,7 +44,6 @@ const PROJECT_GALLERIES: Record<string, ProjectMedia[]> = {
     { type: 'image', url: '/images/the-klog-07.jpg' },
   ],
   'soko-glam': [
-    // Section 1: 7 items (hero + 01 to 06) - Best of K-Beauty
     { type: 'image', url: '/images/soko-glam-hero.jpg' },
     { type: 'image', url: '/images/soko-glam-01.jpg' },
     { type: 'image', url: '/images/soko-glam-02.jpg' },
@@ -52,14 +51,16 @@ const PROJECT_GALLERIES: Record<string, ProjectMedia[]> = {
     { type: 'image', url: '/images/soko-glam-04.jpg' },
     { type: 'image', url: '/images/soko-glam-05.jpg' },
     { type: 'image', url: '/images/soko-glam-06.jpg' }, 
-    // Section 2: 4 items (09 to 12) - In Good Company
     { type: 'image', url: '/images/soko-glam-07.jpg' }, 
     { type: 'image', url: '/images/soko-glam-08.jpg' }, 
     { type: 'image', url: '/images/soko-glam-09.jpg' }, 
     { type: 'image', url: '/images/soko-glam-10.jpg' }, 
-    // Section 3: 2 items (07 to 08) - Digital Design
     { type: 'image', url: '/images/soko-glam-11.jpg' }, 
     { type: 'image', url: '/images/soko-glam-12.jpg' },
+    { type: 'image', url: '/images/soko-glam-13.jpg' },
+    { type: 'image', url: '/images/soko-glam-14.jpg' },
+    { type: 'image', url: '/images/soko-glam-15.jpg' },
+    { type: 'image', url: '/images/soko-glam-16.jpg' },
   ],
   'then-i-met-you': [
     { type: 'image', url: '/images/then-i-met-you-hero.jpg' },
@@ -79,15 +80,21 @@ const SOKO_SECTIONS_DATA = [
     title: "Best of K-Beauty® 2020",
     copy: "For Soko Glam's most anticipated annual campaign, I defined a clean, architectural visual direction to position the featured products as best-in-class. Stark white podiums, geometric staging, and bold electric blue accents created a gallery feel and a sharp, high-contrast visual language.",
     credits: "photography: Stephanie chang",
+    imgCount: 6
+  },
+  {
+    title: "Stronger Together",
+    copy: "Stronger Together was a brand campaign focused on community and collective strength. I led the visual direction, creating a cohesive system across digital and social channels that highlighted the brand's commitment to its community.",
+    credits: "",
     imgCount: 7
   },
   {
-    title: "In Good Company",
+    title: "Advent Calendar",
     copy: "For the 2020 holiday season, I developed a campaign spanning packaging, website, and email. The design system included Art Deco geometry to stand apart from traditional holiday visuals.\n\nThe advent calendar featured intricate gold foil stamping across a 16-piece edit.",
     linkText: "Watch the unboxing",
     linkUrl: "https://www.tiktok.com/@hydrationceo/video/7032740463060929838",
     credits: "",
-    imgCount: 4
+    imgCount: 2
   },
   {
     title: "Digital Design",

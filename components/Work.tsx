@@ -31,7 +31,7 @@ const Work: React.FC<WorkProps> = ({ onProjectSelect }) => {
   };
 
   return (
-    <section id="work" className="w-full pt-32 md:pt-48 pb-20 bg-white">
+    <section id="work" className="w-full pt-32 md:pt-44 pb-20 bg-white">
       <motion.div 
         initial="hidden"
         whileInView="visible"
@@ -73,7 +73,7 @@ const Work: React.FC<WorkProps> = ({ onProjectSelect }) => {
                 <h3 className="font-sans font-black text-2xl tracking-tighter uppercase leading-none">
                   {project.name}
                 </h3>
-                <p className="font-sans font-bold text-[10px] uppercase tracking-widest text-gray-400">
+                <p className="font-sans font-bold text-[10px] uppercase tracking-widest text-gray-400 whitespace-nowrap">
                   {project.category}
                 </p>
               </div>

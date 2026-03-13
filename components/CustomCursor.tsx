@@ -47,17 +47,17 @@ const CustomCursor: React.FC = () => {
     default: {
       width: 12,
       height: 12,
-      backgroundColor: '#fff',
+      backgroundColor: '#0047FF',
     },
     pointer: {
       width: 32,
       height: 32,
-      backgroundColor: '#fff',
+      backgroundColor: '#0047FF',
     },
     view: {
       width: 80,
       height: 80,
-      backgroundColor: '#fff',
+      backgroundColor: '#0047FF',
     }
   };
 
@@ -65,7 +65,7 @@ const CustomCursor: React.FC = () => {
 
   return (
     <motion.div
-      className="fixed top-0 left-0 pointer-events-none z-[9999] flex items-center justify-center rounded-full mix-blend-difference isolation-auto"
+      className="fixed top-0 left-0 pointer-events-none z-[9999] flex items-center justify-center rounded-full isolation-auto"
       style={{
         x: mouseX,
         y: mouseY,
@@ -80,7 +80,7 @@ const CustomCursor: React.FC = () => {
         <motion.span
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="text-[10px] font-black uppercase tracking-widest text-black"
+          className="text-[10px] font-black uppercase tracking-widest text-white"
         >
           View
         </motion.span>
