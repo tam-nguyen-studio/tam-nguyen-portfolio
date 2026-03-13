@@ -42,7 +42,7 @@ const Work: React.FC<WorkProps> = ({ onProjectSelect }) => {
   };
 
   return (
-    <section id="work" className="w-full pt-32 md:pt-44 pb-20 bg-white">
+    <section id="work" className="w-full pt-32 md:pt-32 pb-20 bg-white">
       <motion.div 
         initial="hidden"
         whileInView="visible"
