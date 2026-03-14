@@ -45,8 +45,8 @@ const CustomCursor: React.FC = () => {
 
   const variants = {
     default: {
-      width: 12,
-      height: 12,
+      width: 16,
+      height: 16,
       backgroundColor: '#0047FF',
     },
     pointer: {
