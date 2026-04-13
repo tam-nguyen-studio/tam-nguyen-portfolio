@@ -7,7 +7,7 @@ export const PROJECTS: Project[] = [
     name: 'Keystone',
     category: 'Brand Design',
     year: '2024',
-    imageUrl: '/images/keystone-hero.jpg',
+    imageUrl: '/images/keystone-01.jpg',
     description: "Keystone is a strategy, economics, and technology consultancy partnering with global brands and law firms. As Keystone grew its AI and technology advisory practice, the brand needed to evolve with it.\n\nI joined as sole in-house designer to support a corporate rebrand, owning all visual output — spanning digital, marketing collateral, event materials, and internal communications, while building a sub-brand architecture across the company's practice groups and teams.",
     role: 'Art Direction\nDigital Design\nMarketing Collateral',
     credits: 'Branding Agency: Otherward\nWeb Agency: Refokus\nPhotography: Michael Simon'
