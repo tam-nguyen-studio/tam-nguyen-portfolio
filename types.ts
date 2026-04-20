@@ -8,6 +8,8 @@ export interface Project {
   role?: string;
   credits?: string;
   focus?: string;
+  heroStyle?: 'fullbleed' | 'contained';
+  objectPosition?: string;
 }
 
 export interface NavItem {

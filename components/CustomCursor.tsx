@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import { motion, useMotionValue } from 'motion/react';
+import { motion, useSpring } from 'motion/react';
 
 const CustomCursor: React.FC = () => {
-  const [cursorType, setCursorType] = useState<'default' | 'view' | 'pointer'>('default');
+  const [isHovered, setIsHovered] = useState(false);
   const [isTouchDevice, setIsTouchDevice] = useState(false);
   
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
+  const springConfig = { stiffness: 500, damping: 28, mass: 0.5 };
+  const mouseX = useSpring(0, springConfig);
+  const mouseY = useSpring(0, springConfig);
+  
+  const sizeSpring = useSpring(10, { stiffness: 400, damping: 30 });
+  const opacitySpring = useSpring(1, { stiffness: 400, damping: 30 });
 
   useEffect(() => {
     const checkTouch = () => {
@@ -22,16 +26,8 @@ const CustomCursor: React.FC = () => {
 
     const handleMouseOver = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
-      const isProject = target.closest('[data-cursor="view"]');
-      const isPointer = target.closest('button, a, [role="button"], [data-cursor="pointer"]');
-      
-      if (isProject) {
-        setCursorType('view');
-      } else if (isPointer) {
-        setCursorType('pointer');
-      } else {
-        setCursorType('default');
-      }
+      const isInteractive = target.closest('button, a, [role="button"], [data-cursor="view"], .cursor-pointer, .project-card');
+      setIsHovered(!!isInteractive);
     };
 
     window.addEventListener('mousemove', handleMouseMove);
@@ -43,49 +39,26 @@ const CustomCursor: React.FC = () => {
     };
   }, [mouseX, mouseY]);
 
-  const variants = {
-    default: {
-      width: 16,
-      height: 16,
-      backgroundColor: '#0047FF',
-    },
-    pointer: {
-      width: 32,
-      height: 32,
-      backgroundColor: '#0047FF',
-    },
-    view: {
-      width: 80,
-      height: 80,
-      backgroundColor: '#0047FF',
-    }
-  };
+  useEffect(() => {
+    sizeSpring.set(isHovered ? 40 : 10);
+    opacitySpring.set(isHovered ? 0.5 : 1);
+  }, [isHovered, sizeSpring, opacitySpring]);
 
   if (isTouchDevice) return null;
 
   return (
     <motion.div
-      className="fixed top-0 left-0 pointer-events-none z-[9999] flex items-center justify-center rounded-full"
+      className="fixed top-0 left-0 pointer-events-none z-[9999] rounded-full bg-white mix-blend-difference"
       style={{
         x: mouseX,
         y: mouseY,
         translateX: '-50%',
         translateY: '-50%',
+        width: sizeSpring,
+        height: sizeSpring,
+        opacity: opacitySpring,
       }}
-      animate={cursorType}
-      variants={variants}
-      transition={{ duration: 0.1, ease: "linear" }}
-    >
-      {cursorType === 'view' && (
-        <motion.span
-          initial={{ opacity: 0, scale: 0.5 }}
-          animate={{ opacity: 1, scale: 1 }}
-          className="text-[10px] font-black uppercase tracking-widest text-white"
-        >
-          View
-        </motion.span>
-      )}
-    </motion.div>
+    />
   );
 };
 
