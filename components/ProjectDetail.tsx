@@ -83,13 +83,13 @@ const SOKO_SECTIONS_DATA = [
     imgCount: 6
   },
   {
-    title: "Campaign: Stronger Together",
+    title: "Stronger Together",
     copy: "The 'Stronger Together' campaign was designed to demystify skincare layering, educating customers on how ingredients like Vitamin C and SPF work better in pairs.\n\nTo visualize this 'Power Pairing' concept, I directed a campaign centered on bold color-blocking. We juxtaposed contrasting warm and cool tones to represent the chemical synergy of ingredients.",
     credits: "PHOTOGRAPHY: ALLISON PECCA",
     imgCount: 7
   },
   {
-    title: "Packaging: Holiday Advent Calendar",
+    title: "Holiday Advent Calendar",
     copy: "For the 2020 holiday season, the goal was to create a luxurious, giftable object that stood apart from traditional seasonal tropes. I designed a limited-edition Advent Calendar inspired by the geometry of Art Deco architecture.\n\nFeaturing intricate gold foil stamping, the packaging transformed the 16-piece curation into a premium unboxing experience.",
     linkText: "Watch the unboxing",
     linkUrl: "https://www.tiktok.com/@hydrationceo/video/7032740463060929838",
