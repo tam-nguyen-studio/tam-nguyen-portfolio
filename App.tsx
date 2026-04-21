@@ -21,6 +21,13 @@ const App: React.FC = () => {
 
   const [currentPath, setCurrentPath] = useState(() => window.location.pathname);
 
+  // Redirect for /pgportfolio
+  useEffect(() => {
+    if (window.location.pathname === '/pgportfolio') {
+      window.location.replace('https://drive.google.com/file/d/1IOs4vsTtr1rOuA-gD7If12rUoOIw20B9/view?usp=sharing');
+    }
+  }, []);
+
   // Sync state with location when it changes
   const syncStateWithLocation = useCallback((pathname: string) => {
     const path = pathname.replace(/^\//, '');
