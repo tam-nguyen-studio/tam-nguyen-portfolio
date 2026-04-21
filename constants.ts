@@ -1,6 +1,6 @@
 import { Project, NavItem } from './types';
 
-// Projects reordered: Keystone, Then I Met You, Soko Glam, The Klog, P&G, The Alden
+// Projects reordered: Keystone, Soko Glam, Procter & Gamble, Then I Met You, The Klog, The Alden
 export const PROJECTS: Project[] = [
   {
     id: 'keystone',
@@ -15,18 +15,6 @@ export const PROJECTS: Project[] = [
     credits: 'Branding Agency: Otherward\nWeb Agency: Refokus\nPhotography: Michael Simon'
   },
   {
-    id: 'then-i-met-you',
-    name: 'Then I Met You',
-    category: 'Digital Design',
-    year: '2022',
-    imageUrl: '/images/then-i-met-you-hero.jpg',
-    heroStyle: 'fullbleed',
-    objectPosition: 'center top',
-    description: "Then I Met You is an award-winning skincare brand rooted in the Korean concept of Jeong, a deep emotional connection to people, places, and things.\n\nI led digital design across the brand, translating its tactile, sensory identity into email campaigns, social content, and web touchpoints.",
-    role: 'DIGITAL DESIGN\nEMAIL MARKETING\nSOCIAL CONTENT',
-    credits: ''
-  },
-  {
     id: 'soko-glam',
     name: 'Soko Glam',
     category: 'Art Direction',
@@ -37,6 +25,18 @@ export const PROJECTS: Project[] = [
     description: "Soko Glam is the leading direct-to-consumer destination for Korean beauty in the US. As the sole in-house designer, I worked closely with the brand and marketing team to drive visual direction across campaigns, digital design, and packaging.",
     role: 'ART DIRECTION\nDIGITAL DESIGN\nPACKAGING',
     credits: ''
+  },
+  {
+    id: 'pg',
+    name: 'Procter & Gamble',
+    category: 'Performance Creative & CRM',
+    year: '2023',
+    imageUrl: '/images/pg-hero.jpg',
+    heroStyle: 'fullbleed',
+    objectPosition: 'center center',
+    description: "While at MMI Agency, I designed digital creative across the P&G portfolio including lifecycle email campaigns, paid and organic social, and web assets for Gillette, Braun, The Art of Shaving, and joy+glee.\n\nThe work was focused on performance creative and CRM, spanning omnichannel product launches, multivariate ad testing, retail calendar campaigns, and social content strategy. For Braun's Series 9 Pro launch, performance creative contributed to the product selling out in 24 hours.",
+    role: 'Performance Creative\nCRM Design\nPaid & Organic Social',
+    credits: 'Gillette, Braun, The Art of Shaving, joy+glee'
   },
   {
     id: 'the-klog',
@@ -51,16 +51,16 @@ export const PROJECTS: Project[] = [
     credits: 'In collaboration with Klog Editorial Team.'
   },
   {
-    id: 'pg',
-    name: 'Procter & Gamble',
-    category: 'Performance Creative & CRM',
-    year: '2023',
-    imageUrl: '/images/pg-hero.jpg',
+    id: 'then-i-met-you',
+    name: 'Then I Met You',
+    category: 'Digital Design',
+    year: '2022',
+    imageUrl: '/images/then-i-met-you-hero.jpg',
     heroStyle: 'fullbleed',
-    objectPosition: 'center center',
-    description: "While at MMI Agency, I designed digital creative across the P&G portfolio including lifecycle email campaigns, paid and organic social, and web assets for Gillette, Braun, The Art of Shaving, and joy+glee.\n\nThe work was focused on performance creative and CRM, spanning omnichannel product launches, multivariate ad testing, retail calendar campaigns, and social content strategy. For Braun's Series 9 Pro launch, performance creative contributed to the product selling out in 24 hours.",
-    role: 'Performance Creative\nCRM Design\nPaid & Organic Social',
-    credits: 'Gillette, Braun, The Art of Shaving, joy+glee'
+    objectPosition: 'center top',
+    description: "Then I Met You is an award-winning skincare brand rooted in the Korean concept of Jeong, a deep emotional connection to people, places, and things.\n\nI led digital design across the brand, translating its tactile, sensory identity into email campaigns, social content, and web touchpoints.",
+    role: 'DIGITAL DESIGN\nEMAIL MARKETING\nSOCIAL CONTENT',
+    credits: ''
   },
   {
     id: 'the-alden',
