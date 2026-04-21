@@ -10,49 +10,54 @@ import CustomCursor from './components/CustomCursor';
 import { PROJECTS } from './constants';
 
 const App: React.FC = () => {
-  // Use hash as the source of truth for initial state
+  // Use pathname as the source of truth for initial state
   const [selectedProjectId, setSelectedProjectId] = useState<string | null>(() => {
-    const hash = window.location.hash.replace('#', '');
-    return PROJECTS.some(p => p.id === hash) ? hash : null;
+    const path = window.location.pathname.replace(/^\//, '');
+    return PROJECTS.some(p => p.id === path) ? path : null;
   });
   
   const [isAboutPage, setIsAboutPage] = useState(() => {
-    return window.location.hash === '#about';
+    return window.location.pathname === '/about';
   });
 
-  const [currentHash, setCurrentHash] = useState(() => window.location.hash);
+  const [currentPath, setCurrentPath] = useState(() => window.location.pathname);
 
-  // Sync state with hash when it changes
-  const syncStateWithHash = useCallback(() => {
-    const hash = window.location.hash.replace('#', '');
-    setCurrentHash(window.location.hash);
-    const isProject = PROJECTS.some(p => p.id === hash);
-    const isAbout = hash === 'about';
+  // Sync state with location when it changes
+  const syncStateWithLocation = useCallback((pathname: string) => {
+    const path = pathname.replace(/^\//, '');
+    const isProject = PROJECTS.some(p => p.id === path);
+    const isAbout = path === 'about';
     
     if (isProject) {
-      setSelectedProjectId(hash);
+      setSelectedProjectId(path);
       setIsAboutPage(false);
-      window.scrollTo(0, 0);
     } else if (isAbout) {
       setSelectedProjectId(null);
       setIsAboutPage(true);
-      window.scrollTo(0, 0);
     } else {
       setSelectedProjectId(null);
       setIsAboutPage(false);
-      if (hash === 'contact') {
-        // Scroll logic is handled by the useEffect below for better reliability
-      } else if (!hash) {
-        window.scrollTo(0, 0);
-      }
     }
-  }, [selectedProjectId, isAboutPage]);
+  }, []);
 
   useEffect(() => {
-    const hash = currentHash.replace('#', '');
-    if (hash === 'contact' && !selectedProjectId && !isAboutPage) {
-      // If the element is already in the DOM, we can scroll immediately.
-      // Otherwise, we wait for AnimatePresence exit animation (0.6s).
+    const handlePopState = () => {
+      const pathname = window.location.pathname;
+      setCurrentPath(pathname);
+      syncStateWithLocation(pathname);
+      // For clean navigation, we should scroll to top unless it's contact
+      if (pathname !== '/contact') {
+        window.scrollTo(0, 0);
+      }
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, [syncStateWithLocation]);
+
+  useEffect(() => {
+    const path = currentPath.replace(/^\//, '');
+    if (path === 'contact' && !selectedProjectId && !isAboutPage) {
       const element = document.getElementById('contact');
       const delay = element ? 0 : 800; 
       
@@ -64,35 +69,44 @@ const App: React.FC = () => {
       }, delay);
       return () => clearTimeout(timer);
     }
-  }, [selectedProjectId, isAboutPage, currentHash]);
+  }, [selectedProjectId, isAboutPage, currentPath]);
 
-  useEffect(() => {
-    window.addEventListener('hashchange', syncStateWithHash);
-    return () => window.removeEventListener('hashchange', syncStateWithHash);
-  }, [syncStateWithHash]);
+  const navigateTo = (path: string) => {
+    const newPath = path.startsWith('/') ? path : `/${path}`;
+    window.history.pushState({}, '', newPath);
+    setCurrentPath(newPath);
+    syncStateWithLocation(newPath);
+    if (newPath !== '/contact') {
+      window.scrollTo(0, 0);
+    }
+  };
 
   const scrollToSection = (id: string) => {
     if (id === 'contact') {
-      const element = document.getElementById('contact');
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+      if (window.location.pathname !== '/' && window.location.pathname !== '/contact') {
+        navigateTo('contact');
+      } else {
+        const element = document.getElementById('contact');
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+          window.history.pushState({}, '', '/contact');
+          setCurrentPath('/contact');
+        }
       }
       return;
     }
 
-    if (window.location.hash === `#${id}`) {
-      // If already on the section, manually trigger scroll
-      const element = document.getElementById(id);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-    } else {
-      window.location.hash = id;
+    if (id === 'about') {
+      navigateTo('about');
+      return;
     }
+
+    // Default behavior for other sections if any
+    navigateTo(id);
   };
 
   const handleBackToHome = () => {
-    window.location.hash = '';
+    navigateTo('/');
   };
 
   const activeProject = PROJECTS.find(p => p.id === selectedProjectId);
@@ -171,7 +185,7 @@ const App: React.FC = () => {
 
                 <Work 
                   onProjectSelect={(id) => {
-                    window.location.hash = id;
+                    navigateTo(id);
                   }} 
                 />
 
@@ -220,14 +234,14 @@ const App: React.FC = () => {
                   onNext={() => {
                     const idx = PROJECTS.findIndex(p => p.id === selectedProjectId);
                     const nextIdx = (idx + 1) % PROJECTS.length;
-                    window.location.hash = PROJECTS[nextIdx].id;
+                    navigateTo(PROJECTS[nextIdx].id);
                   }}
                 />
               </motion.div>
             )}
           </AnimatePresence>
         </main>
-
+        
         <Footer />
       </div>
     </div>
