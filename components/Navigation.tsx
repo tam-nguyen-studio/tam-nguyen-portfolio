@@ -58,7 +58,10 @@ const Navigation: React.FC<NavProps> = ({ isProjectView, isAboutPage, onBackHome
 
   const handleNavClick = (id: string) => {
     setIsMenuOpen(false);
-    onSectionClick(id);
+    // Small delay to ensure menu starts closing and overflow is reset before scroll
+    setTimeout(() => {
+      onSectionClick(id);
+    }, 100);
   };
   
   return (

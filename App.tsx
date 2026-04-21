@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import Lenis from 'lenis';
 import { motion, AnimatePresence, useReducedMotion } from 'motion/react';
 import Navigation from './components/Navigation';
 import Work from './components/Work';
@@ -83,16 +82,20 @@ const App: React.FC = () => {
 
   const scrollToSection = (id: string) => {
     if (id === 'contact') {
-      if (window.location.pathname !== '/' && window.location.pathname !== '/contact') {
-        navigateTo('contact');
-      } else {
-        const element = document.getElementById('contact');
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
+      const element = document.getElementById('contact');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+        // Only update URL to /contact if we are already on the home or contact path
+        // to avoid unmounting the current project/about view if the user just wants to scroll down.
+        if (window.location.pathname === '/' || window.location.pathname === '/contact') {
           window.history.pushState({}, '', '/contact');
           setCurrentPath('/contact');
         }
+        return;
       }
+      
+      // Fallback if for some reason the element is not found
+      navigateTo('contact');
       return;
     }
 

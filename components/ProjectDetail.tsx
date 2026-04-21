@@ -23,7 +23,6 @@ export const PROJECT_GALLERIES: Record<string, ProjectMedia[]> = {
     { type: 'image', url: '/images/keystone-10.jpg' },
     { type: 'image', url: '/images/keystone-11.jpg' },
     { type: 'image', url: '/images/keystone-12.jpg' },
-    { type: 'image', url: '/images/keystone-13.jpg' },
   ],
   'the-alden': [
     { type: 'image', url: '/images/the-alden-01.jpg' },
@@ -531,7 +530,11 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onNext, onBackHo
                 whileInView="visible"
                 viewport={{ once: true }}
                 onClick={onNext}
-                onMouseEnter={() => isDesktop && setHoveredNav({ url: nextProject.imageUrl, side: 'next' })}
+                onMouseEnter={() => {
+                  if (window.innerWidth >= 768 && isDesktop) {
+                    setHoveredNav({ url: nextProject.imageUrl, side: 'next' });
+                  }
+                }}
                 onMouseLeave={() => setHoveredNav(null)}
                 className="font-serif font-normal text-[20px] text-swiss-black hover:opacity-50 transition-opacity leading-[0.8] tracking-[-0.01em]"
               >
