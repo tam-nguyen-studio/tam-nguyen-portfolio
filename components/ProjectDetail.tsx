@@ -158,6 +158,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onNext, onBackHo
   }, [project.id]);
 
   const [isBackHovered, setIsBackHovered] = useState(false);
+  const [isNextHovered, setIsNextHovered] = useState(false);
 
   const currentIndex = PROJECTS.findIndex(p => p.id === project.id);
   const nextProject = PROJECTS[(currentIndex + 1) % PROJECTS.length];
@@ -531,14 +532,24 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onNext, onBackHo
                 viewport={{ once: true }}
                 onClick={onNext}
                 onMouseEnter={() => {
+                  setIsNextHovered(true);
                   if (window.innerWidth >= 768 && isDesktop) {
                     setHoveredNav({ url: nextProject.imageUrl, side: 'next' });
                   }
                 }}
-                onMouseLeave={() => setHoveredNav(null)}
-                className="font-serif font-normal text-[20px] text-swiss-black hover:opacity-50 transition-opacity leading-[0.8] tracking-[-0.01em]"
+                onMouseLeave={() => {
+                  setIsNextHovered(false);
+                  setHoveredNav(null);
+                }}
+                className="font-serif font-normal text-[20px] text-swiss-black leading-[0.8] tracking-[-0.01em] relative"
               >
                 Next Project
+                <motion.span 
+                  className="absolute bottom-[-2px] left-0 w-full h-[1px] bg-[#0f0f0f] origin-left"
+                  initial={{ scaleX: 0 }}
+                  animate={{ scaleX: isNextHovered ? 1 : 0 }}
+                  transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                />
               </motion.button>
             </div>
 

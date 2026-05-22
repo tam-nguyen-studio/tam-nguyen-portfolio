@@ -10,7 +10,7 @@ export const PROJECTS: Project[] = [
     imageUrl: '/images/keystone-hero.jpg',
     heroStyle: 'fullbleed',
     objectPosition: 'center center',
-    description: "Keystone is a strategy, economics, and technology consultancy partnering with global brands and law firms. As Keystone grew its AI and technology advisory practice, the brand needed to evolve with it.\n\nI joined as sole in-house designer to support a corporate rebrand, owning all visual output — spanning digital, marketing collateral, event materials, and internal communications, while building a sub-brand architecture across the company's practice groups and teams.",
+    description: "Keystone is a strategy, economics, and technology consultancy partnering with global brands and law firms. As Keystone grew its AI and technology advisory practice, the brand needed to evolve with it.\n\nI joined as sole in-house designer to support a corporate rebrand alongside agency partners, then took ownership of all visual output across the organization spanning website, marketing collateral, sales materials, event materials, and internal communications.",
     role: 'Art Direction\nDigital Design\nMarketing Collateral',
     credits: 'Branding Agency: Otherward\nWeb Agency: Refokus\nPhotography: Michael Simon'
   },
