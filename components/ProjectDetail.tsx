@@ -72,7 +72,17 @@ export const PROJECT_GALLERIES: Record<string, ProjectMedia[]> = {
     { type: 'image', url: '/images/then-i-met-you-07.gif' },
     { type: 'image', url: '/images/then-i-met-you-08.gif' },
   ],
-  'pg': []
+  'pg': [],
+  'bare-skin': [
+    { type: 'image', url: '/images/bare-skin-01.jpg' },
+    { type: 'image', url: '/images/bare-skin-02.jpg' },
+    { type: 'image', url: '/images/bare-skin-03.jpg' },
+    { type: 'image', url: '/images/bare-skin-04.jpg' },
+    { type: 'image', url: '/images/bare-skin-05.jpg' },
+    { type: 'image', url: '/images/bare-skin-06.jpg' },
+    { type: 'image', url: '/images/bare-skin-07.jpg' },
+    { type: 'image', url: '/images/bare-skin-08.jpg' },
+  ]
 };
 
 const SOKO_SECTIONS_DATA = [
@@ -175,7 +185,11 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onNext, onBackHo
   const heroUrl = fullGallery.length > 0 ? fullGallery[0].url : project.imageUrl;
   const gallery = fullGallery.length > 0 ? fullGallery.slice(1) : [];
 
-  const creditsLabel = project.id === 'the-alden' ? 'STUDIO' : (isPgProject ? 'CLIENT LIST' : 'Credits');
+  const creditsLabel = project.id === 'the-alden' 
+    ? 'STUDIO' 
+    : project.id === 'bare-skin' 
+      ? 'TOOLS' 
+      : (isPgProject ? 'CLIENT LIST' : 'Credits');
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -220,35 +234,38 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onNext, onBackHo
     })
   };
 
-  const renderMedia = (media: ProjectMedia, index: number, isSquare: boolean = false, staggerIndex: number = 0) => (
-    <motion.div 
-      key={index} 
-      custom={staggerIndex}
-      variants={imageAnimationVariants}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: '-60px' }}
-      className={`w-full overflow-hidden bg-neutral-100 ${isSquare ? 'aspect-square' : 'aspect-video'}`}
-    >
-      {media.type === 'video' ? (
-        <video 
-          src={media.url} 
-          autoPlay 
-          loop 
-          muted 
-          playsInline 
-          className="w-full h-full object-cover"
-        />
-      ) : (
-        <img 
-          src={media.url} 
-          className="w-full h-full object-cover" 
-          alt={`${project.name} asset ${index + 1}`} 
-          referrerPolicy="no-referrer"
-        />
-      )}
-    </motion.div>
-  );
+  const renderMedia = (media: ProjectMedia, index: number, isSquare: boolean = false, staggerIndex: number = 0) => {
+    const isBareSkin07 = media.url.includes('bare-skin-07.jpg');
+    return (
+      <motion.div 
+        key={index} 
+        custom={staggerIndex}
+        variants={imageAnimationVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: '-60px' }}
+        className={`w-full overflow-hidden bg-neutral-100 ${isBareSkin07 ? 'h-auto' : isSquare ? 'aspect-square' : 'aspect-video'}`}
+      >
+        {media.type === 'video' ? (
+          <video 
+            src={media.url} 
+            autoPlay 
+            loop 
+            muted 
+            playsInline 
+            className="w-full h-full object-cover"
+          />
+        ) : (
+          <img 
+            src={media.url} 
+            className={isBareSkin07 ? "w-full h-auto block" : "w-full h-full object-cover"} 
+            alt={`${project.name} asset ${index + 1}`} 
+            referrerPolicy="no-referrer"
+          />
+        )}
+      </motion.div>
+    );
+  };
 
   const renderGallery = () => {
     if (isPgProject) {

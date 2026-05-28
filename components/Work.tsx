@@ -17,7 +17,7 @@ const ProjectCard: React.FC<{
   textVariants: any;
 }> = ({ project, index, onProjectSelect, shouldReduceMotion, cardVariants, imageVariants, textVariants }) => {
   const gallery = PROJECT_GALLERIES[project.id] || [];
-  let images = [project.imageUrl, ...gallery.filter(m => m.type === 'image').map(m => m.url)];
+  let images = Array.from(new Set([project.imageUrl, ...gallery.filter(m => m.type === 'image').map(m => m.url)]));
 
   // Filter out skipped images as per user requirements for the homepage hover effect
   if (project.id === 'keystone') {
@@ -30,6 +30,8 @@ const ProjectCard: React.FC<{
     images = images.filter(url => !url.includes('then-i-met-you-02.jpg'));
   } else if (project.id === 'the-alden') {
     images = images.filter(url => !url.includes('the-alden-01.jpg') && !url.includes('the-alden-04.jpg') && !url.includes('the-alden-05.jpg'));
+  } else if (project.id === 'bare-skin') {
+    images = images.filter(url => !url.includes('bare-skin-04.jpg') && !url.includes('bare-skin-07.jpg'));
   }
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
@@ -52,7 +54,7 @@ const ProjectCard: React.FC<{
     };
   }, [isHovered, images.length]);
 
-  const isDarkProject = project.id === 'keystone' || project.id === 'the-alden';
+  const isDarkProject = project.id === 'keystone' || project.id === 'the-alden' || project.id === 'bare-skin';
 
   return (
     <motion.div 
@@ -115,7 +117,7 @@ const Work: React.FC<WorkProps> = ({ onProjectSelect }) => {
         const galleryImages = gallery
           .filter(item => item.type === 'image')
           .map(item => item.url);
-        let projectImages = [project.imageUrl, ...galleryImages];
+        let projectImages = Array.from(new Set([project.imageUrl, ...galleryImages]));
 
         // Apply same filters for preloading to avoid loading skipped files
         if (project.id === 'keystone') {
@@ -128,6 +130,8 @@ const Work: React.FC<WorkProps> = ({ onProjectSelect }) => {
           projectImages = projectImages.filter(url => !url.includes('then-i-met-you-02.jpg'));
         } else if (project.id === 'the-alden') {
           projectImages = projectImages.filter(url => !url.includes('the-alden-01.jpg') && !url.includes('the-alden-04.jpg') && !url.includes('the-alden-05.jpg'));
+        } else if (project.id === 'bare-skin') {
+          projectImages = projectImages.filter(url => !url.includes('bare-skin-04.jpg') && !url.includes('bare-skin-07.jpg'));
         }
 
         return projectImages;

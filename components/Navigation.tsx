@@ -69,7 +69,7 @@ const Navigation: React.FC<NavProps> = ({ isProjectView, isAboutPage, onBackHome
       {/* Static placeholder to prevent layout jump */}
       <div 
         className={`w-full ${
-          initialSmall ? 'h-[73px] md:h-[73px]' : 'h-[112px] md:h-[115px] lg:h-[140px]'
+          initialSmall ? 'h-[84px] md:h-[73px]' : 'h-[124px] md:h-[115px] lg:h-[140px]'
         }`} 
       />
       
@@ -87,7 +87,9 @@ const Navigation: React.FC<NavProps> = ({ isProjectView, isAboutPage, onBackHome
       >
         <div className="w-full max-w-[1440px] mx-auto">
           <div className={`w-full px-[20px] pt-[20px] transition-all duration-700 ease-in-out ${
-            showSmallLogo ? 'pb-[25px]' : 'pb-[60px] md:pb-[35px] lg:pb-[60px]'
+            showSmallLogo 
+              ? 'pb-[20px] md:pb-[25px]' 
+              : 'pb-[60px] md:pb-[35px] lg:pb-[60px]'
           }`}>
             {/* Desktop Navigation */}
             <div className="hidden md:grid grid-cols-3 items-center">
