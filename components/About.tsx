@@ -76,7 +76,7 @@ const About: React.FC<AboutProps> = () => {
 
           {/* Contact Section - Integrated as per image */}
           <div id="contact" className="mt-[40px] md:mt-[100px] flex flex-col items-center">
-            <h2 className="font-serif font-normal text-[clamp(32px,4.5vw,60px)] text-swiss-black leading-[0.8] tracking-[-0.01em] text-center flex flex-col items-center">
+            <h2 className="font-serif font-normal text-[clamp(32px,4.5vw,60px)] text-swiss-black leading-[0.9] tracking-[-0.01em] text-center flex flex-col items-center">
               <motion.span
                 initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
