@@ -22,7 +22,7 @@ const About: React.FC<AboutProps> = () => {
   };
 
   return (
-    <section id="about" className="w-full md:min-h-screen bg-transparent text-swiss-black pb-[12px] md:pb-[60px] flex flex-col items-center">
+    <section id="about" className="w-full md:min-h-screen bg-transparent text-swiss-black pb-[40px] md:pb-[60px] flex flex-col items-center">
       <div className="w-full px-[20px] pt-[60px] md:pt-[100px] flex flex-col items-center">
         <div className="max-w-[90%] md:max-w-[780px] lg:max-w-[1000px] text-center flex flex-col items-center">
           {/* Bio Section */}
@@ -80,7 +80,7 @@ const About: React.FC<AboutProps> = () => {
               <motion.span
                 initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false, margin: '-60px' }}
+                viewport={{ once: true, margin: '-10px' }}
                 transition={{ duration: shouldReduceMotion ? 0.4 : 1.1, ease: [0.16, 1, 0.3, 1] }}
                 className="block"
               >
@@ -91,7 +91,7 @@ const About: React.FC<AboutProps> = () => {
                 initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 whileHover={{ opacity: 0.5 }}
-                viewport={{ once: false, margin: '-60px' }}
+                viewport={{ once: true, margin: '-10px' }}
                 transition={{ duration: shouldReduceMotion ? 0.4 : 1.1, delay: shouldReduceMotion ? 0 : 0.15, ease: [0.16, 1, 0.3, 1] }}
                 className="block w-fit text-center"
               >

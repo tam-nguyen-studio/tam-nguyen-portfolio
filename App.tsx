@@ -201,13 +201,13 @@ const App: React.FC = () => {
 
                 {/* Contact Section */}
                 <div className="w-full px-[20px] mt-[20px] md:mt-[40px]">
-                  <section id="contact" className="w-full pt-[20px] md:pt-[40px] pb-[32px] md:pb-[60px]">
+                  <section id="contact" className="w-full pt-[20px] md:pt-[40px] pb-[40px] md:pb-[60px]">
                     <div className="flex flex-col">
                       <h2 className="font-serif font-normal text-[clamp(32px,4.5vw,60px)] text-swiss-black leading-[0.8] tracking-[-0.01em]">
                         <motion.span
                           initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 40 }}
                           whileInView={{ opacity: 1, y: 0 }}
-                          viewport={{ once: false, margin: '-60px' }}
+                          viewport={{ once: true, margin: '-10px' }}
                           transition={{ duration: shouldReduceMotion ? 0.4 : 1.1, ease: [0.16, 1, 0.3, 1] }}
                           className="block"
                         >
@@ -218,7 +218,7 @@ const App: React.FC = () => {
                           initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 40 }}
                           whileInView={{ opacity: 1, y: 0 }}
                           whileHover={{ opacity: 0.5 }}
-                          viewport={{ once: false, margin: '-60px' }}
+                          viewport={{ once: true, margin: '-10px' }}
                           transition={{ duration: shouldReduceMotion ? 0.4 : 1.1, delay: shouldReduceMotion ? 0 : 0.15, ease: [0.16, 1, 0.3, 1] }}
                           className="block w-fit"
                         >
