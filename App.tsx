@@ -198,7 +198,7 @@ const App: React.FC = () => {
                 />
 
                 {/* Contact Section */}
-                <div id="contact" className="w-full px-[20px] mt-[60px] md:mt-[100px] mb-[40px] md:mb-[65px]">
+                <div id="contact" className="w-full px-[20px] mt-[60px] md:mt-[60px] mb-[30px] md:mb-[40px]">
                   <section className="w-full border-t border-swiss-border/60 pt-[40px] md:pt-[60px]">
                     <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-4 items-start">
                       {/* Left Side: Big Call to Action */}
