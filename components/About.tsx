@@ -25,35 +25,24 @@ const About: React.FC<AboutProps> = () => {
     <section id="about" className="w-full md:min-h-screen bg-transparent text-swiss-black pb-[40px] md:pb-[60px] flex flex-col items-center">
       <div className="w-full px-[20px] pt-[60px] md:pt-[100px] flex flex-col items-center">
         <div className="max-w-[90%] md:max-w-[780px] lg:max-w-[1000px] text-center flex flex-col items-center">
-          {/* Bio Section */}
-          <div className="mb-20 md:mb-32 flex flex-col items-center">
-            <motion.h1 
-              custom={0}
-              variants={textVariants}
-              initial="hidden"
-              animate="visible"
-              className="font-serif font-normal text-[clamp(32px,4.5vw,60px)] leading-[1.0] tracking-[-0.01em] mb-12 md:mb-20"
-            >
-              <span className="block">Multidisciplinary designer helping brands show up with intention across every touchpoint.</span>
-            </motion.h1>
+            {/* Bio Section */}
+            <div className="mb-20 md:mb-32 flex flex-col items-center">
+              <motion.h1 
+                custom={0}
+                variants={textVariants}
+                initial="hidden"
+                animate="visible"
+                className="font-serif font-normal text-[clamp(32px,4.2vw,54px)] leading-[1.15] tracking-[-0.01em] mb-16 md:mb-24"
+              >
+                I'm a brand and marketing designer based in Brooklyn with 8 years of experience across beauty, tech, and CPG. I make sure brands show up with their best face forward.
+              </motion.h1>
 
-            <motion.h2 
-              custom={1}
-              variants={textVariants}
-              initial="hidden"
-              animate="visible"
-              className="font-serif font-normal text-[clamp(32px,4.5vw,60px)] leading-[1.0] tracking-[-0.01em] mb-12 md:mb-20"
-            >
-              <span className="block">8+ years of brand and marketing experience across beauty, CPG, and tech.</span>
-              <span className="block mt-12 md:mt-20">Based in Brooklyn.</span>
-            </motion.h2>
-
-            <motion.div 
+              <motion.div 
               custom={2}
               variants={textVariants}
               initial="hidden"
               animate="visible"
-              className="flex items-center justify-center gap-8 md:gap-12 font-serif font-normal text-[clamp(32px,4.5vw,60px)] leading-[1.0] tracking-[-0.01em]"
+              className="flex items-center justify-center gap-8 md:gap-12 font-serif font-normal text-[clamp(32px,4.2vw,54px)] leading-[1.0] tracking-[-0.01em]"
             >
               <a 
                 href={RESUME_URL} 
@@ -73,10 +62,10 @@ const About: React.FC<AboutProps> = () => {
               </a>
             </motion.div>
           </div>
-
+ 
           {/* Contact Section - Integrated as per image */}
           <div id="contact" className="mt-[40px] md:mt-[100px] flex flex-col items-center">
-            <h2 className="font-serif font-normal text-[clamp(32px,4.5vw,60px)] text-swiss-black leading-[0.9] tracking-[-0.01em] text-center flex flex-col items-center">
+            <h2 className="font-serif font-normal text-[clamp(32px,4.2vw,54px)] text-swiss-black leading-[0.93] tracking-[-0.01em] text-center flex flex-col items-center">
               <motion.span
                 initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 40 }}
                 whileInView={{ opacity: 1, y: 0 }}

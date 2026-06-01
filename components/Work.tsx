@@ -55,6 +55,18 @@ const ProjectCard: React.FC<{
   }, [isHovered, images.length]);
 
   const isDarkProject = project.id === 'keystone' || project.id === 'the-alden' || project.id === 'bare-skin';
+  
+  // Dynamic tailored aspect ratio for curated editorial rhythm
+  const getAspectRatio = (idx: number) => {
+    switch (idx % 3) {
+      case 0: return 'aspect-[1.48/1]';
+      case 1: return 'aspect-[1.34/1]';
+      case 2:
+      default: return 'aspect-[1.42/1]';
+    }
+  };
+
+  const offsetClass = index % 2 === 1 ? 'md:mt-[100px] lg:mt-[160px]' : '';
 
   return (
     <motion.div 
@@ -67,9 +79,9 @@ const ProjectCard: React.FC<{
       viewport={{ once: true, margin: '-60px' }}
       variants={cardVariants}
       custom={index}
-      className="flex flex-col cursor-pointer project-card"
+      className={`flex flex-col cursor-pointer project-card group ${offsetClass}`}
     >
-      <div className={`relative aspect-[1.5/1] overflow-hidden ${isDarkProject ? 'bg-zinc-950' : 'bg-gray-100'} transition-colors duration-500`}>
+      <div className={`relative ${getAspectRatio(index)} overflow-hidden ${isDarkProject ? 'bg-zinc-950' : 'bg-gray-100'} transition-colors duration-500`}>
         <AnimatePresence initial={false}>
           <motion.img 
             key={images[currentIndex]}
@@ -88,16 +100,31 @@ const ProjectCard: React.FC<{
           />
         </AnimatePresence>
       </div>
-      <div className="flex justify-between items-baseline pt-[4px] pb-[12px]">
-        <motion.h3 
-          variants={textVariants}
-          className="font-sans font-normal text-[12px] uppercase tracking-normal text-swiss-black"
-        >
-          {project.name}
-        </motion.h3>
+      <div className="w-full border-t border-swiss-border/40 mt-4 pt-3.5 pb-8 flex justify-between items-baseline font-sans">
+        <div className="flex items-start gap-2 md:gap-3.5 flex-grow sm:flex-grow-0">
+          <span className="text-[10px] sm:text-[11px] font-normal text-swiss-black/45 tracking-[0.12em] select-none leading-none w-[36px] sm:w-auto shrink-0 pt-[2px] sm:pt-0">
+            [ 0{index + 1} ]
+          </span>
+          <div className="flex flex-col gap-1.5 sm:gap-0">
+            <motion.h3 
+              variants={textVariants}
+              className="text-[13px] sm:text-[14px] font-medium uppercase tracking-[0.03em] text-swiss-black group-hover:translate-x-1 transition-transform duration-300 leading-none"
+            >
+              {project.name}
+            </motion.h3>
+            {/* Mobile Category Label: aligned perfectly under project name */}
+            <motion.p 
+              variants={textVariants}
+              className="block sm:hidden text-[11px] font-normal uppercase tracking-[0.05em] text-[#666] leading-none"
+            >
+              {project.category}
+            </motion.p>
+          </div>
+        </div>
+        {/* Desktop Category Label: aligned to the right edge */}
         <motion.p 
           variants={textVariants}
-          className="font-sans font-light text-[12px] uppercase tracking-normal text-swiss-black"
+          className="hidden sm:block text-[11px] sm:text-[12px] font-normal uppercase tracking-[0.05em] text-[#666] text-right leading-none"
         >
           {project.category}
         </motion.p>
@@ -189,9 +216,9 @@ const Work: React.FC<WorkProps> = ({ onProjectSelect }) => {
   };
 
   return (
-    <section id="work" className="w-full px-[20px]">
+    <section id="work" className="w-full px-[20px] pb-[100px] md:pb-[140px]">
       <div className="w-full">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-[20px]">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-[20px] md:gap-x-[40px] gap-y-[20px] md:gap-y-[40px] items-start">
           {PROJECTS.map((project, index) => (
             <ProjectCard 
               key={project.id}
