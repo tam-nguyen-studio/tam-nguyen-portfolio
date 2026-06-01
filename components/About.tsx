@@ -22,17 +22,17 @@ const About: React.FC<AboutProps> = () => {
   };
 
   return (
-    <section id="about" className="w-full min-h-[calc(100vh-150px)] md:min-h-[calc(100vh-170px)] bg-transparent text-swiss-black py-[40px] md:py-[60px] flex flex-col justify-center items-center">
+    <section id="about" className="w-full min-h-0 md:min-h-[calc(100vh-170px)] bg-transparent text-swiss-black pt-[30px] pb-[16px] md:py-[60px] flex flex-col justify-start md:justify-center items-center">
       <div className="w-full px-[20px] flex flex-col items-center">
         <div className="max-w-[90%] md:max-w-[780px] lg:max-w-[1000px] text-center flex flex-col items-center">
             {/* Bio Section */}
-            <div className="mb-20 md:mb-32 flex flex-col items-center">
+            <div className="mb-14 md:mb-32 flex flex-col items-center">
               <motion.h1 
                 custom={0}
                 variants={textVariants}
                 initial="hidden"
                 animate="visible"
-                className="font-serif font-normal text-[clamp(32px,4.2vw,54px)] leading-[1.15] tracking-[-0.01em] mb-16 md:mb-24"
+                className="font-serif font-normal text-[clamp(32px,4.2vw,54px)] leading-[1.15] tracking-[-0.01em] mb-12 md:mb-24"
               >
                 I'm a brand and marketing designer based in Brooklyn with 8 years of experience across beauty, tech, and CPG. I make sure brands show up with their best face forward.
               </motion.h1>
@@ -64,7 +64,7 @@ const About: React.FC<AboutProps> = () => {
           </div>
  
           {/* Contact Section - Integrated as per image */}
-          <div id="contact" className="mt-[40px] md:mt-[60px] flex flex-col items-center">
+          <div id="contact" className="mt-[24px] md:mt-[60px] flex flex-col items-center mb-[20px] md:mb-0">
             <h2 className="font-serif font-normal text-[clamp(32px,4.2vw,54px)] text-swiss-black leading-[0.93] tracking-[-0.01em] text-center flex flex-col items-center">
               <motion.span
                 initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 40 }}
