@@ -601,7 +601,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onNext, onBackHo
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-4 items-start">
               {/* Left Side: Big Call to Action */}
               <div className="col-span-1 md:col-span-8">
-                <h2 className="font-serif font-normal text-[clamp(36px,5vw,72px)] text-swiss-black leading-[1.0] tracking-[-0.015em]">
+                <h2 className="font-serif font-normal text-[clamp(36px,5vw,72px)] text-swiss-black leading-[0.92] tracking-[-0.015em]">
                   <motion.span
                     initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
