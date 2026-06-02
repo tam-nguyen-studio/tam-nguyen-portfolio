@@ -100,8 +100,8 @@ const ProjectCard: React.FC<{
           />
         </AnimatePresence>
       </div>
-      <div className="w-full border-t border-swiss-border/40 mt-4 pt-3.5 pb-8 flex justify-between items-baseline font-sans">
-        <div className="flex items-start gap-2 md:gap-3.5 flex-grow sm:flex-grow-0">
+      <div className="w-full border-t border-swiss-border/40 mt-4 pt-3.5 pb-8 flex justify-between items-start sm:items-center font-sans">
+        <div className="flex items-start sm:items-center gap-2 md:gap-3.5 flex-grow sm:flex-grow-0">
           <span className="text-[10px] sm:text-[11px] font-normal text-swiss-black/45 tracking-[0.12em] select-none leading-none w-[36px] sm:w-auto shrink-0 pt-[2px] sm:pt-0">
             [ 0{index + 1} ]
           </span>
