@@ -22,9 +22,9 @@ const About: React.FC<AboutProps> = () => {
   };
 
   return (
-    <section id="about" className="w-full min-h-0 md:min-h-[calc(100vh-140px)] lg:min-h-[calc(100vh-170px)] bg-transparent text-swiss-black pt-[30px] pb-[16px] md:py-[45px] lg:py-[60px] flex flex-col justify-start md:justify-center items-center">
-      <div className="w-full px-[20px] flex flex-col items-center">
-        <div className="max-w-[90%] md:max-w-[780px] lg:max-w-[1000px] text-center flex flex-col items-center">
+    <section id="about" className="w-full min-h-[calc(100dvh-130px)] md:min-h-[calc(100vh-140px)] lg:min-h-[calc(100vh-170px)] bg-transparent text-swiss-black py-[40px] md:py-[45px] lg:py-[60px] flex flex-col justify-center items-center">
+      <div className="w-full px-[20px] flex flex-col items-center justify-center">
+        <div className="max-w-[90%] md:max-w-[780px] lg:max-w-[1000px] text-center flex flex-col items-center justify-center">
             {/* Bio Section */}
             <div className="mb-14 md:mb-16 lg:mb-32 flex flex-col items-center">
               <motion.h1 
@@ -65,7 +65,7 @@ const About: React.FC<AboutProps> = () => {
  
           {/* Contact Section - Integrated as per image */}
           <div id="contact" className="mt-[24px] md:mt-[30px] lg:mt-[60px] flex flex-col items-center mb-[20px] lg:mb-0">
-            <h2 className="font-serif font-normal text-[clamp(32px,4.2vw,54px)] text-swiss-black leading-[0.8] tracking-[-0.01em] text-center flex flex-col items-center">
+            <h2 className="font-serif font-normal text-[clamp(32px,4.2vw,54px)] text-swiss-black leading-[1.0] tracking-[-0.01em] text-center flex flex-col items-center">
               <motion.span
                 initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -82,7 +82,7 @@ const About: React.FC<AboutProps> = () => {
                 whileHover={{ opacity: 0.5 }}
                 viewport={{ once: true, margin: '-10px' }}
                 transition={{ duration: shouldReduceMotion ? 0.4 : 1.1, delay: shouldReduceMotion ? 0 : 0.15, ease: [0.16, 1, 0.3, 1] }}
-                className="block w-fit text-center"
+                className="block w-fit text-center hover:opacity-50 transition-opacity cursor-pointer"
               >
                 tam@tamnguyen.studio
               </motion.a>

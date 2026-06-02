@@ -203,7 +203,7 @@ const App: React.FC = () => {
                     <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-4 items-start">
                       {/* Left Side: Big Call to Action */}
                       <div className="col-span-1 md:col-span-8">
-                        <h2 className="font-serif font-normal text-[clamp(36px,5vw,72px)] text-swiss-black leading-[0.8] tracking-[-0.015em]">
+                        <h2 className="font-serif font-normal text-[clamp(36px,5vw,72px)] text-swiss-black leading-[1.0] tracking-[-0.015em]">
                           <motion.span
                             initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 40 }}
                             whileInView={{ opacity: 1, y: 0 }}
@@ -220,7 +220,7 @@ const App: React.FC = () => {
                             whileHover={{ opacity: 0.5 }}
                             viewport={{ once: true, margin: '-10px' }}
                             transition={{ duration: shouldReduceMotion ? 0.4 : 1.1, delay: shouldReduceMotion ? 0 : 0.15, ease: [0.16, 1, 0.3, 1] }}
-                            className="block w-fit text-left hover:opacity-50 transition-all cursor-pointer"
+                            className="block w-fit text-left hover:opacity-50 transition-opacity cursor-pointer"
                           >
                             tam@tamnguyen.studio
                           </motion.a>

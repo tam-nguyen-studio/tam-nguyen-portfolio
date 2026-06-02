@@ -596,31 +596,61 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onNext, onBackHo
         </div>
 
         {/* Contact Section */}
-        <div className="w-full px-[20px] mt-[10px] md:mt-[20px]">
-          <section id="contact" className="w-full pt-[10px] md:pt-[20px] pb-[40px] md:pb-[60px]">
-            <div className="flex flex-col">
-              <h2 className="font-serif font-normal text-[clamp(32px,4.5vw,60px)] text-swiss-black leading-[0.8] tracking-[-0.01em]">
-                <motion.span
-                  initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: '-10px' }}
-                  transition={{ duration: shouldReduceMotion ? 0.4 : 1.1, ease: [0.16, 1, 0.3, 1] }}
-                  className="block"
-                >
-                  Get in touch at
-                </motion.span>
-                <motion.a
-                  href="mailto:tam@tamnguyen.studio"
-                  initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  whileHover={{ opacity: 0.5 }}
-                  viewport={{ once: true, margin: '-10px' }}
-                  transition={{ duration: shouldReduceMotion ? 0.4 : 1.1, delay: shouldReduceMotion ? 0 : 0.15, ease: [0.16, 1, 0.3, 1] }}
-                  className="block w-fit"
-                >
-                  tam@tamnguyen.studio
-                </motion.a>
-              </h2>
+        <div id="contact" className="w-full px-[20px] mt-[60px] md:mt-[60px] mb-[30px] md:mb-[40px]">
+          <section className="w-full border-t border-swiss-border/60 pt-[40px] md:pt-[60px]">
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-4 items-start">
+              {/* Left Side: Big Call to Action */}
+              <div className="col-span-1 md:col-span-8">
+                <h2 className="font-serif font-normal text-[clamp(36px,5vw,72px)] text-swiss-black leading-[1.0] tracking-[-0.015em]">
+                  <motion.span
+                    initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: '-10px' }}
+                    transition={{ duration: shouldReduceMotion ? 0.4 : 1.1, ease: [0.16, 1, 0.3, 1] }}
+                    className="block"
+                  >
+                    Get in touch at
+                  </motion.span>
+                  <motion.a
+                    href="mailto:tam@tamnguyen.studio"
+                    initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    whileHover={{ opacity: 0.5 }}
+                    viewport={{ once: true, margin: '-10px' }}
+                    transition={{ duration: shouldReduceMotion ? 0.4 : 1.1, delay: shouldReduceMotion ? 0 : 0.15, ease: [0.16, 1, 0.3, 1] }}
+                    className="block w-fit text-left hover:opacity-50 transition-opacity cursor-pointer"
+                  >
+                    tam@tamnguyen.studio
+                  </motion.a>
+                </h2>
+              </div>
+              
+              {/* Right Side: Meta / Socials column */}
+              <div className="col-span-1 md:col-span-4 flex flex-col gap-6 md:gap-8 pt-2 md:pl-8 md:border-l border-swiss-border/30">
+                <div className="flex flex-col gap-2.5">
+                  <span className="font-sans text-[11px] font-medium tracking-[0.12em] text-[#777] uppercase">
+                    [ Connect ]
+                  </span>
+                  <div className="flex flex-col gap-1.5 text-[14px]">
+                    <a 
+                      href="https://www.linkedin.com/in/tamnguyenstudio/" 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="font-serif text-swiss-black hover:opacity-50 transition-opacity underline underline-offset-4 decoration-1 decoration-[#999] hover:decoration-swiss-black w-fit cursor-pointer"
+                    >
+                      LinkedIn
+                    </a>
+                    <a 
+                      href="/images/tam-nguyen-resume.pdf" 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="font-serif text-swiss-black hover:opacity-50 transition-opacity underline underline-offset-4 decoration-1 decoration-[#999] hover:decoration-swiss-black w-fit cursor-pointer"
+                    >
+                      Resume
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
           </section>
         </div>
