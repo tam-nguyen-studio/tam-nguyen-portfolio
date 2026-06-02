@@ -115,7 +115,7 @@ const ProjectCard: React.FC<{
             {/* Mobile Category Label: aligned perfectly under project name */}
             <motion.p 
               variants={textVariants}
-              className="block sm:hidden text-[11px] font-normal uppercase tracking-[0.05em] text-[#666] leading-none"
+              className="block sm:hidden text-[11px] font-normal uppercase tracking-[0.12em] text-[#666] leading-none"
             >
               {project.category}
             </motion.p>
@@ -124,7 +124,7 @@ const ProjectCard: React.FC<{
         {/* Desktop Category Label: aligned to the right edge */}
         <motion.p 
           variants={textVariants}
-          className="hidden sm:block text-[11px] sm:text-[12px] font-normal uppercase tracking-[0.05em] text-[#666] text-right leading-none"
+          className="hidden sm:block text-[11px] sm:text-[12px] font-normal uppercase tracking-[0.12em] text-[#666] text-right leading-none"
         >
           {project.category}
         </motion.p>

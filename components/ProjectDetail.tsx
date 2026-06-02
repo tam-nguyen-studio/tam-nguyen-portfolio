@@ -374,7 +374,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onNext, onBackHo
                               href={(section as any).linkUrl} 
                               target="_blank" 
                               rel="noopener noreferrer"
-                              className="text-black underline underline-offset-4 hover:opacity-60 transition-opacity font-sans font-normal text-[14px] uppercase tracking-normal"
+                              className="text-black underline underline-offset-4 hover:opacity-60 transition-opacity font-sans font-normal text-[11px] uppercase tracking-[0.12em]"
                             >
                               {(section as any).linkText || "View Link"}
                             </a>
@@ -391,8 +391,8 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onNext, onBackHo
                         viewport={{ once: true }}
                         className="col-span-1 md:col-span-4 flex flex-col"
                       >
-                         <span className="font-sans font-normal text-[10px] uppercase tracking-normal opacity-40 mb-3">CREDITS</span>
-                         <span className="font-sans font-normal text-[10px] uppercase tracking-normal leading-relaxed whitespace-pre-line opacity-80">
+                         <span className="font-sans font-normal text-[10px] uppercase tracking-[0.12em] opacity-40 mb-3">CREDITS</span>
+                         <span className="font-sans font-normal text-[10px] uppercase tracking-[0.12em] leading-relaxed whitespace-pre-line opacity-80">
                            {section.credits}
                          </span>
                       </motion.div>
@@ -463,8 +463,8 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onNext, onBackHo
                 viewport={{ once: true }}
                 className="hidden md:flex flex-col"
               >
-                <span className="font-sans font-normal text-[10px] uppercase tracking-normal opacity-40 mb-2">{creditsLabel}</span>
-                <span className="font-sans font-normal text-[10px] uppercase tracking-normal leading-relaxed whitespace-pre-line opacity-60">
+                <span className="font-sans font-normal text-[10px] uppercase tracking-[0.12em] opacity-40 mb-2">{creditsLabel}</span>
+                <span className="font-sans font-normal text-[10px] uppercase tracking-[0.12em] leading-relaxed whitespace-pre-line opacity-60">
                   {project.credits}
                 </span>
               </motion.div>
@@ -494,8 +494,8 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onNext, onBackHo
                 viewport={{ once: true }}
                 className="flex md:hidden flex-col mb-12"
               >
-                <span className="font-sans font-normal text-[10px] uppercase tracking-normal opacity-40 mb-2">{creditsLabel}</span>
-                <span className="font-sans font-normal text-[10px] uppercase tracking-normal leading-relaxed whitespace-pre-line opacity-60">
+                <span className="font-sans font-normal text-[10px] uppercase tracking-[0.12em] opacity-40 mb-2">{creditsLabel}</span>
+                <span className="font-sans font-normal text-[10px] uppercase tracking-[0.12em] leading-relaxed whitespace-pre-line opacity-60">
                   {project.credits}
                 </span>
               </motion.div>
@@ -508,7 +508,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onNext, onBackHo
               viewport={{ once: true }}
               className="border-t border-black/10 pt-4"
             >
-              <div className="font-sans font-normal text-[10px] uppercase tracking-normal text-black/40 flex flex-col md:flex-row md:gap-x-8 gap-y-1">
+              <div className="font-sans font-normal text-[10px] uppercase tracking-[0.12em] text-black/40 flex flex-col md:flex-row md:gap-x-8 gap-y-1">
                 {project.role.split('\n').map((role, i) => (
                   <span key={i}>{role}</span>
                 ))}
@@ -532,11 +532,11 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onNext, onBackHo
                 onClick={onBackHome}
                 onMouseEnter={() => setIsBackHovered(true)}
                 onMouseLeave={() => setIsBackHovered(false)}
-                className="font-serif font-normal text-[20px] text-swiss-black leading-[0.8] tracking-[-0.01em] relative"
+                className="font-serif text-[14px] md:text-[16px] lg:text-[17px] tracking-[0.08em] uppercase text-swiss-black leading-none relative cursor-pointer"
               >
-                Back to Work
+                BACK TO WORK
                 <motion.span 
-                  className="absolute bottom-[-2px] left-0 w-full h-[1px] bg-[#0f0f0f] origin-left"
+                  className="absolute bottom-[-4px] left-0 w-full h-[1px] bg-[#0f0f0f] origin-left"
                   initial={{ scaleX: 0 }}
                   animate={{ scaleX: isBackHovered ? 1 : 0 }}
                   transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
@@ -558,11 +558,11 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onNext, onBackHo
                   setIsNextHovered(false);
                   setHoveredNav(null);
                 }}
-                className="font-serif font-normal text-[20px] text-swiss-black leading-[0.8] tracking-[-0.01em] relative"
+                className="font-serif text-[14px] md:text-[16px] lg:text-[17px] tracking-[0.08em] uppercase text-swiss-black leading-none relative cursor-pointer"
               >
-                Next Project
+                NEXT PROJECT
                 <motion.span 
-                  className="absolute bottom-[-2px] left-0 w-full h-[1px] bg-[#0f0f0f] origin-left"
+                  className="absolute bottom-[-4px] left-0 w-full h-[1px] bg-[#0f0f0f] origin-left"
                   initial={{ scaleX: 0 }}
                   animate={{ scaleX: isNextHovered ? 1 : 0 }}
                   transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}

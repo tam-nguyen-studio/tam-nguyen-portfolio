@@ -203,7 +203,7 @@ const App: React.FC = () => {
                     <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-4 items-start">
                       {/* Left Side: Big Call to Action */}
                       <div className="col-span-1 md:col-span-8">
-                        <h2 className="font-serif font-normal text-[clamp(36px,5vw,72px)] text-swiss-black leading-[0.93] tracking-[-0.015em]">
+                        <h2 className="font-serif font-normal text-[clamp(36px,5vw,72px)] text-swiss-black leading-[0.8] tracking-[-0.015em]">
                           <motion.span
                             initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 40 }}
                             whileInView={{ opacity: 1, y: 0 }}
@@ -230,7 +230,7 @@ const App: React.FC = () => {
                       {/* Right Side: Meta / Socials column */}
                       <div className="col-span-1 md:col-span-4 flex flex-col gap-6 md:gap-8 pt-2 md:pl-8 md:border-l border-swiss-border/30">
                         <div className="flex flex-col gap-2.5">
-                          <span className="font-sans text-[11px] font-medium tracking-[0.16em] text-[#777] uppercase">
+                          <span className="font-sans text-[11px] font-medium tracking-[0.12em] text-[#777] uppercase">
                             [ Connect ]
                           </span>
                           <div className="flex flex-col gap-1.5 text-[14px]">
