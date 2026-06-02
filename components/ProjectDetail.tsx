@@ -43,6 +43,9 @@ export const PROJECT_GALLERIES: Record<string, ProjectMedia[]> = {
     { type: 'image', url: '/images/the-klog-06.jpg' },
     { type: 'image', url: '/images/the-klog-07.jpg' },
     { type: 'image', url: '/images/the-klog-08.jpg' },
+    { type: 'image', url: '/images/the-klog-09.jpg' },
+    { type: 'image', url: '/images/the-klog-10.jpg' },
+    { type: 'image', url: '/images/the-klog-11.jpg' },
   ],
   'soko-glam': [
     { type: 'image', url: '/images/soko-glam-01.jpg' },
@@ -236,6 +239,8 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onNext, onBackHo
 
   const renderMedia = (media: ProjectMedia, index: number, isSquare: boolean = false, staggerIndex: number = 0) => {
     const isBareSkin07 = media.url.includes('bare-skin-07.jpg');
+    const isTheKlog05 = media.url.includes('the-klog-05.jpg');
+    const isAutoHeight = isBareSkin07 || isTheKlog05;
     return (
       <motion.div 
         key={index} 
@@ -244,7 +249,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onNext, onBackHo
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: '-60px' }}
-        className={`w-full overflow-hidden bg-neutral-100 ${isBareSkin07 ? 'h-auto' : isSquare ? 'aspect-square' : 'aspect-video'}`}
+        className={`w-full overflow-hidden bg-neutral-100 ${isAutoHeight ? 'h-auto' : isSquare ? 'aspect-square' : 'aspect-video'}`}
       >
         {media.type === 'video' ? (
           <video 
@@ -258,7 +263,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onNext, onBackHo
         ) : (
           <img 
             src={media.url} 
-            className={isBareSkin07 ? "w-full h-auto block" : "w-full h-full object-cover"} 
+            className={isAutoHeight ? "w-full h-auto block" : "w-full h-full object-cover"} 
             alt={`${project.name} asset ${index + 1}`} 
             referrerPolicy="no-referrer"
           />
@@ -317,8 +322,8 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onNext, onBackHo
     }
 
     if (isKlog || isTIMY) {
-      // Logic: For Klog, keep 3 vertical (since hero is 1st). For Then I Met You, keep all but the last 2 vertical.
-      const splitIndex = isKlog ? 3 : (gallery.length - 2);
+      // Logic: For Klog, keep 6 vertical. For Then I Met You, keep all but the last 2 vertical.
+      const splitIndex = isKlog ? 6 : (gallery.length - 2);
       const topImages = gallery.slice(0, splitIndex);
       const gridImages = gallery.slice(splitIndex);
       

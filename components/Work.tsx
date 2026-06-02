@@ -25,7 +25,7 @@ const ProjectCard: React.FC<{
   } else if (project.id === 'soko-glam') {
     images = images.filter(url => !url.includes('soko-glam-01.jpg'));
   } else if (project.id === 'the-klog') {
-    images = images.filter(url => !url.includes('the-klog-01.jpg'));
+    images = images.filter(url => !url.includes('the-klog-01.jpg') && !url.includes('the-klog-02.jpg') && !url.includes('the-klog-05.jpg'));
   } else if (project.id === 'then-i-met-you') {
     images = images.filter(url => !url.includes('then-i-met-you-02.jpg'));
   } else if (project.id === 'the-alden') {
@@ -152,7 +152,7 @@ const Work: React.FC<WorkProps> = ({ onProjectSelect }) => {
         } else if (project.id === 'soko-glam') {
           projectImages = projectImages.filter(url => !url.includes('soko-glam-01.jpg'));
         } else if (project.id === 'the-klog') {
-          projectImages = projectImages.filter(url => !url.includes('the-klog-01.jpg'));
+          projectImages = projectImages.filter(url => !url.includes('the-klog-01.jpg') && !url.includes('the-klog-02.jpg') && !url.includes('the-klog-05.jpg'));
         } else if (project.id === 'then-i-met-you') {
           projectImages = projectImages.filter(url => !url.includes('then-i-met-you-02.jpg'));
         } else if (project.id === 'the-alden') {
