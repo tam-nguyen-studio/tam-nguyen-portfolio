@@ -21,8 +21,6 @@ export const PROJECT_GALLERIES: Record<string, ProjectMedia[]> = {
     { type: 'image', url: '/images/keystone-08.jpg' },
     { type: 'image', url: '/images/keystone-09.jpg' },
     { type: 'image', url: '/images/keystone-10.jpg' },
-    { type: 'image', url: '/images/keystone-11.jpg' },
-    { type: 'image', url: '/images/keystone-12.jpg' },
   ],
   'the-alden': [
     { type: 'image', url: '/images/the-alden-01.jpg' },
@@ -300,11 +298,11 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onNext, onBackHo
     if (gallery.length === 0) return null;
 
     if (isKeystone) {
-      // 4 full-width images (0-3), 1 row of 2 square images (4,5), rest full-width (6-end)
-      // gallery[0] is keystone-02, so gallery[4] is keystone-06
-      const topImages = gallery.slice(0, 4);
-      const gridImages = gallery.slice(4, 6);
-      const bottomImages = gallery.slice(6);
+      // 5 full-width images (0-4), 1 row of 2 square images (5,6), rest full-width (7-end)
+      // gallery[0] is keystone-02, gallery[1] is keystone-hero, so gallery[5] is keystone-06
+      const topImages = gallery.slice(0, 5);
+      const gridImages = gallery.slice(5, 7);
+      const bottomImages = gallery.slice(7);
       
       return (
         <div className="mb-4 space-y-[20px]">
@@ -312,10 +310,10 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onNext, onBackHo
             {topImages.map((media, index) => renderMedia(media, index, false, 0))}
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-[20px]">
-            {gridImages.map((media, index) => renderMedia(media, index + 4, true, index))}
+            {gridImages.map((media, index) => renderMedia(media, index + topImages.length, true, index))}
           </div>
           <div className="space-y-[20px]">
-            {bottomImages.map((media, index) => renderMedia(media, index + 6, false, 0))}
+            {bottomImages.map((media, index) => renderMedia(media, index + topImages.length + gridImages.length, false, 0))}
           </div>
         </div>
       );
