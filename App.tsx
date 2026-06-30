@@ -182,12 +182,14 @@ const App: React.FC = () => {
                 exit="exit"
               >
                 {/* Elevated Senior Typographic Hero Section with grounding hairline border */}
-                <div className="w-full px-[20px] pt-[40px] md:pt-[100px] pb-[60px] md:pb-[100px] border-b border-swiss-border/50 mb-[60px] md:mb-[80px]">
-                  {/* Majestic Hero Copy Statement */}
-                  <div className="max-w-[1240px]">
-                    <h1 className="font-serif font-normal text-[clamp(34px,5.5vw,84px)] leading-[0.95] tracking-[-0.02em] text-swiss-black">
-                      <span className="font-sans font-medium uppercase tracking-tight text-[85%] inline-block">Brand Designer</span> crafting thoughtful visual languages, <span className="italic font-serif text-[#706E6B] hover:text-swiss-black transition-colors duration-500">digital experiences</span>, and marketing campaigns. <span className="italic font-serif text-[#706E6B] hover:text-swiss-black transition-colors duration-500">Eight years across beauty, tech, and CPG.</span>
-                    </h1>
+                <div className="w-screen relative left-1/2 -translate-x-1/2 border-b border-swiss-border/50 mb-[60px] md:mb-[80px]">
+                  <div className="w-full max-w-[1440px] mx-auto px-[20px] pt-[40px] md:pt-[100px] pb-[60px] md:pb-[100px]">
+                    {/* Majestic Hero Copy Statement */}
+                    <div className="max-w-[1240px]">
+                      <h1 className="font-serif font-normal text-[clamp(34px,5.5vw,84px)] leading-[0.95] tracking-[-0.02em] text-swiss-black">
+                        <span className="font-sans font-medium uppercase tracking-tight text-[85%] inline-block">Brand Designer</span> crafting thoughtful visual languages, <span className="italic font-serif text-[#706E6B] hover:text-swiss-black transition-colors duration-500">digital experiences</span>, and marketing campaigns. <span className="italic font-serif text-[#706E6B] hover:text-swiss-black transition-colors duration-500">Eight years across beauty, tech, and CPG.</span>
+                      </h1>
+                    </div>
                   </div>
                 </div>
 

@@ -22,75 +22,78 @@ const About: React.FC<AboutProps> = () => {
   };
 
   return (
-    <section id="about" className="w-full min-h-[calc(100dvh-130px)] md:min-h-[calc(100vh-140px)] lg:min-h-[calc(100vh-170px)] bg-transparent text-swiss-black pt-[40px] md:pt-[45px] lg:pt-[60px] pb-0 flex flex-col justify-between items-center">
-      <div className="w-full px-[20px] flex-grow flex flex-col items-center justify-between">
-        <div className="max-w-[90%] md:max-w-[780px] lg:max-w-[1000px] text-center flex flex-col items-center justify-between flex-grow w-full">
-            {/* Bio Section */}
-            <div className="flex-grow flex flex-col justify-center items-center">
-              <div className="mb-4 flex flex-col items-center">
-                <motion.h1 
-                  custom={0}
-                  variants={textVariants}
-                  initial="hidden"
-                  animate="visible"
-                  className="font-serif font-normal text-[clamp(32px,4.2vw,54px)] leading-[1.15] tracking-[-0.01em] mb-12 md:mb-14 lg:mb-24"
-                >
-                  I'm a brand and marketing designer based in Brooklyn with 8 years of experience across beauty, tech, and CPG. I make sure brands show up with their best face forward.
-                </motion.h1>
+    <section 
+      id="about" 
+      className="w-full min-h-[calc(100dvh-108px)] md:min-h-[calc(100vh-138px)] bg-transparent text-swiss-black px-[20px] pt-[30px] md:pt-[50px] pb-0 flex flex-col justify-between items-center"
+    >
+      {/* Upper Block - Vertically centered in the remaining viewport space */}
+      <div className="flex-grow flex flex-col justify-center items-center w-full max-w-[90%] md:max-w-[780px] lg:max-w-[1000px] text-center py-6">
+        {/* Bio Section */}
+        <div className="flex flex-col items-center w-full">
+          <motion.h1 
+            custom={0}
+            variants={textVariants}
+            initial="hidden"
+            animate="visible"
+            className="font-serif font-normal text-[clamp(28px,4.2vw,54px)] leading-[1.15] tracking-[-0.01em] mb-10 md:mb-12 lg:mb-16"
+          >
+            I'm a brand and marketing designer based in Brooklyn with 8 years of experience across beauty, tech, and CPG. I make sure brands show up with their best face forward.
+          </motion.h1>
 
-                <motion.div 
-                  custom={2}
-                  variants={textVariants}
-                  initial="hidden"
-                  animate="visible"
-                  className="flex items-center justify-center gap-8 md:gap-12 font-serif font-normal text-[clamp(32px,4.2vw,54px)] leading-[1.0] tracking-[-0.01em]"
-                >
-                  <a 
-                    href={RESUME_URL} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="italic underline underline-offset-[8px] hover:opacity-50 transition-opacity"
-                  >
-                    Resume
-                  </a>
-                  <a 
-                    href="https://www.linkedin.com/in/tamnguyenstudio/" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="italic underline underline-offset-[8px] hover:opacity-50 transition-opacity"
-                  >
-                    LinkedIn
-                  </a>
-                </motion.div>
-              </div>
-            </div>
-  
-            {/* Contact Section - Integrated as per image */}
-            <div id="contact" className="mt-8 flex flex-col items-center pb-[16px]">
-              <h2 className="font-serif font-normal text-[clamp(32px,4.2vw,54px)] text-swiss-black leading-[0.92] tracking-[-0.01em] text-center flex flex-col items-center">
-                <motion.span
-                  initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: '-10px' }}
-                  transition={{ duration: shouldReduceMotion ? 0.4 : 1.1, ease: [0.16, 1, 0.3, 1] }}
-                  className="block"
-                >
-                  Get in touch at
-                </motion.span>
-                <motion.a
-                  href="mailto:tam@tamnguyen.studio"
-                  initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  whileHover={{ opacity: 0.5 }}
-                  viewport={{ once: true, margin: '-10px' }}
-                  transition={{ duration: shouldReduceMotion ? 0.4 : 1.1, delay: shouldReduceMotion ? 0 : 0.15, ease: [0.16, 1, 0.3, 1] }}
-                  className="block w-fit text-center hover:opacity-50 transition-opacity cursor-pointer"
-                >
-                  tam@tamnguyen.studio
-                </motion.a>
-              </h2>
-            </div>
+          <motion.div 
+            custom={2}
+            variants={textVariants}
+            initial="hidden"
+            animate="visible"
+            className="flex items-center justify-center gap-8 md:gap-12 font-serif font-normal text-[clamp(28px,4.2vw,54px)] leading-[1.0] tracking-[-0.01em]"
+          >
+            <a 
+              href={RESUME_URL} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="italic underline underline-offset-[8px] hover:opacity-50 transition-opacity"
+            >
+              Resume
+            </a>
+            <a 
+              href="https://www.linkedin.com/in/tamnguyenstudio/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="italic underline underline-offset-[8px] hover:opacity-50 transition-opacity"
+            >
+              LinkedIn
+            </a>
+          </motion.div>
         </div>
+      </div>
+ 
+      {/* Contact Section - Hugs the bottom footer/border */}
+      <div 
+        id="contact" 
+        className="w-full max-w-[90%] md:max-w-[780px] lg:max-w-[1000px] flex flex-col items-center mt-12 md:mt-16 pb-[16px] md:pb-[24px]"
+      >
+        <h2 className="font-serif font-normal text-[clamp(28px,4.2vw,54px)] text-swiss-black leading-[0.92] tracking-[-0.01em] text-center flex flex-col items-center">
+          <motion.span
+            initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-10px' }}
+            transition={{ duration: shouldReduceMotion ? 0.4 : 1.1, ease: [0.16, 1, 0.3, 1] }}
+            className="block"
+          >
+            Get in touch at
+          </motion.span>
+          <motion.a
+            href="mailto:tam@tamnguyen.studio"
+            initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            whileHover={{ opacity: 0.5 }}
+            viewport={{ once: true, margin: '-10px' }}
+            transition={{ duration: shouldReduceMotion ? 0.4 : 1.1, delay: shouldReduceMotion ? 0 : 0.15, ease: [0.16, 1, 0.3, 1] }}
+            className="block w-fit text-center hover:opacity-50 transition-opacity cursor-pointer"
+          >
+            tam@tamnguyen.studio
+          </motion.a>
+        </h2>
       </div>
     </section>
   );
