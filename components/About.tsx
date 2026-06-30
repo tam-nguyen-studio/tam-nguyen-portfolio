@@ -24,10 +24,10 @@ const About: React.FC<AboutProps> = () => {
   return (
     <section 
       id="about" 
-      className="w-full flex-grow bg-transparent text-swiss-black px-[20px] pt-[20px] md:pt-[40px] pb-0 flex flex-col justify-between items-center"
+      className="w-full flex-grow bg-transparent text-swiss-black px-[20px] pt-[8px] md:pt-[40px] pb-0 flex flex-col justify-between items-center"
     >
       {/* Upper Block - Vertically centered in the remaining viewport space with guaranteed spacious bottom spacing */}
-      <div className="flex-grow flex flex-col justify-center items-center w-full max-w-[90%] md:max-w-[780px] lg:max-w-[1000px] text-center pt-6 pb-12 md:pb-24 lg:pb-32">
+      <div className="flex-grow flex flex-col justify-center items-center w-full max-w-[90%] md:max-w-[780px] lg:max-w-[1000px] text-center pt-1 md:pt-6 pb-12 md:pb-24 lg:pb-32">
         {/* Bio Section */}
         <div className="flex flex-col items-center w-full">
           <motion.h1 
