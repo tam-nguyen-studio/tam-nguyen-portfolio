@@ -161,7 +161,7 @@ const App: React.FC = () => {
           onSectionClick={scrollToSection}
         />
         
-        <main className="relative z-10 flex-grow">
+        <main className="relative z-10 flex-grow flex flex-col">
           <AnimatePresence mode="wait">
             {isAboutPage ? (
               <motion.div
@@ -170,6 +170,7 @@ const App: React.FC = () => {
                 initial="initial"
                 animate="animate"
                 exit="exit"
+                className="flex-grow flex flex-col"
               >
                 <About />
               </motion.div>
