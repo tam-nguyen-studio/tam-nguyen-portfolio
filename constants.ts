@@ -6,7 +6,7 @@ export const PROJECTS: Project[] = [
     id: 'keystone',
     name: 'Keystone',
     category: 'Brand Design',
-    year: '2024',
+    year: '2025',
     imageUrl: '/images/keystone-hero.jpg',
     heroStyle: 'fullbleed',
     objectPosition: 'center center',
