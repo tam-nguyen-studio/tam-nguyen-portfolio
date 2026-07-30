@@ -14,8 +14,8 @@ export const PROJECTS: Project[] = [
       "Keystone is a strategy, economics, and technology consultancy partnering with global brands and law firms. As Keystone grew its AI and technology advisory practice, the brand needed to evolve with it.",
       "I joined as sole in\u2011house designer to support a corporate rebrand, owning all visual output — spanning digital, marketing collateral, event materials, and internal communications, while building a sub-brand architecture across the company's practice groups and teams."
     ],
-    role: 'Brand Marketing Designer',
-    scope: ['Brand Systems', 'Digital Design', 'Editorial'],
+    role: 'Graphic Designer',
+    scope: ['Brand Expression', 'Digital Design', 'Editorial & Marketing Design'],
     collaborators: ['Otherward — Identity', 'Refokus — Web', 'Michael Simon — Photography'],
     sections: [
       {

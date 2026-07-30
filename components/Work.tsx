@@ -226,10 +226,10 @@ const Work: React.FC<WorkProps> = ({ onProjectSelect, onViewAllProjects }) => {
           transition={{ duration: 0.4, ease: EASE, delay: 0.05 }}
           className="font-serif font-normal text-[clamp(1.75rem,6.8vw,3.25rem)] md:text-[clamp(2.25rem,5vw,8rem)] leading-[1.0] tracking-[-0.025em] text-[#224875] mx-auto text-center [text-wrap:pretty] w-[calc(100vw-36px)] md:w-[min(90vw,100%)] max-w-[36ch]"
         >
-          <span className="font-bold">Brand designer</span> crafting thoughtful visual languages,{" "}
+          <span className="font-bold">Brand designer</span> shaping how brands show up across{" "}
           <span className="italic inline">digital experiences</span>
-          , and marketing campaigns. <span className="font-bold">Eight years</span> across{" "}
-          <span className="italic inline">beauty, tech, and CPG.</span>
+          , marketing campaigns, and content. Working across{" "}
+          <span className="italic inline">beauty, technology, and consumer brands.</span>
         </motion.h1>
       </motion.div>
 

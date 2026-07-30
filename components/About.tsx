@@ -55,7 +55,7 @@ const About: React.FC<AboutProps> = () => {
       {/* 2 & 3. Thin Horizontal Rule & Info Table Section */}
       <div className="w-full max-w-[1440px] mx-auto px-[18px] sm:px-[20px] font-sans text-[15px] sm:text-[16px] text-black">
         {/* Row 1 — Selected brands */}
-        <div className="w-full border-t border-black grid grid-cols-1 md:grid-cols-[clamp(220px,25vw,340px)_1fr] items-start pt-[18px] md:pt-[clamp(18px,2vw,28px)] pb-[48px] md:pb-[clamp(52px,5vw,80px)] gap-y-3 md:gap-y-0">
+        <div className="w-full border-t-[1.5px] border-black grid grid-cols-1 md:grid-cols-[clamp(220px,25vw,340px)_1fr] items-start pt-[18px] md:pt-[clamp(18px,2vw,28px)] pb-[48px] md:pb-[clamp(52px,5vw,80px)] gap-y-3 md:gap-y-0">
           <div className="font-sans font-normal leading-[1.45] sm:leading-[1.5]">
             Selected Brands
           </div>
@@ -65,7 +65,7 @@ const About: React.FC<AboutProps> = () => {
         </div>
 
         {/* Row 2 — Capabilities */}
-        <div className="w-full border-t border-black grid grid-cols-1 md:grid-cols-[clamp(220px,25vw,340px)_1fr] items-start pt-[18px] md:pt-[clamp(18px,2vw,28px)] pb-[48px] md:pb-[clamp(52px,5vw,80px)] gap-y-3 md:gap-y-0">
+        <div className="w-full border-t-[1.5px] border-black grid grid-cols-1 md:grid-cols-[clamp(220px,25vw,340px)_1fr] items-start pt-[18px] md:pt-[clamp(18px,2vw,28px)] pb-[48px] md:pb-[clamp(52px,5vw,80px)] gap-y-3 md:gap-y-0">
           <div className="font-sans font-normal leading-[1.45] sm:leading-[1.5]">
             Capabilities
           </div>
