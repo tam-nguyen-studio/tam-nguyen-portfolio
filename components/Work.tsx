@@ -1,237 +1,407 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { motion, useReducedMotion, AnimatePresence } from 'motion/react';
+import React, { useRef, useState, useEffect } from 'react';
+import { motion, useScroll, useTransform, useReducedMotion } from 'motion/react';
 import { PROJECTS } from '../constants';
-import { PROJECT_GALLERIES } from './ProjectDetail';
 
 interface WorkProps {
   onProjectSelect: (id: string) => void;
+  onViewAllProjects?: () => void;
 }
 
-const ProjectCard: React.FC<{
-  project: typeof PROJECTS[0];
-  index: number;
-  onProjectSelect: (id: string) => void;
-  shouldReduceMotion: boolean;
-  cardVariants: any;
-  imageVariants: any;
-  textVariants: any;
-}> = ({ project, index, onProjectSelect, shouldReduceMotion, cardVariants, imageVariants, textVariants }) => {
-  const gallery = PROJECT_GALLERIES[project.id] || [];
-  let images = Array.from(new Set([project.imageUrl, ...gallery.filter(m => m.type === 'image').map(m => m.url)]));
-
-  // Filter out skipped images as per user requirements for the homepage hover effect
-  if (project.id === 'keystone') {
-    images = images.filter(url => !url.includes('keystone-02.jpg') && !url.includes('keystone-10.jpg') && !url.includes('keystone-11.jpg') && !url.includes('keystone-12.jpg'));
-  } else if (project.id === 'soko-glam') {
-    images = images.filter(url => !url.includes('soko-glam-01.jpg'));
-  } else if (project.id === 'the-klog') {
-    images = images.filter(url => !url.includes('the-klog-01.jpg') && !url.includes('the-klog-02.jpg') && !url.includes('the-klog-05.jpg'));
-  } else if (project.id === 'then-i-met-you') {
-    images = images.filter(url => !url.includes('then-i-met-you-02.jpg'));
-  } else if (project.id === 'the-alden') {
-    images = images.filter(url => !url.includes('the-alden-01.jpg') && !url.includes('the-alden-04.jpg') && !url.includes('the-alden-05.jpg'));
-  } else if (project.id === 'bare-skin') {
-    images = images.filter(url => !url.includes('bare-skin-04.jpg') && !url.includes('bare-skin-07.jpg'));
-  }
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isHovered, setIsHovered] = useState(false);
-  const intervalRef = useRef<NodeJS.Timeout | null>(null);
-
-  useEffect(() => {
-    const isDesktop = window.matchMedia('(hover: hover)').matches;
-    
-    if (isHovered && isDesktop && images.length > 1) {
-      intervalRef.current = setInterval(() => {
-        setCurrentIndex((prev) => (prev + 1) % images.length);
-      }, 1000); // Dynamic responsive rhythm (1s interval)
-    } else {
-      if (intervalRef.current) clearInterval(intervalRef.current);
-      setCurrentIndex(0);
-    }
-
-    return () => {
-      if (intervalRef.current) clearInterval(intervalRef.current);
-    };
-  }, [isHovered, images.length]);
-
-  const isDarkProject = project.id === 'keystone' || project.id === 'the-alden' || project.id === 'bare-skin';
-  
-  // Dynamic tailored aspect ratio for curated editorial rhythm
-  const getAspectRatio = (idx: number) => {
-    switch (idx % 3) {
-      case 0: return 'aspect-[1.48/1]';
-      case 1: return 'aspect-[1.34/1]';
-      case 2:
-      default: return 'aspect-[1.42/1]';
-    }
-  };
-
-  const offsetClass = index % 2 === 1 ? 'md:mt-[100px] lg:mt-[160px]' : '';
-
-  return (
-    <motion.div 
-      onClick={() => onProjectSelect(project.id)}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      initial="hidden"
-      whileInView="visible"
-      whileHover="hover"
-      viewport={{ once: true, margin: '-60px' }}
-      variants={cardVariants}
-      custom={index}
-      className={`flex flex-col cursor-pointer project-card group ${offsetClass}`}
-    >
-      <div className={`relative ${getAspectRatio(index)} overflow-hidden ${isDarkProject ? 'bg-zinc-950' : 'bg-gray-100'} transition-colors duration-500`}>
-        <AnimatePresence initial={false}>
-          <motion.img 
-            key={images[currentIndex]}
-            src={images[currentIndex]} 
-            alt={project.name} 
-            className="w-full h-full object-cover absolute inset-0" 
-            referrerPolicy="no-referrer"
-            variants={imageVariants}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ 
-              opacity: { duration: 0.4, ease: "easeInOut" },
-              scale: { duration: shouldReduceMotion ? 0.4 : 1.2, ease: [0.16, 1, 0.3, 1] }
-            }}
-          />
-        </AnimatePresence>
-      </div>
-      <div className="w-full border-t border-swiss-border/40 mt-4 pt-3.5 pb-8 flex justify-between items-start sm:items-center font-sans">
-        <div className="flex items-start sm:items-center gap-2 md:gap-3.5 flex-grow sm:flex-grow-0">
-          <span className="text-[10px] sm:text-[11px] font-normal text-swiss-black/45 tracking-[0.12em] select-none leading-none w-[36px] sm:w-auto shrink-0 pt-[2px] sm:pt-0">
-            [ 0{index + 1} ]
-          </span>
-          <div className="flex flex-col gap-1.5 sm:gap-0">
-            <motion.h3 
-              variants={textVariants}
-              className="text-[13px] sm:text-[14px] font-medium uppercase tracking-[0.03em] text-swiss-black group-hover:translate-x-1 transition-transform duration-300 leading-none"
-            >
-              {project.name}
-            </motion.h3>
-            {/* Mobile Category Label: aligned perfectly under project name */}
-            <motion.p 
-              variants={textVariants}
-              className="block sm:hidden text-[11px] font-normal uppercase tracking-[0.12em] text-[#666] leading-none"
-            >
-              {project.category}
-            </motion.p>
-          </div>
-        </div>
-        {/* Desktop Category Label: aligned to the right edge */}
-        <motion.p 
-          variants={textVariants}
-          className="hidden sm:block text-[11px] sm:text-[12px] font-normal uppercase tracking-[0.12em] text-[#666] text-right leading-none"
-        >
-          {project.category}
-        </motion.p>
-      </div>
-    </motion.div>
-  );
-};
-
-const Work: React.FC<WorkProps> = ({ onProjectSelect }) => {
+const Work: React.FC<WorkProps> = ({ onProjectSelect, onViewAllProjects }) => {
   const shouldReduceMotion = useReducedMotion();
+  const targetRef = useRef<HTMLDivElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
+  const stickyRef = useRef<HTMLDivElement>(null);
+  const [maxScroll, setMaxScroll] = useState(0);
+  const [stickyHeight, setStickyHeight] = useState(0);
 
+  const { scrollY } = useScroll();
+  const { scrollYProgress } = useScroll({
+    target: targetRef,
+    offset: ["start start", "end end"]
+  });
+
+  const [isDesktop, setIsDesktop] = useState(() => typeof window !== 'undefined' && window.innerWidth >= 768);
+
+  // Keep isDesktop in sync with viewport width
   useEffect(() => {
-    // Preload all project images
-    const preloadImages = () => {
-      const allImages = PROJECTS.flatMap(project => {
-        const gallery = PROJECT_GALLERIES[project.id] || [];
-        const galleryImages = gallery
-          .filter(item => item.type === 'image')
-          .map(item => item.url);
-        let projectImages = Array.from(new Set([project.imageUrl, ...galleryImages]));
-
-        // Apply same filters for preloading to avoid loading skipped files
-        if (project.id === 'keystone') {
-          projectImages = projectImages.filter(url => !url.includes('keystone-02.jpg') && !url.includes('keystone-10.jpg') && !url.includes('keystone-11.jpg') && !url.includes('keystone-12.jpg'));
-        } else if (project.id === 'soko-glam') {
-          projectImages = projectImages.filter(url => !url.includes('soko-glam-01.jpg'));
-        } else if (project.id === 'the-klog') {
-          projectImages = projectImages.filter(url => !url.includes('the-klog-01.jpg') && !url.includes('the-klog-02.jpg') && !url.includes('the-klog-05.jpg'));
-        } else if (project.id === 'then-i-met-you') {
-          projectImages = projectImages.filter(url => !url.includes('then-i-met-you-02.jpg'));
-        } else if (project.id === 'the-alden') {
-          projectImages = projectImages.filter(url => !url.includes('the-alden-01.jpg') && !url.includes('the-alden-04.jpg') && !url.includes('the-alden-05.jpg'));
-        } else if (project.id === 'bare-skin') {
-          projectImages = projectImages.filter(url => !url.includes('bare-skin-04.jpg') && !url.includes('bare-skin-07.jpg'));
-        }
-
-        return projectImages;
-      });
-
-      allImages.forEach(src => {
-        const img = new Image();
-        img.src = src;
-      });
+    const handleResize = () => {
+      setIsDesktop(window.innerWidth >= 768);
     };
-
-    preloadImages();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  const cardVariants = {
-    hidden: { 
-      opacity: 0, 
-      y: shouldReduceMotion ? 0 : 24 
-    },
-    visible: (i: number) => ({
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: shouldReduceMotion ? 0.4 : 1.2,
-        delay: i % 2 === 0 ? 0 : 0.15,
-        ease: [0.16, 1, 0.3, 1]
+  // Calculate dynamic max scroll pixels and sticky element dimensions
+  useEffect(() => {
+    const updateDimensions = () => {
+      if (window.innerWidth >= 768 && trackRef.current && stickyRef.current) {
+        const scrollWidth = trackRef.current.scrollWidth;
+        const clientWidth = window.innerWidth;
+        const horizDistance = Math.max(0, scrollWidth - clientWidth);
+        setMaxScroll(horizDistance);
+        setStickyHeight(stickyRef.current.offsetHeight || window.innerHeight);
+      } else {
+        setMaxScroll(0);
+        setStickyHeight(0);
       }
-    }),
-    hover: {}
+    };
+
+    updateDimensions();
+
+    const trackElem = trackRef.current;
+    if (trackElem) {
+      const images = trackElem.querySelectorAll('img');
+      images.forEach(img => {
+        if (!img.complete) {
+          img.addEventListener('load', updateDimensions);
+        }
+      });
+    }
+
+    const timer1 = setTimeout(updateDimensions, 100);
+    const timer2 = setTimeout(updateDimensions, 500);
+    const timer3 = setTimeout(updateDimensions, 1000);
+    window.addEventListener('resize', updateDimensions);
+    return () => {
+      clearTimeout(timer1);
+      clearTimeout(timer2);
+      clearTimeout(timer3);
+      window.removeEventListener('resize', updateDimensions);
+    };
+  }, [isDesktop]);
+
+  const x = useTransform(
+    scrollYProgress,
+    [0, 1],
+    [0, -maxScroll]
+  );
+
+  const [activeIndex, setActiveIndex] = useState(1);
+  useEffect(() => {
+    const unsubscribe = scrollYProgress.on('change', (progress) => {
+      if (!isDesktop) return;
+      const clampedProgress = Math.min(1, Math.max(0, progress));
+      const idx = Math.min(PROJECTS.length, Math.max(1, Math.floor(clampedProgress * PROJECTS.length) + 1));
+      setActiveIndex(idx);
+    });
+    return () => unsubscribe();
+  }, [scrollYProgress, isDesktop]);
+
+  const currentNum = activeIndex.toString().padStart(2, '0');
+  const totalNum = PROJECTS.length.toString().padStart(2, '0');
+  const isFirstProject = activeIndex === 1;
+  const isLastProject = activeIndex === PROJECTS.length;
+
+  const scrollPrev = () => {
+    if (!targetRef.current || !maxScroll) return;
+    const currentTop = targetRef.current.offsetTop;
+    const targetIdx = Math.max(0, activeIndex - 2);
+    const targetY = currentTop + (targetIdx / (PROJECTS.length - 1)) * maxScroll;
+    window.scrollTo({ top: targetY, behavior: 'smooth' });
   };
 
-  const imageVariants = {
-    hidden: { 
-      scale: shouldReduceMotion ? 1 : 1.03 
-    },
-    visible: {
-      scale: 1,
-      transition: {
-        duration: shouldReduceMotion ? 0.4 : 1.2,
-        ease: [0.16, 1, 0.3, 1]
+  const scrollNext = () => {
+    if (!targetRef.current || !maxScroll) return;
+    const currentTop = targetRef.current.offsetTop;
+    const targetIdx = Math.min(PROJECTS.length - 1, activeIndex);
+    const targetY = currentTop + (targetIdx / (PROJECTS.length - 1)) * maxScroll;
+    window.scrollTo({ top: targetY, behavior: 'smooth' });
+  };
+
+  // State for vertical rule pulse interaction
+  const [hasScrolled, setHasScrolled] = useState(false);
+  const [shouldPulseRule, setShouldPulseRule] = useState(false);
+
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+
+  // Scroll transition for hero headline section
+  const heroScrollY = useTransform(scrollY, [0, 300], [0, shouldReduceMotion || isMobile ? 0 : -25]);
+  const heroScrollOpacity = useTransform(scrollY, [0, 300], [1, shouldReduceMotion || isMobile ? 1 : 0.75]);
+
+  useEffect(() => {
+    if (shouldReduceMotion) return;
+
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        setHasScrolled(true);
+        setShouldPulseRule(false);
       }
-    },
-    hover: { 
-      scale: shouldReduceMotion ? 1 : 1.04,
-      transition: { duration: shouldReduceMotion ? 0.3 : 0.6, ease: "easeOut" }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    const timer = setTimeout(() => {
+      if (!hasScrolled && window.scrollY <= 20) {
+        setShouldPulseRule(true);
+      }
+    }, 3500);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      clearTimeout(timer);
+    };
+  }, [hasScrolled, shouldReduceMotion]);
+
+  const handleKeyDown = (e: React.KeyboardEvent, id: string) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      onProjectSelect(id);
     }
   };
 
-  const textVariants = {
-    hidden: { opacity: 0.6 },
-    hover: { 
-      opacity: 1,
-      transition: { duration: shouldReduceMotion ? 0.15 : 0.3 }
-    }
-  };
+  const EASE = [0.22, 1, 0.36, 1];
 
   return (
-    <section id="work" className="w-full px-[20px] pb-[100px] md:pb-[140px]">
-      <div className="w-full">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-[20px] md:gap-x-[40px] gap-y-[20px] md:gap-y-[40px] items-start">
-          {PROJECTS.map((project, index) => (
-            <ProjectCard 
-              key={project.id}
-              project={project}
-              index={index}
-              onProjectSelect={onProjectSelect}
-              shouldReduceMotion={shouldReduceMotion}
-              cardVariants={cardVariants}
-              imageVariants={imageVariants}
-              textVariants={textVariants}
-            />
-          ))}
+    <section id="work" className="w-full flex flex-col">
+      {/* Hero Headline Section with Masked Upward Reveal & Scroll Transition */}
+      <motion.div 
+        style={{ y: heroScrollY, opacity: heroScrollOpacity }}
+        className="w-full px-[18px] sm:px-[20px] pt-8 md:pt-28 pb-10 md:pb-32 mx-auto text-center overflow-hidden flex flex-col items-center justify-center"
+      >
+        <motion.h1 
+          initial={shouldReduceMotion ? { y: 0, opacity: 1 } : { y: "100%", opacity: 0 }}
+          animate={{ y: "0%", opacity: 1 }}
+          transition={{ duration: 0.9, ease: EASE, delay: 0.4 }}
+          className="font-serif font-normal text-[clamp(1.75rem,6.8vw,3.25rem)] md:text-[clamp(2.25rem,5vw,8rem)] leading-[1.0] tracking-[-0.025em] text-[#224875] mx-auto text-center [text-wrap:pretty] w-[calc(100vw-36px)] md:w-[min(90vw,100%)] max-w-[36ch]"
+        >
+          <span className="font-bold">Brand designer</span> crafting thoughtful visual languages,{" "}
+          <span className="italic inline">digital experiences</span>
+          , and marketing campaigns. <span className="font-bold">Eight years</span> across{" "}
+          <span className="italic inline">beauty, tech, and CPG.</span>
+        </motion.h1>
+      </motion.div>
+
+      {/* (WORK) Marker with 1.5pt Vertical Divider Line */}
+      <div className="flex flex-col items-center justify-center mt-0 mb-8 md:mb-12">
+        <motion.span 
+          initial={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: EASE, delay: 1.2 }}
+          className="font-serif text-[18px] md:text-[22px] lg:text-[24px] text-black tracking-normal uppercase"
+        >
+          (WORK)
+        </motion.span>
+        <motion.div 
+          initial={shouldReduceMotion ? { scaleY: 1 } : { scaleY: 0 }}
+          animate={
+            shouldPulseRule
+              ? { scaleY: [1, 1.25, 1], y: [0, 8, 0] }
+              : { scaleY: 1, y: 0 }
+          }
+          transition={
+            shouldPulseRule
+              ? { duration: 0.8, ease: EASE, times: [0, 0.5, 1] }
+              : { duration: 0.6, ease: EASE, delay: 1.3 }
+          }
+          onAnimationComplete={() => {
+            if (shouldPulseRule) setShouldPulseRule(false);
+          }}
+          style={{ transformOrigin: 'top' }}
+          className="w-[1.5px] h-[64px] md:h-[110px] bg-black mt-6"
+        />
+      </div>
+
+      {/* DESKTOP STICKY HORIZONTAL SCROLL WORK SECTION */}
+      {!shouldReduceMotion ? (
+        <div 
+          ref={targetRef} 
+          className="hidden md:block relative w-full mt-0 mb-0 pb-0"
+          style={{ height: isDesktop ? (maxScroll > 0 ? `${maxScroll + (stickyHeight || 600)}px` : '2500px') : 'auto' }}
+        >
+          <div 
+            ref={stickyRef}
+            className="sticky top-0 w-full overflow-hidden flex flex-col justify-start pt-0 md:pt-1 bg-[#EFF5F7] pb-4 md:pb-0"
+          >
+            {/* Sliding Track */}
+            <motion.div 
+              ref={trackRef}
+              style={{ x }} 
+              className="flex gap-8 md:gap-12 items-center pl-[20px] pr-[20px] w-max mt-0 md:mt-1"
+            >
+              {PROJECTS.map((project) => (
+                <article
+                  key={project.id}
+                  onClick={() => onProjectSelect(project.id)}
+                  onKeyDown={(e) => handleKeyDown(e, project.id)}
+                  tabIndex={0}
+                  role="button"
+                  aria-label={`View ${project.name} project details`}
+                  className="flex-shrink-0 group cursor-pointer focus-visible:ring-2 focus-visible:ring-black focus-visible:outline-none rounded"
+                >
+                  {/* Top Title & Category Label Row */}
+                  <div className="flex items-baseline justify-start gap-4 md:gap-5 mb-2.5">
+                    <h2 className="font-serif font-normal text-[32px] lg:text-[42px] text-black leading-none not-italic group-hover:italic group-focus-visible:italic transition-[font-style] duration-200 ease-linear">
+                      {project.name}
+                    </h2>
+                    <span className="font-serif italic text-[18px] md:text-[22px] lg:text-[24px] text-black">
+                      {project.category}
+                    </span>
+                  </div>
+
+                  {/* Image Frame */}
+                  <div className="relative w-[82vw] lg:w-[52vw] max-w-[720px] lg:max-w-[820px] aspect-[16/10] bg-neutral-300 overflow-hidden shadow-sm">
+                    <img 
+                      src={project.imageUrl} 
+                      alt={`${project.name} preview`} 
+                      className="w-full h-full object-cover transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.015] group-focus-visible:scale-[1.015]"
+                      loading="eager"
+                      referrerPolicy="no-referrer"
+                    />
+                  </div>
+                </article>
+              ))}
+            </motion.div>
+
+            {/* Bottom Controls Bar across 20px margins */}
+            <div className="relative w-full px-[20px] mt-2.5 font-serif text-[16px] lg:text-[18px] text-black flex items-center justify-between">
+              {/* Left controls */}
+              <div className="flex items-center gap-[clamp(40px,7vw,120px)]">
+                <div className="font-normal tracking-normal whitespace-nowrap">
+                  {currentNum} / {totalNum}
+                </div>
+
+                <button
+                  type="button"
+                  onClick={onViewAllProjects}
+                  className="font-normal tracking-normal whitespace-nowrap text-black hover:italic focus-visible:italic focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-black rounded cursor-pointer transition-[font-style] duration-200"
+                  aria-label="View all projects"
+                >
+                  (VIEW ALL PROJECTS)
+                </button>
+              </div>
+
+              {/* Optically centered instruction */}
+              <div
+                className="absolute left-1/2 -translate-x-1/2 font-normal tracking-normal text-black/35 whitespace-nowrap pointer-events-none"
+                aria-hidden="true"
+              >
+                (SCROLL)
+              </div>
+
+              {/* Right controls */}
+              <div className="flex justify-end items-center gap-4">
+                <button 
+                  type="button"
+                  onClick={isFirstProject ? undefined : scrollPrev}
+                  disabled={isFirstProject}
+                  aria-disabled={isFirstProject}
+                  className={`transition-opacity duration-200 motion-reduce:transition-none p-1 text-[20px] focus-visible:ring-1 focus-visible:ring-black focus-visible:outline-none rounded ${
+                    isFirstProject 
+                      ? "opacity-30 cursor-default" 
+                      : "hover:italic focus-visible:italic cursor-pointer opacity-100"
+                  }`}
+                  aria-label="Previous project"
+                >
+                  ←
+                </button>
+                <button 
+                  type="button"
+                  onClick={isLastProject ? undefined : scrollNext}
+                  disabled={isLastProject}
+                  aria-disabled={isLastProject}
+                  className={`transition-opacity duration-200 motion-reduce:transition-none p-1 text-[20px] focus-visible:ring-1 focus-visible:ring-black focus-visible:outline-none rounded ${
+                    isLastProject 
+                      ? "opacity-30 cursor-default" 
+                      : "hover:italic focus-visible:italic cursor-pointer opacity-100"
+                  }`}
+                  aria-label="Next project"
+                >
+                  →
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
+      ) : (
+        /* Reduced Motion Fallback Grid for Desktop */
+        <div className="hidden md:grid grid-cols-2 gap-10 px-[20px] py-8 max-w-[1440px] mx-auto w-full">
+          {PROJECTS.map((project, index) => {
+            const projectNum = (index + 1).toString().padStart(2, '0');
+            const totalNum = PROJECTS.length.toString().padStart(2, '0');
+
+            return (
+              <article
+                key={project.id}
+                onClick={() => onProjectSelect(project.id)}
+                onKeyDown={(e) => handleKeyDown(e, project.id)}
+                tabIndex={0}
+                role="button"
+                aria-label={`View ${project.name} project details`}
+                className="flex flex-col group cursor-pointer focus-visible:ring-2 focus-visible:ring-black focus-visible:outline-none p-2 rounded"
+              >
+                <div className="flex items-baseline gap-4 mb-2">
+                  <h2 className="font-serif font-normal text-[32px] text-black leading-none not-italic group-hover:italic group-focus-visible:italic transition-[font-style] duration-200 ease-linear">{project.name}</h2>
+                  <span className="font-serif italic text-[18px] md:text-[22px] lg:text-[24px] text-black">{project.category}</span>
+                </div>
+                <div className="w-full aspect-[16/10] bg-neutral-300 overflow-hidden">
+                  <img src={project.imageUrl} alt={project.name} className="w-full h-full object-cover transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.015] group-focus-visible:scale-[1.015]" />
+                </div>
+                <div className="flex justify-between items-center mt-2 font-serif text-[15px] text-black">
+                  <span>{projectNum} / {totalNum}</span>
+                  <span>(SCROLL)</span>
+                  <span>← →</span>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+      )}
+
+      {/* TABLET AND MOBILE VERTICAL PROJECT LIST */}
+      <div className="block md:hidden px-[18px] sm:px-[20px] pb-0 flex flex-col gap-[80px] md:gap-[120px]">
+        {PROJECTS.map((project, index) => {
+          const projectNum = (index + 1).toString().padStart(2, '0');
+          const totalNum = PROJECTS.length.toString().padStart(2, '0');
+
+          return (
+            <article
+              key={project.id}
+              onClick={() => onProjectSelect(project.id)}
+              onKeyDown={(e) => handleKeyDown(e, project.id)}
+              tabIndex={0}
+              role="button"
+              aria-label={`View ${project.name} project details`}
+              className="flex flex-col group cursor-pointer focus-visible:ring-2 focus-visible:ring-black focus-visible:outline-none rounded"
+            >
+              {/* Header Grid: Left Column Grouped Name & Category, Right Column Number */}
+              <div className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-x-[clamp(1.25rem,3vw,2rem)] mb-[clamp(1.125rem,2.5vw,1.5rem)]">
+                {/* Left Column: Grouped Name & Category */}
+                <div className="flex flex-col gap-[0.375rem] min-w-0">
+                  <h2 className="m-0 font-serif font-normal text-[22px] sm:text-[26px] md:text-[32px] text-black leading-[1.05] not-italic break-words">
+                    {project.name}
+                  </h2>
+                  <p className="m-0 font-serif italic text-[16px] sm:text-[18px] md:text-[22px] text-black leading-[1.05] break-words block">
+                    {project.category.includes('& CRM') ? (
+                      <>
+                        {project.category.split('& CRM')[0]}
+                        <span className="whitespace-nowrap">&amp; CRM</span>
+                      </>
+                    ) : (
+                      project.category
+                    )}
+                  </p>
+                </div>
+
+                {/* Right Column: Project Number Aligned to Top Edge */}
+                <div className="font-serif text-[15px] sm:text-[16px] md:text-[18px] text-black leading-[1.05] self-start whitespace-nowrap shrink-0 text-right">
+                  <span>{projectNum} / {totalNum}</span>
+                </div>
+              </div>
+
+              {/* Project Image */}
+              <div className="w-full aspect-[16/10] bg-neutral-300 overflow-hidden shadow-sm">
+                <img 
+                  src={project.imageUrl} 
+                  alt={`${project.name} preview`} 
+                  className="w-full h-full object-cover block"
+                  loading="lazy"
+                  referrerPolicy="no-referrer"
+                />
+              </div>
+            </article>
+          );
+        })}
       </div>
     </section>
   );

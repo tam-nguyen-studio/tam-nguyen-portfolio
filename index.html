@@ -4,35 +4,72 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tam Nguyen — Brand Designer</title>
+    <meta name="description" content="Tam Nguyen is a brand designer based in Brooklyn, NY crafting thoughtful visual languages, digital experiences, and marketing campaigns across beauty, tech, and CPG." />
+    <meta name="author" content="Tam Nguyen" />
+    
+    <!-- Open Graph Metadata -->
+    <meta property="og:title" content="Tam Nguyen — Brand Designer" />
+    <meta property="og:description" content="Brand designer crafting thoughtful visual languages, digital experiences, and marketing campaigns. Eight years across beauty, tech, and CPG." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://tamnguyen.studio" />
+    <meta property="og:image" content="/images/keystone-hero.jpg" />
+    
+    <!-- Twitter Card Metadata -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Tam Nguyen — Brand Designer" />
+    <meta name="twitter:description" content="Brand designer crafting thoughtful visual languages, digital experiences, and marketing campaigns." />
+    <meta name="twitter:image" content="/images/keystone-hero.jpg" />
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="icon" type="image/png" href="images/favicon.png" />
     <link rel="apple-touch-icon" href="images/favicon.png" />
-    <link rel="stylesheet" href="https://use.typekit.net/gam2tgb.css">
     <script>
       tailwind.config = {
         theme: {
           extend: {
             fontFamily: {
-              sans: ['halyard-text', 'sans-serif'],
-              serif: ['freight-big-pro', 'serif'],
-              mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
+              sans: ['"Helvetica Neue"', 'Helvetica', 'Arial', 'sans-serif'],
+              serif: ['"Times New Roman"', 'Times', 'Baskerville', 'Georgia', 'serif'],
+              mono: ['"Times New Roman"', 'Times', 'serif'],
             },
             colors: {
-              'swiss-white': '#FAF8F6',
-              'swiss-black': '#0f0f0f',
+              'swiss-white': '#EFF5F7',
+              'swiss-black': '#000000',
+              'brand-navy': '#224875',
               'swiss-border': 'rgba(0,0,0,0.12)',
             }
           }
         }
       }
     </script>
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Tam Nguyen",
+      "jobTitle": "Brand Designer",
+      "description": "Brand designer crafting thoughtful visual languages, digital experiences, and marketing campaigns.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Brooklyn",
+        "addressRegion": "NY"
+      },
+      "email": "mailto:tam@tamnguyen.studio",
+      "sameAs": [
+        "https://www.linkedin.com/in/tamnguyenstudio/"
+      ],
+      "knowsAbout": ["Brand Design", "Art Direction", "Digital Design", "Packaging", "Performance Creative"]
+    }
+    </script>
     <style>
       section[id], footer[id] {
-        scroll-margin-top: 6rem;
+        scroll-margin-top: 5rem;
       }
 
       html {
         scroll-behavior: smooth;
+        font-family: 'Times New Roman', Times, Baskerville, Georgia, serif;
       }
 
       body {
@@ -43,40 +80,42 @@
         overflow-x: hidden;
         -webkit-font-smoothing: antialiased;
         position: relative;
+        background-color: #EFF5F7;
+        color: #000000;
+        font-family: 'Times New Roman', Times, Baskerville, Georgia, serif;
       }
 
-      /* Hide default cursor only on desktop/non-touch devices */
-      @media (hover: hover) and (pointer: fine) {
-        body, a, button, [role="button"], .cursor-pointer {
-          cursor: none !important;
-        }
+      /* Focus Ring for Keyboard Accessibility */
+      a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
+        outline: 2px solid #000000 !important;
+        outline-offset: 3px !important;
       }
 
-      /* Noise Grain Overlay */
+      /* Static Film-Noise Grain Overlay */
       body::before {
         content: "";
         position: fixed;
-        top: 0; left: 0; width: 100%; height: 100%;
-        opacity: 0.03;
+        top: 0; left: 0; width: 100vw; height: 100vh;
+        opacity: 0.015;
         z-index: 9999;
         pointer-events: none;
-        background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
       }
 
-      ::selection { background: #000; color: #fff; }
+      ::selection { background: #224875; color: #ffffff; }
 
-      @keyframes marquee {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(-50%); }
-      }
-      .animate-marquee {
-        display: inline-block;
-        white-space: nowrap;
-        animation: marquee 20s linear infinite;
+      /* Reduced motion media query */
+      @media (prefers-reduced-motion: reduce) {
+        *, ::before, ::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+          scroll-behavior: auto !important;
+        }
       }
     </style>
   </head>
-  <body class="font-sans">
+  <body class="font-serif">
     <div id="root"></div>
   <script type="module" src="/index.tsx"></script>
 </body>

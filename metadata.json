@@ -1,5 +1,6 @@
 {
-  "name": "Tam Nguyen — Portfolio",
+  "name": "Tam Nguyen — Brand Designer Portfolio",
   "description": "Portfolio website for Tam Nguyen, a brand and digital designer based in Brooklyn, NY.",
-  "requestFramePermissions": []
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

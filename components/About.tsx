@@ -2,98 +2,83 @@ import React from 'react';
 import { motion, useReducedMotion } from 'motion/react';
 
 const RESUME_URL = '/images/tam-nguyen-resume.pdf';
+const LINKEDIN_URL = 'https://www.linkedin.com/in/tamnguyenstudio/';
 
 interface AboutProps {}
 
 const About: React.FC<AboutProps> = () => {
   const shouldReduceMotion = useReducedMotion();
 
-  const textVariants = {
-    hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 20 },
-    visible: (i: number) => ({
-      opacity: 1,
-      y: 0,
-      transition: {
-        delay: i * 0.1,
-        duration: 0.8,
-        ease: [0.16, 1, 0.3, 1]
-      }
-    })
-  };
-
   return (
     <section 
       id="about" 
-      className="w-full flex-grow bg-transparent text-swiss-black px-[20px] pt-[8px] md:pt-[40px] pb-0 flex flex-col justify-between items-center"
+      className="w-full flex-grow text-black flex flex-col items-center pb-0"
     >
-      {/* Upper Block - Vertically centered in the remaining viewport space with guaranteed spacious bottom spacing */}
-      <div className="flex-grow flex flex-col justify-center items-center w-full max-w-[90%] md:max-w-[780px] lg:max-w-[1000px] text-center pt-1 md:pt-6 pb-12 md:pb-24 lg:pb-32">
-        {/* Bio Section */}
-        <div className="flex flex-col items-center w-full">
-          <motion.h1 
-            custom={0}
-            variants={textVariants}
-            initial="hidden"
-            animate="visible"
-            className="font-serif font-normal text-[clamp(28px,4.2vw,54px)] leading-[1.15] tracking-[-0.01em] mb-10 md:mb-12 lg:mb-16"
+      {/* 1. Hero Section */}
+      <div className="w-full max-w-[1440px] mx-auto px-[18px] sm:px-[20px] pt-12 sm:pt-16 md:pt-24 lg:pt-28 pb-[clamp(100px,13vw,220px)] flex flex-col items-center">
+        <div className="w-full text-center flex flex-col items-center">
+          <motion.p 
+            initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="font-serif font-normal text-[clamp(26px,3.8vw,48px)] text-[#224875] [text-wrap:balance] mx-auto w-[calc(100%-40px)] md:w-[88vw] lg:w-[min(82vw,1500px)] leading-[1.04] md:leading-[1.07] lg:leading-[1.06] tracking-[-0.015em] md:tracking-[-0.018em] lg:tracking-[-0.02em]"
           >
-            I'm a brand and marketing designer based in Brooklyn with 8 years of experience across beauty, tech, and CPG. I make sure brands show up with their best face forward.
-          </motion.h1>
+            I'm a Brooklyn-based brand designer with eight years of experience across beauty, consumer, and technology. I create identities, campaigns, and digital experiences that help brands communicate clearly and show up consistently.
+          </motion.p>
 
           <motion.div 
-            custom={2}
-            variants={textVariants}
-            initial="hidden"
-            animate="visible"
-            className="flex items-center justify-center gap-8 md:gap-12 font-serif font-normal text-[clamp(28px,4.2vw,54px)] leading-[1.0] tracking-[-0.01em]"
+            initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+            className="flex items-center justify-center gap-10 sm:gap-14 md:gap-16 font-serif text-[clamp(26px,3.5vw,44px)] font-normal text-[#224875] mt-10 sm:mt-12 md:mt-14"
           >
             <a 
               href={RESUME_URL} 
               target="_blank" 
               rel="noopener noreferrer"
-              className="italic underline underline-offset-[8px] hover:opacity-50 transition-opacity"
+              className="not-italic underline underline-offset-[6px] sm:underline-offset-[8px] hover:italic focus-visible:italic text-[#224875] transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#224875] rounded cursor-pointer"
             >
               Resume
             </a>
             <a 
-              href="https://www.linkedin.com/in/tamnguyenstudio/" 
+              href={LINKEDIN_URL} 
               target="_blank" 
               rel="noopener noreferrer"
-              className="italic underline underline-offset-[8px] hover:opacity-50 transition-opacity"
+              className="not-italic underline underline-offset-[6px] sm:underline-offset-[8px] hover:italic focus-visible:italic text-[#224875] transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#224875] rounded cursor-pointer"
             >
               LinkedIn
             </a>
           </motion.div>
         </div>
       </div>
- 
-      {/* Contact Section - Hugs the bottom footer/border */}
-      <div 
-        id="contact" 
-        className="w-full max-w-[90%] md:max-w-[780px] lg:max-w-[1000px] flex flex-col items-center mt-auto pb-[24px] md:pb-[36px]"
-      >
-        <h2 className="font-serif font-normal text-[clamp(28px,4.2vw,54px)] text-swiss-black leading-[0.92] tracking-[-0.01em] text-center flex flex-col items-center">
-          <motion.span
-            initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-10px' }}
-            transition={{ duration: shouldReduceMotion ? 0.4 : 1.1, ease: [0.16, 1, 0.3, 1] }}
-            className="block"
-          >
-            Get in touch at
-          </motion.span>
-          <motion.a
-            href="mailto:tam@tamnguyen.studio"
-            initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            whileHover={{ opacity: 0.5 }}
-            viewport={{ once: true, margin: '-10px' }}
-            transition={{ duration: shouldReduceMotion ? 0.4 : 1.1, delay: shouldReduceMotion ? 0 : 0.15, ease: [0.16, 1, 0.3, 1] }}
-            className="block w-fit text-center hover:opacity-50 transition-opacity cursor-pointer"
-          >
-            tam@tamnguyen.studio
-          </motion.a>
-        </h2>
+
+      {/* 2 & 3. Thin Horizontal Rule & Info Table Section */}
+      <div className="w-full max-w-[1440px] mx-auto px-[18px] sm:px-[20px] font-sans text-[15px] sm:text-[16px] text-black">
+        {/* Row 1 — Selected brands */}
+        <div className="w-full border-t border-black grid grid-cols-1 md:grid-cols-[clamp(220px,25vw,340px)_1fr] items-start pt-[18px] md:pt-[clamp(18px,2vw,28px)] pb-[48px] md:pb-[clamp(52px,5vw,80px)] gap-y-3 md:gap-y-0">
+          <div className="font-sans font-normal leading-[1.45] sm:leading-[1.5]">
+            Selected brands
+          </div>
+          <div className="font-sans font-normal leading-[1.45] sm:leading-[1.5]">
+            <p>Gillette, Braun, The Art of Shaving, Soko Glam, Then I Met You, P&G Good Everyday</p>
+          </div>
+        </div>
+
+        {/* Row 2 — Capabilities */}
+        <div className="w-full border-t border-black grid grid-cols-1 md:grid-cols-[clamp(220px,25vw,340px)_1fr] items-start pt-[18px] md:pt-[clamp(18px,2vw,28px)] pb-[48px] md:pb-[clamp(52px,5vw,80px)] gap-y-3 md:gap-y-0">
+          <div className="font-sans font-normal leading-[1.45] sm:leading-[1.5]">
+            Capabilities
+          </div>
+          <div className="font-sans font-normal leading-[1.45] sm:leading-[1.5] flex flex-col gap-0.5">
+            <p>Brand identity</p>
+            <p>Campaign art direction</p>
+            <p>Digital design</p>
+            <p>Editorial design</p>
+            <p>Presentations</p>
+            <p>Motion</p>
+            <p>AI-assisted image making</p>
+          </div>
+        </div>
       </div>
     </section>
   );
