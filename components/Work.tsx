@@ -14,6 +14,8 @@ const Work: React.FC<WorkProps> = ({ onProjectSelect, onViewAllProjects }) => {
   const stickyRef = useRef<HTMLDivElement>(null);
   const [maxScroll, setMaxScroll] = useState(0);
   const [stickyHeight, setStickyHeight] = useState(0);
+  const [cardStops, setCardStops] = useState<number[]>([]);
+  const [trailingSpace, setTrailingSpace] = useState(0);
 
   const { scrollY } = useScroll();
   const { scrollYProgress } = useScroll({
@@ -32,18 +34,34 @@ const Work: React.FC<WorkProps> = ({ onProjectSelect, onViewAllProjects }) => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Calculate dynamic max scroll pixels and sticky element dimensions
+  // Calculate dynamic max scroll pixels, card stops, and trailing space
   useEffect(() => {
     const updateDimensions = () => {
       if (window.innerWidth >= 768 && trackRef.current && stickyRef.current) {
-        const scrollWidth = trackRef.current.scrollWidth;
-        const clientWidth = window.innerWidth;
-        const horizDistance = Math.max(0, scrollWidth - clientWidth);
-        setMaxScroll(horizDistance);
-        setStickyHeight(stickyRef.current.offsetHeight || window.innerHeight);
+        const pageGutter = 20;
+        const cards = trackRef.current.querySelectorAll<HTMLElement>('article');
+
+        if (cards.length > 0) {
+          const lastCard = cards[cards.length - 1];
+          const carouselViewportWidth = window.innerWidth;
+          const lastCardWidth = lastCard.offsetWidth;
+          const calculatedTrailing = Math.max(pageGutter, carouselViewportWidth - lastCardWidth - pageGutter);
+          setTrailingSpace(calculatedTrailing);
+
+          const trackScrollWidth = lastCard.offsetLeft + lastCardWidth + calculatedTrailing;
+          const horizDistance = Math.max(0, trackScrollWidth - carouselViewportWidth);
+          setMaxScroll(horizDistance);
+          setStickyHeight(stickyRef.current.offsetHeight || window.innerHeight);
+
+          const stops = Array.from(cards).map((card: HTMLElement) =>
+            Math.min(Math.max(0, card.offsetLeft - pageGutter), horizDistance)
+          );
+          setCardStops(stops);
+        }
       } else {
         setMaxScroll(0);
         setStickyHeight(0);
+        setCardStops([]);
       }
     };
 
@@ -60,8 +78,8 @@ const Work: React.FC<WorkProps> = ({ onProjectSelect, onViewAllProjects }) => {
     }
 
     const timer1 = setTimeout(updateDimensions, 100);
-    const timer2 = setTimeout(updateDimensions, 500);
-    const timer3 = setTimeout(updateDimensions, 1000);
+    const timer2 = setTimeout(updateDimensions, 300);
+    const timer3 = setTimeout(updateDimensions, 800);
     window.addEventListener('resize', updateDimensions);
     return () => {
       clearTimeout(timer1);
@@ -77,36 +95,47 @@ const Work: React.FC<WorkProps> = ({ onProjectSelect, onViewAllProjects }) => {
     [0, -maxScroll]
   );
 
-  const [activeIndex, setActiveIndex] = useState(1);
+  const [activeIndex, setActiveIndex] = useState(0);
   useEffect(() => {
     const unsubscribe = scrollYProgress.on('change', (progress) => {
-      if (!isDesktop) return;
+      if (!isDesktop || cardStops.length === 0 || maxScroll <= 0) return;
       const clampedProgress = Math.min(1, Math.max(0, progress));
-      const idx = Math.min(PROJECTS.length, Math.max(1, Math.floor(clampedProgress * PROJECTS.length) + 1));
-      setActiveIndex(idx);
+      const currentX = clampedProgress * maxScroll;
+
+      let closestIndex = 0;
+      let minDiff = Infinity;
+      for (let i = 0; i < cardStops.length; i++) {
+        const diff = Math.abs(currentX - cardStops[i]);
+        if (diff < minDiff) {
+          minDiff = diff;
+          closestIndex = i;
+        }
+      }
+      setActiveIndex(closestIndex);
     });
     return () => unsubscribe();
-  }, [scrollYProgress, isDesktop]);
+  }, [scrollYProgress, isDesktop, cardStops, maxScroll]);
 
-  const currentNum = activeIndex.toString().padStart(2, '0');
+  const lastIndex = PROJECTS.length - 1;
+  const currentNum = (activeIndex + 1).toString().padStart(2, '0');
   const totalNum = PROJECTS.length.toString().padStart(2, '0');
-  const isFirstProject = activeIndex === 1;
-  const isLastProject = activeIndex === PROJECTS.length;
+  const isAtStart = activeIndex === 0;
+  const isAtEnd = activeIndex === lastIndex;
 
   const scrollPrev = () => {
-    if (!targetRef.current || !maxScroll) return;
-    const currentTop = targetRef.current.offsetTop;
-    const targetIdx = Math.max(0, activeIndex - 2);
-    const targetY = currentTop + (targetIdx / (PROJECTS.length - 1)) * maxScroll;
-    window.scrollTo({ top: targetY, behavior: 'smooth' });
+    if (!targetRef.current || cardStops.length === 0) return;
+    const targetIdx = Math.max(0, activeIndex - 1);
+    const targetStop = cardStops[targetIdx];
+    const targetY = targetRef.current.offsetTop + targetStop;
+    window.scrollTo({ top: targetY, behavior: shouldReduceMotion ? 'auto' : 'smooth' });
   };
 
   const scrollNext = () => {
-    if (!targetRef.current || !maxScroll) return;
-    const currentTop = targetRef.current.offsetTop;
-    const targetIdx = Math.min(PROJECTS.length - 1, activeIndex);
-    const targetY = currentTop + (targetIdx / (PROJECTS.length - 1)) * maxScroll;
-    window.scrollTo({ top: targetY, behavior: 'smooth' });
+    if (!targetRef.current || cardStops.length === 0) return;
+    const targetIdx = Math.min(lastIndex, activeIndex + 1);
+    const targetStop = cardStops[targetIdx];
+    const targetY = targetRef.current.offsetTop + targetStop;
+    window.scrollTo({ top: targetY, behavior: shouldReduceMotion ? 'auto' : 'smooth' });
   };
 
   // State for vertical rule pulse interaction
@@ -174,14 +203,23 @@ const Work: React.FC<WorkProps> = ({ onProjectSelect, onViewAllProjects }) => {
 
       {/* (WORK) Marker with 1.5pt Vertical Divider Line */}
       <div className="flex flex-col items-center justify-center mt-0 mb-8 md:mb-12">
-        <motion.span 
+        <motion.button 
+          type="button"
+          onClick={onViewAllProjects}
           initial={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: EASE, delay: 1.2 }}
-          className="font-serif text-[18px] md:text-[22px] lg:text-[24px] text-black tracking-normal uppercase"
+          className="group min-h-[44px] inline-flex items-center justify-center p-0 text-black leading-none font-serif text-[clamp(17px,4.8vw,22px)] md:text-[clamp(21px,2.8vw,26px)] lg:text-[clamp(26px,1.8vw,38px)] tracking-normal uppercase cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black rounded whitespace-nowrap"
+          aria-label="View Work index"
         >
-          (WORK)
-        </motion.span>
+          <span className="translate-y-[-0.04em] inline-block">
+            (
+            <span className="not-italic group-hover:italic group-focus-visible:italic transition-[font-style] duration-200">
+              WORK
+            </span>
+            )
+          </span>
+        </motion.button>
         <motion.div 
           initial={shouldReduceMotion ? { scaleY: 1 } : { scaleY: 0 }}
           animate={
@@ -217,7 +255,7 @@ const Work: React.FC<WorkProps> = ({ onProjectSelect, onViewAllProjects }) => {
             <motion.div 
               ref={trackRef}
               style={{ x }} 
-              className="flex gap-8 md:gap-12 items-center pl-[20px] pr-[20px] w-max mt-0 md:mt-1"
+              className="relative flex gap-8 md:gap-12 items-center pl-[20px] pr-[20px] w-max mt-0 md:mt-1"
             >
               {PROJECTS.map((project) => (
                 <article
@@ -232,7 +270,7 @@ const Work: React.FC<WorkProps> = ({ onProjectSelect, onViewAllProjects }) => {
                   {/* Top Title & Category Label Row */}
                   <div className="flex items-baseline justify-start gap-4 md:gap-5 mb-2.5">
                     <h2 className="font-serif font-normal text-[32px] lg:text-[42px] text-black leading-none not-italic group-hover:italic group-focus-visible:italic transition-[font-style] duration-200 ease-linear">
-                      {project.name}
+                      {project.id === 'pg' ? 'P&G' : project.name}
                     </h2>
                     <span className="font-serif italic text-[18px] md:text-[22px] lg:text-[24px] text-black">
                       {project.category}
@@ -251,6 +289,11 @@ const Work: React.FC<WorkProps> = ({ onProjectSelect, onViewAllProjects }) => {
                   </div>
                 </article>
               ))}
+              {/* Trailing spacer so the final card can be fully visible and aligned */}
+              <div 
+                style={{ width: trailingSpace, flexShrink: 0 }} 
+                aria-hidden="true" 
+              />
             </motion.div>
 
             {/* Bottom Controls Bar across 20px margins */}
@@ -283,11 +326,11 @@ const Work: React.FC<WorkProps> = ({ onProjectSelect, onViewAllProjects }) => {
               <div className="flex justify-end items-center gap-4">
                 <button 
                   type="button"
-                  onClick={isFirstProject ? undefined : scrollPrev}
-                  disabled={isFirstProject}
-                  aria-disabled={isFirstProject}
-                  className={`transition-opacity duration-200 motion-reduce:transition-none p-1 text-[20px] focus-visible:ring-1 focus-visible:ring-black focus-visible:outline-none rounded ${
-                    isFirstProject 
+                  onClick={isAtStart ? undefined : scrollPrev}
+                  disabled={isAtStart}
+                  aria-disabled={isAtStart}
+                  className={`transition-opacity duration-200 motion-reduce:transition-none min-w-[44px] min-h-[44px] flex items-center justify-center p-1 text-[20px] focus-visible:ring-1 focus-visible:ring-black focus-visible:outline-none rounded ${
+                    isAtStart 
                       ? "opacity-30 cursor-default" 
                       : "hover:italic focus-visible:italic cursor-pointer opacity-100"
                   }`}
@@ -297,11 +340,11 @@ const Work: React.FC<WorkProps> = ({ onProjectSelect, onViewAllProjects }) => {
                 </button>
                 <button 
                   type="button"
-                  onClick={isLastProject ? undefined : scrollNext}
-                  disabled={isLastProject}
-                  aria-disabled={isLastProject}
-                  className={`transition-opacity duration-200 motion-reduce:transition-none p-1 text-[20px] focus-visible:ring-1 focus-visible:ring-black focus-visible:outline-none rounded ${
-                    isLastProject 
+                  onClick={isAtEnd ? undefined : scrollNext}
+                  disabled={isAtEnd}
+                  aria-disabled={isAtEnd}
+                  className={`transition-opacity duration-200 motion-reduce:transition-none min-w-[44px] min-h-[44px] flex items-center justify-center p-1 text-[20px] focus-visible:ring-1 focus-visible:ring-black focus-visible:outline-none rounded ${
+                    isAtEnd 
                       ? "opacity-30 cursor-default" 
                       : "hover:italic focus-visible:italic cursor-pointer opacity-100"
                   }`}
@@ -331,7 +374,7 @@ const Work: React.FC<WorkProps> = ({ onProjectSelect, onViewAllProjects }) => {
                 className="flex flex-col group cursor-pointer focus-visible:ring-2 focus-visible:ring-black focus-visible:outline-none p-2 rounded"
               >
                 <div className="flex items-baseline gap-4 mb-2">
-                  <h2 className="font-serif font-normal text-[32px] text-black leading-none not-italic group-hover:italic group-focus-visible:italic transition-[font-style] duration-200 ease-linear">{project.name}</h2>
+                  <h2 className="font-serif font-normal text-[32px] text-black leading-none not-italic group-hover:italic group-focus-visible:italic transition-[font-style] duration-200 ease-linear">{project.id === 'pg' ? 'P&G' : project.name}</h2>
                   <span className="font-serif italic text-[18px] md:text-[22px] lg:text-[24px] text-black">{project.category}</span>
                 </div>
                 <div className="w-full aspect-[16/10] bg-neutral-300 overflow-hidden">

@@ -20,6 +20,7 @@ const App: React.FC = () => {
   });
 
   const [currentPath, setCurrentPath] = useState(() => window.location.pathname);
+  const [isContactTransitioning, setIsContactTransitioning] = useState(false);
 
   const isWorkPage = currentPath.replace(/\/$/, '') === '/work';
 
@@ -68,13 +69,23 @@ const App: React.FC = () => {
 
   useEffect(() => {
     const path = currentPath.replace(/^\//, '');
-    if (path === 'contact' && !selectedProjectId && !isAboutPage) {
-      const element = document.getElementById('contact');
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+    if ((path === 'contact' || window.location.hash === '#contact') && !selectedProjectId && !isAboutPage && !isWorkPage) {
+      const contactSection = document.getElementById('contact');
+      if (contactSection) {
+        const root = document.documentElement;
+        const previousScrollBehavior = root.style.scrollBehavior;
+        root.style.scrollBehavior = 'auto';
+        const targetY = contactSection.getBoundingClientRect().top + window.scrollY;
+        window.scrollTo({
+          top: targetY,
+          behavior: 'auto',
+        });
+        requestAnimationFrame(() => {
+          root.style.scrollBehavior = previousScrollBehavior;
+        });
       }
     }
-  }, [selectedProjectId, isAboutPage, currentPath]);
+  }, [selectedProjectId, isAboutPage, isWorkPage, currentPath]);
 
   const navigateTo = (path: string) => {
     const newPath = path.startsWith('/') ? path : `/${path}`;
@@ -86,17 +97,74 @@ const App: React.FC = () => {
     }
   };
 
-  const scrollToSection = (id: string) => {
+  const scrollToSection = (id: string, event?: React.SyntheticEvent) => {
     if (id === 'contact') {
-      const element = document.getElementById('contact');
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-        if (window.location.pathname === '/' || window.location.pathname === '/contact') {
-          window.history.pushState({}, '', '/contact');
-          setCurrentPath('/contact');
+      const isHomepage =
+        !selectedProjectId &&
+        !isAboutPage &&
+        !isWorkPage &&
+        (window.location.pathname === '/' || window.location.pathname === '/index.html' || window.location.pathname === '/contact');
+
+      const contactSection = document.getElementById('contact');
+
+      if (isHomepage) {
+        if (event) event.preventDefault();
+
+        if (contactSection) {
+          if (shouldReduceMotion) {
+            const root = document.documentElement;
+            const previousScrollBehavior = root.style.scrollBehavior;
+            root.style.scrollBehavior = 'auto';
+            const targetY = contactSection.getBoundingClientRect().top + window.scrollY;
+            window.scrollTo({
+              top: targetY,
+              behavior: 'auto',
+            });
+            window.history.replaceState(null, '', '#contact');
+            contactSection.setAttribute('tabindex', '-1');
+            contactSection.focus({ preventScroll: true });
+            requestAnimationFrame(() => {
+              root.style.scrollBehavior = previousScrollBehavior;
+            });
+            return;
+          }
+
+          setIsContactTransitioning(true);
+          setTimeout(() => {
+            const root = document.documentElement;
+            const previousScrollBehavior = root.style.scrollBehavior;
+            root.style.scrollBehavior = 'auto';
+
+            const targetY = contactSection.getBoundingClientRect().top + window.scrollY;
+            window.scrollTo({
+              top: targetY,
+              behavior: 'auto',
+            });
+
+            window.history.replaceState(null, '', '#contact');
+
+            contactSection.setAttribute('tabindex', '-1');
+            contactSection.focus({ preventScroll: true });
+
+            requestAnimationFrame(() => {
+              root.style.scrollBehavior = previousScrollBehavior;
+              requestAnimationFrame(() => {
+                setIsContactTransitioning(false);
+              });
+            });
+          }, 170);
         }
         return;
       }
+
+      if (event) event.preventDefault();
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: 'smooth' });
+        contactSection.setAttribute('tabindex', '-1');
+        contactSection.focus({ preventScroll: true });
+        return;
+      }
+
       navigateTo('contact');
       return;
     }
@@ -139,6 +207,12 @@ const App: React.FC = () => {
     <div 
       className="w-full relative font-serif transition-colors duration-300 min-h-screen flex flex-col bg-[#EFF5F7] text-black"
     >
+      <div 
+        className={`contact-jump-overlay fixed inset-0 z-[9999] bg-[#EFF5F7] pointer-events-none transition-opacity duration-[180ms] ease-in-out ${
+          isContactTransitioning ? 'opacity-100' : 'opacity-0'
+        }`}
+        aria-hidden="true"
+      />
       <div className="w-full flex flex-col flex-grow">
         <Navigation 
           isProjectView={!!selectedProjectId || isAboutPage || isWorkPage}
