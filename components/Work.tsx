@@ -202,7 +202,7 @@ const Work: React.FC<WorkProps> = ({ onProjectSelect, onViewAllProjects }) => {
       </motion.div>
 
       {/* (WORK) Marker with 1.5pt Vertical Divider Line */}
-      <div className="flex flex-col items-center justify-center mt-0 mb-8 md:mb-12">
+      <div className="flex flex-col items-center justify-center mt-0 lg:-mt-[40px] mb-8 md:mb-12">
         <motion.button 
           type="button"
           onClick={onViewAllProjects}
