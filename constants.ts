@@ -11,30 +11,36 @@ export const PROJECTS: Project[] = [
     heroImage: '/images/keystone-hero.jpg',
     objectPosition: 'center center',
     description: [
-      "Keystone is a strategy, economics, and technology consultancy partnering with global brands and law firms. As Keystone grew its AI and technology advisory practice, the brand needed to evolve with it.",
-      "I joined as sole in\u2011house designer to support a corporate rebrand, owning all visual output — spanning digital, marketing collateral, event materials, and internal communications, while building a sub-brand architecture across the company's practice groups and teams."
+      "Keystone is a strategy, economics, and technology consultancy working with global companies and law firms.",
+      "I joined Keystone while a company rebrand was underway. I participated in agency reviews and internal discussions, then helped carry the new identity into the firm’s website, marketing, editorial, event, and internal materials as its sole in-house graphic designer."
     ],
     role: 'Graphic Designer',
-    scope: ['Brand Expression', 'Digital Design', 'Editorial & Marketing Design'],
+    scope: [
+      'Brand Expression',
+      'Digital Design',
+      'Editorial & Marketing Design',
+      'Art Direction'
+    ],
     collaborators: ['Otherward — Identity', 'Refokus — Web', 'Michael Simon — Photography'],
     sections: [
       {
         title: '01 — WEB & DIGITAL',
         description: [
-          "I applied Keystone’s refreshed identity across responsive web pages, mobile touchpoints, services content, recruiting communications, and team profiles. The system brought greater clarity and consistency to a complex professional-services offering while maintaining the firm’s institutional credibility."
+          "I maintained and updated Keystone’s website, adding new content and sections as the firm’s needs evolved. I worked closely with developers to refine layouts, resolve visual issues, and keep the site consistent with the refreshed identity.",
+          "During the initial redesign, I also shared references, ideas, and detailed visual feedback with Refokus as they developed the website."
         ],
         mediaGroups: [
+          { type: 'single', items: [{ src: '/images/keystone-01.jpg', alt: 'Keystone website layout mockup' }] },
           { type: 'single', items: [{ src: '/images/keystone-02.jpg', alt: 'Deep Enterprise AI Platform desktop homepage' }] },
           { type: 'single', items: [{ src: '/images/keystone-03.jpg', alt: 'Mobile website shown on phone held in hand' }] },
           { type: 'single', items: [{ src: '/images/keystone-04.jpg', alt: 'Services or capabilities webpage' }] },
-          { type: 'single', items: [{ src: '/images/keystone-05.jpg', alt: 'Careers or recruiting webpage shown on laptop' }] },
-          { type: 'single', items: [{ src: '/images/keystone-06.jpg', alt: 'Team portrait grid' }] }
+          { type: 'single', items: [{ src: '/images/keystone-05.jpg', alt: 'Careers or recruiting webpage shown on laptop' }] }
         ]
       },
       {
         title: '02 — THOUGHT LEADERSHIP & COMMUNICATIONS',
         description: [
-          "I developed a cohesive visual system for Keystone’s research and communications across reports, guides, digital content, and LinkedIn. Reusable templates helped teams publish consistently while adapting to different topics, formats, and audiences."
+          "I designed reports, guides, presentations, print ads, brochures, social content, and event materials. I also created a small set of reusable layouts for recurring print and marketing needs."
         ],
         mediaGroups: [
           { type: 'single', items: [{ src: '/images/keystone-07.jpg', alt: 'Purple-and-white digital content cards' }] },
@@ -49,6 +55,15 @@ export const PROJECTS: Project[] = [
           { type: 'single', items: [{ src: '/images/keystone-11.jpg', alt: 'White-paper or report-page mockup' }] },
           { type: 'single', items: [{ src: '/images/keystone-12.jpg', alt: 'Two black LinkedIn posts two-up composition' }] }
         ]
+      },
+      {
+        title: '03 — PHOTOGRAPHY',
+        description: [
+          "I art directed a new series of employee headshots with photographer Michael Simon. I scouted locations throughout Keystone’s offices and helped direct the lighting, backgrounds, composition, and post-production."
+        ],
+        mediaGroups: [
+          { type: 'single', items: [{ src: '/images/keystone-06.jpg', alt: 'Keystone employee headshots and office portraits' }] }
+        ]
       }
     ]
   },
@@ -61,10 +76,11 @@ export const PROJECTS: Project[] = [
     heroImage: '/images/soko-glam-hero.jpg',
     objectPosition: 'center center',
     description: [
-      "Soko Glam is the leading direct-to-consumer destination for Korean beauty in the US. As the sole in\u2011house designer, I owned art direction across every campaign — concepting, directing photography, and executing across digital and packaging."
+      "Soko Glam is an online destination for Korean beauty and skincare.",
+      "As Soko Glam’s sole in-house digital graphic designer, I developed campaign concepts, art directed photography, and designed work across the website, email, social, and packaging."
     ],
-    role: 'Sole In\u2011House Designer',
-    scope: ['Art Direction', 'Digital Design', 'Packaging'],
+    role: 'Digital Graphic Designer',
+    scope: ['Art Direction', 'Campaign Design', 'Digital & E-commerce Design', 'Packaging'],
     collaborators: [],
     sections: [
       {
@@ -129,8 +145,8 @@ export const PROJECTS: Project[] = [
       "The Klog needed to evolve from a playful blog into a trusted authority on K-beauty. The goal of the brand refresh was to balance approachability with expertise, shifting the platform into a legitimate educational resource.",
       "I refined the visual language through a more restrained color palette and elevated use of typography and layout, extending the refreshed system into packaging for launches like the Soft Shield Pimple Patch and Snail Mucin Energy Essence."
     ],
-    role: 'Visual Identity, Digital Design, Packaging',
-    scope: ['Visual Identity', 'Digital Design', 'Packaging'],
+    role: 'Digital Graphic Designer',
+    scope: ['Brand Refresh', 'Editorial & Digital Design', 'Packaging'],
     collaborators: [],
     sections: [
       {
@@ -171,9 +187,10 @@ export const PROJECTS: Project[] = [
     description: [
       "A visual identity concept for a skincare brand with one radical constraint — five products, nothing more. A brand built to stand apart from a category that never stops adding. Blackletter meets Swiss grid, clinical skincare with a point of view. Dark packaging, warm documentary photography, copy that doesn't explain itself."
     ],
-    role: 'Visual Identity, Art Direction, Digital Design, Packaging',
+    role: 'Creative Direction & Design',
     scope: ['Visual Identity', 'Art Direction', 'Digital Design', 'Packaging'],
-    collaborators: ['Claude, ChatGPT, Nano Banana, Adobe Firefly'],
+    collaborators: [],
+    tools: ['ChatGPT', 'Claude', 'Adobe Photoshop'],
     sections: [
       {
         mediaGroups: [
@@ -197,11 +214,11 @@ export const PROJECTS: Project[] = [
     heroImage: '/images/then-i-met-you-hero.jpg',
     objectPosition: 'center top',
     description: [
-      "Then I Met You is an award-winning skincare brand rooted in Jeong, the Korean concept of a deep emotional connection to people, places, and things.",
-      "The challenge was translating something inherently tactile and sensory into digital formats. I led design across email, social, and web — making sure the brand felt as considered on screen as it did in hand."
+      "Then I Met You is a skincare brand founded by Charlotte Cho, co-founder of Soko Glam. The brand is rooted in jeong, the Korean idea of a deep emotional connection to people, places, and things.",
+      "While working as Soko Glam’s in-house digital graphic designer, I designed email, social, and web content for Then I Met You, adapting its warm, tactile identity across its digital channels."
     ],
-    role: 'Digital Design, Email Marketing, Social Content',
-    scope: ['Digital Design', 'Email Marketing', 'Social Content'],
+    role: 'Digital Graphic Designer',
+    scope: ['Digital & E-commerce Design', 'Email Design', 'Social Content'],
     collaborators: [],
     sections: [
       {
@@ -232,11 +249,12 @@ export const PROJECTS: Project[] = [
     heroImage: '/images/the-alden-hero.jpg',
     objectPosition: 'center center',
     description: [
-      "A visual identity concept for a community of modern farmhouse townhomes in Houston, Texas. I designed a mark that merges organic leaf forms with architectural elements, grounded in a palette of deep forest teal, warm gold, and natural wood tones, created to feel rooted yet elevated."
+      "The Alden is a community of modern farmhouse townhomes in Houston, Texas. While working at MMI Agency, I was brought into an early-stage branding exploration and developed a proposed visual direction inspired by the development’s architecture and natural surroundings. The concept included a logo mark, color palette, and a small set of brand applications."
     ],
-    role: 'Visual Identity',
-    scope: ['Visual Identity'],
-    collaborators: ['MMI Agency'],
+    role: 'Designer',
+    scope: ['Visual Identity', 'Logo Design', 'Brand Applications'],
+    agency: 'MMI Agency',
+    collaborators: [],
     sections: [
       {
         mediaGroups: [

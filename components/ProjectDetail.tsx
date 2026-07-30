@@ -120,6 +120,32 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({
                   ))}
                 </div>
               )}
+
+              {project.agency && (
+                <div>
+                  <h2 className="mb-1 text-[#224875] uppercase font-sans text-[11px] md:text-[12px] font-normal tracking-normal">
+                    AGENCY
+                  </h2>
+                  {Array.isArray(project.agency) ? (
+                    project.agency.map((item) => (
+                      <p key={item}>{formatNonBreaking(item)}</p>
+                    ))
+                  ) : (
+                    <p>{formatNonBreaking(project.agency)}</p>
+                  )}
+                </div>
+              )}
+
+              {project.tools && project.tools.length > 0 && (
+                <div>
+                  <h2 className="mb-1 text-[#224875] uppercase font-sans text-[11px] md:text-[12px] font-normal tracking-normal">
+                    TOOLS
+                  </h2>
+                  {project.tools.map((item) => (
+                    <p key={item}>{formatNonBreaking(item)}</p>
+                  ))}
+                </div>
+              )}
             </aside>
           </RightRailWrapper>
         </div>

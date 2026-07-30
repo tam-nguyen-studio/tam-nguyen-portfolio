@@ -28,6 +28,8 @@ export interface Project {
   role?: string;
   scope?: string[];
   collaborators?: string[];
+  agency?: string | string[];
+  tools?: string[];
   sections?: ProjectSection[];
   confidentialNotice?: string;
 }
