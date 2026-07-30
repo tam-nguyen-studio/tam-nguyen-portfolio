@@ -260,6 +260,18 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({
             ))}
           </div>
         )}
+
+        {/* Process Note & Disclaimer */}
+        {(project.processNote || project.disclaimer) && (
+          <div className="mt-[48px] md:mt-[64px] pb-4 flex flex-col gap-1.5 font-sans text-[12px] md:text-[13px] leading-relaxed max-w-[440px]">
+            {project.processNote && (
+              <p className="m-0 text-black/70 font-normal">{formatNonBreaking(project.processNote)}</p>
+            )}
+            {project.disclaimer && (
+              <p className="m-0 text-black/40 italic font-normal">{formatNonBreaking(project.disclaimer)}</p>
+            )}
+          </div>
+        )}
       </div>
 
       {/* 5. Project Footer */}

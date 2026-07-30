@@ -1,6 +1,6 @@
 import { Project, NavItem } from './types';
 
-// Projects reordered: Keystone, Soko Glam, The Klog, Bare Skin, Then I Met You, The Alden, Procter & Gamble
+// Projects order: Keystone, Cyprès 21, Bare Skin, Soko Glam, The Klog, Procter & Gamble, Then I Met You, The Alden
 export const PROJECTS: Project[] = [
   {
     id: 'keystone',
@@ -33,8 +33,7 @@ export const PROJECTS: Project[] = [
           { type: 'single', items: [{ src: '/images/keystone-01.jpg', alt: 'Keystone website layout mockup' }] },
           { type: 'single', items: [{ src: '/images/keystone-02.jpg', alt: 'Deep Enterprise AI Platform desktop homepage' }] },
           { type: 'single', items: [{ src: '/images/keystone-03.jpg', alt: 'Mobile website shown on phone held in hand' }] },
-          { type: 'single', items: [{ src: '/images/keystone-04.jpg', alt: 'Services or capabilities webpage' }] },
-          { type: 'single', items: [{ src: '/images/keystone-05.jpg', alt: 'Careers or recruiting webpage shown on laptop' }] }
+          { type: 'single', items: [{ src: '/images/keystone-04.jpg', alt: 'Services or capabilities webpage' }] }
         ]
       },
       {
@@ -43,17 +42,17 @@ export const PROJECTS: Project[] = [
           "I designed reports, guides, presentations, print ads, brochures, social content, and event materials. I also created a small set of reusable layouts for recurring print and marketing needs."
         ],
         mediaGroups: [
-          { type: 'single', items: [{ src: '/images/keystone-07.jpg', alt: 'Purple-and-white digital content cards' }] },
-          { type: 'single', items: [{ src: '/images/keystone-10.jpg', alt: 'Multi-format article, report or publishing-system composition' }] },
+          { type: 'single', items: [{ src: '/images/keystone-05.jpg', alt: 'Careers or recruiting collateral shown on laptop' }] },
           {
             type: 'grid',
             items: [
-              { src: '/images/keystone-08.jpg', alt: 'Green editorial guide cover 1' },
-              { src: '/images/keystone-09.jpg', alt: 'Green editorial guide cover 2' }
+              { src: '/images/keystone-07.jpg', alt: 'Purple-and-white digital content cards' },
+              { src: '/images/keystone-08.jpg', alt: 'Green editorial guide cover 1' }
             ]
           },
-          { type: 'single', items: [{ src: '/images/keystone-11.jpg', alt: 'White-paper or report-page mockup' }] },
-          { type: 'single', items: [{ src: '/images/keystone-12.jpg', alt: 'Two black LinkedIn posts two-up composition' }] }
+          { type: 'single', items: [{ src: '/images/keystone-06.jpg', alt: 'Keystone employee headshots and office portraits' }] },
+          { type: 'single', items: [{ src: '/images/keystone-09.jpg', alt: 'Green editorial guide cover 2' }] },
+          { type: 'single', items: [{ src: '/images/keystone-10.jpg', alt: 'Multi-format article, report or publishing-system composition' }] }
         ]
       },
       {
@@ -62,7 +61,94 @@ export const PROJECTS: Project[] = [
           "I art directed a new series of employee headshots with photographer Michael Simon. I scouted locations throughout Keystone’s offices and helped direct the lighting, backgrounds, composition, and post-production."
         ],
         mediaGroups: [
-          { type: 'single', items: [{ src: '/images/keystone-06.jpg', alt: 'Keystone employee headshots and office portraits' }] }
+          { type: 'single', items: [{ src: '/images/keystone-11.jpg', alt: 'White-paper or report-page mockup' }] }
+        ]
+      }
+    ]
+  },
+  {
+    id: 'cypres-21-indigo',
+    name: 'CYPRÈS 21 INDIGO',
+    category: 'Campaign Art Direction',
+    year: '2025',
+    imageUrl: '/images/cypres-21-indigo-campaign-01.jpg',
+    heroImage: '/images/cypres-21-indigo-campaign-01.jpg',
+    objectPosition: 'center center',
+    description: [
+      "An independent campaign concept for Le Labo’s CYPRÈS 21 INDIGO candle. Inspired by Japanese aizome dyeing, the visual direction pairs sculptural indigo textiles with quiet still life photography to explore craft, time, and ritual.",
+      "The campaign extends the visual direction across outdoor, web, and social, using the line “A slower kind of blue.”"
+    ],
+    role: 'Art Direction',
+    scope: ['Visual Direction', 'AI Image Direction'],
+    tools: ['ChatGPT', 'Adobe Photoshop'],
+    sections: [
+      {
+        title: '01 / VISUAL DIRECTION',
+        description: [
+          "I built the image direction around sculptural indigo textiles, cool directional light, and quiet compositions. The candle remains the focal point while the folds, texture, and scale of the fabric reference the craft behind aizome dyeing."
+        ],
+        mediaGroups: [
+          {
+            type: 'single',
+            items: [{ src: '/images/cypres-21-indigo-campaign-02.jpg', alt: 'CYPRÈS 21 INDIGO Campaign 02' }]
+          },
+          {
+            type: 'grid',
+            items: [
+              { src: '/images/cypres-21-indigo-campaign-03.jpg', alt: 'CYPRÈS 21 INDIGO Campaign 03' },
+              { src: '/images/cypres-21-indigo-campaign-04.jpg', alt: 'CYPRÈS 21 INDIGO Campaign 04' }
+            ]
+          }
+        ]
+      },
+      {
+        title: '02 / CAMPAIGN APPLICATIONS',
+        description: [
+          "The visual direction was adapted across outdoor, web, and social formats while maintaining the same restrained composition, color, and typography."
+        ],
+        mediaGroups: [
+          {
+            type: 'single',
+            items: [{ src: '/images/cypres-21-indigo-campaign-05.jpg', alt: 'Outdoor advertising campaign mockup' }]
+          },
+          {
+            type: 'single',
+            items: [{ src: '/images/cypres-21-indigo-campaign-06.jpg', alt: 'Website application mockup' }]
+          },
+          {
+            type: 'single',
+            items: [{ src: '/images/cypres-21-indigo-campaign-07.jpg', alt: 'Instagram carousel mockup' }]
+          }
+        ]
+      }
+    ],
+    processNote: "Independent campaign exploration created with ChatGPT and refined in Adobe Photoshop. Not affiliated with Le Labo."
+  },
+  {
+    id: 'bare-skin',
+    name: 'Bare Skin',
+    category: 'Visual Identity',
+    year: '2025',
+    imageUrl: '/images/bare-skin-01.jpg',
+    heroImage: '/images/bare-skin-01.jpg',
+    objectPosition: 'center center',
+    description: [
+      "A visual identity concept for a skincare brand with one radical constraint — five products, nothing more. A brand built to stand apart from a category that never stops adding. Blackletter meets Swiss grid, clinical skincare with a point of view. Dark packaging, warm documentary photography, copy that doesn't explain itself."
+    ],
+    role: 'Creative Direction & Design',
+    scope: ['Visual Identity', 'Art Direction', 'Digital Design', 'Packaging'],
+    collaborators: [],
+    tools: ['ChatGPT', 'Claude', 'Adobe Photoshop'],
+    sections: [
+      {
+        mediaGroups: [
+          { type: 'single', items: [{ src: '/images/bare-skin-02.jpg', alt: 'Bare Skin 02' }] },
+          { type: 'single', items: [{ src: '/images/bare-skin-03.jpg', alt: 'Bare Skin 03' }] },
+          { type: 'single', items: [{ src: '/images/bare-skin-04.jpg', alt: 'Bare Skin 04' }] },
+          { type: 'single', items: [{ src: '/images/bare-skin-05.jpg', alt: 'Bare Skin 05' }] },
+          { type: 'single', items: [{ src: '/images/bare-skin-06.jpg', alt: 'Bare Skin 06' }] },
+          { type: 'single', items: [{ src: '/images/bare-skin-07.jpg', alt: 'Bare Skin 07' }] },
+          { type: 'single', items: [{ src: '/images/bare-skin-08.jpg', alt: 'Bare Skin 08' }] }
         ]
       }
     ]
@@ -72,7 +158,7 @@ export const PROJECTS: Project[] = [
     name: 'Soko Glam',
     category: 'Art Direction',
     year: '2023',
-    imageUrl: '/images/soko-glam-hero.jpg',
+    imageUrl: '/images/soko-glam-09.jpg',
     heroImage: '/images/soko-glam-hero.jpg',
     objectPosition: 'center center',
     description: [
@@ -94,7 +180,6 @@ export const PROJECTS: Project[] = [
           { type: 'single', items: [{ src: '/images/soko-glam-02.jpg', alt: 'Soko Glam 02' }] },
           { type: 'single', items: [{ src: '/images/soko-glam-03.jpg', alt: 'Soko Glam 03' }] },
           { type: 'single', items: [{ src: '/images/soko-glam-04.jpg', alt: 'Soko Glam 04' }] },
-          { type: 'single', items: [{ src: '/images/soko-glam-05.jpg', alt: 'Soko Glam 05' }] },
           { type: 'single', items: [{ src: '/images/soko-glam-06.jpg', alt: 'Soko Glam 06' }] },
           { type: 'single', items: [{ src: '/images/soko-glam-07.jpg', alt: 'Soko Glam 07' }] }
         ]
@@ -177,33 +262,22 @@ export const PROJECTS: Project[] = [
     ]
   },
   {
-    id: 'bare-skin',
-    name: 'Bare Skin',
-    category: 'Visual Identity',
-    year: '2025',
-    imageUrl: '/images/bare-skin-01.jpg',
-    heroImage: '/images/bare-skin-01.jpg',
+    id: 'pg',
+    name: 'Procter & Gamble',
+    category: 'Digital Marketing Design',
+    year: '2023',
+    imageUrl: '/images/pg-hero.jpg',
+    heroImage: '/images/pg-hero.jpg',
     objectPosition: 'center center',
     description: [
-      "A visual identity concept for a skincare brand with one radical constraint — five products, nothing more. A brand built to stand apart from a category that never stops adding. Blackletter meets Swiss grid, clinical skincare with a point of view. Dark packaging, warm documentary photography, copy that doesn't explain itself."
+      "While working at MMI Agency, I designed digital creative for Gillette, Braun, The Art of Shaving, and joy+glee. My work included lifecycle email, paid and organic social, web content, retail campaigns, and product launches.",
+      "I worked within each brand’s established identity, adapting creative across formats and channels while supporting ongoing CRM programs, seasonal promotions, and multivariate testing. For Braun’s Series 9 Pro launch, I designed performance creative for a campaign that sold out within 24 hours."
     ],
-    role: 'Creative Direction & Design',
-    scope: ['Visual Identity', 'Art Direction', 'Digital Design', 'Packaging'],
+    role: 'Digital Designer, MMI Agency',
+    scope: ['CRM & Email Design', 'Social & Performance Creative', 'Web & Digital Design'],
+    brands: ['Gillette, Braun, The Art of Shaving, joy+glee'],
     collaborators: [],
-    tools: ['ChatGPT', 'Claude', 'Adobe Photoshop'],
-    sections: [
-      {
-        mediaGroups: [
-          { type: 'single', items: [{ src: '/images/bare-skin-02.jpg', alt: 'Bare Skin 02' }] },
-          { type: 'single', items: [{ src: '/images/bare-skin-03.jpg', alt: 'Bare Skin 03' }] },
-          { type: 'single', items: [{ src: '/images/bare-skin-04.jpg', alt: 'Bare Skin 04' }] },
-          { type: 'single', items: [{ src: '/images/bare-skin-05.jpg', alt: 'Bare Skin 05' }] },
-          { type: 'single', items: [{ src: '/images/bare-skin-06.jpg', alt: 'Bare Skin 06' }] },
-          { type: 'single', items: [{ src: '/images/bare-skin-07.jpg', alt: 'Bare Skin 07' }] },
-          { type: 'single', items: [{ src: '/images/bare-skin-08.jpg', alt: 'Bare Skin 08' }] }
-        ]
-      }
-    ]
+    confidentialNotice: "Additional P&G work is available in a private PDF upon request."
   },
   {
     id: 'then-i-met-you',
@@ -269,24 +343,6 @@ export const PROJECTS: Project[] = [
         ]
       }
     ]
-  },
-  {
-    id: 'pg',
-    name: 'Procter & Gamble',
-    category: 'Digital Marketing Design',
-    year: '2023',
-    imageUrl: '/images/pg-hero.jpg',
-    heroImage: '/images/pg-hero.jpg',
-    objectPosition: 'center center',
-    description: [
-      "While working at MMI Agency, I designed digital creative for Gillette, Braun, The Art of Shaving, and joy+glee. My work included lifecycle email, paid and organic social, web content, retail campaigns, and product launches.",
-      "I worked within each brand’s established identity, adapting creative across formats and channels while supporting ongoing CRM programs, seasonal promotions, and multivariate testing. For Braun’s Series 9 Pro launch, I designed performance creative for a campaign that sold out within 24 hours."
-    ],
-    role: 'Digital Designer, MMI Agency',
-    scope: ['CRM & Email Design', 'Social & Performance Creative', 'Web & Digital Design'],
-    brands: ['Gillette, Braun, The Art of Shaving, joy+glee'],
-    collaborators: [],
-    confidentialNotice: "Additional P&G work is available in a private PDF upon request."
   }
 ];
 

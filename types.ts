@@ -33,6 +33,8 @@ export interface Project {
   tools?: string[];
   sections?: ProjectSection[];
   confidentialNotice?: string;
+  processNote?: string;
+  disclaimer?: string;
 }
 
 export interface NavItem {

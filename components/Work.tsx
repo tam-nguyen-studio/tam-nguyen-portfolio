@@ -128,9 +128,12 @@ const Work: React.FC<WorkProps> = ({ onProjectSelect, onViewAllProjects }) => {
     return () => unsubscribe();
   }, [scrollYProgress, isDesktop, cardStops, maxScroll]);
 
-  const lastIndex = PROJECTS.length - 1;
+  const FEATURED_IDS = ['keystone', 'cypres-21-indigo', 'soko-glam', 'bare-skin', 'the-klog', 'pg'];
+  const FEATURED_PROJECTS = FEATURED_IDS.map(id => PROJECTS.find(p => p.id === id)).filter((p): p is typeof PROJECTS[number] => p !== undefined);
+
+  const lastIndex = FEATURED_PROJECTS.length - 1;
   const currentNum = (activeIndex + 1).toString().padStart(2, '0');
-  const totalNum = PROJECTS.length.toString().padStart(2, '0');
+  const totalNum = FEATURED_PROJECTS.length.toString().padStart(2, '0');
 
   const getTargetRefTop = () => {
     if (!targetRef.current) return 0;
@@ -291,7 +294,7 @@ const Work: React.FC<WorkProps> = ({ onProjectSelect, onViewAllProjects }) => {
               style={{ x }} 
               className="relative flex gap-8 md:gap-12 items-center pl-[20px] pr-[20px] w-max mt-0 md:mt-1"
             >
-              {PROJECTS.map((project) => (
+              {FEATURED_PROJECTS.map((project) => (
                 <article
                   key={project.id}
                   onClick={() => onProjectSelect(project.id)}
@@ -304,7 +307,7 @@ const Work: React.FC<WorkProps> = ({ onProjectSelect, onViewAllProjects }) => {
                   {/* Top Title & Category Label Row */}
                   <div className="flex items-baseline justify-start gap-4 md:gap-5 mb-2.5">
                     <h2 className="font-serif font-normal text-[32px] lg:text-[42px] text-black leading-none not-italic group-hover:italic group-focus-visible:italic transition-[font-style] duration-200 ease-linear">
-                      {project.id === 'pg' ? 'P&G' : project.name}
+                      {project.id === 'pg' ? 'P&G' : project.id === 'cypres-21-indigo' ? 'CYPRÈS 21' : project.name}
                     </h2>
                     <span className="font-serif italic text-[18px] md:text-[22px] lg:text-[24px] text-black">
                       {project.category}
@@ -393,9 +396,9 @@ const Work: React.FC<WorkProps> = ({ onProjectSelect, onViewAllProjects }) => {
       ) : (
         /* Reduced Motion Fallback Grid for Desktop */
         <div className="hidden md:grid grid-cols-2 gap-10 px-[20px] py-8 max-w-[1440px] mx-auto w-full">
-          {PROJECTS.map((project, index) => {
+          {FEATURED_PROJECTS.map((project, index) => {
             const projectNum = (index + 1).toString().padStart(2, '0');
-            const totalNum = PROJECTS.length.toString().padStart(2, '0');
+            const totalNum = FEATURED_PROJECTS.length.toString().padStart(2, '0');
 
             return (
               <article
@@ -408,7 +411,7 @@ const Work: React.FC<WorkProps> = ({ onProjectSelect, onViewAllProjects }) => {
                 className="flex flex-col group cursor-pointer focus-visible:ring-2 focus-visible:ring-black focus-visible:outline-none p-2 rounded"
               >
                 <div className="flex items-baseline gap-4 mb-2">
-                  <h2 className="font-serif font-normal text-[32px] text-black leading-none not-italic group-hover:italic group-focus-visible:italic transition-[font-style] duration-200 ease-linear">{project.id === 'pg' ? 'P&G' : project.name}</h2>
+                  <h2 className="font-serif font-normal text-[32px] text-black leading-none not-italic group-hover:italic group-focus-visible:italic transition-[font-style] duration-200 ease-linear">{project.id === 'pg' ? 'P&G' : project.id === 'cypres-21-indigo' ? 'CYPRÈS 21' : project.name}</h2>
                   <span className="font-serif italic text-[18px] md:text-[22px] lg:text-[24px] text-black">{project.category}</span>
                 </div>
                 <div className="w-full aspect-[16/10] bg-black/5 overflow-hidden">
@@ -427,9 +430,9 @@ const Work: React.FC<WorkProps> = ({ onProjectSelect, onViewAllProjects }) => {
 
       {/* TABLET AND MOBILE VERTICAL PROJECT LIST */}
       <div className="block md:hidden px-[18px] sm:px-[20px] pb-0 flex flex-col gap-[80px] md:gap-[120px]">
-        {PROJECTS.map((project, index) => {
+        {FEATURED_PROJECTS.map((project, index) => {
           const projectNum = (index + 1).toString().padStart(2, '0');
-          const totalNum = PROJECTS.length.toString().padStart(2, '0');
+          const totalNum = FEATURED_PROJECTS.length.toString().padStart(2, '0');
 
           return (
             <article
