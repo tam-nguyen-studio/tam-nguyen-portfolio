@@ -141,21 +141,21 @@ export const PROJECTS: Project[] = [
           { type: 'single', items: [{ src: '/images/the-klog-04.jpg', alt: 'The Klog 04' }] },
           { type: 'single', items: [{ src: '/images/the-klog-05.jpg', alt: 'The Klog 05' }] },
           { type: 'single', items: [{ src: '/images/the-klog-06.jpg', alt: 'The Klog 06' }] },
+          { type: 'single', items: [{ src: '/images/the-klog-07.jpg', alt: 'The Klog 07' }] },
           {
             type: 'grid',
             items: [
-              { src: '/images/the-klog-07.jpg', alt: 'The Klog 07' },
-              { src: '/images/the-klog-08.jpg', alt: 'The Klog 08' }
+              { src: '/images/the-klog-08.jpg', alt: 'The Klog 08' },
+              { src: '/images/the-klog-09.jpg', alt: 'The Klog 09' }
             ]
           },
           {
             type: 'grid',
             items: [
-              { src: '/images/the-klog-09.jpg', alt: 'The Klog 09' },
-              { src: '/images/the-klog-10.jpg', alt: 'The Klog 10' }
+              { src: '/images/the-klog-10.jpg', alt: 'The Klog 10' },
+              { src: '/images/the-klog-11.jpg', alt: 'The Klog 11' }
             ]
-          },
-          { type: 'single', items: [{ src: '/images/the-klog-11.jpg', alt: 'The Klog 11' }] }
+          }
         ]
       }
     ]
