@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Project } from '../types';
 import ImageWithFade from './ImageWithFade';
+import ProjectFooter from './ProjectFooter';
 
 interface ProjectDetailProps {
   project: Project;
@@ -220,27 +221,11 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({
         )}
       </div>
 
-      {/* 5. Bottom navigation */}
-      <nav
-        aria-label="Project navigation"
-        className="w-full px-[18px] sm:px-[20px] pt-4 md:pt-6 pb-0 md:pb-16 flex items-center justify-between font-serif text-[14px] md:text-[16px] uppercase"
-      >
-        <button
-          type="button"
-          onClick={handleViewAllProjects}
-          className="hover:italic focus-visible:italic focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-black cursor-pointer"
-        >
-          ALL PROJECTS
-        </button>
-
-        <button
-          type="button"
-          onClick={onNext}
-          className="hover:italic focus-visible:italic focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-black cursor-pointer"
-        >
-          NEXT PROJECT
-        </button>
-      </nav>
+      {/* 5. Project Footer */}
+      <ProjectFooter
+        onViewAllProjects={handleViewAllProjects}
+        onNext={onNext}
+      />
     </article>
   );
 };

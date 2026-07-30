@@ -292,7 +292,7 @@ const App: React.FC = () => {
           </AnimatePresence>
         </main>
         
-        <Footer />
+        {!selectedProjectId && <Footer />}
       </div>
     </div>
   );

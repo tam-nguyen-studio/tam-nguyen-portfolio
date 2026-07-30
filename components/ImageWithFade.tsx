@@ -23,12 +23,12 @@ export const ImageWithFade: React.FC<ImageWithFadeProps> = ({
   const imgRef = useRef<HTMLImageElement>(null);
 
   const [isLoaded, setIsLoaded] = useState(() => {
-    if (typeof window === 'undefined' || shouldReduceMotion) return true;
+    if (typeof window === 'undefined' || shouldReduceMotion || loading === 'eager') return true;
     return false;
   });
 
   useEffect(() => {
-    if (shouldReduceMotion) {
+    if (shouldReduceMotion || loading === 'eager') {
       setIsLoaded(true);
       return;
     }
@@ -46,7 +46,7 @@ export const ImageWithFade: React.FC<ImageWithFadeProps> = ({
     }, 200);
 
     return () => clearTimeout(timer);
-  }, [src, shouldReduceMotion]);
+  }, [src, shouldReduceMotion, loading]);
 
   const handleLoad = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
     setIsLoaded(true);

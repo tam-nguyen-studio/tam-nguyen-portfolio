@@ -57,7 +57,7 @@ const About: React.FC<AboutProps> = () => {
         {/* Row 1 — Selected brands */}
         <div className="w-full border-t border-black grid grid-cols-1 md:grid-cols-[clamp(220px,25vw,340px)_1fr] items-start pt-[18px] md:pt-[clamp(18px,2vw,28px)] pb-[48px] md:pb-[clamp(52px,5vw,80px)] gap-y-3 md:gap-y-0">
           <div className="font-sans font-normal leading-[1.45] sm:leading-[1.5]">
-            Selected brands
+            Selected Brands
           </div>
           <div className="font-sans font-normal leading-[1.45] sm:leading-[1.5]">
             <p>Gillette, Braun, The Art of Shaving, Soko Glam, Then I Met You, P&G Good Everyday</p>
