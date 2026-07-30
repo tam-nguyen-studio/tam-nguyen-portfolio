@@ -15,7 +15,7 @@ export const PROJECTS: Project[] = [
       "I joined as sole in-house designer to support a corporate rebrand, owning all visual output — spanning digital, marketing collateral, event materials, and internal communications, while building a sub-brand architecture across the company's practice groups and teams."
     ],
     role: 'Brand Marketing Designer',
-    scope: ['Brand systems', 'Digital design', 'Editorial'],
+    scope: ['Brand Systems', 'Digital Design', 'Editorial'],
     collaborators: ['Otherward — Identity', 'Refokus — Web', 'Michael Simon — Photography'],
     sections: [
       {
@@ -64,7 +64,7 @@ export const PROJECTS: Project[] = [
       "Soko Glam is the leading direct-to-consumer destination for Korean beauty in the US. As the sole in-house designer, I owned art direction across every campaign — concepting, directing photography, and executing across digital and packaging."
     ],
     role: 'Sole In-House Designer',
-    scope: ['Art direction', 'Digital design', 'Packaging'],
+    scope: ['Art Direction', 'Digital Design', 'Packaging'],
     collaborators: [],
     sections: [
       {
@@ -130,7 +130,7 @@ export const PROJECTS: Project[] = [
       "I refined the visual language through a more restrained color palette and elevated use of typography and layout, extending the refreshed system into packaging for launches like the Soft Shield Pimple Patch and Snail Mucin Energy Essence."
     ],
     role: 'Visual Identity, Digital Design, Packaging',
-    scope: ['Visual identity', 'Digital design', 'Packaging'],
+    scope: ['Visual Identity', 'Digital Design', 'Packaging'],
     collaborators: [],
     sections: [
       {
@@ -172,7 +172,7 @@ export const PROJECTS: Project[] = [
       "A visual identity concept for a skincare brand with one radical constraint — five products, nothing more. A brand built to stand apart from a category that never stops adding. Blackletter meets Swiss grid, clinical skincare with a point of view. Dark packaging, warm documentary photography, copy that doesn't explain itself."
     ],
     role: 'Visual Identity, Art Direction, Digital Design, Packaging',
-    scope: ['Visual identity', 'Art direction', 'Digital design', 'Packaging'],
+    scope: ['Visual Identity', 'Art Direction', 'Digital Design', 'Packaging'],
     collaborators: ['Claude, ChatGPT, Nano Banana, Adobe Firefly'],
     sections: [
       {
@@ -201,7 +201,7 @@ export const PROJECTS: Project[] = [
       "The challenge was translating something inherently tactile and sensory into digital formats. I led design across email, social, and web — making sure the brand felt as considered on screen as it did in hand."
     ],
     role: 'Digital Design, Email Marketing, Social Content',
-    scope: ['Digital design', 'Email marketing', 'Social content'],
+    scope: ['Digital Design', 'Email Marketing', 'Social Content'],
     collaborators: [],
     sections: [
       {
@@ -235,7 +235,7 @@ export const PROJECTS: Project[] = [
       "A visual identity concept for a community of modern farmhouse townhomes in Houston, Texas. I designed a mark that merges organic leaf forms with architectural elements, grounded in a palette of deep forest teal, warm gold, and natural wood tones, created to feel rooted yet elevated."
     ],
     role: 'Visual Identity',
-    scope: ['Visual identity'],
+    scope: ['Visual Identity'],
     collaborators: ['MMI Agency'],
     sections: [
       {
@@ -265,7 +265,7 @@ export const PROJECTS: Project[] = [
       "The work was focused on performance creative and CRM, spanning omnichannel product launches, multivariate ad testing, retail calendar campaigns, and social content strategy. For Braun's Series 9 Pro launch, performance creative contributed to the product selling out in 24 hours."
     ],
     role: 'Performance Creative, CRM Design, Paid & Organic Social',
-    scope: ['Performance creative', 'CRM design', 'Paid & organic social'],
+    scope: ['Performance Creative', 'CRM Design', 'Paid & Organic Social'],
     collaborators: ['Gillette, Braun, The Art of Shaving, joy+glee'],
     confidentialNotice: "Due to the confidential nature of unreleased campaigns and intellectual property, selected works are available via private PDF upon request."
   }

@@ -53,9 +53,11 @@ const Work: React.FC<WorkProps> = ({ onProjectSelect, onViewAllProjects }) => {
           setMaxScroll(horizDistance);
           setStickyHeight(stickyRef.current.offsetHeight || window.innerHeight);
 
-          const stops = Array.from(cards).map((card: HTMLElement) =>
-            Math.min(Math.max(0, card.offsetLeft - pageGutter), horizDistance)
-          );
+          const stops = Array.from(cards).map((card: HTMLElement, index: number) => {
+            if (index === 0) return 0;
+            return Math.min(Math.max(0, card.offsetLeft - pageGutter), horizDistance);
+          });
+          stops[0] = 0;
           setCardStops(stops);
         }
       } else {
@@ -91,16 +93,25 @@ const Work: React.FC<WorkProps> = ({ onProjectSelect, onViewAllProjects }) => {
 
   const x = useTransform(
     scrollYProgress,
-    [0, 1],
-    [0, -maxScroll]
+    (progress) => -Math.min(Math.max(progress * maxScroll, 0), maxScroll)
   );
 
   const [activeIndex, setActiveIndex] = useState(0);
+  const [atTrueStart, setAtTrueStart] = useState(true);
+  const [atTrueEnd, setAtTrueEnd] = useState(false);
+
   useEffect(() => {
     const unsubscribe = scrollYProgress.on('change', (progress) => {
-      if (!isDesktop || cardStops.length === 0 || maxScroll <= 0) return;
+      if (!isDesktop || cardStops.length === 0 || maxScroll <= 0) {
+        setAtTrueStart(true);
+        setAtTrueEnd(false);
+        return;
+      }
       const clampedProgress = Math.min(1, Math.max(0, progress));
       const currentX = clampedProgress * maxScroll;
+
+      setAtTrueStart(currentX <= 2);
+      setAtTrueEnd(maxScroll > 0 && maxScroll - currentX <= 2);
 
       let closestIndex = 0;
       let minDiff = Infinity;
@@ -119,22 +130,29 @@ const Work: React.FC<WorkProps> = ({ onProjectSelect, onViewAllProjects }) => {
   const lastIndex = PROJECTS.length - 1;
   const currentNum = (activeIndex + 1).toString().padStart(2, '0');
   const totalNum = PROJECTS.length.toString().padStart(2, '0');
-  const isAtStart = activeIndex === 0;
-  const isAtEnd = activeIndex === lastIndex;
+
+  const getTargetRefTop = () => {
+    if (!targetRef.current) return 0;
+    return targetRef.current.getBoundingClientRect().top + window.scrollY;
+  };
 
   const scrollPrev = () => {
     if (!targetRef.current || cardStops.length === 0) return;
     const targetIdx = Math.max(0, activeIndex - 1);
-    const targetStop = cardStops[targetIdx];
-    const targetY = targetRef.current.offsetTop + targetStop;
+    const targetRefTop = getTargetRefTop();
+    const targetY = targetIdx === 0
+      ? targetRefTop
+      : targetRefTop + cardStops[targetIdx];
     window.scrollTo({ top: targetY, behavior: shouldReduceMotion ? 'auto' : 'smooth' });
   };
 
   const scrollNext = () => {
     if (!targetRef.current || cardStops.length === 0) return;
     const targetIdx = Math.min(lastIndex, activeIndex + 1);
-    const targetStop = cardStops[targetIdx];
-    const targetY = targetRef.current.offsetTop + targetStop;
+    const targetRefTop = getTargetRefTop();
+    const targetY = targetIdx === 0
+      ? targetRefTop
+      : targetRefTop + cardStops[targetIdx];
     window.scrollTo({ top: targetY, behavior: shouldReduceMotion ? 'auto' : 'smooth' });
   };
 
@@ -341,11 +359,11 @@ const Work: React.FC<WorkProps> = ({ onProjectSelect, onViewAllProjects }) => {
               <div className="flex justify-end items-center gap-4">
                 <button 
                   type="button"
-                  onClick={isAtStart ? undefined : scrollPrev}
-                  disabled={isAtStart}
-                  aria-disabled={isAtStart}
+                  onClick={atTrueStart ? undefined : scrollPrev}
+                  disabled={atTrueStart}
+                  aria-disabled={atTrueStart}
                   className={`transition-opacity duration-200 motion-reduce:transition-none min-w-[44px] min-h-[44px] flex items-center justify-center p-1 text-[20px] focus-visible:ring-1 focus-visible:ring-black focus-visible:outline-none rounded ${
-                    isAtStart 
+                    atTrueStart 
                       ? "opacity-30 cursor-default" 
                       : "hover:italic focus-visible:italic cursor-pointer opacity-100"
                   }`}
@@ -355,11 +373,11 @@ const Work: React.FC<WorkProps> = ({ onProjectSelect, onViewAllProjects }) => {
                 </button>
                 <button 
                   type="button"
-                  onClick={isAtEnd ? undefined : scrollNext}
-                  disabled={isAtEnd}
-                  aria-disabled={isAtEnd}
+                  onClick={atTrueEnd ? undefined : scrollNext}
+                  disabled={atTrueEnd}
+                  aria-disabled={atTrueEnd}
                   className={`transition-opacity duration-200 motion-reduce:transition-none min-w-[44px] min-h-[44px] flex items-center justify-center p-1 text-[20px] focus-visible:ring-1 focus-visible:ring-black focus-visible:outline-none rounded ${
-                    isAtEnd 
+                    atTrueEnd 
                       ? "opacity-30 cursor-default" 
                       : "hover:italic focus-visible:italic cursor-pointer opacity-100"
                   }`}
