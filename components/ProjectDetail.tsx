@@ -136,6 +136,21 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({
                 </div>
               )}
 
+              {project.brands && (
+                <div>
+                  <h2 className="mb-1 text-[#224875] uppercase font-sans text-[11px] md:text-[12px] font-normal tracking-normal">
+                    BRANDS
+                  </h2>
+                  {Array.isArray(project.brands) ? (
+                    project.brands.map((item) => (
+                      <p key={item}>{formatNonBreaking(item)}</p>
+                    ))
+                  ) : (
+                    <p>{formatNonBreaking(project.brands)}</p>
+                  )}
+                </div>
+              )}
+
               {project.tools && project.tools.length > 0 && (
                 <div>
                   <h2 className="mb-1 text-[#224875] uppercase font-sans text-[11px] md:text-[12px] font-normal tracking-normal">
@@ -153,7 +168,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({
         {/* 4. Chapters / Sections */}
         {project.confidentialNotice ? (
           <div className="mt-[56px] md:mt-[48px] lg:mt-[56px] py-10 border-y border-black/10">
-            <p className="font-serif font-normal text-[clamp(24px,3.5vw,48px)] leading-[1.0] text-black/30 tracking-[-0.01em] max-w-5xl">
+            <p className="font-serif font-normal text-[clamp(24px,3.5vw,48px)] leading-[1.0] text-black/30 tracking-[-0.01em]">
               {formatNonBreaking(project.confidentialNotice)}
             </p>
           </div>

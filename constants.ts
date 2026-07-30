@@ -208,7 +208,7 @@ export const PROJECTS: Project[] = [
   {
     id: 'then-i-met-you',
     name: 'Then I Met You',
-    category: 'Digital Design',
+    category: 'Digital Marketing Design',
     year: '2022',
     imageUrl: '/images/then-i-met-you-hero.jpg',
     heroImage: '/images/then-i-met-you-hero.jpg',
@@ -273,19 +273,20 @@ export const PROJECTS: Project[] = [
   {
     id: 'pg',
     name: 'Procter & Gamble',
-    category: 'Performance Creative & CRM',
+    category: 'Digital Marketing Design',
     year: '2023',
     imageUrl: '/images/pg-hero.jpg',
     heroImage: '/images/pg-hero.jpg',
     objectPosition: 'center center',
     description: [
-      "While at MMI Agency, I designed digital creative across the P&G portfolio including lifecycle email campaigns, paid and organic social, and web assets for Gillette, Braun, The Art of Shaving, and joy+glee.",
-      "The work was focused on performance creative and CRM, spanning omnichannel product launches, multivariate ad testing, retail calendar campaigns, and social content strategy. For Braun's Series 9 Pro launch, performance creative contributed to the product selling out in 24 hours."
+      "While working at MMI Agency, I designed digital creative for Gillette, Braun, The Art of Shaving, and joy+glee. My work included lifecycle email, paid and organic social, web content, retail campaigns, and product launches.",
+      "I worked within each brand’s established identity, adapting creative across formats and channels while supporting ongoing CRM programs, seasonal promotions, and multivariate testing. For Braun’s Series 9 Pro launch, I designed performance creative for a campaign that sold out within 24 hours."
     ],
-    role: 'Performance Creative, CRM Design, Paid & Organic Social',
-    scope: ['Performance Creative', 'CRM Design', 'Paid & Organic Social'],
-    collaborators: ['Gillette, Braun, The Art of Shaving, joy+glee'],
-    confidentialNotice: "Due to the confidential nature of unreleased campaigns and intellectual property, selected works are available via private PDF upon request."
+    role: 'Digital Designer, MMI Agency',
+    scope: ['CRM & Email Design', 'Social & Performance Creative', 'Web & Digital Design'],
+    brands: ['Gillette, Braun, The Art of Shaving, joy+glee'],
+    collaborators: [],
+    confidentialNotice: "Additional P&G work is available in a private PDF upon request."
   }
 ];
 

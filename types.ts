@@ -29,6 +29,7 @@ export interface Project {
   scope?: string[];
   collaborators?: string[];
   agency?: string | string[];
+  brands?: string | string[];
   tools?: string[];
   sections?: ProjectSection[];
   confidentialNotice?: string;
