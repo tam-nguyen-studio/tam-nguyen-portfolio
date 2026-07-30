@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform, useReducedMotion } from 'motion/react';
 import { PROJECTS } from '../constants';
+import ImageWithFade from './ImageWithFade';
 
 interface WorkProps {
   onProjectSelect: (id: string) => void;
@@ -220,9 +221,9 @@ const Work: React.FC<WorkProps> = ({ onProjectSelect, onViewAllProjects }) => {
         className="w-full px-[18px] sm:px-[20px] pt-8 md:pt-28 pb-10 md:pb-32 mx-auto text-center overflow-hidden flex flex-col items-center justify-center"
       >
         <motion.h1 
-          initial={shouldReduceMotion ? { y: 0, opacity: 1 } : { y: "100%", opacity: 0 }}
-          animate={{ y: "0%", opacity: 1 }}
-          transition={{ duration: 0.9, ease: EASE, delay: 0.4 }}
+          initial={shouldReduceMotion ? { y: 0, opacity: 1 } : { y: "20px", opacity: 0 }}
+          animate={{ y: "0px", opacity: 1 }}
+          transition={{ duration: 0.4, ease: EASE, delay: 0.05 }}
           className="font-serif font-normal text-[clamp(1.75rem,6.8vw,3.25rem)] md:text-[clamp(2.25rem,5vw,8rem)] leading-[1.0] tracking-[-0.025em] text-[#224875] mx-auto text-center [text-wrap:pretty] w-[calc(100vw-36px)] md:w-[min(90vw,100%)] max-w-[36ch]"
         >
           <span className="font-bold">Brand designer</span> crafting thoughtful visual languages,{" "}
@@ -239,7 +240,7 @@ const Work: React.FC<WorkProps> = ({ onProjectSelect, onViewAllProjects }) => {
           onClick={handleWorkClick}
           initial={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: EASE, delay: 1.2 }}
+          transition={{ duration: 0.35, ease: EASE, delay: 0.1 }}
           className="group min-h-[44px] inline-flex items-center justify-center p-0 text-black leading-none font-serif text-[clamp(17px,4.8vw,22px)] md:text-[clamp(21px,2.8vw,26px)] lg:text-[clamp(26px,1.8vw,38px)] tracking-normal uppercase cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black rounded whitespace-nowrap"
           aria-label="Scroll to Work carousel"
         >
@@ -261,7 +262,7 @@ const Work: React.FC<WorkProps> = ({ onProjectSelect, onViewAllProjects }) => {
           transition={
             shouldPulseRule
               ? { duration: 0.8, ease: EASE, times: [0, 0.5, 1] }
-              : { duration: 0.6, ease: EASE, delay: 1.3 }
+              : { duration: 0.35, ease: EASE, delay: 0.15 }
           }
           onAnimationComplete={() => {
             if (shouldPulseRule) setShouldPulseRule(false);
@@ -311,8 +312,8 @@ const Work: React.FC<WorkProps> = ({ onProjectSelect, onViewAllProjects }) => {
                   </div>
 
                   {/* Image Frame */}
-                  <div className="relative w-[82vw] lg:w-[52vw] max-w-[720px] lg:max-w-[820px] aspect-[16/10] bg-neutral-300 overflow-hidden shadow-sm">
-                    <img 
+                  <div className="relative w-[82vw] lg:w-[52vw] max-w-[720px] lg:max-w-[820px] aspect-[16/10] bg-black/5 overflow-hidden shadow-sm">
+                    <ImageWithFade 
                       src={project.imageUrl} 
                       alt={`${project.name} preview`} 
                       className="w-full h-full object-cover transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.015] group-focus-visible:scale-[1.015]"
@@ -410,8 +411,8 @@ const Work: React.FC<WorkProps> = ({ onProjectSelect, onViewAllProjects }) => {
                   <h2 className="font-serif font-normal text-[32px] text-black leading-none not-italic group-hover:italic group-focus-visible:italic transition-[font-style] duration-200 ease-linear">{project.id === 'pg' ? 'P&G' : project.name}</h2>
                   <span className="font-serif italic text-[18px] md:text-[22px] lg:text-[24px] text-black">{project.category}</span>
                 </div>
-                <div className="w-full aspect-[16/10] bg-neutral-300 overflow-hidden">
-                  <img src={project.imageUrl} alt={project.name} className="w-full h-full object-cover transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.015] group-focus-visible:scale-[1.015]" />
+                <div className="w-full aspect-[16/10] bg-black/5 overflow-hidden">
+                  <ImageWithFade src={project.imageUrl} alt={project.name} className="w-full h-full object-cover transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.015] group-focus-visible:scale-[1.015]" />
                 </div>
                 <div className="flex justify-between items-center mt-2 font-serif text-[15px] text-black">
                   <span>{projectNum} / {totalNum}</span>
@@ -466,8 +467,8 @@ const Work: React.FC<WorkProps> = ({ onProjectSelect, onViewAllProjects }) => {
               </div>
 
               {/* Project Image */}
-              <div className="w-full aspect-[16/10] bg-neutral-300 overflow-hidden shadow-sm">
-                <img 
+              <div className="w-full aspect-[16/10] bg-black/5 overflow-hidden shadow-sm">
+                <ImageWithFade 
                   src={project.imageUrl} 
                   alt={`${project.name} preview`} 
                   className="w-full h-full object-cover block"

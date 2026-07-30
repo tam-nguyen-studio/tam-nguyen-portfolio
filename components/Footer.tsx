@@ -8,7 +8,7 @@ const Footer: React.FC<FooterProps> = () => {
       <div className="w-full max-w-[1440px] mx-auto px-[18px] sm:px-[20px] flex flex-col items-center">
         
         {/* Contact Email Callout - Controlled breakpoint-specific spacing */}
-        <div className="w-full text-center flex flex-col items-center justify-center gap-0 pt-0 mt-[clamp(80px,10vw,110px)] md:mt-[clamp(112px,12vw,144px)] lg:mt-[clamp(128px,8vw,160px)] mb-[clamp(80px,10vw,110px)] md:mb-[clamp(120px,14vw,160px)] lg:mb-[clamp(140px,10vw,190px)]">
+        <div className="w-full text-center flex flex-col items-center justify-center gap-0 pt-0 mt-[88px] md:mt-[clamp(112px,12vw,144px)] lg:mt-[clamp(128px,8vw,160px)] mb-[clamp(80px,10vw,110px)] md:mb-[clamp(120px,14vw,160px)] lg:mb-[clamp(140px,10vw,190px)]">
           <p className="font-serif font-normal text-[clamp(22px,6vw,64px)] leading-[0.95] md:leading-[0.86] text-[#224875] mb-0">
             Get in touch at
           </p>

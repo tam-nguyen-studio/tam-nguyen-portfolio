@@ -59,7 +59,7 @@ const App: React.FC = () => {
       setCurrentPath(pathname);
       syncStateWithLocation(pathname);
       if (pathname !== '/contact') {
-        window.scrollTo(0, 0);
+        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
       }
     };
 
@@ -92,9 +92,6 @@ const App: React.FC = () => {
     window.history.pushState({}, '', newPath);
     setCurrentPath(newPath);
     syncStateWithLocation(newPath);
-    if (newPath !== '/contact') {
-      window.scrollTo(0, 0);
-    }
   };
 
   const scrollToSection = (id: string, event?: React.SyntheticEvent) => {
@@ -195,11 +192,11 @@ const App: React.FC = () => {
     initial: { opacity: 0 },
     animate: { 
       opacity: 1,
-      transition: { duration: shouldReduceMotion ? 0.3 : 0.8, ease: [0.16, 1, 0.3, 1] }
+      transition: { duration: shouldReduceMotion ? 0 : 0.3, ease: [0.22, 1, 0.36, 1] }
     },
     exit: { 
       opacity: 0,
-      transition: { duration: shouldReduceMotion ? 0.3 : 0.5, ease: [0.16, 1, 0.3, 1] }
+      transition: { duration: shouldReduceMotion ? 0 : 0.1, ease: [0.22, 1, 0.36, 1] }
     }
   };
 
@@ -222,7 +219,14 @@ const App: React.FC = () => {
         />
         
         <main className="relative z-10 flex-grow flex flex-col">
-          <AnimatePresence mode="wait">
+          <AnimatePresence 
+            mode="wait"
+            onExitComplete={() => {
+              if (window.location.hash !== '#contact' && !window.location.pathname.endsWith('/contact')) {
+                window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+              }
+            }}
+          >
             {isAboutPage ? (
               <motion.div
                 key="about"

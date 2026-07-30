@@ -27,7 +27,7 @@ const Navigation: React.FC<NavProps> = ({ isProjectView, isAboutPage, onBackHome
     <motion.header 
       initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 0.45, ease: EASE, delay: 0 }}
+      transition={{ duration: shouldReduceMotion ? 0 : 0.3, ease: EASE }}
       className="w-full z-[100] h-auto min-h-0 px-[18px] sm:px-[20px] pt-[18px] pb-[18px] md:pt-[22px] md:pb-[22px] transition-colors duration-300 leading-none"
       style={{ height: 'auto', minHeight: 0, lineHeight: 1 }}
     >
@@ -43,8 +43,8 @@ const Navigation: React.FC<NavProps> = ({ isProjectView, isAboutPage, onBackHome
             <button
               type="button"
               onClick={() => onSectionClick('about')}
-              className={`h-auto min-h-0 p-0 m-0 border-0 text-black leading-none hover:italic focus-visible:italic focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black transition-all duration-200 cursor-pointer whitespace-nowrap ${
-                isAboutPage ? "underline underline-offset-4 font-normal italic" : ""
+              className={`h-auto min-h-0 p-0 m-0 border-0 leading-none hover:italic focus-visible:italic focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black transition-all duration-200 cursor-pointer whitespace-nowrap ${
+                isAboutPage ? "font-normal italic text-[#224875]" : "text-black"
               }`}
               style={{ lineHeight: 1 }}
               aria-label="Navigate to About page"

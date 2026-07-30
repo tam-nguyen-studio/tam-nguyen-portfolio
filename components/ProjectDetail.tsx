@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { Project } from '../types';
+import ImageWithFade from './ImageWithFade';
 
 interface ProjectDetailProps {
   project: Project;
@@ -29,7 +30,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({
   onBackHome,
 }) => {
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
   }, [project.id]);
 
   const handleViewAllProjects = () => {
@@ -51,12 +52,13 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({
   return (
     <article className="w-full text-black bg-[#EFF5F7]">
       {/* 1. Full-width project hero */}
-      <div className="w-full overflow-hidden bg-neutral-300">
-        <img
+      <div className="w-full overflow-hidden bg-black/5">
+        <ImageWithFade
           src={heroImageSrc}
           alt={`${project.name} hero`}
           className="block w-full h-[clamp(280px,42vw,640px)] object-cover"
           style={{ objectPosition: project.objectPosition || 'center center' }}
+          loading="eager"
         />
       </div>
 
@@ -188,7 +190,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({
                         >
                           {group.items.map((item, iIdx) => (
                             <figure key={iIdx} className="w-full m-0 overflow-hidden">
-                              <img
+                              <ImageWithFade
                                 src={item.src}
                                 alt={item.alt}
                                 className="block w-full h-auto"
@@ -202,7 +204,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({
 
                     return group.items.map((item, iIdx) => (
                       <figure key={iIdx} className="w-full m-0 overflow-hidden">
-                        <img
+                        <ImageWithFade
                           src={item.src}
                           alt={item.alt}
                           className="block w-full h-auto"
@@ -221,7 +223,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({
       {/* 5. Bottom navigation */}
       <nav
         aria-label="Project navigation"
-        className="w-full px-[18px] sm:px-[20px] pt-4 md:pt-6 pb-12 md:pb-16 flex items-center justify-between font-serif text-[14px] md:text-[16px] uppercase"
+        className="w-full px-[18px] sm:px-[20px] pt-4 md:pt-6 pb-0 md:pb-16 flex items-center justify-between font-serif text-[14px] md:text-[16px] uppercase"
       >
         <button
           type="button"

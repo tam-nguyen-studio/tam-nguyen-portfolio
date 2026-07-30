@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence, useReducedMotion } from 'motion/react';
 import { PROJECTS } from '../constants';
 import { Project } from '../types';
+import ImageWithFade from './ImageWithFade';
 
 interface ProjectIndexProps {
   onProjectSelect: (id: string) => void;
@@ -142,13 +143,14 @@ const ProjectIndex: React.FC<ProjectIndexProps> = ({
                 pointerEvents: 'none',
                 zIndex: 50,
               }}
-              className="w-[clamp(280px,28vw,460px)] aspect-[16/10] overflow-hidden bg-neutral-200 border border-black/10 shadow-xl"
+              className="w-[clamp(280px,28vw,460px)] aspect-[16/10] overflow-hidden bg-black/5 border border-black/10 shadow-xl"
             >
-              <img
+              <ImageWithFade
                 src={hoveredProject.heroImage || hoveredProject.imageUrl}
                 alt={`${hoveredProject.name} preview`}
                 className="w-full h-full object-cover"
                 style={{ objectPosition: hoveredProject.objectPosition || 'center center' }}
+                loading="eager"
               />
             </motion.div>
           )}

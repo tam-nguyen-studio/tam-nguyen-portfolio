@@ -18,18 +18,18 @@ const About: React.FC<AboutProps> = () => {
       <div className="w-full max-w-[1440px] mx-auto px-[18px] sm:px-[20px] pt-12 sm:pt-16 md:pt-24 lg:pt-28 pb-[clamp(100px,13vw,220px)] flex flex-col items-center">
         <div className="w-full text-center flex flex-col items-center">
           <motion.p 
-            initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: shouldReduceMotion ? 0 : 0.3, ease: [0.22, 1, 0.36, 1] }}
             className="font-serif font-normal text-[clamp(26px,3.8vw,48px)] text-[#224875] [text-wrap:balance] mx-auto w-[calc(100%-40px)] md:w-[88vw] lg:w-[min(82vw,1500px)] leading-[1.04] md:leading-[1.07] lg:leading-[1.06] tracking-[-0.015em] md:tracking-[-0.018em] lg:tracking-[-0.02em]"
           >
             I'm a Brooklyn-based brand designer with eight years of experience across beauty, consumer, and technology. I create identities, campaigns, and digital experiences that help brands communicate clearly and show up consistently.
           </motion.p>
 
           <motion.div 
-            initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+            initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: shouldReduceMotion ? 0 : 0.3, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
             className="flex items-center justify-center gap-10 sm:gap-14 md:gap-16 font-serif text-[clamp(26px,3.5vw,44px)] font-normal text-[#224875] mt-10 sm:mt-12 md:mt-14"
           >
             <a 
