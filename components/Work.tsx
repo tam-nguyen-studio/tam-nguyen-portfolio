@@ -181,6 +181,19 @@ const Work: React.FC<WorkProps> = ({ onProjectSelect, onViewAllProjects }) => {
 
   const EASE = [0.22, 1, 0.36, 1];
 
+  const handleWorkClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const carouselEl = document.getElementById('work-carousel');
+    if (carouselEl) {
+      const targetY = carouselEl.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({
+        top: targetY,
+        behavior: shouldReduceMotion ? 'auto' : 'smooth',
+      });
+      window.history.replaceState(null, '', '#work-carousel');
+    }
+  };
+
   return (
     <section id="work" className="w-full flex flex-col">
       {/* Hero Headline Section with Masked Upward Reveal & Scroll Transition */}
@@ -203,14 +216,14 @@ const Work: React.FC<WorkProps> = ({ onProjectSelect, onViewAllProjects }) => {
 
       {/* (WORK) Marker with 1.5pt Vertical Divider Line */}
       <div className="flex flex-col items-center justify-center mt-0 lg:-mt-[40px] mb-8 md:mb-12">
-        <motion.button 
-          type="button"
-          onClick={onViewAllProjects}
+        <motion.a 
+          href="#work-carousel"
+          onClick={handleWorkClick}
           initial={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: EASE, delay: 1.2 }}
           className="group min-h-[44px] inline-flex items-center justify-center p-0 text-black leading-none font-serif text-[clamp(17px,4.8vw,22px)] md:text-[clamp(21px,2.8vw,26px)] lg:text-[clamp(26px,1.8vw,38px)] tracking-normal uppercase cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black rounded whitespace-nowrap"
-          aria-label="View Work index"
+          aria-label="Scroll to Work carousel"
         >
           <span className="translate-y-[-0.04em] inline-block">
             (
@@ -219,7 +232,7 @@ const Work: React.FC<WorkProps> = ({ onProjectSelect, onViewAllProjects }) => {
             </span>
             )
           </span>
-        </motion.button>
+        </motion.a>
         <motion.div 
           initial={shouldReduceMotion ? { scaleY: 1 } : { scaleY: 0 }}
           animate={
@@ -240,8 +253,10 @@ const Work: React.FC<WorkProps> = ({ onProjectSelect, onViewAllProjects }) => {
         />
       </div>
 
-      {/* DESKTOP STICKY HORIZONTAL SCROLL WORK SECTION */}
-      {!shouldReduceMotion ? (
+      {/* WORK CAROUSEL CONTAINER */}
+      <div id="work-carousel" className="w-full">
+        {/* DESKTOP STICKY HORIZONTAL SCROLL WORK SECTION */}
+        {!shouldReduceMotion ? (
         <div 
           ref={targetRef} 
           className="hidden md:block relative w-full mt-0 mb-0 pb-0"
@@ -445,6 +460,7 @@ const Work: React.FC<WorkProps> = ({ onProjectSelect, onViewAllProjects }) => {
             </article>
           );
         })}
+      </div>
       </div>
     </section>
   );
