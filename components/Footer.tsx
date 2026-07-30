@@ -9,12 +9,12 @@ const Footer: React.FC<FooterProps> = () => {
         
         {/* Contact Email Callout - Controlled breakpoint-specific spacing */}
         <div className="w-full text-center flex flex-col items-center justify-center gap-0 pt-0 mt-[clamp(80px,10vw,110px)] md:mt-[clamp(112px,12vw,144px)] lg:mt-[clamp(128px,8vw,160px)] mb-[clamp(80px,10vw,110px)] md:mb-[clamp(120px,14vw,160px)] lg:mb-[clamp(140px,10vw,190px)]">
-          <p className="font-serif font-normal text-[clamp(20px,5.5vw,64px)] leading-[0.86] text-[#224875] mb-0">
+          <p className="font-serif font-normal text-[clamp(22px,6vw,64px)] leading-[0.95] md:leading-[0.86] text-[#224875] mb-0">
             Get in touch at
           </p>
           <a 
             href="mailto:tam@tamnguyen.studio" 
-            className="relative inline-block font-serif font-normal text-[clamp(20px,5.5vw,64px)] leading-[0.86] mt-0 text-[#224875] group hover:italic focus-visible:italic focus-visible:ring-2 focus-visible:ring-[#224875] focus-visible:outline-none rounded cursor-pointer pb-1 sm:pb-2 transition-[font-style] duration-200 whitespace-nowrap"
+            className="relative inline-block font-serif font-normal text-[clamp(22px,6vw,64px)] leading-[0.95] md:leading-[0.86] mt-0 text-[#224875] group hover:italic focus-visible:italic focus-visible:ring-2 focus-visible:ring-[#224875] focus-visible:outline-none rounded cursor-pointer pb-1 sm:pb-2 transition-[font-style] duration-200 whitespace-nowrap"
             aria-label="Send email to tam@tamnguyen.studio"
           >
             tam@tamnguyen.studio
@@ -26,8 +26,8 @@ const Footer: React.FC<FooterProps> = () => {
         {/* Bottom Metadata Grouping */}
         <div className="w-full flex flex-col gap-2.5">
           {/* Footer Meta Row 1 */}
-          <div className="w-full flex justify-between items-start sm:items-center font-serif text-[14px] sm:text-[18px] md:text-[22px] lg:text-[24px] uppercase tracking-normal text-black gap-4">
-            <span className="italic leading-tight md:whitespace-nowrap">
+          <div className="w-full flex justify-between items-end sm:items-center font-serif text-[14px] sm:text-[18px] md:text-[22px] lg:text-[24px] uppercase tracking-normal text-black gap-4">
+            <span className="italic leading-[1.15] md:whitespace-nowrap">
               BASED IN<span className="hidden md:inline"> </span>
               <br className="md:hidden" />
               BROOKLYN, NY
@@ -53,7 +53,7 @@ const Footer: React.FC<FooterProps> = () => {
           </div>
 
           {/* Footer Meta Row 2 */}
-          <div className="w-full border-t-[1.5px] border-b-[1.5px] border-black/30 py-2.5 flex justify-between items-center font-serif text-[12px] sm:text-[13px] md:text-[15px] uppercase tracking-normal text-black">
+          <div className="w-full border-t-[1.5px] border-b-[1.5px] border-black py-2.5 flex justify-between items-center font-serif text-[12px] sm:text-[13px] md:text-[15px] uppercase tracking-normal text-black">
             <span>© TAM NGUYEN</span>
             <span>2026</span>
           </div>

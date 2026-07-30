@@ -9,6 +9,19 @@ interface ProjectDetailProps {
   nextProjectName?: string;
 }
 
+const formatNonBreaking = (str: string) => {
+  if (!str) return '';
+  return str.replace(/in-house/gi, 'in\u2011house');
+};
+
+const RightRailWrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => (
+  <div className="w-full md:flex md:justify-end">
+    <div className="w-full md:w-[220px] lg:w-[240px] text-left">
+      {children}
+    </div>
+  </div>
+);
+
 const ProjectDetail: React.FC<ProjectDetailProps> = ({
   project,
   onNext,
@@ -47,155 +60,168 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({
         />
       </div>
 
-      {/* 2. Introduction section */}
-      <section className="w-full px-[18px] sm:px-[20px] pt-[clamp(24px,3vw,42px)] pb-[clamp(48px,5vw,64px)]">
-        {/* Title and category */}
-        <div className="flex flex-wrap items-baseline gap-x-[clamp(14px,2vw,28px)] gap-y-2">
+      {/* Content layout wrapper */}
+      <div className="w-full px-[18px] sm:px-[20px] pt-[clamp(24px,3vw,42px)] pb-0">
+        {/* 2. Title and discipline row */}
+        <div className="grid grid-cols-1 md:grid-cols-[68%_1fr] gap-x-[clamp(20px,3vw,40px)] gap-y-2 w-full pb-[clamp(24px,3vw,40px)] items-baseline">
           <h1 className="m-0 font-serif font-normal text-[clamp(32px,4.2vw,64px)] leading-[0.95] tracking-[-0.025em] text-black">
             {project.name}
           </h1>
 
-          <p className="m-0 font-serif italic text-[clamp(18px,2vw,30px)] leading-none text-black">
-            {project.category}
-          </p>
+          <RightRailWrapper>
+            <p className="m-0 font-serif italic text-[clamp(20px,2.2vw,33px)] leading-none text-black">
+              {project.category}
+            </p>
+          </RightRailWrapper>
         </div>
 
-        {/* Description and metadata */}
-        <div className="mt-[clamp(24px,3vw,40px)] grid grid-cols-1 md:grid-cols-[minmax(0,2fr)_minmax(220px,0.75fr)] gap-y-10 gap-x-[clamp(48px,8vw,140px)] items-start">
-          {/* Left column */}
-          <div className="max-w-[760px] font-sans text-[14px] md:text-[15px] lg:text-[16px] leading-[1.35] text-black space-y-4">
+        {/* 3. Overview + Metadata two-column grid */}
+        <div className="grid grid-cols-1 md:grid-cols-[68%_1fr] gap-x-[clamp(20px,3vw,40px)] gap-y-8 items-start pb-0">
+          {/* Left column: Overview */}
+          <div className="font-sans text-[14px] md:text-[15px] lg:text-[16px] leading-[1.35] text-black space-y-4 max-w-[640px]">
             {descriptionParagraphs.map((paragraph, index) => (
-              <p key={index}>{paragraph}</p>
+              <p key={index}>{formatNonBreaking(paragraph)}</p>
             ))}
           </div>
 
-          {/* Right column */}
-          <aside className="font-sans text-[11px] md:text-[12px] leading-[1.35]">
-            {project.role && (
-              <div className="mb-6">
-                <h2 className="mb-1 text-[#224875] uppercase font-sans text-[11px] md:text-[12px] font-normal tracking-normal">
-                  ROLE
-                </h2>
-                <p>{project.role}</p>
-              </div>
-            )}
-
-            {project.scope && project.scope.length > 0 && (
-              <div className="mb-6">
-                <h2 className="mb-1 text-[#224875] uppercase font-sans text-[11px] md:text-[12px] font-normal tracking-normal">
-                  SCOPE
-                </h2>
-                {project.scope.map((item) => (
-                  <p key={item}>{item}</p>
-                ))}
-              </div>
-            )}
-
-            {project.collaborators && project.collaborators.length > 0 && (
-              <div>
-                <h2 className="mb-1 text-[#224875] uppercase font-sans text-[11px] md:text-[12px] font-normal tracking-normal">
-                  COLLABORATORS
-                </h2>
-                {project.collaborators.map((item) => (
-                  <p key={item}>{item}</p>
-                ))}
-              </div>
-            )}
-          </aside>
-        </div>
-      </section>
-
-      {/* 3. Existing project media */}
-      <div className="w-full px-[18px] sm:px-[20px] flex flex-col gap-[clamp(48px,6vw,64px)]">
-        {project.confidentialNotice ? (
-          <div className="my-10 py-10 border-y border-black/10">
-            <p className="font-serif font-normal text-[clamp(24px,3.5vw,48px)] leading-[1.0] text-black/30 tracking-[-0.01em] max-w-5xl">
-              {project.confidentialNotice}
-            </p>
-          </div>
-        ) : (
-          project.sections?.map((section, sIdx) => (
-            <div key={sIdx} className="flex flex-col">
-              {section.title && (
-                <h2 className="mb-4 font-serif text-[14px] md:text-[16px] uppercase tracking-normal text-black">
-                  {section.title}
-                </h2>
-              )}
-
-              {(section.description || (section.collaborators && section.collaborators.length > 0)) && (
-                <div className="grid grid-cols-1 md:grid-cols-[minmax(0,2fr)_minmax(220px,0.75fr)] gap-y-6 gap-x-[clamp(48px,8vw,140px)] items-start mb-[clamp(40px,4vw,56px)]">
-                  <div className="max-w-[65ch] font-sans text-[14px] md:text-[15px] lg:text-[16px] leading-[1.35] text-black space-y-4">
-                    {section.description?.map((p, pIdx) => (
-                      <p key={pIdx}>{p}</p>
-                    ))}
-                    {section.link && (
-                      <a
-                        href={section.link.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-block text-black underline underline-offset-4 hover:opacity-60 transition-opacity font-sans font-normal text-[11px] uppercase tracking-[0.12em]"
-                      >
-                        {section.link.text}
-                      </a>
-                    )}
-                  </div>
-
-                  {section.collaborators && section.collaborators.length > 0 && (
-                    <aside className="font-sans text-[11px] md:text-[12px] leading-[1.35]">
-                      <h3 className="mb-1 text-[#224875] uppercase font-sans text-[11px] md:text-[12px] font-normal tracking-normal">
-                        CREDITS
-                      </h3>
-                      {section.collaborators.map((c, cIdx) => (
-                        <p key={cIdx}>{c}</p>
-                      ))}
-                    </aside>
-                  )}
+          {/* Right column: Role, Scope, Collaborators */}
+          <RightRailWrapper>
+            <aside className="font-sans text-[11px] md:text-[12px] leading-[1.35] space-y-6">
+              {project.role && (
+                <div>
+                  <h2 className="mb-1 text-[#224875] uppercase font-sans text-[11px] md:text-[12px] font-normal tracking-normal">
+                    ROLE
+                  </h2>
+                  <p>{formatNonBreaking(project.role)}</p>
                 </div>
               )}
 
-              <div className="flex flex-col gap-[12px] md:gap-[16px]">
-                {section.mediaGroups.map((group, gIdx) => {
-                  if (group.type === 'grid') {
-                    return (
-                      <div
-                        key={gIdx}
-                        className="grid grid-cols-1 md:grid-cols-2 gap-[12px] md:gap-[16px]"
-                      >
-                        {group.items.map((item, iIdx) => (
-                          <figure key={iIdx} className="w-full m-0 overflow-hidden">
-                            <img
-                              src={item.src}
-                              alt={item.alt}
-                              className="block w-full h-auto"
-                              loading="lazy"
-                            />
-                          </figure>
+              {project.scope && project.scope.length > 0 && (
+                <div>
+                  <h2 className="mb-1 text-[#224875] uppercase font-sans text-[11px] md:text-[12px] font-normal tracking-normal">
+                    SCOPE
+                  </h2>
+                  {project.scope.map((item) => (
+                    <p key={item}>{formatNonBreaking(item)}</p>
+                  ))}
+                </div>
+              )}
+
+              {project.collaborators && project.collaborators.length > 0 && (
+                <div>
+                  <h2 className="mb-1 text-[#224875] uppercase font-sans text-[11px] md:text-[12px] font-normal tracking-normal">
+                    COLLABORATORS
+                  </h2>
+                  {project.collaborators.map((item) => (
+                    <p key={item}>{formatNonBreaking(item)}</p>
+                  ))}
+                </div>
+              )}
+            </aside>
+          </RightRailWrapper>
+        </div>
+
+        {/* 4. Chapters / Sections */}
+        {project.confidentialNotice ? (
+          <div className="mt-[56px] md:mt-[48px] lg:mt-[56px] py-10 border-y border-black/10">
+            <p className="font-serif font-normal text-[clamp(24px,3.5vw,48px)] leading-[1.0] text-black/30 tracking-[-0.01em] max-w-5xl">
+              {formatNonBreaking(project.confidentialNotice)}
+            </p>
+          </div>
+        ) : (
+          <div className="mt-[56px] md:mt-[48px] lg:mt-[56px] flex flex-col gap-[clamp(48px,6vw,80px)]">
+            {project.sections?.map((section, sIdx) => (
+              <div key={sIdx} className="flex flex-col">
+                {/* Chapter header grid (Left: title & description, Right: credits) */}
+                <div className="grid grid-cols-1 md:grid-cols-[68%_1fr] gap-x-[clamp(20px,3vw,40px)] gap-y-6 items-start mb-6 md:mb-8">
+                  <div className="font-sans text-[14px] md:text-[15px] lg:text-[16px] leading-[1.35] text-black max-w-[640px]">
+                    {section.title && (
+                      <h2 className="mb-3 font-serif text-[15px] md:text-[18px] uppercase tracking-normal text-black font-normal">
+                        {section.title}
+                      </h2>
+                    )}
+
+                    {section.description && section.description.length > 0 && (
+                      <div className="space-y-4">
+                        {section.description.map((p, pIdx) => (
+                          <p key={pIdx}>{formatNonBreaking(p)}</p>
                         ))}
                       </div>
-                    );
-                  }
+                    )}
 
-                  return group.items.map((item, iIdx) => (
-                    <figure key={iIdx} className="w-full m-0 overflow-hidden">
-                      <img
-                        src={item.src}
-                        alt={item.alt}
-                        className="block w-full h-auto"
-                        loading="lazy"
-                      />
-                    </figure>
-                  ));
-                })}
+                    {section.link && (
+                      <div className="mt-4">
+                        <a
+                          href={section.link.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-block text-black underline underline-offset-4 hover:opacity-60 transition-opacity font-sans font-normal text-[11px] uppercase tracking-[0.12em]"
+                        >
+                          {section.link.text}
+                        </a>
+                      </div>
+                    )}
+                  </div>
+
+                  <RightRailWrapper>
+                    {section.collaborators && section.collaborators.length > 0 ? (
+                      <aside className="font-sans text-[11px] md:text-[12px] leading-[1.35]">
+                        <h3 className="mb-1 text-[#224875] uppercase font-sans text-[11px] md:text-[12px] font-normal tracking-normal">
+                          CREDITS
+                        </h3>
+                        {section.collaborators.map((c, cIdx) => (
+                          <p key={cIdx}>{formatNonBreaking(c)}</p>
+                        ))}
+                      </aside>
+                    ) : null}
+                  </RightRailWrapper>
+                </div>
+
+                {/* Chapter media */}
+                <div className="flex flex-col gap-[12px] md:gap-[16px] w-full">
+                  {section.mediaGroups.map((group, gIdx) => {
+                    if (group.type === 'grid') {
+                      return (
+                        <div
+                          key={gIdx}
+                          className="grid grid-cols-1 md:grid-cols-2 gap-[12px] md:gap-[16px] w-full"
+                        >
+                          {group.items.map((item, iIdx) => (
+                            <figure key={iIdx} className="w-full m-0 overflow-hidden">
+                              <img
+                                src={item.src}
+                                alt={item.alt}
+                                className="block w-full h-auto"
+                                loading="lazy"
+                              />
+                            </figure>
+                          ))}
+                        </div>
+                      );
+                    }
+
+                    return group.items.map((item, iIdx) => (
+                      <figure key={iIdx} className="w-full m-0 overflow-hidden">
+                        <img
+                          src={item.src}
+                          alt={item.alt}
+                          className="block w-full h-auto"
+                          loading="lazy"
+                        />
+                      </figure>
+                    ));
+                  })}
+                </div>
               </div>
-            </div>
-          ))
+            ))}
+          </div>
         )}
       </div>
 
       {/* 5. Bottom navigation */}
       <nav
         aria-label="Project navigation"
-        className="w-full px-[18px] sm:px-[20px] mt-3 md:mt-4 py-0 flex items-center justify-between font-serif text-[14px] md:text-[16px] uppercase"
+        className="w-full px-[18px] sm:px-[20px] pt-4 md:pt-6 pb-12 md:pb-16 flex items-center justify-between font-serif text-[14px] md:text-[16px] uppercase"
       >
         <button
           type="button"

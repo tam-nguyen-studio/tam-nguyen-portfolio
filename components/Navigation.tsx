@@ -28,19 +28,25 @@ const Navigation: React.FC<NavProps> = ({ isProjectView, isAboutPage, onBackHome
       initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.45, ease: EASE, delay: 0 }}
-      className="w-full z-[100] h-auto min-h-0 px-[18px] sm:px-[20px] py-[clamp(18px,1.5vw,28px)] flex items-center transition-colors duration-300"
+      className="w-full z-[100] h-auto min-h-0 px-[18px] sm:px-[20px] pt-[18px] pb-[18px] md:pt-[22px] md:pb-[22px] transition-colors duration-300 leading-none"
+      style={{ height: 'auto', minHeight: 0, lineHeight: 1 }}
     >
-      <div className="w-full max-w-[1440px] mx-auto">
+      <div className="w-full max-w-[1440px] mx-auto h-auto min-h-0">
         {/* Header Layout */}
-        <nav aria-label="Main Navigation" className="grid grid-cols-[1fr_auto_1fr] items-center w-full font-serif text-[clamp(17px,4.8vw,22px)] md:text-[clamp(21px,2.8vw,26px)] lg:text-[clamp(26px,1.8vw,38px)] tracking-normal uppercase text-black leading-none">
+        <nav 
+          aria-label="Main Navigation" 
+          className="grid grid-cols-[1fr_auto_1fr] items-center w-full font-serif text-[clamp(15px,4.2vw,17px)] md:text-[clamp(21px,2.8vw,26px)] lg:text-[clamp(26px,1.8vw,38px)] tracking-normal uppercase text-black leading-none h-auto min-h-0"
+          style={{ lineHeight: 1 }}
+        >
           {/* Left: ABOUT */}
-          <div className="flex justify-start">
+          <div className="flex justify-start items-center">
             <button
               type="button"
               onClick={() => onSectionClick('about')}
-              className={`min-h-[44px] inline-flex items-center p-0 text-black leading-none translate-y-[-0.04em] hover:italic focus-visible:italic focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black transition-all duration-200 cursor-pointer whitespace-nowrap ${
+              className={`h-auto min-h-0 p-0 m-0 border-0 text-black leading-none hover:italic focus-visible:italic focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black transition-all duration-200 cursor-pointer whitespace-nowrap ${
                 isAboutPage ? "underline underline-offset-4 font-normal italic" : ""
               }`}
+              style={{ lineHeight: 1 }}
               aria-label="Navigate to About page"
             >
               ABOUT
@@ -48,11 +54,12 @@ const Navigation: React.FC<NavProps> = ({ isProjectView, isAboutPage, onBackHome
           </div>
 
           {/* Center: TAM NGUYEN */}
-          <div className="flex justify-center">
+          <div className="flex justify-center items-center">
             <button
               type="button"
               onClick={onBackHome}
-              className="min-h-[44px] inline-flex items-center p-0 m-0 text-center font-serif font-normal leading-none translate-y-[-0.04em] tracking-normal uppercase text-black hover:italic focus-visible:italic focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black transition-all duration-200 cursor-pointer whitespace-nowrap"
+              className="h-auto min-h-0 p-0 m-0 border-0 text-center font-serif font-normal leading-none tracking-normal uppercase text-black hover:italic focus-visible:italic focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black transition-all duration-200 cursor-pointer whitespace-nowrap"
+              style={{ lineHeight: 1 }}
               aria-label="Navigate to Homepage"
             >
               TAM NGUYEN
@@ -60,11 +67,12 @@ const Navigation: React.FC<NavProps> = ({ isProjectView, isAboutPage, onBackHome
           </div>
 
           {/* Right: CONTACT */}
-          <div className="flex justify-end">
+          <div className="flex justify-end items-center">
             <a
               href="#contact"
               onClick={(e) => onSectionClick('contact', e)}
-              className="min-h-[44px] inline-flex items-center p-0 text-black leading-none translate-y-[-0.04em] hover:italic focus-visible:italic focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black transition-all duration-200 cursor-pointer whitespace-nowrap"
+              className="h-auto min-h-0 p-0 m-0 border-0 text-black leading-none hover:italic focus-visible:italic focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black transition-all duration-200 cursor-pointer whitespace-nowrap"
+              style={{ lineHeight: 1 }}
               aria-label="Scroll to Contact section"
             >
               CONTACT

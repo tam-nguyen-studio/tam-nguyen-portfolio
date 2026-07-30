@@ -12,7 +12,7 @@ export const PROJECTS: Project[] = [
     objectPosition: 'center center',
     description: [
       "Keystone is a strategy, economics, and technology consultancy partnering with global brands and law firms. As Keystone grew its AI and technology advisory practice, the brand needed to evolve with it.",
-      "I joined as sole in-house designer to support a corporate rebrand, owning all visual output — spanning digital, marketing collateral, event materials, and internal communications, while building a sub-brand architecture across the company's practice groups and teams."
+      "I joined as sole in\u2011house designer to support a corporate rebrand, owning all visual output — spanning digital, marketing collateral, event materials, and internal communications, while building a sub-brand architecture across the company's practice groups and teams."
     ],
     role: 'Brand Marketing Designer',
     scope: ['Brand Systems', 'Digital Design', 'Editorial'],
@@ -61,9 +61,9 @@ export const PROJECTS: Project[] = [
     heroImage: '/images/soko-glam-hero.jpg',
     objectPosition: 'center center',
     description: [
-      "Soko Glam is the leading direct-to-consumer destination for Korean beauty in the US. As the sole in-house designer, I owned art direction across every campaign — concepting, directing photography, and executing across digital and packaging."
+      "Soko Glam is the leading direct-to-consumer destination for Korean beauty in the US. As the sole in\u2011house designer, I owned art direction across every campaign — concepting, directing photography, and executing across digital and packaging."
     ],
-    role: 'Sole In-House Designer',
+    role: 'Sole In\u2011House Designer',
     scope: ['Art Direction', 'Digital Design', 'Packaging'],
     collaborators: [],
     sections: [

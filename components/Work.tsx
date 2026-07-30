@@ -440,14 +440,16 @@ const Work: React.FC<WorkProps> = ({ onProjectSelect, onViewAllProjects }) => {
               aria-label={`View ${project.name} project details`}
               className="flex flex-col group cursor-pointer focus-visible:ring-2 focus-visible:ring-black focus-visible:outline-none rounded"
             >
-              {/* Header Grid: Left Column Grouped Name & Category, Right Column Number */}
-              <div className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-x-[clamp(1.25rem,3vw,2rem)] mb-[clamp(1.125rem,2.5vw,1.5rem)]">
-                {/* Left Column: Grouped Name & Category */}
-                <div className="flex flex-col gap-[0.375rem] min-w-0">
-                  <h2 className="m-0 font-serif font-normal text-[22px] sm:text-[26px] md:text-[32px] text-black leading-[1.05] not-italic break-words">
-                    {project.name}
-                  </h2>
-                  <p className="m-0 font-serif italic text-[16px] sm:text-[18px] md:text-[22px] text-black leading-[1.05] break-words block">
+              {/* Header Container for Mobile */}
+              <div className="flex flex-col mb-[clamp(1.125rem,2.5vw,1.5rem)]">
+                {/* First line: Title alone */}
+                <h2 className="m-0 font-serif font-normal text-[22px] sm:text-[26px] md:text-[32px] text-black leading-[1.05] not-italic break-words mb-2">
+                  {project.name}
+                </h2>
+
+                {/* Second line: Subtitle left, Counter right */}
+                <div className="flex justify-between items-baseline w-full">
+                  <p className="m-0 font-serif italic text-[16px] sm:text-[18px] md:text-[22px] text-black leading-[1.05] break-words">
                     {project.category.includes('& CRM') ? (
                       <>
                         {project.category.split('& CRM')[0]}
@@ -457,11 +459,9 @@ const Work: React.FC<WorkProps> = ({ onProjectSelect, onViewAllProjects }) => {
                       project.category
                     )}
                   </p>
-                </div>
-
-                {/* Right Column: Project Number Aligned to Top Edge */}
-                <div className="font-serif text-[15px] sm:text-[16px] md:text-[18px] text-black leading-[1.05] self-start whitespace-nowrap shrink-0 text-right">
-                  <span>{projectNum} / {totalNum}</span>
+                  <span className="font-serif text-[15px] sm:text-[16px] md:text-[18px] text-black leading-[1.05] whitespace-nowrap shrink-0 text-right">
+                    {projectNum} / {totalNum}
+                  </span>
                 </div>
               </div>
 
