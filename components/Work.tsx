@@ -337,8 +337,8 @@ const Work: React.FC<WorkProps> = ({ onProjectSelect, onViewAllProjects }) => {
             <div className="relative w-full px-[20px] mt-2.5 font-serif text-[16px] lg:text-[18px] text-black flex items-center justify-between">
               {/* Left controls */}
               <div className="flex items-center gap-[clamp(40px,7vw,120px)]">
-                <div className="font-normal tracking-normal whitespace-nowrap flex items-center gap-1">
-                  <span className="relative inline-flex overflow-hidden justify-center min-w-[1.25em] h-[1.2em]">
+                <div className="font-normal tracking-normal whitespace-nowrap flex items-baseline gap-1 leading-none">
+                  <span className="relative inline-flex items-baseline overflow-hidden justify-center min-w-[1.25em] h-[1.15em] leading-none">
                     <AnimatePresence mode="popLayout" initial={false}>
                       <motion.span
                         key={currentNum}
@@ -346,13 +346,13 @@ const Work: React.FC<WorkProps> = ({ onProjectSelect, onViewAllProjects }) => {
                         animate={{ opacity: 1, y: 0 }}
                         exit={shouldReduceMotion ? { opacity: 0, y: 0 } : { opacity: 0, y: -8 }}
                         transition={{ duration: 0.35, ease: EASE }}
-                        className="inline-block"
+                        className="inline-block leading-none"
                       >
                         {currentNum}
                       </motion.span>
                     </AnimatePresence>
                   </span>
-                  <span>/ {totalNum}</span>
+                  <span className="leading-none">/ {totalNum}</span>
                 </div>
 
                 <button
@@ -443,7 +443,7 @@ const Work: React.FC<WorkProps> = ({ onProjectSelect, onViewAllProjects }) => {
       )}
 
       {/* TABLET AND MOBILE VERTICAL PROJECT LIST */}
-      <div className="block md:hidden px-[18px] sm:px-[20px] pb-0 flex flex-col gap-[80px] md:gap-[120px]">
+      <div className="block md:hidden px-[18px] sm:px-[20px] pb-0 flex flex-col gap-[48px] sm:gap-[56px] md:gap-[120px]">
         {FEATURED_PROJECTS.map((project, index) => {
           const projectNum = (index + 1).toString().padStart(2, '0');
           const totalNum = FEATURED_PROJECTS.length.toString().padStart(2, '0');
@@ -496,6 +496,18 @@ const Work: React.FC<WorkProps> = ({ onProjectSelect, onViewAllProjects }) => {
             </article>
           );
         })}
+
+        {/* Centered (VIEW ALL PROJECTS) button below last project card on mobile */}
+        <div className="pt-2 pb-6 text-center">
+          <button
+            type="button"
+            onClick={onViewAllProjects}
+            className="font-serif font-normal text-[18px] sm:text-[20px] text-black leading-none uppercase tracking-normal hover:italic focus-visible:italic focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-black rounded cursor-pointer transition-[font-style] duration-200"
+            aria-label="View all projects"
+          >
+            (VIEW ALL PROJECTS)
+          </button>
+        </div>
       </div>
       </div>
     </section>
