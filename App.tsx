@@ -21,8 +21,22 @@ const App: React.FC = () => {
 
   const [currentPath, setCurrentPath] = useState(() => window.location.pathname);
   const [isContactTransitioning, setIsContactTransitioning] = useState(false);
+  const [isPageTransitioning, setIsPageTransitioning] = useState(false);
 
   const isWorkPage = currentPath.replace(/\/$/, '') === '/work';
+  const shouldReduceMotion = useReducedMotion();
+
+  // Helper to preload image before revealing new page
+  const preloadImage = (src: string) => {
+    return new Promise((resolve) => {
+      if (!src) return resolve(true);
+      const img = new Image();
+      img.src = src;
+      if (img.complete) return resolve(true);
+      img.onload = () => resolve(true);
+      img.onerror = () => resolve(true);
+    });
+  };
 
   // Redirect for /pgportfolio
   useEffect(() => {
@@ -87,11 +101,48 @@ const App: React.FC = () => {
     }
   }, [selectedProjectId, isAboutPage, isWorkPage, currentPath]);
 
-  const navigateTo = (path: string) => {
+  const navigateTo = async (path: string) => {
     const newPath = path.startsWith('/') ? path : `/${path}`;
+    if (newPath === currentPath && !selectedProjectId && newPath === '/') return;
+
+    if (shouldReduceMotion) {
+      window.history.pushState({}, '', newPath);
+      setCurrentPath(newPath);
+      syncStateWithLocation(newPath);
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+      return;
+    }
+
+    // Smooth page transition sequence using pale-blue overlay
+    setIsPageTransitioning(true);
+
+    // Wait for overlay to fade in
+    await new Promise(r => setTimeout(r, 220));
+
+    // Instant scroll reset behind opaque overlay
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+
+    // Update state to mount new page
     window.history.pushState({}, '', newPath);
     setCurrentPath(newPath);
     syncStateWithLocation(newPath);
+
+    // Check if target page has a hero image to preload
+    const rawTarget = newPath.replace(/^\//, '');
+    const targetProject = PROJECTS.find(p => p.id === rawTarget);
+    if (targetProject) {
+      const heroSrc = targetProject.heroImage || targetProject.imageUrl;
+      await Promise.race([
+        preloadImage(heroSrc),
+        new Promise(r => setTimeout(r, 180)) // Fallback so transition stays snappy
+      ]);
+    }
+
+    // Wait 1 frame for react mount
+    await new Promise(r => requestAnimationFrame(r));
+
+    // Fade out overlay revealing new page ready at top
+    setIsPageTransitioning(false);
   };
 
   const scrollToSection = (id: string, event?: React.SyntheticEvent) => {
@@ -179,7 +230,6 @@ const App: React.FC = () => {
   };
 
   const activeProject = PROJECTS.find(p => p.id === selectedProjectId);
-  const shouldReduceMotion = useReducedMotion();
   
   let nextProjectName = "";
   if (selectedProjectId) {
@@ -205,8 +255,8 @@ const App: React.FC = () => {
       className="w-full relative font-serif transition-colors duration-300 min-h-screen flex flex-col bg-[#EFF5F7] text-black"
     >
       <div 
-        className={`contact-jump-overlay fixed inset-0 z-[9999] bg-[#EFF5F7] pointer-events-none transition-opacity duration-[180ms] ease-in-out ${
-          isContactTransitioning ? 'opacity-100' : 'opacity-0'
+        className={`page-transition-overlay fixed inset-0 z-[9999] bg-[#EFF5F7] pointer-events-none transition-opacity duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+          isPageTransitioning || isContactTransitioning ? 'opacity-100' : 'opacity-0'
         }`}
         aria-hidden="true"
       />

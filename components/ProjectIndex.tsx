@@ -81,46 +81,63 @@ const ProjectIndex: React.FC<ProjectIndexProps> = ({
         id="project-index-heading"
         className="m-0 text-center font-serif font-normal text-[18px] md:text-[22px] lg:text-[24px] leading-none text-black"
       >
-        (WORK)
+        (ALL PROJECTS)
       </h1>
 
       <div
-        className="w-full mt-[clamp(72px,10vw,112px)]"
+        className="w-full mt-[clamp(72px,10vw,112px)] flex flex-col"
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeaveList}
       >
         {PROJECTS.map((project, index) => {
           const projectNumber = String(index + 1).padStart(2, '0');
+          const EASE = [0.22, 1, 0.36, 1];
 
           return (
-            <button
+            <motion.div
               key={project.id}
-              type="button"
-              onClick={() => onProjectSelect(project.id)}
-              onMouseEnter={(e) => {
-                if (isHoverSupported) {
-                  setMousePos({ x: e.clientX, y: e.clientY });
-                  setHoveredProject(project);
-                }
-              }}
-              onKeyDown={(event) => handleKeyDown(event, project.id)}
-              aria-label={`View ${project.name} project`}
-              className="w-full m-0 pt-[16px] md:pt-[22px] pb-[36px] md:pb-[56px] border-t-[1.5px] border-black bg-transparent text-left grid grid-cols-[minmax(0,1fr)_auto] items-start gap-x-6 md:gap-x-10 group cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-black"
+              initial={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.45, ease: EASE, delay: index * 0.05 }}
+              className="w-full relative"
             >
-              <span className="min-w-0 flex flex-col items-start gap-2 md:flex-row md:flex-wrap md:items-baseline md:gap-x-[clamp(20px,2.5vw,40px)] md:gap-y-2">
-                <span className="font-serif font-normal text-[clamp(32px,4.3vw,68px)] leading-[0.95] tracking-[-0.025em] text-black not-italic group-hover:italic group-focus-visible:italic transition-[font-style] duration-200">
-                  {project.name}
+              {/* Animated Horizontal Rule (Left to Right) */}
+              <motion.div 
+                initial={shouldReduceMotion ? { scaleX: 1 } : { scaleX: 0 }}
+                animate={{ scaleX: 1 }}
+                transition={{ duration: 0.5, ease: EASE, delay: index * 0.05 }}
+                style={{ transformOrigin: 'left' }}
+                className="w-full h-[1.5px] bg-black"
+              />
+
+              <button
+                type="button"
+                onClick={() => onProjectSelect(project.id)}
+                onMouseEnter={(e) => {
+                  if (isHoverSupported) {
+                    setMousePos({ x: e.clientX, y: e.clientY });
+                    setHoveredProject(project);
+                  }
+                }}
+                onKeyDown={(event) => handleKeyDown(event, project.id)}
+                aria-label={`View ${project.name} project`}
+                className="w-full m-0 pt-[16px] md:pt-[22px] pb-[36px] md:pb-[56px] bg-transparent text-left grid grid-cols-[minmax(0,1fr)_auto] items-start gap-x-6 md:gap-x-10 group cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-black"
+              >
+                <span className="min-w-0 flex flex-col items-start gap-2 md:flex-row md:flex-wrap md:items-baseline md:gap-x-[clamp(20px,2.5vw,40px)] md:gap-y-2">
+                  <span className="font-serif font-normal text-[clamp(32px,4.3vw,68px)] leading-[0.95] tracking-[-0.025em] text-black not-italic group-hover:italic group-focus-visible:italic transition-[font-style] duration-200">
+                    {project.name}
+                  </span>
+
+                  <span className="font-serif italic text-[clamp(18px,2.2vw,34px)] leading-[1.05] text-black group-hover:not-italic group-focus-visible:not-italic transition-[font-style] duration-200">
+                    {project.category}
+                  </span>
                 </span>
 
-                <span className="font-serif italic text-[clamp(18px,2.2vw,34px)] leading-[1.05] text-black group-hover:not-italic group-focus-visible:not-italic transition-[font-style] duration-200">
-                  {project.category}
+                <span className="font-serif font-normal text-[clamp(28px,4vw,64px)] leading-[0.95] tabular-nums text-black whitespace-nowrap">
+                  {projectNumber}
                 </span>
-              </span>
-
-              <span className="font-serif font-normal text-[clamp(28px,4vw,64px)] leading-[0.95] tabular-nums text-black whitespace-nowrap">
-                {projectNumber}
-              </span>
-            </button>
+              </button>
+            </motion.div>
           );
         })}
       </div>

@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { motion, useScroll, useTransform, useReducedMotion } from 'motion/react';
+import { motion, AnimatePresence, useScroll, useTransform, useReducedMotion } from 'motion/react';
 import { PROJECTS } from '../constants';
 import ImageWithFade from './ImageWithFade';
 
@@ -224,9 +224,9 @@ const Work: React.FC<WorkProps> = ({ onProjectSelect, onViewAllProjects }) => {
         className="w-full px-[18px] sm:px-[20px] pt-8 md:pt-28 pb-10 md:pb-32 mx-auto text-center overflow-hidden flex flex-col items-center justify-center"
       >
         <motion.h1 
-          initial={shouldReduceMotion ? { y: 0, opacity: 1 } : { y: "20px", opacity: 0 }}
+          initial={shouldReduceMotion ? { y: 0, opacity: 1 } : { y: "28px", opacity: 0 }}
           animate={{ y: "0px", opacity: 1 }}
-          transition={{ duration: 0.4, ease: EASE, delay: 0.05 }}
+          transition={{ duration: 0.55, ease: EASE, delay: 0.08 }}
           className="font-serif font-normal text-[clamp(1.75rem,6.8vw,3.25rem)] md:text-[clamp(2.25rem,5vw,8rem)] leading-[1.0] tracking-[-0.025em] text-[#224875] mx-auto text-center [text-wrap:pretty] w-[calc(100vw-36px)] md:w-[min(90vw,100%)] max-w-[36ch]"
         >
           <span className="font-bold">Brand designer</span> shaping how brands show up across{" "}
@@ -241,31 +241,31 @@ const Work: React.FC<WorkProps> = ({ onProjectSelect, onViewAllProjects }) => {
         <motion.a 
           href="#work-carousel"
           onClick={handleWorkClick}
-          initial={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
+          initial={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.35, ease: EASE, delay: 0.1 }}
+          transition={{ duration: 0.5, ease: EASE, delay: 0.28 }}
           className="group min-h-[44px] inline-flex items-center justify-center p-0 text-black leading-none font-serif text-[clamp(17px,4.8vw,22px)] md:text-[clamp(21px,2.8vw,26px)] lg:text-[clamp(26px,1.8vw,38px)] tracking-normal uppercase cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black rounded whitespace-nowrap"
-          aria-label="Scroll to Work carousel"
+          aria-label="Scroll to Selected Work carousel"
         >
           <span className="translate-y-[-0.04em] inline-block">
             (
             <span className="not-italic group-hover:italic group-focus-visible:italic transition-[font-style] duration-200">
-              WORK
+              SELECTED WORK
             </span>
             )
           </span>
         </motion.a>
         <motion.div 
-          initial={shouldReduceMotion ? { scaleY: 1 } : { scaleY: 0 }}
+          initial={shouldReduceMotion ? { scaleY: 1, opacity: 1 } : { scaleY: 0, opacity: 0 }}
           animate={
             shouldPulseRule
-              ? { scaleY: [1, 1.25, 1], y: [0, 8, 0] }
-              : { scaleY: 1, y: 0 }
+              ? { scaleY: [1, 1.25, 1], y: [0, 8, 0], opacity: 1 }
+              : { scaleY: 1, opacity: 1, y: 0 }
           }
           transition={
             shouldPulseRule
               ? { duration: 0.8, ease: EASE, times: [0, 0.5, 1] }
-              : { duration: 0.35, ease: EASE, delay: 0.15 }
+              : { duration: 0.5, ease: EASE, delay: 0.45 }
           }
           onAnimationComplete={() => {
             if (shouldPulseRule) setShouldPulseRule(false);
@@ -337,8 +337,22 @@ const Work: React.FC<WorkProps> = ({ onProjectSelect, onViewAllProjects }) => {
             <div className="relative w-full px-[20px] mt-2.5 font-serif text-[16px] lg:text-[18px] text-black flex items-center justify-between">
               {/* Left controls */}
               <div className="flex items-center gap-[clamp(40px,7vw,120px)]">
-                <div className="font-normal tracking-normal whitespace-nowrap">
-                  {currentNum} / {totalNum}
+                <div className="font-normal tracking-normal whitespace-nowrap flex items-center gap-1">
+                  <span className="relative inline-flex overflow-hidden justify-center min-w-[1.25em] h-[1.2em]">
+                    <AnimatePresence mode="popLayout" initial={false}>
+                      <motion.span
+                        key={currentNum}
+                        initial={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 8 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={shouldReduceMotion ? { opacity: 0, y: 0 } : { opacity: 0, y: -8 }}
+                        transition={{ duration: 0.35, ease: EASE }}
+                        className="inline-block"
+                      >
+                        {currentNum}
+                      </motion.span>
+                    </AnimatePresence>
+                  </span>
+                  <span>/ {totalNum}</span>
                 </div>
 
                 <button

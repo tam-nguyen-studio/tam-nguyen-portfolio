@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { motion, useReducedMotion } from 'motion/react';
 import { Project } from '../types';
 import ImageWithFade from './ImageWithFade';
 import ProjectFooter from './ProjectFooter';
@@ -30,6 +31,8 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({
   onViewAllProjects,
   onBackHome,
 }) => {
+  const shouldReduceMotion = useReducedMotion();
+
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
   }, [project.id]);
@@ -49,11 +52,17 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({
     : [];
 
   const heroImageSrc = project.heroImage || project.imageUrl;
+  const EASE = [0.22, 1, 0.36, 1];
 
   return (
     <article className="w-full text-black bg-[#EFF5F7]">
-      {/* 1. Full-width project hero */}
-      <div className="w-full overflow-hidden bg-black/5">
+      {/* 1. Full-width project hero with gentle scale & fade */}
+      <motion.div 
+        initial={shouldReduceMotion ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 1.015 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.6, ease: EASE }}
+        className="w-full overflow-hidden bg-black/5"
+      >
         <ImageWithFade
           src={heroImageSrc}
           alt={`${project.name} hero`}
@@ -61,12 +70,17 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({
           style={{ objectPosition: project.objectPosition || 'center center' }}
           loading="eager"
         />
-      </div>
+      </motion.div>
 
       {/* Content layout wrapper */}
       <div className="w-full px-[18px] sm:px-[20px] pt-[clamp(24px,3vw,42px)] pb-0">
         {/* 2. Title and discipline row */}
-        <div className="grid grid-cols-1 md:grid-cols-[68%_1fr] gap-x-[clamp(20px,3vw,40px)] gap-y-2 w-full pb-[clamp(24px,3vw,40px)] items-baseline">
+        <motion.div 
+          initial={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: EASE, delay: 0.05 }}
+          className="grid grid-cols-1 md:grid-cols-[68%_1fr] gap-x-[clamp(20px,3vw,40px)] gap-y-2 w-full pb-[clamp(24px,3vw,40px)] items-baseline"
+        >
           <h1 className="m-0 font-serif font-normal text-[clamp(32px,4.2vw,64px)] leading-[0.95] tracking-[-0.025em] text-black">
             {project.name}
           </h1>
@@ -76,10 +90,15 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({
               {project.category}
             </p>
           </RightRailWrapper>
-        </div>
+        </motion.div>
 
         {/* 3. Overview + Metadata two-column grid */}
-        <div className="grid grid-cols-1 md:grid-cols-[68%_1fr] gap-x-[clamp(20px,3vw,40px)] gap-y-8 items-start pb-0">
+        <motion.div 
+          initial={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: EASE, delay: 0.1 }}
+          className="grid grid-cols-1 md:grid-cols-[68%_1fr] gap-x-[clamp(20px,3vw,40px)] gap-y-8 items-start pb-0"
+        >
           {/* Left column: Overview */}
           <div className="font-sans text-[14px] md:text-[15px] lg:text-[16px] leading-[1.35] text-black space-y-4 max-w-[640px]">
             {descriptionParagraphs.map((paragraph, index) => (
@@ -163,21 +182,33 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({
               )}
             </aside>
           </RightRailWrapper>
-        </div>
+        </motion.div>
 
         {/* 4. Chapters / Sections */}
         {project.confidentialNotice ? (
-          <div className="mt-[56px] md:mt-[48px] lg:mt-[56px] py-10 border-y border-black/10">
+          <motion.div 
+            initial={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-30px" }}
+            transition={{ duration: 0.5, ease: EASE }}
+            className="mt-[56px] md:mt-[48px] lg:mt-[56px] py-10 border-y border-black/10"
+          >
             <p className="font-serif font-normal text-[clamp(24px,3.5vw,48px)] leading-[1.0] text-black/30 tracking-[-0.01em]">
               {formatNonBreaking(project.confidentialNotice)}
             </p>
-          </div>
+          </motion.div>
         ) : (
           <div className="mt-[56px] md:mt-[48px] lg:mt-[56px] flex flex-col gap-[clamp(48px,6vw,80px)]">
             {project.sections?.map((section, sIdx) => (
               <div key={sIdx} className="flex flex-col">
                 {/* Chapter header grid (Left: title & description, Right: credits) */}
-                <div className="grid grid-cols-1 md:grid-cols-[68%_1fr] gap-x-[clamp(20px,3vw,40px)] gap-y-6 items-start mb-6 md:mb-8">
+                <motion.div 
+                  initial={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-30px" }}
+                  transition={{ duration: 0.5, ease: EASE }}
+                  className="grid grid-cols-1 md:grid-cols-[68%_1fr] gap-x-[clamp(20px,3vw,40px)] gap-y-6 items-start mb-6 md:mb-8"
+                >
                   <div className="font-sans text-[14px] md:text-[15px] lg:text-[16px] leading-[1.35] text-black max-w-[640px]">
                     {section.title && (
                       <h2 className="mb-3 font-serif text-[15px] md:text-[18px] uppercase tracking-normal text-black font-normal">
@@ -219,15 +250,19 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({
                       </aside>
                     ) : null}
                   </RightRailWrapper>
-                </div>
+                </motion.div>
 
                 {/* Chapter media */}
                 <div className="flex flex-col gap-[12px] md:gap-[16px] w-full">
                   {section.mediaGroups.map((group, gIdx) => {
                     if (group.type === 'grid') {
                       return (
-                        <div
+                        <motion.div
                           key={gIdx}
+                          initial={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          viewport={{ once: true, margin: "-30px" }}
+                          transition={{ duration: 0.5, ease: EASE }}
                           className="grid grid-cols-1 md:grid-cols-2 gap-[12px] md:gap-[16px] w-full"
                         >
                           {group.items.map((item, iIdx) => (
@@ -240,19 +275,26 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({
                               />
                             </figure>
                           ))}
-                        </div>
+                        </motion.div>
                       );
                     }
 
                     return group.items.map((item, iIdx) => (
-                      <figure key={iIdx} className="w-full m-0 overflow-hidden">
+                      <motion.figure 
+                        key={iIdx} 
+                        initial={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: "-30px" }}
+                        transition={{ duration: 0.5, ease: EASE }}
+                        className="w-full m-0 overflow-hidden"
+                      >
                         <ImageWithFade
                           src={item.src}
                           alt={item.alt}
                           className="block w-full h-auto"
                           loading="lazy"
                         />
-                      </figure>
+                      </motion.figure>
                     ));
                   })}
                 </div>
@@ -263,14 +305,20 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({
 
         {/* Process Note & Disclaimer */}
         {(project.processNote || project.disclaimer) && (
-          <div className="mt-[48px] md:mt-[64px] pb-4 flex flex-col gap-1.5 font-sans text-[12px] md:text-[13px] leading-relaxed max-w-[440px]">
+          <motion.div 
+            initial={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-30px" }}
+            transition={{ duration: 0.5, ease: EASE }}
+            className="mt-[48px] md:mt-[64px] pb-4 flex flex-col gap-1.5 font-sans text-[12px] md:text-[13px] leading-relaxed max-w-[440px]"
+          >
             {project.processNote && (
               <p className="m-0 text-black/70 font-normal">{formatNonBreaking(project.processNote)}</p>
             )}
             {project.disclaimer && (
               <p className="m-0 text-black/40 italic font-normal">{formatNonBreaking(project.disclaimer)}</p>
             )}
-          </div>
+          </motion.div>
         )}
       </div>
 

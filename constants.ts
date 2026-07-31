@@ -1,6 +1,6 @@
 import { Project, NavItem } from './types';
 
-// Projects order: Keystone, Cyprès 21, Bare Skin, Soko Glam, The Klog, Procter & Gamble, Then I Met You, The Alden
+// Projects order: Keystone, Cyprès 21, Soko Glam, Bare Skin, The Klog, Procter & Gamble, Then I Met You, The Alden
 export const PROJECTS: Project[] = [
   {
     id: 'keystone',
@@ -24,7 +24,7 @@ export const PROJECTS: Project[] = [
     collaborators: ['Otherward — Identity', 'Refokus — Web', 'Michael Simon — Photography'],
     sections: [
       {
-        title: '01 — WEB & DIGITAL',
+        title: '01 / WEB & DIGITAL',
         description: [
           "I maintained and updated Keystone’s website, adding new content and sections as the firm’s needs evolved. I worked closely with developers to refine layouts, resolve visual issues, and keep the site consistent with the refreshed identity.",
           "During the initial redesign, I also shared references, ideas, and detailed visual feedback with Refokus as they developed the website."
@@ -37,7 +37,7 @@ export const PROJECTS: Project[] = [
         ]
       },
       {
-        title: '02 — THOUGHT LEADERSHIP & COMMUNICATIONS',
+        title: '02 / THOUGHT LEADERSHIP & COMMUNICATIONS',
         description: [
           "I designed reports, guides, presentations, print ads, brochures, social content, and event materials. I also created a small set of reusable layouts for recurring print and marketing needs."
         ],
@@ -56,7 +56,7 @@ export const PROJECTS: Project[] = [
         ]
       },
       {
-        title: '03 — PHOTOGRAPHY',
+        title: '03 / PHOTOGRAPHY',
         description: [
           "I art directed a new series of employee headshots with photographer Michael Simon. I scouted locations throughout Keystone’s offices and helped direct the lighting, backgrounds, composition, and post-production."
         ],
@@ -125,35 +125,6 @@ export const PROJECTS: Project[] = [
     processNote: "Independent campaign exploration created with ChatGPT and refined in Adobe Photoshop. Not affiliated with Le Labo."
   },
   {
-    id: 'bare-skin',
-    name: 'Bare Skin',
-    category: 'Visual Identity',
-    year: '2025',
-    imageUrl: '/images/bare-skin-01.jpg',
-    heroImage: '/images/bare-skin-01.jpg',
-    objectPosition: 'center center',
-    description: [
-      "A visual identity concept for a skincare brand with one radical constraint — five products, nothing more. A brand built to stand apart from a category that never stops adding. Blackletter meets Swiss grid, clinical skincare with a point of view. Dark packaging, warm documentary photography, copy that doesn't explain itself."
-    ],
-    role: 'Creative Direction & Design',
-    scope: ['Visual Identity', 'Art Direction', 'Digital Design', 'Packaging'],
-    collaborators: [],
-    tools: ['ChatGPT', 'Claude', 'Adobe Photoshop'],
-    sections: [
-      {
-        mediaGroups: [
-          { type: 'single', items: [{ src: '/images/bare-skin-02.jpg', alt: 'Bare Skin 02' }] },
-          { type: 'single', items: [{ src: '/images/bare-skin-03.jpg', alt: 'Bare Skin 03' }] },
-          { type: 'single', items: [{ src: '/images/bare-skin-04.jpg', alt: 'Bare Skin 04' }] },
-          { type: 'single', items: [{ src: '/images/bare-skin-05.jpg', alt: 'Bare Skin 05' }] },
-          { type: 'single', items: [{ src: '/images/bare-skin-06.jpg', alt: 'Bare Skin 06' }] },
-          { type: 'single', items: [{ src: '/images/bare-skin-07.jpg', alt: 'Bare Skin 07' }] },
-          { type: 'single', items: [{ src: '/images/bare-skin-08.jpg', alt: 'Bare Skin 08' }] }
-        ]
-      }
-    ]
-  },
-  {
     id: 'soko-glam',
     name: 'Soko Glam',
     category: 'Art Direction',
@@ -214,6 +185,35 @@ export const PROJECTS: Project[] = [
         mediaGroups: [
           { type: 'single', items: [{ src: '/images/soko-glam-15.jpg', alt: 'Soko Glam 15' }] },
           { type: 'single', items: [{ src: '/images/soko-glam-16.jpg', alt: 'Soko Glam 16' }] }
+        ]
+      }
+    ]
+  },
+  {
+    id: 'bare-skin',
+    name: 'Bare Skin',
+    category: 'Visual Identity',
+    year: '2025',
+    imageUrl: '/images/bare-skin-01.jpg',
+    heroImage: '/images/bare-skin-01.jpg',
+    objectPosition: 'center center',
+    description: [
+      "A visual identity concept for a skincare brand with one radical constraint — five products, nothing more. A brand built to stand apart from a category that never stops adding. Blackletter meets Swiss grid, clinical skincare with a point of view. Dark packaging, warm documentary photography, copy that doesn't explain itself."
+    ],
+    role: 'Creative Direction & Design',
+    scope: ['Visual Identity', 'Art Direction', 'Digital Design', 'Packaging'],
+    collaborators: [],
+    tools: ['ChatGPT', 'Claude', 'Adobe Photoshop'],
+    sections: [
+      {
+        mediaGroups: [
+          { type: 'single', items: [{ src: '/images/bare-skin-02.jpg', alt: 'Bare Skin 02' }] },
+          { type: 'single', items: [{ src: '/images/bare-skin-03.jpg', alt: 'Bare Skin 03' }] },
+          { type: 'single', items: [{ src: '/images/bare-skin-04.jpg', alt: 'Bare Skin 04' }] },
+          { type: 'single', items: [{ src: '/images/bare-skin-05.jpg', alt: 'Bare Skin 05' }] },
+          { type: 'single', items: [{ src: '/images/bare-skin-06.jpg', alt: 'Bare Skin 06' }] },
+          { type: 'single', items: [{ src: '/images/bare-skin-07.jpg', alt: 'Bare Skin 07' }] },
+          { type: 'single', items: [{ src: '/images/bare-skin-08.jpg', alt: 'Bare Skin 08' }] }
         ]
       }
     ]
