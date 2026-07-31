@@ -18,8 +18,8 @@ const formatNonBreaking = (str: string) => {
 };
 
 const RightRailWrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => (
-  <div className="w-full md:flex md:justify-end">
-    <div className="w-full md:w-[220px] lg:w-[240px] text-left">
+  <div className="w-auto md:w-full md:flex md:justify-end">
+    <div className="w-auto md:w-[220px] lg:w-[240px] text-left">
       {children}
     </div>
   </div>
@@ -79,7 +79,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({
           initial={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: EASE, delay: 0.05 }}
-          className="grid grid-cols-1 md:grid-cols-[68%_1fr] gap-x-[clamp(20px,3vw,40px)] gap-y-2 w-full pb-[clamp(24px,3vw,40px)] items-baseline"
+          className="flex flex-wrap items-baseline gap-x-3 gap-y-1 pb-[clamp(20px,3vw,40px)] md:grid md:grid-cols-[68%_1fr] md:gap-x-[clamp(20px,3vw,40px)] md:gap-y-2 w-full"
         >
           <h1 className="m-0 font-serif font-normal text-[clamp(32px,4.2vw,64px)] leading-[0.95] tracking-[-0.025em] text-black">
             {project.name}

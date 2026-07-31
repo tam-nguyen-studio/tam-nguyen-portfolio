@@ -37,31 +37,33 @@ export const PROJECTS: Project[] = [
         ]
       },
       {
-        title: '02 / THOUGHT LEADERSHIP & COMMUNICATIONS',
+        title: '02 / EDITORIAL & BRAND COMMUNICATIONS',
         description: [
           "I designed reports, guides, presentations, print ads, brochures, social content, and event materials. I also created a small set of reusable layouts for recurring print and marketing needs."
         ],
         mediaGroups: [
           { type: 'single', items: [{ src: '/images/keystone-05.jpg', alt: 'Careers or recruiting collateral shown on laptop' }] },
+          { type: 'single', items: [{ src: '/images/keystone-06.jpg', alt: 'Keystone employee headshots and office portraits' }] },
+          { type: 'single', items: [{ src: '/images/keystone-07.jpg', alt: 'Purple-and-white digital content cards' }] },
+          { type: 'single', items: [{ src: '/images/keystone-08.jpg', alt: 'Green editorial guide cover 1' }] },
+          { type: 'single', items: [{ src: '/images/keystone-09.jpg', alt: 'Green editorial guide cover 2' }] },
           {
             type: 'grid',
             items: [
-              { src: '/images/keystone-07.jpg', alt: 'Purple-and-white digital content cards' },
-              { src: '/images/keystone-08.jpg', alt: 'Green editorial guide cover 1' }
+              { src: '/images/keystone-10.jpg', alt: 'Multi-format article and publishing collateral 1' },
+              { src: '/images/keystone-11.jpg', alt: 'Multi-format article and publishing collateral 2' }
             ]
-          },
-          { type: 'single', items: [{ src: '/images/keystone-06.jpg', alt: 'Keystone employee headshots and office portraits' }] },
-          { type: 'single', items: [{ src: '/images/keystone-09.jpg', alt: 'Green editorial guide cover 2' }] },
-          { type: 'single', items: [{ src: '/images/keystone-10.jpg', alt: 'Multi-format article, report or publishing-system composition' }] }
+          }
         ]
       },
       {
-        title: '03 / PHOTOGRAPHY',
+        title: '03 / PHOTOGRAPHY ART DIRECTION',
         description: [
           "I art directed a new series of employee headshots with photographer Michael Simon. I scouted locations throughout Keystone’s offices and helped direct the lighting, backgrounds, composition, and post-production."
         ],
         mediaGroups: [
-          { type: 'single', items: [{ src: '/images/keystone-11.jpg', alt: 'White-paper or report-page mockup' }] }
+          { type: 'single', items: [{ src: '/images/keystone-12.jpg', alt: 'Keystone photography art direction 1' }] },
+          { type: 'single', items: [{ src: '/images/keystone-13.jpg', alt: 'Keystone photography art direction 2' }] }
         ]
       }
     ]
