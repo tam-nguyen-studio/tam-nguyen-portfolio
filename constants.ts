@@ -12,7 +12,7 @@ export const PROJECTS: Project[] = [
     objectPosition: 'center center',
     description: [
       "Keystone is a strategy, economics, and technology consultancy working with global companies and law firms.",
-      "I joined Keystone while a company rebrand was underway. I participated in agency reviews and internal discussions, then helped carry the new identity into the firm’s website, marketing, editorial, event, and internal materials as its sole in-house graphic designer."
+      "I joined Keystone during a company-wide rebrand and helped extend the new identity across the firm’s communications as its sole in-house graphic designer. Working closely with the marketing team, I created materials across editorial, digital, events, presentations, and internal communications."
     ],
     role: 'Graphic Designer',
     scope: [
@@ -26,8 +26,7 @@ export const PROJECTS: Project[] = [
       {
         title: '01 / WEB & DIGITAL',
         description: [
-          "I maintained and updated Keystone’s website, adding new content and sections as the firm’s needs evolved. I worked closely with developers to refine layouts, resolve visual issues, and keep the site consistent with the refreshed identity.",
-          "During the initial redesign, I also shared references, ideas, and detailed visual feedback with Refokus as they developed the website."
+          "I maintained and updated Keystone’s website, adding new content and sections as the firm’s needs evolved. I worked closely with developers to refine layouts, resolve visual issues, and keep the site consistent with the refreshed identity. I also extended the refreshed identity across social media and other digital communications."
         ],
         mediaGroups: [
           { type: 'single', items: [{ src: '/images/keystone-01.jpg', alt: 'Keystone website layout mockup' }] },
@@ -39,7 +38,7 @@ export const PROJECTS: Project[] = [
       {
         title: '02 / EDITORIAL & BRAND COMMUNICATIONS',
         description: [
-          "I designed reports, guides, presentations, print ads, brochures, social content, and event materials. I also created a small set of reusable layouts for recurring print and marketing needs."
+          "I designed white papers, one-sheets, brochures, presentations, print ads, and event materials for teams across the firm. I also created reusable layouts for recurring marketing and internal communications, helping keep the brand consistent across formats."
         ],
         mediaGroups: [
           { type: 'single', items: [{ src: '/images/keystone-05.jpg', alt: 'Careers or recruiting collateral shown on laptop' }] },
