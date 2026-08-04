@@ -82,13 +82,12 @@ const About: React.FC<AboutProps> = () => {
             Capabilities
           </div>
           <div className="font-sans font-normal leading-[1.45] sm:leading-[1.5] flex flex-col gap-0.5">
-            <p>Brand Identity</p>
-            <p>Campaign Art Direction</p>
-            <p>Digital Design</p>
-            <p>Editorial Design</p>
-            <p>Presentations</p>
-            <p>Motion</p>
-            <p>AI-Assisted Image Making</p>
+            <p>Brand Design</p>
+            <p>Art Direction</p>
+            <p>Digital & Web Design</p>
+            <p>Editorial & Presentation Design</p>
+            <p>Packaging</p>
+            <p>AI Image Direction</p>
           </div>
         </motion.div>
       </div>
