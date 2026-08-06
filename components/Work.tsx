@@ -221,7 +221,7 @@ const Work: React.FC<WorkProps> = ({ onProjectSelect, onViewAllProjects }) => {
       {/* Hero Headline Section with Masked Upward Reveal & Scroll Transition */}
       <motion.div 
         style={{ y: heroScrollY, opacity: heroScrollOpacity }}
-        className="w-full px-[18px] sm:px-[20px] pt-8 md:pt-28 pb-10 md:pb-32 mx-auto text-center overflow-hidden flex flex-col items-center justify-center"
+        className="w-full px-[18px] sm:px-[20px] pt-12 sm:pt-14 md:pt-28 pb-14 sm:pb-16 md:pb-32 mx-auto text-center overflow-hidden flex flex-col items-center justify-center"
       >
         <motion.h1 
           initial={shouldReduceMotion ? { y: 0, opacity: 1 } : { y: "28px", opacity: 0 }}
@@ -237,7 +237,7 @@ const Work: React.FC<WorkProps> = ({ onProjectSelect, onViewAllProjects }) => {
       </motion.div>
 
       {/* (WORK) Marker with 1.5pt Vertical Divider Line */}
-      <div className="flex flex-col items-center justify-center mt-0 lg:-mt-[40px] mb-8 md:mb-12">
+      <div className="flex flex-col items-center justify-center mt-2 md:mt-0 lg:-mt-[40px] mb-8 md:mb-12">
         <motion.a 
           href="#work-carousel"
           onClick={handleWorkClick}
@@ -271,7 +271,7 @@ const Work: React.FC<WorkProps> = ({ onProjectSelect, onViewAllProjects }) => {
             if (shouldPulseRule) setShouldPulseRule(false);
           }}
           style={{ transformOrigin: 'top' }}
-          className="w-[1.5px] h-[64px] md:h-[110px] bg-black mt-6"
+          className="w-[1.5px] h-[64px] md:h-[110px] bg-black mt-2.5 md:mt-6"
         />
       </div>
 
