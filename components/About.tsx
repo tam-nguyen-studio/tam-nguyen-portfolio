@@ -76,7 +76,7 @@ const About: React.FC<AboutProps> = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-30px" }}
           transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-          className="w-full border-t-[1.5px] border-black grid grid-cols-1 md:grid-cols-[clamp(220px,25vw,340px)_1fr] items-start pt-[18px] md:pt-[clamp(18px,2vw,28px)] pb-[48px] md:pb-[clamp(52px,5vw,80px)] gap-y-3 md:gap-y-0"
+          className="w-full border-t-[1.5px] border-black grid grid-cols-1 md:grid-cols-[clamp(220px,25vw,340px)_1fr] items-start pt-[18px] md:pt-[clamp(18px,2vw,28px)] pb-[32px] sm:pb-[48px] md:pb-[clamp(52px,5vw,80px)] gap-y-3 md:gap-y-0"
         >
           <div className="font-sans font-normal leading-[1.45] sm:leading-[1.5]">
             Capabilities
