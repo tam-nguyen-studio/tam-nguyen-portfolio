@@ -81,7 +81,7 @@ export const ProjectFooter: React.FC<ProjectFooterProps> = ({
           </div>
 
           {/* Footer Meta Row 2 */}
-          <div className="w-full border-t-[1.5px] border-b-[1.5px] border-black py-2.5 flex justify-between items-center font-serif text-[12px] sm:text-[13px] md:text-[15px] uppercase tracking-normal text-black">
+          <div className="w-full border-t border-b border-black py-2.5 flex justify-between items-center font-sans text-[12px] sm:text-[13px] md:text-[14px] uppercase tracking-normal text-black font-normal">
             <span>© TAM NGUYEN</span>
             <span>2026</span>
           </div>
