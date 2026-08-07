@@ -221,7 +221,7 @@ const Work: React.FC<WorkProps> = ({ onProjectSelect, onViewAllProjects }) => {
       {/* Hero Headline Section with Masked Upward Reveal & Scroll Transition */}
       <motion.div 
         style={{ y: heroScrollY, opacity: heroScrollOpacity }}
-        className="w-full px-[18px] sm:px-[20px] pt-12 sm:pt-14 md:pt-28 pb-14 sm:pb-16 md:pb-32 mx-auto text-center overflow-hidden flex flex-col items-center justify-center"
+        className="w-full px-[18px] sm:px-[20px] pt-12 sm:pt-14 md:pt-28 xl:pt-36 2xl:pt-48 pb-14 sm:pb-16 md:pb-32 xl:pb-40 2xl:pb-52 mx-auto text-center overflow-hidden flex flex-col items-center justify-center"
       >
         <motion.h1 
           initial={shouldReduceMotion ? { y: 0, opacity: 1 } : { y: "28px", opacity: 0 }}
@@ -294,25 +294,35 @@ const Work: React.FC<WorkProps> = ({ onProjectSelect, onViewAllProjects }) => {
               style={{ x }} 
               className="relative flex gap-8 md:gap-12 items-center pl-[20px] pr-[20px] w-max mt-0 md:mt-1"
             >
-              {FEATURED_PROJECTS.map((project) => (
-                <article
+              {FEATURED_PROJECTS.map((project, index) => (
+                <motion.article
                   key={project.id}
                   onClick={() => onProjectSelect(project.id)}
                   onKeyDown={(e) => handleKeyDown(e, project.id)}
                   tabIndex={0}
                   role="button"
                   aria-label={`View ${project.name} project details`}
+                  initial={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 28 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-40px" }}
+                  transition={{ duration: 0.8, ease: EASE, delay: index * 0.08 }}
                   className="flex-shrink-0 group cursor-pointer focus-visible:ring-2 focus-visible:ring-black focus-visible:outline-none rounded"
                 >
                   {/* Top Title & Category Label Row */}
-                  <div className="flex items-baseline justify-start gap-4 md:gap-5 mb-2.5">
+                  <motion.div 
+                    initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true, margin: "-20px" }}
+                    transition={{ duration: 0.75, ease: EASE, delay: 0.12 + index * 0.06 }}
+                    className="flex items-baseline justify-start gap-4 md:gap-5 mb-2.5"
+                  >
                     <h2 className="font-serif font-normal text-[32px] lg:text-[42px] text-black leading-none not-italic group-hover:italic group-focus-visible:italic transition-[font-style] duration-200 ease-linear">
                       {project.id === 'pg' ? 'P&G' : project.id === 'cypres-21-indigo' ? 'CYPRÈS 21' : project.name}
                     </h2>
                     <span className="font-serif italic text-[18px] md:text-[22px] lg:text-[24px] text-black">
                       {project.category}
                     </span>
-                  </div>
+                  </motion.div>
 
                   {/* Image Frame */}
                   <div className="relative w-[82vw] lg:w-[52vw] max-w-[720px] lg:max-w-[820px] aspect-[16/10] bg-black/5 overflow-hidden shadow-sm">
@@ -324,7 +334,7 @@ const Work: React.FC<WorkProps> = ({ onProjectSelect, onViewAllProjects }) => {
                       referrerPolicy="no-referrer"
                     />
                   </div>
-                </article>
+                </motion.article>
               ))}
               {/* Trailing spacer so the final card can be fully visible and aligned */}
               <div 
@@ -334,7 +344,13 @@ const Work: React.FC<WorkProps> = ({ onProjectSelect, onViewAllProjects }) => {
             </motion.div>
 
             {/* Bottom Controls Bar across 20px margins */}
-            <div className="relative w-full px-[20px] mt-2.5 font-serif text-[16px] lg:text-[18px] text-black flex items-center justify-between">
+            <motion.div 
+              initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true, margin: "-20px" }}
+              transition={{ duration: 0.8, ease: EASE, delay: 0.25 }}
+              className="relative w-full px-[20px] mt-2.5 font-serif text-[16px] lg:text-[18px] text-black flex items-center justify-between"
+            >
               {/* Left controls */}
               <div className="flex items-center gap-[clamp(40px,7vw,120px)]">
                 <div className="font-normal tracking-normal whitespace-nowrap flex items-baseline gap-1 leading-none">
@@ -404,7 +420,7 @@ const Work: React.FC<WorkProps> = ({ onProjectSelect, onViewAllProjects }) => {
                   →
                 </button>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       ) : (
@@ -449,17 +465,27 @@ const Work: React.FC<WorkProps> = ({ onProjectSelect, onViewAllProjects }) => {
           const totalNum = FEATURED_PROJECTS.length.toString().padStart(2, '0');
 
           return (
-            <article
+            <motion.article
               key={project.id}
               onClick={() => onProjectSelect(project.id)}
               onKeyDown={(e) => handleKeyDown(e, project.id)}
               tabIndex={0}
               role="button"
               aria-label={`View ${project.name} project details`}
+              initial={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.8, ease: EASE }}
               className="flex flex-col group cursor-pointer focus-visible:ring-2 focus-visible:ring-black focus-visible:outline-none rounded"
             >
               {/* Header Container for Mobile */}
-              <div className="flex flex-col mb-[clamp(1.125rem,2.5vw,1.5rem)]">
+              <motion.div 
+                initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true, margin: "-30px" }}
+                transition={{ duration: 0.75, ease: EASE, delay: 0.1 }}
+                className="flex flex-col mb-[clamp(1.125rem,2.5vw,1.5rem)]"
+              >
                 {/* First line: Title alone */}
                 <h2 className="m-0 font-serif font-normal text-[22px] sm:text-[26px] md:text-[32px] text-black leading-[1.05] not-italic break-words mb-2">
                   {project.name}
@@ -477,11 +503,17 @@ const Work: React.FC<WorkProps> = ({ onProjectSelect, onViewAllProjects }) => {
                       project.category
                     )}
                   </p>
-                  <span className="font-serif text-[15px] sm:text-[16px] md:text-[18px] text-black leading-[1.05] whitespace-nowrap shrink-0 text-right">
+                  <motion.span 
+                    initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true, margin: "-30px" }}
+                    transition={{ duration: 0.75, ease: EASE, delay: 0.18 }}
+                    className="font-serif text-[15px] sm:text-[16px] md:text-[18px] text-black leading-[1.05] whitespace-nowrap shrink-0 text-right"
+                  >
                     {projectNum} / {totalNum}
-                  </span>
+                  </motion.span>
                 </div>
-              </div>
+              </motion.div>
 
               {/* Project Image */}
               <div className="w-full aspect-[16/10] bg-black/5 overflow-hidden shadow-sm">
@@ -493,12 +525,18 @@ const Work: React.FC<WorkProps> = ({ onProjectSelect, onViewAllProjects }) => {
                   referrerPolicy="no-referrer"
                 />
               </div>
-            </article>
+            </motion.article>
           );
         })}
 
         {/* Centered (VIEW ALL PROJECTS) button below last project card on mobile */}
-        <div className="pt-2 pb-6 text-center">
+        <motion.div 
+          initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: "-20px" }}
+          transition={{ duration: 0.8, ease: EASE, delay: 0.15 }}
+          className="pt-2 pb-6 text-center"
+        >
           <button
             type="button"
             onClick={onViewAllProjects}
@@ -507,7 +545,7 @@ const Work: React.FC<WorkProps> = ({ onProjectSelect, onViewAllProjects }) => {
           >
             (VIEW ALL PROJECTS)
           </button>
-        </div>
+        </motion.div>
       </div>
       </div>
     </section>
