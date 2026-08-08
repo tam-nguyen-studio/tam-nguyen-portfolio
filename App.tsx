@@ -6,6 +6,7 @@ import About from './components/About';
 import Footer from './components/Footer';
 import ProjectDetail from './components/ProjectDetail';
 import ProjectIndex from './components/ProjectIndex';
+import CustomCursor from './components/CustomCursor';
 import { PROJECTS } from './constants';
 
 const App: React.FC = () => {
@@ -260,6 +261,7 @@ const App: React.FC = () => {
         }`}
         aria-hidden="true"
       />
+      <CustomCursor />
       <div className="w-full flex flex-col flex-grow">
         <Navigation 
           isProjectView={!!selectedProjectId || isAboutPage || isWorkPage}

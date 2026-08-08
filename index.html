@@ -91,6 +91,12 @@
         outline-offset: 3px !important;
       }
 
+      /* Custom Cursor hiding default OS pointer when active */
+      html.custom-cursor-enabled,
+      html.custom-cursor-enabled * {
+        cursor: none !important;
+      }
+
       /* Static Film-Noise Grain Overlay */
       body::before {
         content: "";

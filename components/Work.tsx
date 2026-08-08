@@ -202,6 +202,7 @@ const Work: React.FC<WorkProps> = ({ onProjectSelect, onViewAllProjects }) => {
   };
 
   const EASE = [0.22, 1, 0.36, 1];
+  const LUXURY_EASE = [0.16, 1, 0.3, 1];
 
   const handleWorkClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
@@ -224,15 +225,43 @@ const Work: React.FC<WorkProps> = ({ onProjectSelect, onViewAllProjects }) => {
         className="w-full px-[18px] sm:px-[20px] pt-12 sm:pt-14 md:pt-28 xl:pt-36 2xl:pt-48 pb-14 sm:pb-16 md:pb-32 xl:pb-40 2xl:pb-52 mx-auto text-center overflow-hidden flex flex-col items-center justify-center"
       >
         <motion.h1 
-          initial={shouldReduceMotion ? { y: 0, opacity: 1 } : { y: "28px", opacity: 0 }}
-          animate={{ y: "0px", opacity: 1 }}
-          transition={{ duration: 0.55, ease: EASE, delay: 0.08 }}
+          initial={shouldReduceMotion ? { y: 0, opacity: 1, filter: "none" } : { y: "28px", opacity: 0, filter: "blur(8px)" }}
+          animate={{ y: "0px", opacity: 1, filter: "blur(0px)" }}
+          transition={{ duration: 0.95, ease: LUXURY_EASE, delay: 0.05 }}
           className="font-serif font-normal text-[clamp(1.75rem,6.8vw,3.25rem)] md:text-[clamp(2.25rem,5vw,8rem)] leading-[1.0] tracking-[-0.025em] text-[#224875] mx-auto text-center [text-wrap:pretty] w-[calc(100vw-36px)] md:w-[min(90vw,100%)] max-w-[36ch]"
         >
-          <span className="font-bold">Brand designer</span> shaping how brands show up across{" "}
-          <span className="italic inline">digital experiences</span>
-          , marketing campaigns, and content. Working across{" "}
-          <span className="italic inline">beauty, technology, and consumer brands.</span>
+          <motion.span 
+            initial={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: "16px" }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.85, ease: LUXURY_EASE, delay: 0.12 }}
+            className="inline"
+          >
+            <span className="font-bold">Brand designer</span> shaping how brands show up across{" "}
+          </motion.span>
+          <motion.span 
+            initial={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: "16px" }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.85, ease: LUXURY_EASE, delay: 0.22 }}
+            className="italic inline"
+          >
+            digital experiences
+          </motion.span>
+          <motion.span 
+            initial={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: "16px" }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.85, ease: LUXURY_EASE, delay: 0.32 }}
+            className="inline"
+          >
+            , marketing campaigns, and content. Working across{" "}
+          </motion.span>
+          <motion.span 
+            initial={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: "16px" }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.85, ease: LUXURY_EASE, delay: 0.42 }}
+            className="italic inline"
+          >
+            beauty, technology, and consumer brands.
+          </motion.span>
         </motion.h1>
       </motion.div>
 
@@ -241,9 +270,9 @@ const Work: React.FC<WorkProps> = ({ onProjectSelect, onViewAllProjects }) => {
         <motion.a 
           href="#work-carousel"
           onClick={handleWorkClick}
-          initial={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, ease: EASE, delay: 0.28 }}
+          initial={shouldReduceMotion ? { opacity: 1, y: 0, filter: "none" } : { opacity: 0, y: 18, filter: "blur(4px)" }}
+          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          transition={{ duration: 0.85, ease: LUXURY_EASE, delay: 0.52 }}
           className="group min-h-[44px] inline-flex items-center justify-center p-0 text-black leading-none font-serif text-[clamp(17px,4.8vw,22px)] md:text-[clamp(21px,2.8vw,26px)] lg:text-[clamp(26px,1.8vw,38px)] tracking-normal uppercase cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black rounded whitespace-nowrap"
           aria-label="Scroll to Selected Work carousel"
         >
@@ -264,8 +293,8 @@ const Work: React.FC<WorkProps> = ({ onProjectSelect, onViewAllProjects }) => {
           }
           transition={
             shouldPulseRule
-              ? { duration: 0.8, ease: EASE, times: [0, 0.5, 1] }
-              : { duration: 0.5, ease: EASE, delay: 0.45 }
+              ? { duration: 0.8, ease: LUXURY_EASE, times: [0, 0.5, 1] }
+              : { duration: 0.85, ease: LUXURY_EASE, delay: 0.64 }
           }
           onAnimationComplete={() => {
             if (shouldPulseRule) setShouldPulseRule(false);
