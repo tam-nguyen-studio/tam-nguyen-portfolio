@@ -128,7 +128,7 @@ const Work: React.FC<WorkProps> = ({ onProjectSelect, onViewAllProjects }) => {
     return () => unsubscribe();
   }, [scrollYProgress, isDesktop, cardStops, maxScroll]);
 
-  const FEATURED_IDS = ['keystone', 'cypres-21-indigo', 'soko-glam', 'bare-skin', 'the-klog', 'pg'];
+  const FEATURED_IDS = ['soko-glam', 'then-i-met-you', 'the-klog', 'cypres-21-indigo', 'bare-skin', 'keystone', 'pg'];
   const FEATURED_PROJECTS = FEATURED_IDS.map(id => PROJECTS.find(p => p.id === id)).filter((p): p is typeof PROJECTS[number] => p !== undefined);
 
   const lastIndex = FEATURED_PROJECTS.length - 1;
