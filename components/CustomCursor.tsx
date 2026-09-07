@@ -79,8 +79,10 @@ export const CustomCursor: React.FC = () => {
 
       animationFrameId = requestAnimationFrame(() => {
         setPosition({ x: clientX, y: clientY });
-        setIsVisible(true);
-        setIsHovered(isInteractive(target as HTMLElement));
+        const targetEl = target as HTMLElement | null;
+        const isZoomTarget = !!targetEl?.closest?.('.cursor-zoom-in, .cursor-zoom-out, [data-cursor="zoom-in"], [data-cursor="zoom-out"]');
+        setIsVisible(!isZoomTarget);
+        setIsHovered(isInteractive(targetEl));
       });
     };
 

@@ -6,6 +6,7 @@ import About from './components/About';
 import Footer from './components/Footer';
 import ProjectDetail from './components/ProjectDetail';
 import ProjectIndex from './components/ProjectIndex';
+import SelectedIllustration from './components/SelectedIllustration';
 import CustomCursor from './components/CustomCursor';
 import { PROJECTS } from './constants';
 
@@ -233,10 +234,13 @@ const App: React.FC = () => {
   const activeProject = PROJECTS.find(p => p.id === selectedProjectId);
   
   let nextProjectName = "";
-  if (selectedProjectId) {
-    const idx = PROJECTS.findIndex(p => p.id === selectedProjectId);
-    const nextIdx = (idx + 1) % PROJECTS.length;
-    nextProjectName = PROJECTS[nextIdx].name;
+  if (selectedProjectId && selectedProjectId !== 'selected-illustration') {
+    const caseStudies = PROJECTS.filter(p => p.id !== 'selected-illustration');
+    const idx = caseStudies.findIndex(p => p.id === selectedProjectId);
+    if (idx !== -1) {
+      const nextIdx = (idx + 1) % caseStudies.length;
+      nextProjectName = caseStudies[nextIdx].name;
+    }
   }
 
   const pageVariants = {
@@ -303,6 +307,17 @@ const App: React.FC = () => {
                   onProjectSelect={(id) => navigateTo(id)}
                 />
               </motion.div>
+            ) : selectedProjectId === 'selected-illustration' ? (
+              <motion.div
+                key="selected-illustration"
+                variants={pageVariants}
+                initial="initial"
+                animate="animate"
+                exit="exit"
+                className="flex-grow flex flex-col"
+              >
+                <SelectedIllustration />
+              </motion.div>
             ) : !selectedProjectId ? (
               <motion.div
                 key="home"
@@ -334,9 +349,12 @@ const App: React.FC = () => {
                   onViewAllProjects={() => navigateTo('work')}
                   onBackHome={handleBackToHome}
                   onNext={() => {
-                    const idx = PROJECTS.findIndex(p => p.id === selectedProjectId);
-                    const nextIdx = (idx + 1) % PROJECTS.length;
-                    navigateTo(PROJECTS[nextIdx].id);
+                    const caseStudies = PROJECTS.filter(p => p.id !== 'selected-illustration');
+                    const idx = caseStudies.findIndex(p => p.id === selectedProjectId);
+                    if (idx !== -1) {
+                      const nextIdx = (idx + 1) % caseStudies.length;
+                      navigateTo(caseStudies[nextIdx].id);
+                    }
                   }}
                 />
               </motion.div>
@@ -344,7 +362,7 @@ const App: React.FC = () => {
           </AnimatePresence>
         </main>
         
-        {!selectedProjectId && <Footer />}
+        {(!selectedProjectId || selectedProjectId === 'selected-illustration') && <Footer />}
       </div>
     </div>
   );

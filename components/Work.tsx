@@ -128,8 +128,8 @@ const Work: React.FC<WorkProps> = ({ onProjectSelect, onViewAllProjects }) => {
     return () => unsubscribe();
   }, [scrollYProgress, isDesktop, cardStops, maxScroll]);
 
-  const FEATURED_IDS = ['soko-glam', 'then-i-met-you', 'the-klog', 'cypres-21-indigo', 'bare-skin', 'keystone', 'pg'];
-  const FEATURED_PROJECTS = FEATURED_IDS.map(id => PROJECTS.find(p => p.id === id)).filter((p): p is typeof PROJECTS[number] => p !== undefined);
+  // Homepage features only the first 6 projects
+  const FEATURED_PROJECTS = PROJECTS.slice(0, 6);
 
   const lastIndex = FEATURED_PROJECTS.length - 1;
   const currentNum = (activeIndex + 1).toString().padStart(2, '0');
@@ -236,7 +236,7 @@ const Work: React.FC<WorkProps> = ({ onProjectSelect, onViewAllProjects }) => {
             transition={{ duration: 0.85, ease: LUXURY_EASE, delay: 0.12 }}
             className="inline"
           >
-            <span className="font-bold">Brand designer</span> shaping how brands show up across{" "}
+            <span className="font-bold">Brand designer</span> shaping{" "}
           </motion.span>
           <motion.span 
             initial={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: "16px" }}
@@ -244,7 +244,7 @@ const Work: React.FC<WorkProps> = ({ onProjectSelect, onViewAllProjects }) => {
             transition={{ duration: 0.85, ease: LUXURY_EASE, delay: 0.22 }}
             className="italic inline"
           >
-            digital experiences
+            visual systems, campaigns,
           </motion.span>
           <motion.span 
             initial={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: "16px" }}
@@ -252,7 +252,7 @@ const Work: React.FC<WorkProps> = ({ onProjectSelect, onViewAllProjects }) => {
             transition={{ duration: 0.85, ease: LUXURY_EASE, delay: 0.32 }}
             className="inline"
           >
-            , marketing campaigns, and content. Working across{" "}
+            {" "}and digital experiences across{" "}
           </motion.span>
           <motion.span 
             initial={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: "16px" }}
@@ -260,13 +260,13 @@ const Work: React.FC<WorkProps> = ({ onProjectSelect, onViewAllProjects }) => {
             transition={{ duration: 0.85, ease: LUXURY_EASE, delay: 0.42 }}
             className="italic inline"
           >
-            beauty, technology, and consumer brands.
+            beauty, consumer, and technology brands.
           </motion.span>
         </motion.h1>
       </motion.div>
 
       {/* (WORK) Marker with 1.5pt Vertical Divider Line */}
-      <div className="flex flex-col items-center justify-center mt-2 md:mt-0 lg:-mt-[40px] mb-8 md:mb-12">
+      <div className="flex flex-col items-center justify-center mt-[36px] md:mt-[28px] lg:-mt-[12px] mb-8 md:mb-12">
         <motion.a 
           href="#work-carousel"
           onClick={handleWorkClick}
