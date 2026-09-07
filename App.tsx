@@ -316,7 +316,14 @@ const App: React.FC = () => {
                 exit="exit"
                 className="flex-grow flex flex-col"
               >
-                <SelectedIllustration />
+                <SelectedIllustration 
+                  onViewAllProjects={() => navigateTo('work')}
+                  onNext={() => {
+                    const idx = PROJECTS.findIndex(p => p.id === 'selected-illustration');
+                    const nextIdx = (idx + 1) % PROJECTS.length;
+                    navigateTo(PROJECTS[nextIdx].id);
+                  }}
+                />
               </motion.div>
             ) : !selectedProjectId ? (
               <motion.div
@@ -349,11 +356,10 @@ const App: React.FC = () => {
                   onViewAllProjects={() => navigateTo('work')}
                   onBackHome={handleBackToHome}
                   onNext={() => {
-                    const caseStudies = PROJECTS.filter(p => p.id !== 'selected-illustration');
-                    const idx = caseStudies.findIndex(p => p.id === selectedProjectId);
+                    const idx = PROJECTS.findIndex(p => p.id === selectedProjectId);
                     if (idx !== -1) {
-                      const nextIdx = (idx + 1) % caseStudies.length;
-                      navigateTo(caseStudies[nextIdx].id);
+                      const nextIdx = (idx + 1) % PROJECTS.length;
+                      navigateTo(PROJECTS[nextIdx].id);
                     }
                   }}
                 />
@@ -362,7 +368,7 @@ const App: React.FC = () => {
           </AnimatePresence>
         </main>
         
-        {(!selectedProjectId || selectedProjectId === 'selected-illustration') && <Footer />}
+        {!selectedProjectId && <Footer />}
       </div>
     </div>
   );

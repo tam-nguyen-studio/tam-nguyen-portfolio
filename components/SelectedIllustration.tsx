@@ -2,6 +2,12 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence, useReducedMotion } from 'motion/react';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import ImageWithFade from './ImageWithFade';
+import ProjectFooter from './ProjectFooter';
+
+interface SelectedIllustrationProps {
+  onViewAllProjects?: () => void;
+  onNext?: () => void;
+}
 
 const ILLUSTRATION_COUNT = 18;
 
@@ -27,7 +33,10 @@ const ILLUSTRATIONS = Array.from({ length: ILLUSTRATION_COUNT }, (_, index) => {
 
 const EASE = [0.22, 1, 0.36, 1];
 
-const SelectedIllustration: React.FC = () => {
+const SelectedIllustration: React.FC<SelectedIllustrationProps> = ({
+  onViewAllProjects,
+  onNext,
+}) => {
   const shouldReduceMotion = useReducedMotion();
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
@@ -35,18 +44,30 @@ const SelectedIllustration: React.FC = () => {
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
   }, []);
 
-  const handleClose = useCallback(() => {
+  const handleViewAllProjects = () => {
+    if (onViewAllProjects) {
+      onViewAllProjects();
+    }
+  };
+
+  const handleNext = () => {
+    if (onNext) {
+      onNext();
+    }
+  };
+
+  const handleLightboxClose = useCallback(() => {
     setLightboxIndex(null);
   }, []);
 
-  const handlePrev = useCallback(() => {
+  const handleLightboxPrev = useCallback(() => {
     setLightboxIndex((prev) => {
       if (prev === null) return null;
       return (prev - 1 + ILLUSTRATION_COUNT) % ILLUSTRATION_COUNT;
     });
   }, []);
 
-  const handleNext = useCallback(() => {
+  const handleLightboxNext = useCallback(() => {
     setLightboxIndex((prev) => {
       if (prev === null) return null;
       return (prev + 1) % ILLUSTRATION_COUNT;
@@ -62,11 +83,11 @@ const SelectedIllustration: React.FC = () => {
 
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
-        handleClose();
+        handleLightboxClose();
       } else if (e.key === 'ArrowLeft') {
-        handlePrev();
+        handleLightboxPrev();
       } else if (e.key === 'ArrowRight') {
-        handleNext();
+        handleLightboxNext();
       }
     };
 
@@ -75,7 +96,7 @@ const SelectedIllustration: React.FC = () => {
       document.body.style.overflow = originalOverflow;
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [lightboxIndex, handleClose, handlePrev, handleNext]);
+  }, [lightboxIndex, handleLightboxClose, handleLightboxPrev, handleLightboxNext]);
 
   return (
     <article className="w-full text-black bg-[#EFF5F7] flex-grow flex flex-col">
@@ -97,7 +118,7 @@ const SelectedIllustration: React.FC = () => {
       </div>
 
       {/* 2. Quiet, Curated 3-Column Editorial Image Grid in centered narrower container */}
-      <div className="w-full max-w-[1220px] mx-auto px-[18px] sm:px-[20px] mt-[clamp(56px,8vw,120px)] pb-20 sm:pb-28 md:pb-40">
+      <div className="w-full max-w-[1220px] mx-auto px-[18px] sm:px-[20px] mt-[clamp(56px,8vw,120px)] pb-3 sm:pb-4 md:pb-5">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 sm:gap-x-12 lg:gap-x-16 gap-y-20 sm:gap-y-28 md:gap-y-36 lg:gap-y-44 items-start w-full">
           {ILLUSTRATIONS.map((item, index) => {
             const placeholderAspect = PLACEHOLDER_ASPECTS[index % PLACEHOLDER_ASPECTS.length];
@@ -131,7 +152,13 @@ const SelectedIllustration: React.FC = () => {
         </div>
       </div>
 
-      {/* 3. Minimal Lightbox Modal */}
+      {/* 3. Project Navigation & Contact CTA */}
+      <ProjectFooter
+        onViewAllProjects={handleViewAllProjects}
+        onNext={handleNext}
+      />
+
+      {/* 4. Minimal Lightbox Modal */}
       <AnimatePresence>
         {lightboxIndex !== null && (
           <motion.div
@@ -139,7 +166,7 @@ const SelectedIllustration: React.FC = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.22, ease: EASE }}
-            onClick={handleClose}
+            onClick={handleLightboxClose}
             className="fixed inset-0 z-[99999] bg-black/85 backdrop-blur-[2px] flex items-center justify-center p-4 sm:p-8 md:p-12 cursor-zoom-out select-none"
             role="dialog"
             aria-modal="true"
@@ -148,7 +175,7 @@ const SelectedIllustration: React.FC = () => {
             {/* Close button */}
             <button
               type="button"
-              onClick={handleClose}
+              onClick={handleLightboxClose}
               className="fixed top-4 right-4 sm:top-6 sm:right-6 z-50 text-white/70 hover:text-white transition-colors duration-200 p-2.5 cursor-pointer focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white rounded"
               aria-label="Close lightbox"
             >
@@ -160,7 +187,7 @@ const SelectedIllustration: React.FC = () => {
               type="button"
               onClick={(e) => {
                 e.stopPropagation();
-                handlePrev();
+                handleLightboxPrev();
               }}
               className="fixed left-2 sm:left-6 md:left-8 top-1/2 -translate-y-1/2 z-50 text-white/50 hover:text-white transition-all duration-200 p-3 cursor-pointer focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white rounded"
               aria-label="Previous illustration"
@@ -173,7 +200,7 @@ const SelectedIllustration: React.FC = () => {
               type="button"
               onClick={(e) => {
                 e.stopPropagation();
-                handleNext();
+                handleLightboxNext();
               }}
               className="fixed right-2 sm:right-6 md:right-8 top-1/2 -translate-y-1/2 z-50 text-white/50 hover:text-white transition-all duration-200 p-3 cursor-pointer focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white rounded"
               aria-label="Next illustration"
