@@ -117,9 +117,9 @@ const SelectedIllustration: React.FC<SelectedIllustrationProps> = ({
         </motion.div>
       </div>
 
-      {/* 2. Quiet, Curated 3-Column Editorial Image Grid in centered narrower container */}
-      <div className="w-full max-w-[1220px] mx-auto px-[18px] sm:px-[20px] mt-[clamp(56px,8vw,120px)] pb-3 sm:pb-4 md:pb-5">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 sm:gap-x-12 lg:gap-x-16 gap-y-20 sm:gap-y-28 md:gap-y-36 lg:gap-y-44 items-start w-full">
+      {/* 2. Quiet, Curated 3-Column Editorial Image Grid with wide horizontal spread and smaller side margins */}
+      <div className="w-full max-w-[1440px] mx-auto px-3 sm:px-4 md:px-5 lg:px-6 mt-[clamp(56px,8vw,120px)] pb-[36px] sm:pb-[40px]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 sm:gap-x-12 md:gap-x-16 lg:gap-x-20 xl:gap-x-24 gap-y-[clamp(100px,15vw,240px)] items-start w-full">
           {ILLUSTRATIONS.map((item, index) => {
             const placeholderAspect = PLACEHOLDER_ASPECTS[index % PLACEHOLDER_ASPECTS.length];
             return (
