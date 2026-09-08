@@ -17,8 +17,15 @@ const formatNonBreaking = (str: string) => {
   return str.replace(/in-house/gi, 'in\u2011house');
 };
 
-const RightRailWrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => (
-  <div className="w-auto md:w-full md:flex md:justify-end">
+const RightRailWrapper: React.FC<{
+  children: React.ReactNode;
+  className?: string;
+  style?: React.CSSProperties;
+}> = ({ children, className = '', style }) => (
+  <div
+    className={`w-auto md:w-full md:flex md:justify-end ${className}`}
+    style={style}
+  >
     <div className="w-auto md:w-[220px] lg:w-[240px] text-left">
       {children}
     </div>
@@ -79,13 +86,17 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({
           initial={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: EASE, delay: 0.05 }}
-          className="flex flex-wrap items-baseline gap-x-3 gap-y-1 pb-[clamp(20px,3vw,40px)] md:grid md:grid-cols-[68%_1fr] md:gap-x-[clamp(20px,3vw,40px)] md:gap-y-2 w-full"
+          className="flex flex-wrap gap-x-3 gap-y-1 pb-[clamp(20px,3vw,40px)] md:grid md:grid-cols-[68%_1fr] md:gap-x-[clamp(20px,3vw,40px)] md:gap-y-2 w-full [align-items:last_baseline]"
+          style={{ alignItems: 'last baseline' }}
         >
           <h1 className="m-0 font-serif font-normal text-[clamp(32px,4.2vw,64px)] leading-[0.95] tracking-[-0.025em] text-black">
             {project.name}
           </h1>
 
-          <RightRailWrapper>
+          <RightRailWrapper
+            className="[align-items:last_baseline]"
+            style={{ alignItems: 'last baseline' }}
+          >
             <p className="m-0 font-serif italic text-[clamp(20px,2.2vw,33px)] leading-none text-black">
               {project.category}
             </p>
