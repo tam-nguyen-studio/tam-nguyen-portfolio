@@ -254,7 +254,7 @@ export const PROJECTS: Project[] = [
     scope: ['CRM & Email Design', 'Social & Performance Creative', 'Web & Digital Design'],
     brands: ['Gillette, Braun, The Art of Shaving, joy+glee'],
     collaborators: [],
-    confidentialNotice: "Additional P&G work is available in a private PDF upon request."
+    confidentialNotice: "P&G work is available upon request."
   },
   {
     id: 'the-klog',
