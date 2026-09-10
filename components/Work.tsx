@@ -222,7 +222,7 @@ const Work: React.FC<WorkProps> = ({ onProjectSelect, onViewAllProjects }) => {
       {/* Hero Headline Section with Masked Upward Reveal & Scroll Transition */}
       <motion.div 
         style={{ y: heroScrollY, opacity: heroScrollOpacity }}
-        className="w-full px-[18px] sm:px-[20px] pt-12 sm:pt-14 md:pt-28 xl:pt-36 2xl:pt-48 pb-14 sm:pb-16 md:pb-32 xl:pb-40 2xl:pb-52 mx-auto text-center overflow-hidden flex flex-col items-center justify-center"
+        className="w-full px-[18px] sm:px-[20px] pt-[clamp(44px,6vh,54px)] sm:pt-14 md:pt-28 xl:pt-36 2xl:pt-48 pb-[clamp(50px,6.8vh,60px)] sm:pb-16 md:pb-32 xl:pb-40 2xl:pb-52 mx-auto text-center overflow-hidden flex flex-col items-center justify-center"
       >
         <motion.h1 
           initial={shouldReduceMotion ? { y: 0, opacity: 1, filter: "none" } : { y: "28px", opacity: 0, filter: "blur(8px)" }}
@@ -266,7 +266,7 @@ const Work: React.FC<WorkProps> = ({ onProjectSelect, onViewAllProjects }) => {
       </motion.div>
 
       {/* (WORK) Marker with 1.5pt Vertical Divider Line */}
-      <div className="flex flex-col items-center justify-center mt-[36px] md:mt-[28px] lg:-mt-[12px] mb-8 md:mb-12">
+      <div className="flex flex-col items-center justify-center mt-0 md:mt-[28px] lg:-mt-[12px] mb-8 md:mb-12">
         <motion.a 
           href="#work-carousel"
           onClick={handleWorkClick}
