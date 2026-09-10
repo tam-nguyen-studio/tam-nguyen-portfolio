@@ -111,9 +111,6 @@ const SelectedIllustration: React.FC<SelectedIllustrationProps> = ({
           <h1 className="m-0 font-serif font-normal text-[clamp(32px,4.2vw,64px)] leading-[0.95] tracking-[-0.025em] text-black text-center">
             Selected Illustration
           </h1>
-          <p className="mt-4 md:mt-5 font-sans font-normal text-[14px] md:text-[15px] lg:text-[16px] leading-[1.4] text-black/75 text-center w-full max-w-[840px] sm:min-w-[min(100%,560px)] md:min-w-[620px]">
-            Personal work spanning drawing, vector illustration, and visual experiments.
-          </p>
         </motion.div>
       </div>
 
