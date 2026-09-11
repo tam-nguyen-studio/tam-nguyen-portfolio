@@ -285,19 +285,18 @@ export const PROJECTS: Project[] = [
           { type: 'single', items: [{ src: '/images/the-klog-04.jpg', alt: 'The Klog 04' }] },
           { type: 'single', items: [{ src: '/images/the-klog-05.jpg', alt: 'The Klog 05' }] },
           { type: 'single', items: [{ src: '/images/the-klog-06.jpg', alt: 'The Klog 06' }] },
-          { type: 'single', items: [{ src: '/images/the-klog-07.jpg', alt: 'The Klog 07' }] },
           {
             type: 'grid',
             items: [
-              { src: '/images/the-klog-08.jpg', alt: 'The Klog 08' },
-              { src: '/images/the-klog-09.jpg', alt: 'The Klog 09' }
+              { src: '/images/the-klog-07.jpg', alt: 'The Klog 07' },
+              { src: '/images/the-klog-08.jpg', alt: 'The Klog 08' }
             ]
           },
           {
             type: 'grid',
             items: [
-              { src: '/images/the-klog-10.jpg', alt: 'The Klog 10' },
-              { src: '/images/the-klog-11.jpg', alt: 'The Klog 11' }
+              { src: '/images/the-klog-09.jpg', alt: 'The Klog 09' },
+              { src: '/images/the-klog-10.jpg', alt: 'The Klog 10' }
             ]
           }
         ]
@@ -357,8 +356,7 @@ export const PROJECTS: Project[] = [
           { type: 'single', items: [{ src: '/images/the-alden-04.jpg', alt: 'The Alden 04' }] },
           { type: 'single', items: [{ src: '/images/the-alden-05.jpg', alt: 'The Alden 05' }] },
           { type: 'single', items: [{ src: '/images/the-alden-06.jpg', alt: 'The Alden 06' }] },
-          { type: 'single', items: [{ src: '/images/the-alden-07.jpg', alt: 'The Alden 07' }] },
-          { type: 'single', items: [{ src: '/images/the-alden-08.jpg', alt: 'The Alden 08' }] }
+          { type: 'single', items: [{ src: '/images/the-alden-07.jpg', alt: 'The Alden 07' }] }
         ]
       }
     ]
