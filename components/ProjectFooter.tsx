@@ -11,7 +11,7 @@ export const ProjectFooter: React.FC<ProjectFooterProps> = ({
 }) => {
   return (
     <footer id="contact" className="w-full bg-[#EFF5F7] text-black pt-3 sm:pt-4 md:pt-5 pb-8 h-auto min-h-0 flex flex-col">
-      <div className="w-full max-w-[1440px] mx-auto px-[18px] sm:px-[20px] flex flex-col items-center">
+      <div className="w-full px-[18px] sm:px-[20px] flex flex-col items-center">
         
         {/* 1. Project Navigation Row */}
         <nav

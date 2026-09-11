@@ -31,7 +31,7 @@ const Navigation: React.FC<NavProps> = ({ isProjectView, isAboutPage, onBackHome
       className="w-full z-[100] h-auto min-h-0 px-[18px] sm:px-[20px] pt-[18px] pb-[18px] md:pt-[22px] md:pb-[22px] transition-colors duration-300 leading-none"
       style={{ height: 'auto', minHeight: 0, lineHeight: 1 }}
     >
-      <div className="w-full max-w-[1440px] mx-auto h-auto min-h-0">
+      <div className="w-full h-auto min-h-0">
         {/* Header Layout */}
         <nav 
           aria-label="Main Navigation" 

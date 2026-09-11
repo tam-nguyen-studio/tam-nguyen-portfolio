@@ -5,7 +5,7 @@ interface FooterProps {}
 const Footer: React.FC<FooterProps> = () => {
   return (
     <footer id="contact" className="w-full bg-[#EFF5F7] text-black pt-0 pb-8 h-auto min-h-0 flex flex-col">
-      <div className="w-full max-w-[1440px] mx-auto px-[18px] sm:px-[20px] flex flex-col items-center">
+      <div className="w-full px-[18px] sm:px-[20px] flex flex-col items-center">
         
         {/* Contact Email Callout - Controlled breakpoint-specific spacing */}
         <div className="w-full text-center flex flex-col items-center justify-center gap-0 pt-0 mt-[48px] sm:mt-[64px] md:mt-[clamp(112px,12vw,144px)] lg:mt-[clamp(128px,8vw,160px)] mb-[clamp(80px,10vw,110px)] md:mb-[clamp(120px,14vw,160px)] lg:mb-[clamp(140px,10vw,190px)]">
