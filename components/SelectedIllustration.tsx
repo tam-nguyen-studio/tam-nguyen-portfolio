@@ -9,7 +9,7 @@ interface SelectedIllustrationProps {
   onNext?: () => void;
 }
 
-const ILLUSTRATION_COUNT = 18;
+const ILLUSTRATION_COUNT = 15;
 
 // Natural placeholder ratios for subtle rhythm while images are resolving
 const PLACEHOLDER_ASPECTS = [
@@ -21,7 +21,7 @@ const PLACEHOLDER_ASPECTS = [
   'aspect-[5/4]',
 ];
 
-// 18 image assets named illustration-01 through illustration-18 in numerical order
+// 15 image assets named illustration-01 through illustration-15 in numerical order
 const ILLUSTRATIONS = Array.from({ length: ILLUSTRATION_COUNT }, (_, index) => {
   const num = (index + 1).toString().padStart(2, '0');
   return {
