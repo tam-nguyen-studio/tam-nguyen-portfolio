@@ -1,6 +1,6 @@
 import { Project, NavItem } from './types';
 
-// Projects order: Soko Glam, Keystone, Cyprès 21 Indigo, Then I Met You, Procter & Gamble, The Klog, Bare Skin, The Alden, Selected Illustration
+// Projects order: Soko Glam, Keystone, Then I Met You, Cyprès 21 Indigo, Procter & Gamble, The Klog, Bare Skin, The Alden, Selected Illustration
 export const PROJECTS: Project[] = [
   {
     id: 'soko-glam',
@@ -146,6 +146,41 @@ export const PROJECTS: Project[] = [
     ]
   },
   {
+    id: 'then-i-met-you',
+    name: 'Then I Met You',
+    category: 'Digital Marketing Design',
+    year: '2022',
+    imageUrl: '/images/then-i-met-you-hero.jpg',
+    heroImage: '/images/then-i-met-you-hero.jpg',
+    objectPosition: 'center top',
+    description: [
+      "Then I Met You is a skincare brand founded by Charlotte Cho, co-founder of Soko Glam. The brand is rooted in jeong, the Korean idea of a deep emotional connection to people, places, and things.",
+      "While working as Soko Glam’s in-house digital graphic designer, I designed email, social, and web content for Then I Met You, adapting its warm, tactile identity across its digital channels."
+    ],
+    role: 'Digital Graphic Designer',
+    scope: ['Digital & E-commerce Design', 'Email Design', 'Social Content'],
+    collaborators: [],
+    sections: [
+      {
+        mediaGroups: [
+          { type: 'single', items: [{ src: '/images/then-i-met-you-01.jpg', alt: 'Then I Met You 01' }] },
+          { type: 'single', items: [{ src: '/images/then-i-met-you-02.jpg', alt: 'Then I Met You 02' }] },
+          { type: 'single', items: [{ src: '/images/then-i-met-you-03.jpg', alt: 'Then I Met You 03' }] },
+          { type: 'single', items: [{ src: '/images/then-i-met-you-04.jpg', alt: 'Then I Met You 04' }] },
+          { type: 'single', items: [{ src: '/images/then-i-met-you-05.jpg', alt: 'Then I Met You 05' }] },
+          { type: 'single', items: [{ src: '/images/then-i-met-you-06.jpg', alt: 'Then I Met You 06' }] },
+          {
+            type: 'grid',
+            items: [
+              { src: '/images/then-i-met-you-07.gif', alt: 'Then I Met You 07' },
+              { src: '/images/then-i-met-you-08.gif', alt: 'Then I Met You 08' }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
     id: 'cypres-21-indigo',
     name: 'CYPRÈS 21 INDIGO',
     category: 'Campaign Art Direction',
@@ -204,41 +239,6 @@ export const PROJECTS: Project[] = [
     processNote: "Independent campaign exploration created with ChatGPT and refined in Adobe Photoshop. Not affiliated with Le Labo."
   },
   {
-    id: 'then-i-met-you',
-    name: 'Then I Met You',
-    category: 'Digital Marketing Design',
-    year: '2022',
-    imageUrl: '/images/then-i-met-you-hero.jpg',
-    heroImage: '/images/then-i-met-you-hero.jpg',
-    objectPosition: 'center top',
-    description: [
-      "Then I Met You is a skincare brand founded by Charlotte Cho, co-founder of Soko Glam. The brand is rooted in jeong, the Korean idea of a deep emotional connection to people, places, and things.",
-      "While working as Soko Glam’s in-house digital graphic designer, I designed email, social, and web content for Then I Met You, adapting its warm, tactile identity across its digital channels."
-    ],
-    role: 'Digital Graphic Designer',
-    scope: ['Digital & E-commerce Design', 'Email Design', 'Social Content'],
-    collaborators: [],
-    sections: [
-      {
-        mediaGroups: [
-          { type: 'single', items: [{ src: '/images/then-i-met-you-01.jpg', alt: 'Then I Met You 01' }] },
-          { type: 'single', items: [{ src: '/images/then-i-met-you-02.jpg', alt: 'Then I Met You 02' }] },
-          { type: 'single', items: [{ src: '/images/then-i-met-you-03.jpg', alt: 'Then I Met You 03' }] },
-          { type: 'single', items: [{ src: '/images/then-i-met-you-04.jpg', alt: 'Then I Met You 04' }] },
-          { type: 'single', items: [{ src: '/images/then-i-met-you-05.jpg', alt: 'Then I Met You 05' }] },
-          { type: 'single', items: [{ src: '/images/then-i-met-you-06.jpg', alt: 'Then I Met You 06' }] },
-          {
-            type: 'grid',
-            items: [
-              { src: '/images/then-i-met-you-07.gif', alt: 'Then I Met You 07' },
-              { src: '/images/then-i-met-you-08.gif', alt: 'Then I Met You 08' }
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  {
     id: 'pg',
     name: 'Procter & Gamble',
     category: 'Digital Marketing Design',
@@ -247,14 +247,19 @@ export const PROJECTS: Project[] = [
     heroImage: '/images/pg-hero.jpg',
     objectPosition: 'center center',
     description: [
-      "While working at MMI Agency, I designed digital creative for Gillette, Braun, The Art of Shaving, and joy+glee. My work included lifecycle email, paid and organic social, web content, retail campaigns, and product launches.",
-      "I worked within each brand’s established identity, adapting creative across formats and channels while supporting ongoing CRM programs, seasonal promotions, and multivariate testing. For Braun’s Series 9 Pro launch, I designed performance creative for a campaign that sold out within 24 hours."
+      "At MMI Agency, I designed digital creative for Gillette, Braun, The Art of Shaving, and joy+glee. My work included lifecycle email, paid and organic social, web content, retail campaigns, and product launches.",
+      "I worked within each brand’s established identity, adapting creative across formats and channels while supporting ongoing CRM programs, seasonal promotions, and multivariate testing. For Braun’s Series 9 Pro launch, I designed performance creative as part of a campaign that sold out within 24 hours."
     ],
     role: 'Digital Designer, MMI Agency',
-    scope: ['CRM & Email Design', 'Social & Performance Creative', 'Web & Digital Design'],
+    scope: [
+      'CRM & Lifecycle Email',
+      'Social & Performance Creative',
+      'Web Content',
+      'Product Launch Creative'
+    ],
     brands: ['Gillette, Braun, The Art of Shaving, joy+glee'],
     collaborators: [],
-    confidentialNotice: "P&G work is available upon request."
+    confidentialNotice: "Due to client confidentiality, selected work is available privately upon request."
   },
   {
     id: 'the-klog',
