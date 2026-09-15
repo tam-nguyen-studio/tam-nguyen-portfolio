@@ -1,85 +1,7 @@
 import { Project, NavItem } from './types';
 
-// Projects order: Soko Glam, Keystone, Then I Met You, Cyprès 21 Indigo, Procter & Gamble, The Klog, Bare Skin, The Alden, Selected Illustration
+// Projects order: Keystone, Then I Met You, Procter & Gamble, Soko Glam, Cyprès 21 Indigo, Bare Skin, The Klog, The Alden, Selected Illustration
 export const PROJECTS: Project[] = [
-  {
-    id: 'soko-glam',
-    name: 'Soko Glam',
-    category: 'Brand Design & Art Direction',
-    year: '2023',
-    imageUrl: '/images/soko-glam-09.jpg',
-    heroImage: '/images/soko-glam-hero.jpg',
-    objectPosition: 'center center',
-    description: [
-      "Soko Glam is an online destination for Korean beauty and skincare.",
-      "As Soko Glam’s sole in-house digital graphic designer, I developed campaign concepts, art directed photography, and designed work across the website, email, social, and packaging."
-    ],
-    role: 'Digital Graphic Designer',
-    scope: ['Art Direction', 'Campaign Design', 'Digital & E-commerce Design', 'Packaging'],
-    collaborators: [],
-    sections: [
-      {
-        title: 'BEST OF K-BEAUTY® 2020',
-        description: [
-          "For Soko Glam's most anticipated annual campaign, I defined a clean, architectural visual direction to position the featured products as best-in-class. Stark white podiums, geometric staging, and bold electric blue accents created a gallery feel and a sharp, high-contrast visual language."
-        ],
-        collaborators: ['Photography: Stephanie Chang'],
-        mediaGroups: [
-          { type: 'single', items: [{ src: '/images/soko-glam-01.jpg', alt: 'Soko Glam 01' }] },
-          { type: 'single', items: [{ src: '/images/soko-glam-02.jpg', alt: 'Soko Glam 02' }] },
-          { type: 'single', items: [{ src: '/images/soko-glam-03.jpg', alt: 'Soko Glam 03' }] },
-          { type: 'single', items: [{ src: '/images/soko-glam-04.jpg', alt: 'Soko Glam 04' }] },
-          { type: 'single', items: [{ src: '/images/soko-glam-06.jpg', alt: 'Soko Glam 06' }] },
-          { type: 'single', items: [{ src: '/images/soko-glam-07.jpg', alt: 'Soko Glam 07' }] }
-        ]
-      },
-      {
-        title: 'STRONGER TOGETHER',
-        description: [
-          "The 'Stronger Together' campaign was designed to demystify skincare layering, educating customers on how ingredients like Vitamin C and SPF work better in pairs.",
-          "To visualize this 'Power Pairing' concept, I directed a campaign centered on bold color-blocking. We juxtaposed contrasting warm and cool tones to represent the chemical synergy of ingredients."
-        ],
-        collaborators: ['Photography: Allison Pecca'],
-        mediaGroups: [
-          { type: 'single', items: [{ src: '/images/soko-glam-08.jpg', alt: 'Soko Glam 08' }] },
-          { type: 'single', items: [{ src: '/images/soko-glam-09.jpg', alt: 'Soko Glam 09' }] },
-          { type: 'single', items: [{ src: '/images/soko-glam-10.jpg', alt: 'Soko Glam 10' }] },
-          { type: 'single', items: [{ src: '/images/soko-glam-11.jpg', alt: 'Soko Glam 11' }] },
-          { type: 'single', items: [{ src: '/images/soko-glam-12.jpg', alt: 'Soko Glam 12' }] },
-          { type: 'single', items: [{ src: '/images/soko-glam-13.jpg', alt: 'Soko Glam 13' }] },
-          { type: 'single', items: [{ src: '/images/soko-glam-14.jpg', alt: 'Soko Glam 14' }] }
-        ]
-      },
-      {
-        title: 'DIGITAL BRAND EXPRESSION',
-        description: [
-          "Across e-commerce, email, and social, I extended Soko Glam’s evolving visual language across customer touchpoints, balancing brand consistency with changing campaign, merchandising, and performance needs."
-        ],
-        mediaGroups: [
-          { type: 'single', items: [{ src: '/images/soko-glam-15.jpg', alt: 'Soko Glam 15' }] },
-          { type: 'single', items: [{ src: '/images/soko-glam-16.jpg', alt: 'Soko Glam 16' }] },
-          { type: 'single', items: [{ src: '/images/soko-glam-17.jpg', alt: 'Soko Glam 17' }] },
-          { type: 'single', items: [{ src: '/images/soko-glam-18.jpg', alt: 'Soko Glam 18' }] },
-          { type: 'single', items: [{ src: '/images/soko-glam-19.jpg', alt: 'Soko Glam 19' }] }
-        ]
-      },
-      {
-        title: 'HOLIDAY ADVENT CALENDAR',
-        description: [
-          "For the 2020 holiday season, the goal was to create a luxurious, giftable object that stood apart from traditional seasonal tropes. I designed a limited-edition Advent Calendar inspired by the geometry of Art Deco architecture.",
-          "Featuring intricate gold foil stamping, the packaging transformed the 16-piece curation into a premium unboxing experience."
-        ],
-        link: {
-          text: 'Watch the unboxing',
-          url: 'https://www.tiktok.com/@hydrationceo/video/7032740463060929838'
-        },
-        mediaGroups: [
-          { type: 'single', items: [{ src: '/images/soko-glam-20.jpg', alt: 'Soko Glam 20' }] },
-          { type: 'single', items: [{ src: '/images/soko-glam-21.jpg', alt: 'Soko Glam 21' }] }
-        ]
-      }
-    ]
-  },
   {
     id: 'keystone',
     name: 'Keystone',
@@ -181,6 +103,107 @@ export const PROJECTS: Project[] = [
     ]
   },
   {
+    id: 'pg',
+    name: 'Procter & Gamble',
+    category: 'Digital Marketing Design',
+    year: '2023',
+    imageUrl: '/images/pg-hero.jpg',
+    heroImage: '/images/pg-hero.jpg',
+    objectPosition: 'center center',
+    description: [
+      "At MMI Agency, I designed digital creative for Gillette, Braun, The Art of Shaving, and joy+glee. My work included lifecycle email, paid and organic social, web content, retail campaigns, and product launches.",
+      "I worked within each brand’s established identity, adapting creative across formats and channels while supporting ongoing CRM programs, seasonal promotions, and multivariate testing. For Braun’s Series 9 Pro launch, I designed performance creative as part of a campaign that sold out within 24 hours."
+    ],
+    role: 'Digital Designer, MMI Agency',
+    scope: [
+      'CRM & Lifecycle Email',
+      'Social & Performance Creative',
+      'Web Content',
+      'Product Launch Creative'
+    ],
+    brands: ['Gillette, Braun, The Art of Shaving, joy+glee'],
+    collaborators: [],
+    confidentialNotice: "Due to client confidentiality, selected work is available privately upon request."
+  },
+  {
+    id: 'soko-glam',
+    name: 'Soko Glam',
+    category: 'Brand Design & Art Direction',
+    year: '2023',
+    imageUrl: '/images/soko-glam-09.jpg',
+    heroImage: '/images/soko-glam-hero.jpg',
+    objectPosition: 'center center',
+    description: [
+      "Soko Glam is an online destination for Korean beauty and skincare.",
+      "As Soko Glam’s sole in-house digital graphic designer, I developed campaign concepts, art directed photography, and designed work across the website, email, social, and packaging."
+    ],
+    role: 'Digital Graphic Designer',
+    scope: ['Art Direction', 'Campaign Design', 'Digital & E-commerce Design', 'Packaging'],
+    collaborators: [],
+    sections: [
+      {
+        title: 'BEST OF K-BEAUTY® 2020',
+        description: [
+          "For Soko Glam's most anticipated annual campaign, I defined a clean, architectural visual direction to position the featured products as best-in-class. Stark white podiums, geometric staging, and bold electric blue accents created a gallery feel and a sharp, high-contrast visual language."
+        ],
+        collaborators: ['Photography: Stephanie Chang'],
+        mediaGroups: [
+          { type: 'single', items: [{ src: '/images/soko-glam-01.jpg', alt: 'Soko Glam 01' }] },
+          { type: 'single', items: [{ src: '/images/soko-glam-02.jpg', alt: 'Soko Glam 02' }] },
+          { type: 'single', items: [{ src: '/images/soko-glam-03.jpg', alt: 'Soko Glam 03' }] },
+          { type: 'single', items: [{ src: '/images/soko-glam-04.jpg', alt: 'Soko Glam 04' }] },
+          { type: 'single', items: [{ src: '/images/soko-glam-06.jpg', alt: 'Soko Glam 06' }] },
+          { type: 'single', items: [{ src: '/images/soko-glam-07.jpg', alt: 'Soko Glam 07' }] }
+        ]
+      },
+      {
+        title: 'STRONGER TOGETHER',
+        description: [
+          "The 'Stronger Together' campaign was designed to demystify skincare layering, educating customers on how ingredients like Vitamin C and SPF work better in pairs.",
+          "To visualize this 'Power Pairing' concept, I directed a campaign centered on bold color-blocking. We juxtaposed contrasting warm and cool tones to represent the chemical synergy of ingredients."
+        ],
+        collaborators: ['Photography: Allison Pecca'],
+        mediaGroups: [
+          { type: 'single', items: [{ src: '/images/soko-glam-08.jpg', alt: 'Soko Glam 08' }] },
+          { type: 'single', items: [{ src: '/images/soko-glam-09.jpg', alt: 'Soko Glam 09' }] },
+          { type: 'single', items: [{ src: '/images/soko-glam-10.jpg', alt: 'Soko Glam 10' }] },
+          { type: 'single', items: [{ src: '/images/soko-glam-11.jpg', alt: 'Soko Glam 11' }] },
+          { type: 'single', items: [{ src: '/images/soko-glam-12.jpg', alt: 'Soko Glam 12' }] },
+          { type: 'single', items: [{ src: '/images/soko-glam-13.jpg', alt: 'Soko Glam 13' }] },
+          { type: 'single', items: [{ src: '/images/soko-glam-14.jpg', alt: 'Soko Glam 14' }] }
+        ]
+      },
+      {
+        title: 'DIGITAL BRAND EXPRESSION',
+        description: [
+          "Across e-commerce, email, and social, I extended Soko Glam’s evolving visual language across customer touchpoints, balancing brand consistency with changing campaign, merchandising, and performance needs."
+        ],
+        mediaGroups: [
+          { type: 'single', items: [{ src: '/images/soko-glam-15.jpg', alt: 'Soko Glam 15' }] },
+          { type: 'single', items: [{ src: '/images/soko-glam-16.jpg', alt: 'Soko Glam 16' }] },
+          { type: 'single', items: [{ src: '/images/soko-glam-17.jpg', alt: 'Soko Glam 17' }] },
+          { type: 'single', items: [{ src: '/images/soko-glam-18.jpg', alt: 'Soko Glam 18' }] },
+          { type: 'single', items: [{ src: '/images/soko-glam-19.jpg', alt: 'Soko Glam 19' }] }
+        ]
+      },
+      {
+        title: 'HOLIDAY ADVENT CALENDAR',
+        description: [
+          "For the 2020 holiday season, the goal was to create a luxurious, giftable object that stood apart from traditional seasonal tropes. I designed a limited-edition Advent Calendar inspired by the geometry of Art Deco architecture.",
+          "Featuring intricate gold foil stamping, the packaging transformed the 16-piece curation into a premium unboxing experience."
+        ],
+        link: {
+          text: 'Watch the unboxing',
+          url: 'https://www.tiktok.com/@hydrationceo/video/7032740463060929838'
+        },
+        mediaGroups: [
+          { type: 'single', items: [{ src: '/images/soko-glam-20.jpg', alt: 'Soko Glam 20' }] },
+          { type: 'single', items: [{ src: '/images/soko-glam-21.jpg', alt: 'Soko Glam 21' }] }
+        ]
+      }
+    ]
+  },
+  {
     id: 'cypres-21-indigo',
     name: 'CYPRÈS 21 INDIGO',
     category: 'Campaign Art Direction',
@@ -239,27 +262,33 @@ export const PROJECTS: Project[] = [
     processNote: "Independent campaign exploration created with ChatGPT and refined in Adobe Photoshop. Not affiliated with Le Labo."
   },
   {
-    id: 'pg',
-    name: 'Procter & Gamble',
-    category: 'Digital Marketing Design',
-    year: '2023',
-    imageUrl: '/images/pg-hero.jpg',
-    heroImage: '/images/pg-hero.jpg',
+    id: 'bare-skin',
+    name: 'Bare Skin',
+    category: 'Visual Identity',
+    year: '2025',
+    imageUrl: '/images/bare-skin-01.jpg',
+    heroImage: '/images/bare-skin-01.jpg',
     objectPosition: 'center center',
     description: [
-      "At MMI Agency, I designed digital creative for Gillette, Braun, The Art of Shaving, and joy+glee. My work included lifecycle email, paid and organic social, web content, retail campaigns, and product launches.",
-      "I worked within each brand’s established identity, adapting creative across formats and channels while supporting ongoing CRM programs, seasonal promotions, and multivariate testing. For Braun’s Series 9 Pro launch, I designed performance creative as part of a campaign that sold out within 24 hours."
+      "A visual identity concept for a skincare brand with one radical constraint — five products, nothing more. A brand built to stand apart from a category that never stops adding. Blackletter meets Swiss grid, clinical skincare with a point of view. Dark packaging, warm documentary photography, copy that doesn't explain itself."
     ],
-    role: 'Digital Designer, MMI Agency',
-    scope: [
-      'CRM & Lifecycle Email',
-      'Social & Performance Creative',
-      'Web Content',
-      'Product Launch Creative'
-    ],
-    brands: ['Gillette, Braun, The Art of Shaving, joy+glee'],
+    role: 'Creative Direction & Design',
+    scope: ['Visual Identity', 'Art Direction', 'Digital Design', 'Packaging'],
     collaborators: [],
-    confidentialNotice: "Due to client confidentiality, selected work is available privately upon request."
+    tools: ['ChatGPT', 'Claude', 'Adobe Photoshop'],
+    sections: [
+      {
+        mediaGroups: [
+          { type: 'single', items: [{ src: '/images/bare-skin-02.jpg', alt: 'Bare Skin 02' }] },
+          { type: 'single', items: [{ src: '/images/bare-skin-03.jpg', alt: 'Bare Skin 03' }] },
+          { type: 'single', items: [{ src: '/images/bare-skin-04.jpg', alt: 'Bare Skin 04' }] },
+          { type: 'single', items: [{ src: '/images/bare-skin-05.jpg', alt: 'Bare Skin 05' }] },
+          { type: 'single', items: [{ src: '/images/bare-skin-06.jpg', alt: 'Bare Skin 06' }] },
+          { type: 'single', items: [{ src: '/images/bare-skin-07.jpg', alt: 'Bare Skin 07' }] },
+          { type: 'single', items: [{ src: '/images/bare-skin-08.jpg', alt: 'Bare Skin 08' }] }
+        ]
+      }
+    ]
   },
   {
     id: 'the-klog',
@@ -299,35 +328,6 @@ export const PROJECTS: Project[] = [
               { src: '/images/the-klog-10.jpg', alt: 'The Klog 10' }
             ]
           }
-        ]
-      }
-    ]
-  },
-  {
-    id: 'bare-skin',
-    name: 'Bare Skin',
-    category: 'Visual Identity',
-    year: '2025',
-    imageUrl: '/images/bare-skin-01.jpg',
-    heroImage: '/images/bare-skin-01.jpg',
-    objectPosition: 'center center',
-    description: [
-      "A visual identity concept for a skincare brand with one radical constraint — five products, nothing more. A brand built to stand apart from a category that never stops adding. Blackletter meets Swiss grid, clinical skincare with a point of view. Dark packaging, warm documentary photography, copy that doesn't explain itself."
-    ],
-    role: 'Creative Direction & Design',
-    scope: ['Visual Identity', 'Art Direction', 'Digital Design', 'Packaging'],
-    collaborators: [],
-    tools: ['ChatGPT', 'Claude', 'Adobe Photoshop'],
-    sections: [
-      {
-        mediaGroups: [
-          { type: 'single', items: [{ src: '/images/bare-skin-02.jpg', alt: 'Bare Skin 02' }] },
-          { type: 'single', items: [{ src: '/images/bare-skin-03.jpg', alt: 'Bare Skin 03' }] },
-          { type: 'single', items: [{ src: '/images/bare-skin-04.jpg', alt: 'Bare Skin 04' }] },
-          { type: 'single', items: [{ src: '/images/bare-skin-05.jpg', alt: 'Bare Skin 05' }] },
-          { type: 'single', items: [{ src: '/images/bare-skin-06.jpg', alt: 'Bare Skin 06' }] },
-          { type: 'single', items: [{ src: '/images/bare-skin-07.jpg', alt: 'Bare Skin 07' }] },
-          { type: 'single', items: [{ src: '/images/bare-skin-08.jpg', alt: 'Bare Skin 08' }] }
         ]
       }
     ]
