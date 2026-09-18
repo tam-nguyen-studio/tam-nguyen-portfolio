@@ -1,6 +1,6 @@
 import { Project, NavItem } from './types';
 
-// Projects order: Keystone, Then I Met You, Procter & Gamble, Soko Glam, Cyprès 21 Indigo, Bare Skin, The Klog, The Alden, Selected Illustration
+// Projects order: Keystone, Then I Met You, Procter & Gamble, Soko Glam, Cyprès 21 Indigo, Bare Skin, The Klog, The Alden
 export const PROJECTS: Project[] = [
   {
     id: 'keystone',
@@ -359,18 +359,6 @@ export const PROJECTS: Project[] = [
           { type: 'single', items: [{ src: '/images/the-alden-07.jpg', alt: 'The Alden 07' }] }
         ]
       }
-    ]
-  },
-  {
-    id: 'selected-illustration',
-    name: 'Selected Illustration',
-    category: 'Personal Work',
-    year: '2026',
-    imageUrl: '/images/illustration-01.jpg',
-    heroImage: '/images/illustration-01.jpg',
-    objectPosition: 'center center',
-    description: [
-      'Personal work spanning drawing, vector illustration, and visual experiments.'
     ]
   }
 ];
